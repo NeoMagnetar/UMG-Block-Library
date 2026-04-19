@@ -1,0 +1,29 @@
+﻿{
+  "release": "0.1.0",
+  "status": "curated_first_population_pass",
+  "approved": {
+    "doctrine": [
+      "AI/DOCTRINE/MOLT-BLOCK-DOCTRINE.md",
+      "AI/DOCTRINE/TRIGGER-GATE-DOCTRINE.md",
+      "AI/DOCTRINE/SCHEMA-STATUS.md"
+    ],
+    "schemas": [
+      "AI/SCHEMAS/molt-block.schema.json",
+      "AI/SCHEMAS/neoblock.schema.json",
+      "AI/SCHEMAS/neostack.schema.json",
+      "AI/SCHEMAS/sleeve.schema.json"
+    ],
+    "molt_categories": [
+      "blueprints",
+      "directives",
+      "instructions",
+      "subjects",
+      "primary",
+      "philosophy"
+    ]
+  },
+  "notes": [
+    "This file lists what is intentionally approved for first public population.",
+    "Not-yet-ready structural surfaces remain placeholders rather than misleading partial dumps."
+  ]
+}
