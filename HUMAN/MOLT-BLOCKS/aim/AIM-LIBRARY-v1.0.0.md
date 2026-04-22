@@ -12,7 +12,7 @@ Use AIM blocks when you want to describe:
 - the outcome being targeted
 - the destination state being optimized for
 - the desired end condition or mission shape
-- the “why this should happen” direction of a behavior bundle
+- the "why this should happen" direction of a behavior bundle
 
 ## Public/source relationship
 This HUMAN note mirrors the corresponding structured AIM library JSON now present in:
