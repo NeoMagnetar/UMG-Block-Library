@@ -1,0 +1,50 @@
+﻿{
+  "runtime_spec_version": "0.1",
+  "runtime_spec_id": "RS.SLV.UMG.CORE_REFERENCE.v1.fixture.0001",
+  "source_ir_id": "IR.SLV.UMG.CORE_REFERENCE.v1.fixture.0001",
+  "active_sleeve": "SLV.UMG.CORE_REFERENCE.v1",
+  "active_route": "route.umg.core_reference.default",
+  "active_neostacks": [
+    "NS.UMG.CORE.COMPILER_FLOW.v1"
+  ],
+  "active_neoblocks": [
+    "NB.UMG.REQUEST_INTAKE.v1",
+    "NB.UMG.ARTIFACT_RESOLUTION.v1",
+    "NB.UMG.IR_NORMALIZATION.v1",
+    "NB.UMG.COMPILER_EXECUTION.v1",
+    "NB.UMG.RUNTIME_SPEC_TRACE.v1",
+    "NB.UMG.RELATION_MATRIX_EMIT.v1",
+    "NB.UMG.CAPABILITY_STATUS.v1"
+  ],
+  "active_molt_blocks": [],
+  "bundles": [],
+  "overlays": [
+    "OVR.GOV.UMG.ROUTE_CONTROLLER.v1"
+  ],
+  "runtime_slots": [
+    { "slot_id": "slot.compiler.ir", "state": "ready" },
+    { "slot_id": "slot.compiler.runtime_spec", "state": "ready" },
+    { "slot_id": "slot.compiler.trace", "state": "ready" },
+    { "slot_id": "slot.compiler.relation_matrix", "state": "ready" }
+  ],
+  "excluded": [],
+  "merge_outputs": [],
+  "capabilities": [
+    "CAP.ARTIFACT.RESOLVE",
+    "CAP.IR.BUILD",
+    "CAP.COMPILER.COMPILE",
+    "CAP.TRACE.EMIT",
+    "CAP.MATRIX.EMIT"
+  ],
+  "services": [
+    "compiler",
+    "trace",
+    "relation_matrix"
+  ],
+  "state": {
+    "overlay_route_posture": "governed_default_route",
+    "strict_capabilities": true,
+    "fixture_mode": true
+  },
+  "diagnostics": []
+}

@@ -1,0 +1,28 @@
+﻿{
+  "fixture_type": "canonical_input_sleeve",
+  "fixture_version": "0.1",
+  "source_artifact": "SLV.UMG.CORE_REFERENCE.v1",
+  "input": {
+    "sleeve_id": "SLV.UMG.CORE_REFERENCE.v1",
+    "sleeve_version": "1.0.0",
+    "neostack_ids": [
+      "NS.UMG.CORE.COMPILER_FLOW.v1"
+    ],
+    "overlay_ids": [
+      "OVR.GOV.UMG.ROUTE_CONTROLLER.v1"
+    ],
+    "route_id": "route.umg.core_reference.default",
+    "capabilities": [
+      "CAP.ARTIFACT.RESOLVE",
+      "CAP.IR.BUILD",
+      "CAP.COMPILER.COMPILE",
+      "CAP.TRACE.EMIT",
+      "CAP.MATRIX.EMIT"
+    ]
+  },
+  "notes": [
+    "Canonical declarative input fixture for the pure UMG core reference sleeve.",
+    "Represents expected compile/normalize input shape only.",
+    "No compiler execution was performed to create this fixture."
+  ]
+}

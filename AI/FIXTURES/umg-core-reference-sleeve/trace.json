@@ -1,0 +1,70 @@
+﻿{
+  "trace_version": "0.1",
+  "trace_id": "TR.SLV.UMG.CORE_REFERENCE.v1.fixture.0001",
+  "source_ir_id": "IR.SLV.UMG.CORE_REFERENCE.v1.fixture.0001",
+  "runtime_spec_id": "RS.SLV.UMG.CORE_REFERENCE.v1.fixture.0001",
+  "compiler": {
+    "name": "umg-compiler",
+    "version": "v0",
+    "profile": "fixture_declarative_expected_output"
+  },
+  "events": [
+    {
+      "event_id": "evt_0001",
+      "event_type": "fixture_generation_note",
+      "pass": 0,
+      "timestamp": null,
+      "artifact_refs": ["SLV.UMG.CORE_REFERENCE.v1"],
+      "decision": "declarative_fixture_only",
+      "reason": "Fixture represents expected canonical output shape without claiming compiler execution.",
+      "inputs": null,
+      "outputs": null,
+      "diagnostic_level": "info",
+      "source_refs": ["AI/FIXTURES/umg-core-reference-sleeve/input.sleeve.json"]
+    },
+    {
+      "event_id": "evt_0002",
+      "event_type": "route_selection",
+      "pass": 1,
+      "timestamp": null,
+      "artifact_refs": ["OVR.GOV.UMG.ROUTE_CONTROLLER.v1", "NS.UMG.CORE.COMPILER_FLOW.v1"],
+      "decision": "selected route.umg.core_reference.default",
+      "reason": "Governance overlay activates the default pure UMG reference route.",
+      "inputs": null,
+      "outputs": null,
+      "diagnostic_level": "info",
+      "source_refs": ["AI/OVERLAYS/categories/governance/OVR.GOV.UMG.ROUTE_CONTROLLER.v1.json"]
+    },
+    {
+      "event_id": "evt_0003",
+      "event_type": "ir_normalization",
+      "pass": 2,
+      "timestamp": null,
+      "artifact_refs": ["NB.UMG.REQUEST_INTAKE.v1", "NB.UMG.ARTIFACT_RESOLUTION.v1", "NB.UMG.IR_NORMALIZATION.v1"],
+      "decision": "normalized core input path",
+      "reason": "Pure UMG core reference request path is represented in canonical IR.",
+      "inputs": null,
+      "outputs": null,
+      "diagnostic_level": "info",
+      "source_refs": ["AI/NEOBLOCKS/categories/core/NB.UMG.IR_NORMALIZATION.v1.json"]
+    },
+    {
+      "event_id": "evt_0004",
+      "event_type": "runtime_output_projection",
+      "pass": 3,
+      "timestamp": null,
+      "artifact_refs": ["NB.UMG.COMPILER_EXECUTION.v1", "NB.UMG.RUNTIME_SPEC_TRACE.v1", "NB.UMG.RELATION_MATRIX_EMIT.v1", "NB.UMG.CAPABILITY_STATUS.v1"],
+      "decision": "project runtime-spec trace relation-matrix and capability-status outputs",
+      "reason": "Core downstream pure UMG reference objects are active on the selected route.",
+      "inputs": null,
+      "outputs": null,
+      "diagnostic_level": "info",
+      "source_refs": ["AI/NEOBLOCKS/categories/core/NB.UMG.RUNTIME_SPEC_TRACE.v1.json"]
+    }
+  ],
+  "diagnostics": [],
+  "summary": {
+    "status": "fixture_declarative_expected_output",
+    "notes": "No compiler or tool execution occurred; this trace documents the expected canonical explanation shape."
+  }
+}

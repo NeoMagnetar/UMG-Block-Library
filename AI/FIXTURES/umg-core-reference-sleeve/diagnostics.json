@@ -1,0 +1,14 @@
+﻿{
+  "status": "fixture_declarative_expected_output",
+  "errors": [],
+  "warnings": [
+    "No compiler execution occurred; outputs are canonical declarative fixture shapes.",
+    "Full JSON Schema validation may depend on external validator tooling availability.",
+    "Overlay schema does not exist yet, so overlay-aware assertions remain doctrine-aligned rather than schema-validated."
+  ],
+  "notes": [
+    "This fixture set is public-safe and contains no private runtime paths.",
+    "This fixture set is intended for future compile/normalize validation and comparison.",
+    "Relation Matrix file is plain-text and should be checked for consistency against IR/runtime/trace fixtures."
+  ]
+}

@@ -1,0 +1,64 @@
+﻿{
+  "ir_version": "0.1",
+  "ir_id": "IR.SLV.UMG.CORE_REFERENCE.v1.fixture.0001",
+  "source": {
+    "sleeve_id": "SLV.UMG.CORE_REFERENCE.v1",
+    "sleeve_version": "1.0.0",
+    "library_sources": [
+      "UMG-Block-Library"
+    ],
+    "compiled_at": null,
+    "compiler_target": "umg-compiler-v0"
+  },
+  "priority_profile": "molt.default.v1",
+  "nodes": [
+    { "node_id": "SLV.UMG.CORE_REFERENCE.v1", "node_type": "sleeve", "artifact_ref": "SLV.UMG.CORE_REFERENCE.v1", "state": "active", "payload": null },
+    { "node_id": "NS.UMG.CORE.COMPILER_FLOW.v1", "node_type": "neostack", "artifact_ref": "NS.UMG.CORE.COMPILER_FLOW.v1", "state": "active", "payload": null },
+    { "node_id": "NB.UMG.REQUEST_INTAKE.v1", "node_type": "neoblock", "artifact_ref": "NB.UMG.REQUEST_INTAKE.v1", "state": "active", "payload": null },
+    { "node_id": "NB.UMG.ARTIFACT_RESOLUTION.v1", "node_type": "neoblock", "artifact_ref": "NB.UMG.ARTIFACT_RESOLUTION.v1", "state": "active", "payload": null },
+    { "node_id": "NB.UMG.IR_NORMALIZATION.v1", "node_type": "neoblock", "artifact_ref": "NB.UMG.IR_NORMALIZATION.v1", "state": "active", "payload": null },
+    { "node_id": "NB.UMG.COMPILER_EXECUTION.v1", "node_type": "neoblock", "artifact_ref": "NB.UMG.COMPILER_EXECUTION.v1", "state": "active", "payload": null },
+    { "node_id": "NB.UMG.RUNTIME_SPEC_TRACE.v1", "node_type": "neoblock", "artifact_ref": "NB.UMG.RUNTIME_SPEC_TRACE.v1", "state": "active", "payload": null },
+    { "node_id": "NB.UMG.RELATION_MATRIX_EMIT.v1", "node_type": "neoblock", "artifact_ref": "NB.UMG.RELATION_MATRIX_EMIT.v1", "state": "active", "payload": null },
+    { "node_id": "NB.UMG.CAPABILITY_STATUS.v1", "node_type": "neoblock", "artifact_ref": "NB.UMG.CAPABILITY_STATUS.v1", "state": "active", "payload": null },
+    { "node_id": "OVR.GOV.UMG.ROUTE_CONTROLLER.v1", "node_type": "overlay", "artifact_ref": "OVR.GOV.UMG.ROUTE_CONTROLLER.v1", "state": "active", "payload": null }
+  ],
+  "edges": [
+    { "from": "SLV.UMG.CORE_REFERENCE.v1", "to": "NS.UMG.CORE.COMPILER_FLOW.v1", "edge_kind": "contains", "condition": null, "notes": null },
+    { "from": "SLV.UMG.CORE_REFERENCE.v1", "to": "OVR.GOV.UMG.ROUTE_CONTROLLER.v1", "edge_kind": "overlay", "condition": null, "notes": null },
+    { "from": "NS.UMG.CORE.COMPILER_FLOW.v1", "to": "NB.UMG.REQUEST_INTAKE.v1", "edge_kind": "contains", "condition": null, "notes": null },
+    { "from": "NS.UMG.CORE.COMPILER_FLOW.v1", "to": "NB.UMG.ARTIFACT_RESOLUTION.v1", "edge_kind": "contains", "condition": null, "notes": null },
+    { "from": "NS.UMG.CORE.COMPILER_FLOW.v1", "to": "NB.UMG.IR_NORMALIZATION.v1", "edge_kind": "contains", "condition": null, "notes": null },
+    { "from": "OVR.GOV.UMG.ROUTE_CONTROLLER.v1", "to": "NB.UMG.COMPILER_EXECUTION.v1", "edge_kind": "activates", "condition": "route.umg.core_reference.default", "notes": null },
+    { "from": "OVR.GOV.UMG.ROUTE_CONTROLLER.v1", "to": "NB.UMG.RUNTIME_SPEC_TRACE.v1", "edge_kind": "activates", "condition": "route.umg.core_reference.default", "notes": null },
+    { "from": "OVR.GOV.UMG.ROUTE_CONTROLLER.v1", "to": "NB.UMG.RELATION_MATRIX_EMIT.v1", "edge_kind": "activates", "condition": "route.umg.core_reference.default", "notes": null },
+    { "from": "OVR.GOV.UMG.ROUTE_CONTROLLER.v1", "to": "NB.UMG.CAPABILITY_STATUS.v1", "edge_kind": "activates", "condition": "route.umg.core_reference.default", "notes": null }
+  ],
+  "routes": [
+    { "route_id": "route.umg.core_reference.default", "target": "NS.UMG.CORE.COMPILER_FLOW.v1", "priority": 100 }
+  ],
+  "gates": [
+    { "gate_id": "TRG.UMG.CORE_REFERENCE.DEFAULT_ROUTE", "state": "open" }
+  ],
+  "bundles": [],
+  "overlays": [
+    "OVR.GOV.UMG.ROUTE_CONTROLLER.v1"
+  ],
+  "merge_recipes": [],
+  "capabilities": [
+    "CAP.ARTIFACT.RESOLVE",
+    "CAP.IR.BUILD",
+    "CAP.COMPILER.COMPILE",
+    "CAP.TRACE.EMIT",
+    "CAP.MATRIX.EMIT"
+  ],
+  "states": {
+    "default_route": "route.umg.core_reference.default",
+    "overlay_awareness": true
+  },
+  "source_map": [
+    { "node_id": "SLV.UMG.CORE_REFERENCE.v1", "artifact_id": "SLV.UMG.CORE_REFERENCE.v1", "source_path": "AI/SLEEVES/categories/core/SLV.UMG.CORE_REFERENCE.v1/sleeve.json", "source_ref": "fixture_source" },
+    { "node_id": "NS.UMG.CORE.COMPILER_FLOW.v1", "artifact_id": "NS.UMG.CORE.COMPILER_FLOW.v1", "source_path": "AI/NEOSTACKS/categories/core/NS.UMG.CORE.COMPILER_FLOW.v1.json", "source_ref": "fixture_source" }
+  ],
+  "diagnostics": []
+}
