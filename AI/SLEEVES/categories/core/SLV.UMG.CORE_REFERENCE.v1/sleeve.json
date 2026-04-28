@@ -1,0 +1,146 @@
+﻿{
+  "identity": {
+    "artifact_id": "SLV.UMG.CORE_REFERENCE.v1",
+    "artifact_type": "sleeve",
+    "human_library_code": null,
+    "content_hash": null,
+    "package_hash": null,
+    "version": "1.0.0"
+  },
+  "provenance": {
+    "created": "2026-04-27",
+    "created_by": "OpenClaw",
+    "supervised_by": null,
+    "source_library": "UMG-Block-Library",
+    "source_library_version": "1.0.0",
+    "reference": "AI/DOCTRINE/UMG_V0_BUILD_ROADMAP_AMENDMENT_PURE_UMG_REFERENCE_SLICE.v0.1.md",
+    "origin": "pure_umg_reference_foundation",
+    "parent_artifact_ids": [],
+    "review_state": "draft"
+  },
+  "sleeve": {
+    "name": "Pure UMG Core Reference Sleeve",
+    "description": "Domain-neutral foundation reference sleeve for proving the UMG runtime spine.",
+    "status": "staged",
+    "version": "1.0.0",
+    "category": "framework_specific",
+    "tags": [
+      "umg",
+      "core_reference",
+      "foundation"
+    ],
+    "compatibility": {
+      "compiler_profile": "umg-compiler-v0",
+      "runtime_profiles": [
+        "public_safe",
+        "developer_local"
+      ],
+      "schema_versions": [
+        "0.1"
+      ]
+    },
+    "dependencies": {
+      "sleeve_ids": [],
+      "neostack_ids": [
+        "NS.UMG.CORE.COMPILER_FLOW.v1"
+      ],
+      "bundle_ids": [],
+      "overlay_ids": [
+        "OVR.GOV.UMG.ROUTE_CONTROLLER.v1"
+      ],
+      "schema_ids": [
+        "AI/SCHEMAS/sleeve.schema.json",
+        "AI/SCHEMAS/neostack.schema.json",
+        "AI/SCHEMAS/neoblock.schema.json",
+        "AI/SCHEMAS/molt-block.schema.json",
+        "AI/SCHEMAS/umg-ir.schema.json",
+        "AI/SCHEMAS/runtime-spec.schema.json",
+        "AI/SCHEMAS/trace.schema.json",
+        "AI/SCHEMAS/relation-matrix.schema.json"
+      ]
+    },
+    "composition": {
+      "neostack_ids": [
+        "NS.UMG.CORE.COMPILER_FLOW.v1"
+      ],
+      "bundle_ids": [],
+      "overlay_ids": [
+        "OVR.GOV.UMG.ROUTE_CONTROLLER.v1"
+      ],
+      "local_refs": []
+    },
+    "routes": [
+      {
+        "route_id": "route.umg.core_reference.default",
+        "target": "NS.UMG.CORE.COMPILER_FLOW.v1",
+        "priority": 100,
+        "mode": "serial",
+        "condition": null
+      }
+    ],
+    "governance": {
+      "directive_ids": [],
+      "policy_links": [
+        "AI/DOCTRINE/UMG_V0_BUILD_ROADMAP_AMENDMENT_PURE_UMG_REFERENCE_SLICE.v0.1.md"
+      ],
+      "overlay_ids": [
+        "OVR.GOV.UMG.ROUTE_CONTROLLER.v1"
+      ],
+      "notes": "Pure UMG-first foundation reference slice. No domain-specific foundation assumptions."
+    },
+    "runtime": {
+      "services": [
+        "compiler",
+        "trace",
+        "relation_matrix"
+      ],
+      "staging_file": null,
+      "active_stack_path": null,
+      "compiler_profile": "umg-compiler-v0",
+      "diagnostics_expectation": "Structured diagnostics required for normalization, compile, trace, and matrix projection.",
+      "notes": "Declarative sleeve only; no executable tool logic."
+    },
+    "capabilities": {
+      "required": [
+        "CAP.ARTIFACT.RESOLVE",
+        "CAP.IR.BUILD",
+        "CAP.COMPILER.COMPILE",
+        "CAP.TRACE.EMIT",
+        "CAP.MATRIX.EMIT"
+      ],
+      "optional": []
+    },
+    "toolpacks": {
+      "preferred": [
+        "TP.UMG.CORE_RUNTIME.v1"
+      ],
+      "allowed": []
+    },
+    "activation": {
+      "default_route": "route.umg.core_reference.default",
+      "strict_capabilities": true,
+      "default_state": "active",
+      "notes": "Activate compiler-flow reference path first."
+    },
+    "local_deltas": {
+      "blocks": null,
+      "neoblocks": null,
+      "neostacks": null,
+      "bundles": null,
+      "overlays": null,
+      "assets": null,
+      "examples": true
+    },
+    "lockfile": {
+      "path": "sleeve.lock.json",
+      "required": false,
+      "mode": "recommended"
+    },
+    "examples": [],
+    "notes": "Stage 3 foundation sleeve. Stage 4 objects are referenced as intended canonical dependencies and will be authored next."
+  },
+  "metadata": {
+    "stage": "Stage 3B",
+    "authority": "AI/DOCTRINE/UMG_AGENT_EXECUTION_PLAN.v0.1.md"
+  }
+}

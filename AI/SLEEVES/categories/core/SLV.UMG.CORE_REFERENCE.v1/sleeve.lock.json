@@ -1,0 +1,27 @@
+﻿{
+  "lockfile_version": "0.1",
+  "sleeve_id": "SLV.UMG.CORE_REFERENCE.v1",
+  "sleeve_version": "1.0.0",
+  "resolution_state": "draft_pre_resolution",
+  "resolved_at": null,
+  "resolved_by": null,
+  "resolved_artifacts": {
+    "neostack_ids": [
+      "NS.UMG.CORE.COMPILER_FLOW.v1"
+    ],
+    "overlay_ids": [
+      "OVR.GOV.UMG.ROUTE_CONTROLLER.v1"
+    ],
+    "capabilities": [
+      "CAP.ARTIFACT.RESOLVE",
+      "CAP.IR.BUILD",
+      "CAP.COMPILER.COMPILE",
+      "CAP.TRACE.EMIT",
+      "CAP.MATRIX.EMIT"
+    ],
+    "toolpacks": [
+      "TP.UMG.CORE_RUNTIME.v1"
+    ]
+  },
+  "notes": "Draft lockfile for the pure UMG core reference sleeve before Stage 4 artifact population and later Envoy/compiler resolution."
+}
