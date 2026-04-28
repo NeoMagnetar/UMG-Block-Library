@@ -1,0 +1,100 @@
+﻿{
+  "identity": {
+    "artifact_id": "OVR.GOV.UMG.ROUTE_CONTROLLER.v1",
+    "artifact_type": "overlay",
+    "human_library_code": null,
+    "content_hash": null,
+    "package_hash": null,
+    "version": "1.0.0"
+  },
+  "provenance": {
+    "created": "2026-04-27",
+    "created_by": "OpenClaw",
+    "supervised_by": null,
+    "source_library": "UMG-Block-Library",
+    "source_library_version": "1.0.0",
+    "reference": "AI/DOCTRINE/UMG_GOVERNANCE_ROUTING_OVERLAY_MODEL.v0.1.md",
+    "origin": "pure_umg_core_reference_stage_4d",
+    "parent_artifact_ids": [],
+    "review_state": "draft"
+  },
+  "overlay": {
+    "name": "UMG Governance Route Controller",
+    "description": "Declarative governance overlay for pure UMG route selection and activation posture.",
+    "overlay_type": "governance",
+    "status": "active",
+    "version": "1.0.0",
+    "tags": [
+      "umg",
+      "governance",
+      "route_controller",
+      "core_reference"
+    ],
+    "route_selector": "pure_umg_core_reference_default",
+    "controls": [
+      "route.umg.core_reference.default"
+    ],
+    "default_route": "route.umg.core_reference.default",
+    "route_challenge_policy": "diagnose_then_confirm_or_reroute",
+    "off_policy": "exclude_non_route_artifacts",
+    "activate": [
+      "NS.UMG.CORE.COMPILER_FLOW.v1",
+      "NB.UMG.REQUEST_INTAKE.v1",
+      "NB.UMG.ARTIFACT_RESOLUTION.v1",
+      "NB.UMG.IR_NORMALIZATION.v1",
+      "NB.UMG.COMPILER_EXECUTION.v1",
+      "NB.UMG.RUNTIME_SPEC_TRACE.v1",
+      "NB.UMG.RELATION_MATRIX_EMIT.v1",
+      "NB.UMG.CAPABILITY_STATUS.v1"
+    ],
+    "disable": [],
+    "standby": [],
+    "gates": [
+      {
+        "gate_id": "TRG.UMG.CORE_REFERENCE.DEFAULT_ROUTE",
+        "state": "open",
+        "opens_routes": [
+          "route.umg.core_reference.default"
+        ],
+        "notes": "Default pure UMG core reference route gate."
+      }
+    ],
+    "capabilities": {
+      "visible": [
+        "CAP.ARTIFACT.RESOLVE",
+        "CAP.IR.BUILD",
+        "CAP.COMPILER.COMPILE",
+        "CAP.TRACE.EMIT",
+        "CAP.MATRIX.EMIT"
+      ],
+      "execution_policy": "declaration_only",
+      "notes": "Capabilities are surfaced for routing and visibility only; this overlay does not execute tools."
+    },
+    "governance": {
+      "activates_routes": [
+        "route.umg.core_reference.default"
+      ],
+      "route_membership": {
+        "route.umg.core_reference.default": [
+          "NS.UMG.CORE.COMPILER_FLOW.v1",
+          "NB.UMG.REQUEST_INTAKE.v1",
+          "NB.UMG.ARTIFACT_RESOLUTION.v1",
+          "NB.UMG.IR_NORMALIZATION.v1",
+          "NB.UMG.COMPILER_EXECUTION.v1",
+          "NB.UMG.RUNTIME_SPEC_TRACE.v1",
+          "NB.UMG.RELATION_MATRIX_EMIT.v1",
+          "NB.UMG.CAPABILITY_STATUS.v1"
+        ]
+      },
+      "relation_matrix_awareness": true,
+      "trace_awareness": true,
+      "notes": "Governance controls route membership and activation posture for the pure UMG core reference slice."
+    },
+    "examples": [],
+    "notes": "Declarative governance overlay only. No tool execution, no private path assumptions, no ServUO/UO foundation assumptions, and no Stage 5 fixture dependency."
+  },
+  "metadata": {
+    "stage": "Stage 4D",
+    "batch": "governance_overlay_foundation"
+  }
+}
