@@ -1,35 +1,139 @@
-{
-  "$schema": "https://umg.envoy/schemas/neostack.template.schema.json",
-  "id": "{{REQUIRED_NEOSTACK_ID}}",
-  "name": "{{REQUIRED_NAME}}",
-  "purpose": "{{REQUIRED_PURPOSE}}",
-  "category": "{{general|domain_specific|framework_specific|experimental|archived}}",
-  "subcategory": "{{lower_snake_case}}",
-  "status": "{{active|deprecated|experimental|archived}}",
-  "version": "{{semver}}",
-  "tags": [
-    "{{primary_tag}}"
-  ],
-  "neoblock_ids": [
-    "{{NBK.xxx}}"
-  ],
-  "activation_logic": {
-    "entry": null,
-    "sequence": [],
-    "conditions": [],
-    "fallback": null,
-    "notes": null
+﻿{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://umg.envoy/schemas/neostack.schema.json",
+  "title": "UMG NeoStack Schema v0.1",
+  "description": "Validating schema for a UMG NeoStack composed from NeoBlocks, routes, overlays, and declared capabilities.",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "identity": {
+      "$ref": "./artifact.identity.schema.json"
+    },
+    "provenance": {
+      "$ref": "./provenance.schema.json"
+    },
+    "neostack": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "name": { "type": "string", "minLength": 1 },
+        "description": { "type": ["string", "null"] },
+        "status": {
+          "type": "string",
+          "enum": ["active", "deprecated", "experimental", "archived"]
+        },
+        "version": {
+          "type": "string",
+          "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$"
+        },
+        "category": {
+          "type": "string",
+          "enum": ["general", "domain_specific", "framework_specific", "experimental", "archived"]
+        },
+        "tags": {
+          "type": "array",
+          "items": { "type": "string", "minLength": 1 },
+          "uniqueItems": true
+        },
+        "composition": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "neoblock_ids": {
+              "type": "array",
+              "items": { "type": "string", "minLength": 1 },
+              "uniqueItems": true
+            },
+            "ordered_groups": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                  "id": { "type": ["string", "null"] },
+                  "members": {
+                    "type": "array",
+                    "items": { "type": "string" },
+                    "uniqueItems": true
+                  },
+                  "mode": { "type": ["string", "null"], "enum": ["serial", "parallel", "conditional", null] },
+                  "condition": { "type": ["string", "object", "null"] },
+                  "notes": { "type": ["string", "null"] }
+                }
+              }
+            }
+          },
+          "required": ["neoblock_ids"]
+        },
+        "routes": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "route_id": { "type": "string", "minLength": 1 },
+              "target": { "type": ["string", "null"] },
+              "condition": { "type": ["string", "object", "null"] },
+              "priority": { "type": ["integer", "null"] },
+              "governance_links": {
+                "type": "array",
+                "items": { "type": "string" },
+                "uniqueItems": true
+              }
+            },
+            "required": ["route_id"]
+          }
+        },
+        "activation": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "entry": { "type": ["string", "null"] },
+            "conditions": { "type": "array", "items": { "type": ["string", "object"] } },
+            "fallback": { "type": ["string", "null"] },
+            "default_state": { "type": ["string", "null"], "enum": ["active", "standby", "off", null] }
+          }
+        },
+        "overlays": {
+          "type": "array",
+          "items": { "type": "string", "minLength": 1 },
+          "uniqueItems": true
+        },
+        "geometry": {
+          "type": ["object", "null"],
+          "additionalProperties": false,
+          "properties": {
+            "x": { "type": ["number", "null"] },
+            "y": { "type": ["number", "null"] },
+            "width": { "type": ["number", "null"], "minimum": 0 },
+            "height": { "type": ["number", "null"], "minimum": 0 },
+            "group": { "type": ["string", "null"] },
+            "layer": { "type": ["integer", "null"] }
+          }
+        },
+        "capabilities": {
+          "type": "array",
+          "items": { "type": "string", "minLength": 1 },
+          "uniqueItems": true
+        },
+        "examples": {
+          "type": "array",
+          "items": { "type": ["object", "string"] }
+        },
+        "notes": { "type": ["string", "null"] }
+      },
+      "required": [
+        "name",
+        "status",
+        "version",
+        "category",
+        "composition"
+      ]
+    },
+    "metadata": {
+      "type": ["object", "null"],
+      "additionalProperties": true
+    }
   },
-  "governance": {
-    "directive_ids": [],
-    "policy_links": []
-  },
-  "examples": [],
-  "source": {
-    "library_name": "{{source_library}}",
-    "library_version": "{{library_semver}}",
-    "created": "{{YYYY-MM-DD}}",
-    "created_by": "{{steward}}"
-  },
-  "notes": null
+  "required": ["identity", "provenance", "neostack"]
 }
