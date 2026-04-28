@@ -1,4 +1,4 @@
-# Section 14 — v0 Build Roadmap
+﻿# Section 14 — v0 Build Roadmap
 
 **Document ID:** `UMG_V0_BUILD_ROADMAP.v0.1`  
 **Status:** Foundation draft  
@@ -347,17 +347,17 @@ Create one real reference sleeve pack.
 Recommended first sleeve:
 
 ```text
-SLV.CODER.SERVUO.v1
+SLV.UMG.CORE_REFERENCE.v1
 ```
 
 Reason:
 
 ```text
-It is concrete.
-It connects to OpenClaw/Envoy.
-It uses NeoBlocks/NeoStacks.
-It needs capabilities.
-It can demonstrate Relation Matrix and Trace.
+It is domain-neutral.
+It proves UMG can compile and explain itself.
+It exercises Library -> Sleeve -> IR -> Compiler -> RuntimeSpec + Trace -> Envoy -> Relation Matrix -> Capability Status.
+It declares capabilities without requiring tool execution.
+It leaves UO/ServUO as a later applied pilot.
 ```
 
 ---
@@ -365,7 +365,7 @@ It can demonstrate Relation Matrix and Trace.
 ## 17. Reference Sleeve Folder
 
 ```text
-AI/SLEEVES/categories/coders/SLV.CODER.SERVUO.v1/
+AI/SLEEVES/categories/core/SLV.UMG.CORE_REFERENCE.v1/
   sleeve.json
   README.md
   sleeve.lock.json
@@ -375,7 +375,7 @@ AI/SLEEVES/categories/coders/SLV.CODER.SERVUO.v1/
 Human mirror:
 
 ```text
-HUMAN/sleeves/coders/SLV.CODER.SERVUO.v1.md
+HUMAN/sleeves/core/SLV.UMG.CORE_REFERENCE.v1.md
 ```
 
 ---
@@ -489,7 +489,7 @@ umg-envoy-agent = sleeve loader + artifact resolver + calls compiler
 ```text
 1. Define TypeScript IR types.
 2. Define IR JSON schema.
-3. Build source-to-IR normalization for reference sleeve.
+3. Build source-to-IR normalization for the pure UMG reference sleeve.
 4. Emit source_map.
 5. Emit diagnostics.
 6. Emit integrity fields.
@@ -580,7 +580,7 @@ silently reroute without Trace
 5. Add route challenge diagnostic.
 6. Add strict/dev behavior.
 7. Add canonical sorting tests.
-8. Add fixture tests using SLV.CODER.SERVUO.v1.
+8. Add fixture tests using SLV.UMG.CORE_REFERENCE.v1.
 ```
 
 ---
@@ -896,7 +896,7 @@ Recommended fixture folders:
 
 ```text
 AI/FIXTURES/
-  servuo-coder-sleeve/
+  umg-core-reference-sleeve/
     input.sleeve.json
     resolved.ir.json
     runtime-spec.json
@@ -957,10 +957,16 @@ Do not generate every card yet.
 Create:
 
 ```text
-HUMAN/sleeves/coders/SLV.CODER.SERVUO.v1.md
-HUMAN/neostacks/coders/NS.CODER.SERVUO.MASTER.v1.md
-HUMAN/neoblocks/coders/NB.SERVUO.FILE_SCAN.v1.md
-HUMAN/capabilities/toolpacks/TP.REPO_ANALYSIS.v1.md
+HUMAN/sleeves/core/SLV.UMG.CORE_REFERENCE.v1.md
+HUMAN/neostacks/core/NS.UMG.CORE.COMPILER_FLOW.v1.md
+HUMAN/neoblocks/core/NB.UMG.REQUEST_INTAKE.v1.md
+HUMAN/neoblocks/core/NB.UMG.ARTIFACT_RESOLUTION.v1.md
+HUMAN/neoblocks/core/NB.UMG.IR_NORMALIZATION.v1.md
+HUMAN/neoblocks/core/NB.UMG.COMPILER_EXECUTION.v1.md
+HUMAN/neoblocks/core/NB.UMG.RUNTIME_SPEC_TRACE.v1.md
+HUMAN/neoblocks/core/NB.UMG.RELATION_MATRIX_EMIT.v1.md
+HUMAN/neoblocks/core/NB.UMG.CAPABILITY_STATUS.v1.md
+HUMAN/capabilities/toolpacks/TP.UMG.CORE_RUNTIME.v1.md
 ```
 
 Indexes:
@@ -1092,8 +1098,8 @@ Human cards
 Ideal demo flow:
 
 ```bash
-umg-envoy sleeve-validate --path AI/SLEEVES/categories/coders/SLV.CODER.SERVUO.v1
-umg-envoy sleeve-compile --path AI/SLEEVES/categories/coders/SLV.CODER.SERVUO.v1
+umg-envoy sleeve-validate --path AI/SLEEVES/categories/core/SLV.UMG.CORE_REFERENCE.v1
+umg-envoy sleeve-compile --path AI/SLEEVES/categories/core/SLV.UMG.CORE_REFERENCE.v1
 umg-envoy relation-matrix --active
 umg-envoy runtime-status
 umg-envoy capability-status
@@ -1102,7 +1108,7 @@ umg-envoy capability-status
 Compiler standalone:
 
 ```bash
-umg compile --in AI/FIXTURES/servuo-coder-sleeve/input.sleeve.json --pretty
+umg compile --in AI/FIXTURES/umg-core-reference-sleeve/input.sleeve.json --pretty
 ```
 
 ---
@@ -1285,27 +1291,38 @@ This is the recommended first implementation target.
 ## 67. Suggested First Slice Objects
 
 ```text
-SLV.CODER.SERVUO.v1
+SLV.UMG.CORE_REFERENCE.v1
 
-NS.CODER.SERVUO.MASTER.v1
+NS.UMG.CORE.COMPILER_FLOW.v1
 
-NB.SERVUO.REQUEST_INTAKE.v1
-NB.SERVUO.REPO_CONTEXT.v1
-NB.SERVUO.FILE_SCAN.v1
+NB.UMG.REQUEST_INTAKE.v1
+NB.UMG.ARTIFACT_RESOLUTION.v1
+NB.UMG.IR_NORMALIZATION.v1
+NB.UMG.COMPILER_EXECUTION.v1
+NB.UMG.RUNTIME_SPEC_TRACE.v1
+NB.UMG.RELATION_MATRIX_EMIT.v1
+NB.UMG.CAPABILITY_STATUS.v1
 
-BLK.TRIGGER.CODING.CODE_PATCH_REQUEST.v1
-BLK.DIRECTIVE.CODING.PATCH_TASK.v1
-BLK.INSTRUCTION.CODING.MINIMAL_PATCH.v1
-BLK.SUBJECT.SERVUO.FILE_SYSTEM.v1
-BLK.PRIMARY.CODING.ACTIVE_PATCH_OBJECT.v1
-BLK.PHILOSOPHY.SAFETY.PRESERVE_USER_WORK.v1
-BLK.BLUEPRINT.CODING.PATCH_REPORT.v1
+BLK.TRIGGER.UMG.COMPILE_REQUEST.v1
+BLK.DIRECTIVE.UMG.PROVE_RUNTIME_SPINE.v1
+BLK.INSTRUCTION.UMG.RESOLVE_ARTIFACTS.v1
+BLK.INSTRUCTION.UMG.BUILD_IR.v1
+BLK.INSTRUCTION.UMG.RUN_COMPILER.v1
+BLK.INSTRUCTION.UMG.EMIT_TRACE.v1
+BLK.INSTRUCTION.UMG.EMIT_RELATION_MATRIX.v1
+BLK.SUBJECT.UMG.ARTIFACT_LIBRARY.v1
+BLK.PRIMARY.UMG.RUNTIME_SPINE.v1
+BLK.PHILOSOPHY.UMG.DETERMINISTIC_TRACEABILITY.v1
+BLK.BLUEPRINT.UMG.RUNTIME_SPEC_TRACE_OUTPUT.v1
 
-OVR.GOV.CODE_ROUTER.v1
+OVR.GOV.UMG.ROUTE_CONTROLLER.v1
 
-TP.REPO_ANALYSIS.v1
-CAP.REPO.SEARCH
-CAP.REPO.READ
+TP.UMG.CORE_RUNTIME.v1
+CAP.ARTIFACT.RESOLVE
+CAP.IR.BUILD
+CAP.COMPILER.COMPILE
+CAP.TRACE.EMIT
+CAP.MATRIX.EMIT
 ```
 
 ---
@@ -1433,7 +1450,7 @@ The best immediate build sequence is:
 ```text
 1. Commit the foundation docs to UMG-Block-Library/AI/DOCTRINE/.
 2. Update UMG-Block-Library folder structure and doctrine index.
-3. Create the reference sleeve pack: SLV.CODER.SERVUO.v1.
+3. Create the reference sleeve pack: SLV.UMG.CORE_REFERENCE.v1.
 4. Create minimal valid schemas for sleeve, IR, RuntimeSpec, Trace, and Tool Pack.
 5. Implement Envoy sleeve-validate before sleeve-compile.
 ```
@@ -1461,10 +1478,13 @@ RULES
 - Do not implement token economy.
 - Do not implement full visual editor.
 - Do not execute tools in v0 unless explicitly requested.
+- If roadmap examples conflict with the pure UMG amendment, the amendment wins.
+- Build SLV.UMG.CORE_REFERENCE.v1 first.
+- Treat UO/ServUO only as an applied pilot after the core reference slice works.
 - Preserve fail-closed behavior.
 
 STAGE
-Start with foundation docs placement, folder cleanup, schemas, and one reference sleeve pack.
+Start with foundation docs placement, roadmap consistency, folder cleanup, schemas, and one pure UMG reference sleeve pack before any applied domain sleeve.
 
 OUTPUT
 Provide changed files, summary, validation commands, and unresolved questions.
@@ -1534,7 +1554,8 @@ It is a small, working, deterministic reference slice.
 That reference slice should be:
 
 ```text
-ServUO Coder Sleeve
+SLV.UMG.CORE_REFERENCE.v1
 ```
 
-because it touches the important lanes without requiring the entire future ecosystem.
+because it proves the architecture itself before any applied domain sleeve. SLV.CODER.SERVUO.v1 remains a later applied pilot sleeve, not the foundation proof.
+
