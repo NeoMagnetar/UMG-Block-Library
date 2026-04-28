@@ -1,0 +1,60 @@
+﻿{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://umg.envoy/schemas/relation-matrix.schema.json",
+  "title": "UMG Relation Matrix Schema v0.1",
+  "description": "Compact projection of IR and runtime state; not authoritative source of truth.",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "matrix_version": { "type": "string" },
+    "kind": { "type": "string", "enum": ["snapshot", "delta"] },
+    "header": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "pass": { "type": ["integer", "null"] },
+        "from_pass": { "type": ["integer", "null"] },
+        "to_pass": { "type": ["integer", "null"] },
+        "sleeve": { "type": ["string", "null"] },
+        "route": { "type": ["string", "null"] },
+        "ir": { "type": ["string", "null"] },
+        "ir_from": { "type": ["string", "null"] },
+        "ir_to": { "type": ["string", "null"] },
+        "profile": { "type": ["string", "null"] },
+        "strictness": { "type": ["string", "null"] }
+      }
+    },
+    "lines": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "line_kind": { "type": "string", "enum": ["node_state", "relation", "delta", "comment"] },
+          "from": { "type": ["string", "null"] },
+          "relation_code": { "type": ["string", "null"] },
+          "to": { "type": ["string", "null"] },
+          "states": { "type": "array", "items": { "type": "string" }, "uniqueItems": true },
+          "text": { "type": ["string", "null"] }
+        },
+        "required": ["line_kind"]
+      }
+    },
+    "legend": {
+      "type": ["object", "null"],
+      "additionalProperties": true
+    },
+    "validation": {
+      "type": ["object", "null"],
+      "additionalProperties": false,
+      "properties": {
+        "ids_resolve_to_ir": { "type": ["boolean", "null"] },
+        "relation_codes_known": { "type": ["boolean", "null"] },
+        "route_consistency": { "type": ["boolean", "null"] },
+        "diagnostic_links_valid": { "type": ["boolean", "null"] }
+      }
+    },
+    "notes": { "type": ["string", "null"] }
+  },
+  "required": ["matrix_version", "kind", "header", "lines"]
+}
