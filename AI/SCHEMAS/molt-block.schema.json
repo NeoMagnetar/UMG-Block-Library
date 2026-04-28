@@ -1,66 +1,159 @@
-{
-  "$schema": "https://umg.envoy/schemas/molt-block.template.schema.json",
-  "id": "{{REQUIRED_BLOCK_ID}}",
-  "type": "{{DIRECTIVE|TRIGGER|INSTRUCTION|SUBJECT|PRIMARY|PHILOSOPHY|BLUEPRINT}}",
-  "name": "{{REQUIRED_BLOCK_NAME}}",
-  "category": "{{general|domain_specific|framework_specific|experimental|archived}}",
-  "subcategory": "{{lower_snake_case_subcategory}}",
-  "status": "{{active|deprecated|experimental|archived}}",
-  "version": "{{semver}}",
-  "tags": [
-    "{{required_primary_tag}}"
-  ],
-  "source": {
-    "library_name": "{{source_library}}",
-    "library_version": "{{library_semver}}",
-    "created": "{{YYYY-MM-DD}}",
-    "created_by": "{{steward}}",
-    "supervised_by": "{{optional_supervisor}}",
-    "reference": "{{link_or_location}}"
-  },
-  "scope": null,
-  "content": {
-    "summary": "{{short_summary}}",
-    "details": null,
-    "structure": null
-  },
-  "constraints": [],
-  "examples": [],
-  "type_specific": {
-    "directive": {
-      "governance_links": [],
-      "enforcement_level": null
+﻿{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://umg.envoy/schemas/molt-block.schema.json",
+  "title": "UMG MOLT Block Schema v0.1",
+  "description": "Validating schema for a UMG MOLT Block artifact.",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "identity": {
+      "$ref": "./artifact.identity.schema.json"
     },
-    "trigger": {
-      "activation": null,
-      "signals": [],
-      "required_context": []
+    "type": {
+      "type": "string",
+      "enum": [
+        "DIRECTIVE",
+        "TRIGGER",
+        "INSTRUCTION",
+        "SUBJECT",
+        "PRIMARY",
+        "PHILOSOPHY",
+        "BLUEPRINT"
+      ]
     },
-    "instruction": {
-      "action": null,
-      "expected_output": null,
-      "steps": []
+    "name": {
+      "type": "string",
+      "minLength": 1
     },
-    "subject": {
-      "definition": null,
-      "key_attributes": [],
-      "related_subjects": []
+    "category": {
+      "type": "string",
+      "enum": ["general", "domain_specific", "framework_specific", "experimental", "archived"]
     },
-    "primary": {
-      "essence": null,
-      "core_concern": null,
-      "driver": null
+    "subcategory": {
+      "type": ["string", "null"],
+      "pattern": "^[a-z0-9_]+$"
     },
-    "philosophy": {
-      "core_principles": [],
-      "application": null,
-      "risks": []
+    "status": {
+      "type": "string",
+      "enum": ["active", "deprecated", "experimental", "archived"]
     },
-    "blueprint": {
-      "structure": null,
-      "input_contract": null,
-      "output_characteristics": null
+    "tags": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "minItems": 1,
+      "uniqueItems": true
+    },
+    "provenance": {
+      "$ref": "./provenance.schema.json"
+    },
+    "scope": {
+      "type": ["object", "null"]
+    },
+    "content": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "summary": { "type": "string", "minLength": 1 },
+        "details": { "type": ["string", "null"] },
+        "structure": { "type": ["object", "array", "string", "null"] }
+      },
+      "required": ["summary"]
+    },
+    "constraints": {
+      "type": "array",
+      "items": {
+        "type": ["object", "string"]
+      }
+    },
+    "examples": {
+      "type": "array",
+      "items": {
+        "type": ["object", "string"]
+      }
+    },
+    "type_specific": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "directive": {
+          "type": ["object", "null"],
+          "additionalProperties": false,
+          "properties": {
+            "governance_links": { "type": "array", "items": { "type": "string" } },
+            "enforcement_level": { "type": ["string", "null"] }
+          }
+        },
+        "trigger": {
+          "type": ["object", "null"],
+          "additionalProperties": false,
+          "properties": {
+            "activation": { "type": ["string", "object", "null"] },
+            "signals": { "type": "array", "items": { "type": "string" } },
+            "required_context": { "type": "array", "items": { "type": "string" } }
+          }
+        },
+        "instruction": {
+          "type": ["object", "null"],
+          "additionalProperties": false,
+          "properties": {
+            "action": { "type": ["string", "null"] },
+            "expected_output": { "type": ["string", "null"] },
+            "steps": { "type": "array", "items": { "type": ["string", "object"] } }
+          }
+        },
+        "subject": {
+          "type": ["object", "null"],
+          "additionalProperties": false,
+          "properties": {
+            "definition": { "type": ["string", "null"] },
+            "key_attributes": { "type": "array", "items": { "type": "string" } },
+            "related_subjects": { "type": "array", "items": { "type": "string" } }
+          }
+        },
+        "primary": {
+          "type": ["object", "null"],
+          "additionalProperties": false,
+          "properties": {
+            "essence": { "type": ["string", "null"] },
+            "core_concern": { "type": ["string", "null"] },
+            "driver": { "type": ["string", "null"] }
+          }
+        },
+        "philosophy": {
+          "type": ["object", "null"],
+          "additionalProperties": false,
+          "properties": {
+            "core_principles": { "type": "array", "items": { "type": "string" } },
+            "application": { "type": ["string", "null"] },
+            "risks": { "type": "array", "items": { "type": "string" } }
+          }
+        },
+        "blueprint": {
+          "type": ["object", "null"],
+          "additionalProperties": false,
+          "properties": {
+            "structure": { "type": ["object", "array", "string", "null"] },
+            "input_contract": { "type": ["object", "string", "null"] },
+            "output_characteristics": { "type": ["object", "array", "string", "null"] }
+          }
+        }
+      }
+    },
+    "notes": {
+      "type": ["string", "null"]
     }
   },
-  "notes": null
+  "required": [
+    "identity",
+    "type",
+    "name",
+    "category",
+    "status",
+    "tags",
+    "provenance",
+    "content"
+  ]
 }

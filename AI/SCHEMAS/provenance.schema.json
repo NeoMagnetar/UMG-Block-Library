@@ -1,0 +1,49 @@
+﻿{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://umg.envoy/schemas/provenance.schema.json",
+  "title": "UMG Provenance Schema v0.1",
+  "description": "Provenance contract for UMG artifacts.",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "created": {
+      "type": "string",
+      "format": "date"
+    },
+    "created_by": {
+      "type": "string",
+      "minLength": 1
+    },
+    "supervised_by": {
+      "type": ["string", "null"]
+    },
+    "source_library": {
+      "type": ["string", "null"]
+    },
+    "source_library_version": {
+      "type": ["string", "null"],
+      "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$"
+    },
+    "reference": {
+      "type": ["string", "null"]
+    },
+    "origin": {
+      "type": ["string", "null"]
+    },
+    "parent_artifact_ids": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "uniqueItems": true
+    },
+    "review_state": {
+      "type": ["string", "null"],
+      "enum": ["draft", "review", "approved", "published", "archived", null]
+    }
+  },
+  "required": [
+    "created",
+    "created_by"
+  ]
+}
