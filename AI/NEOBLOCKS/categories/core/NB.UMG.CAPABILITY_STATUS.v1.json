@@ -1,0 +1,65 @@
+﻿{
+  "identity": {
+    "artifact_id": "NB.UMG.CAPABILITY_STATUS.v1",
+    "artifact_type": "neoblock",
+    "human_library_code": null,
+    "content_hash": null,
+    "package_hash": null,
+    "version": "1.0.0"
+  },
+  "provenance": {
+    "created": "2026-04-27",
+    "created_by": "OpenClaw",
+    "supervised_by": null,
+    "source_library": "UMG-Block-Library",
+    "source_library_version": "1.0.0",
+    "reference": "AI/DOCTRINE/UMG_TOOLPACK_CAPABILITY_CONTRACT.v0.1.md",
+    "origin": "pure_umg_core_reference_stage_4c",
+    "parent_artifact_ids": [],
+    "review_state": "draft"
+  },
+  "neoblock": {
+    "name": "UMG Capability Status",
+    "description": "Declare and surface capability requirement and binding status without executing tools.",
+    "status": "active",
+    "version": "1.0.0",
+    "category": "framework_specific",
+    "tags": ["umg", "core", "capability_status"],
+    "composition": {
+      "molt_block_ids": [
+        "BLK.SUBJECT.UMG.ARTIFACT_LIBRARY.v1"
+      ],
+      "ordered_steps": [
+        {
+          "id": "step.report.capability_status",
+          "uses": ["BLK.SUBJECT.UMG.ARTIFACT_LIBRARY.v1"],
+          "mode": "serial",
+          "condition": null,
+          "notes": "Bind declared requirements to visible capability status without direct execution."
+        }
+      ],
+      "merge_rules": []
+    },
+    "molt_roles": {
+      "status_subject": ["BLK.SUBJECT.UMG.ARTIFACT_LIBRARY.v1"]
+    },
+    "geometry": null,
+    "capabilities": [
+      "CAP.ARTIFACT.RESOLVE",
+      "CAP.COMPILER.COMPILE",
+      "CAP.TRACE.EMIT",
+      "CAP.MATRIX.EMIT"
+    ],
+    "governance": {
+      "directive_ids": [],
+      "policy_links": [],
+      "route_constraints": []
+    },
+    "examples": [],
+    "notes": "Capability status is declarative and visibility-oriented only. No tool execution occurs in this object."
+  },
+  "metadata": {
+    "stage": "Stage 4C",
+    "batch": "remaining_core_reference_neoblocks"
+  }
+}

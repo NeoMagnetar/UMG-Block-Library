@@ -1,0 +1,60 @@
+﻿{
+  "identity": {
+    "artifact_id": "NB.UMG.RELATION_MATRIX_EMIT.v1",
+    "artifact_type": "neoblock",
+    "human_library_code": null,
+    "content_hash": null,
+    "package_hash": null,
+    "version": "1.0.0"
+  },
+  "provenance": {
+    "created": "2026-04-27",
+    "created_by": "OpenClaw",
+    "supervised_by": null,
+    "source_library": "UMG-Block-Library",
+    "source_library_version": "1.0.0",
+    "reference": "AI/DOCTRINE/UMG_RELATION_MATRIX.v0.1.md",
+    "origin": "pure_umg_core_reference_stage_4c",
+    "parent_artifact_ids": [],
+    "review_state": "draft"
+  },
+  "neoblock": {
+    "name": "UMG Relation Matrix Emit",
+    "description": "Project IR and runtime state into a compact Relation Matrix output.",
+    "status": "active",
+    "version": "1.0.0",
+    "category": "framework_specific",
+    "tags": ["umg", "core", "relation_matrix_emit"],
+    "composition": {
+      "molt_block_ids": [
+        "BLK.INSTRUCTION.UMG.EMIT_RELATION_MATRIX.v1"
+      ],
+      "ordered_steps": [
+        {
+          "id": "step.emit.relation_matrix",
+          "uses": ["BLK.INSTRUCTION.UMG.EMIT_RELATION_MATRIX.v1"],
+          "mode": "serial",
+          "condition": null,
+          "notes": "Emit compact projection of IR and runtime state."
+        }
+      ],
+      "merge_rules": []
+    },
+    "molt_roles": {
+      "matrix_instruction": ["BLK.INSTRUCTION.UMG.EMIT_RELATION_MATRIX.v1"]
+    },
+    "geometry": null,
+    "capabilities": ["CAP.MATRIX.EMIT"],
+    "governance": {
+      "directive_ids": [],
+      "policy_links": [],
+      "route_constraints": []
+    },
+    "examples": [],
+    "notes": "Pure UMG projection object. Relation Matrix remains subordinate to canonical IR and RuntimeSpec/Trace."
+  },
+  "metadata": {
+    "stage": "Stage 4C",
+    "batch": "remaining_core_reference_neoblocks"
+  }
+}

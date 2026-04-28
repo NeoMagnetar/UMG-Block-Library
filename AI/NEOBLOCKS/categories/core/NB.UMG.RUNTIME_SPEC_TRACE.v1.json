@@ -1,0 +1,69 @@
+﻿{
+  "identity": {
+    "artifact_id": "NB.UMG.RUNTIME_SPEC_TRACE.v1",
+    "artifact_type": "neoblock",
+    "human_library_code": null,
+    "content_hash": null,
+    "package_hash": null,
+    "version": "1.0.0"
+  },
+  "provenance": {
+    "created": "2026-04-27",
+    "created_by": "OpenClaw",
+    "supervised_by": null,
+    "source_library": "UMG-Block-Library",
+    "source_library_version": "1.0.0",
+    "reference": "AI/DOCTRINE/UMG_COMPILER_LAW.v0.3.md",
+    "origin": "pure_umg_core_reference_stage_4c",
+    "parent_artifact_ids": [],
+    "review_state": "draft"
+  },
+  "neoblock": {
+    "name": "UMG RuntimeSpec Trace",
+    "description": "Emit RuntimeSpec and compiler Trace as the primary resolved outputs of pure UMG compilation.",
+    "status": "active",
+    "version": "1.0.0",
+    "category": "framework_specific",
+    "tags": ["umg", "core", "runtime_spec_trace"],
+    "composition": {
+      "molt_block_ids": [
+        "BLK.INSTRUCTION.UMG.EMIT_TRACE.v1",
+        "BLK.BLUEPRINT.UMG.RUNTIME_SPEC_TRACE_OUTPUT.v1"
+      ],
+      "ordered_steps": [
+        {
+          "id": "step.emit.runtime_spec",
+          "uses": ["BLK.BLUEPRINT.UMG.RUNTIME_SPEC_TRACE_OUTPUT.v1"],
+          "mode": "serial",
+          "condition": null,
+          "notes": "Structure RuntimeSpec output from compiler resolution."
+        },
+        {
+          "id": "step.emit.trace",
+          "uses": ["BLK.INSTRUCTION.UMG.EMIT_TRACE.v1"],
+          "mode": "serial",
+          "condition": null,
+          "notes": "Emit machine-readable and human-auditable compiler trace."
+        }
+      ],
+      "merge_rules": []
+    },
+    "molt_roles": {
+      "trace_instruction": ["BLK.INSTRUCTION.UMG.EMIT_TRACE.v1"],
+      "output_blueprint": ["BLK.BLUEPRINT.UMG.RUNTIME_SPEC_TRACE_OUTPUT.v1"]
+    },
+    "geometry": null,
+    "capabilities": ["CAP.TRACE.EMIT"],
+    "governance": {
+      "directive_ids": [],
+      "policy_links": [],
+      "route_constraints": []
+    },
+    "examples": [],
+    "notes": "Pure UMG foundation object. Produces RuntimeSpec and Trace outputs without tool execution."
+  },
+  "metadata": {
+    "stage": "Stage 4C",
+    "batch": "remaining_core_reference_neoblocks"
+  }
+}
