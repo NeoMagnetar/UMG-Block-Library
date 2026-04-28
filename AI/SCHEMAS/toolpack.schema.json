@@ -1,0 +1,111 @@
+﻿{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://umg.envoy/schemas/toolpack.schema.json",
+  "title": "UMG Tool Pack Schema v0.1",
+  "description": "Validating schema for a UMG Tool Pack as an executable capability provider package.",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "identity": {
+      "$ref": "./artifact.identity.schema.json"
+    },
+    "provenance": {
+      "$ref": "./provenance.schema.json"
+    },
+    "toolpack": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "name": { "type": "string", "minLength": 1 },
+        "description": { "type": ["string", "null"] },
+        "status": {
+          "type": "string",
+          "enum": ["active", "deprecated", "experimental", "archived"]
+        },
+        "version": {
+          "type": "string",
+          "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$"
+        },
+        "category": {
+          "type": "string",
+          "enum": ["general", "domain_specific", "framework_specific", "experimental", "archived"]
+        },
+        "tags": {
+          "type": "array",
+          "items": { "type": "string", "minLength": 1 },
+          "uniqueItems": true
+        },
+        "provides_capabilities": {
+          "type": "array",
+          "items": { "type": "string", "minLength": 1 },
+          "minItems": 1,
+          "uniqueItems": true
+        },
+        "tools": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "tool_id": { "type": "string", "minLength": 1 },
+              "surface": { "type": ["string", "null"] },
+              "description": { "type": ["string", "null"] },
+              "input_contract": { "type": ["string", "object", "null"] },
+              "output_contract": { "type": ["string", "object", "null"] },
+              "safe_mode": { "type": ["string", "null"], "enum": ["read_only", "bounded_write", "interactive", "privileged", null] },
+              "requires_human_approval": { "type": ["boolean", "null"] }
+            },
+            "required": ["tool_id"]
+          }
+        },
+        "bindings": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "runtime_surface": { "type": ["string", "null"] },
+            "host_kinds": { "type": "array", "items": { "type": "string" }, "uniqueItems": true },
+            "transport_modes": { "type": "array", "items": { "type": "string" }, "uniqueItems": true }
+          }
+        },
+        "permissions": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "trust_level": { "type": ["string", "null"], "enum": ["public_safe", "developer_local", "private_resleever", "internal_operator", null] },
+            "required_approvals": { "type": "array", "items": { "type": "string" }, "uniqueItems": true },
+            "restricted_contexts": { "type": "array", "items": { "type": "string" }, "uniqueItems": true }
+          }
+        },
+        "compatibility": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "runtime_profiles": { "type": "array", "items": { "type": "string" }, "uniqueItems": true },
+            "plugin_versions": { "type": "array", "items": { "type": "string" }, "uniqueItems": true },
+            "schema_versions": { "type": "array", "items": { "type": "string" }, "uniqueItems": true }
+          }
+        },
+        "runtime_constraints": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "fail_closed": { "type": ["boolean", "null"] },
+            "allowed_lanes": { "type": "array", "items": { "type": "string" }, "uniqueItems": true },
+            "notes": { "type": ["string", "null"] }
+          }
+        },
+        "examples": {
+          "type": "array",
+          "items": { "type": ["object", "string"] }
+        },
+        "notes": { "type": ["string", "null"] }
+      },
+      "required": ["name", "status", "version", "category", "provides_capabilities"]
+    },
+    "metadata": {
+      "type": ["object", "null"],
+      "additionalProperties": true
+    }
+  },
+  "required": ["identity", "provenance", "toolpack"]
+}

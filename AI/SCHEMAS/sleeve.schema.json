@@ -1,36 +1,191 @@
-{
-  "$schema": "https://umg.envoy/schemas/sleeve.template.schema.json",
-  "id": "{{REQUIRED_SLEEVE_ID}}",
-  "name": "{{REQUIRED_NAME}}",
-  "purpose": "{{REQUIRED_PURPOSE}}",
-  "category": "{{general|domain_specific|framework_specific|experimental|archived}}",
-  "subcategory": "{{lower_snake_case}}",
-  "status": "{{active|staged|archived|experimental}}",
-  "version": "{{semver}}",
-  "tags": [
-    "{{primary_tag}}"
-  ],
-  "neostack_ids": [
-    "{{NST.xxx}}"
-  ],
-  "governance": {
-    "directive_ids": [],
-    "policy_links": [],
-    "notes": null
+﻿{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://umg.envoy/schemas/sleeve.schema.json",
+  "title": "UMG Sleeve Schema v0.1",
+  "description": "Validating schema for a UMG Sleeve pack as a declarative orchestration/configuration package.",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "identity": {
+      "$ref": "./artifact.identity.schema.json"
+    },
+    "provenance": {
+      "$ref": "./provenance.schema.json"
+    },
+    "sleeve": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "name": { "type": "string", "minLength": 1 },
+        "description": { "type": ["string", "null"] },
+        "status": {
+          "type": "string",
+          "enum": ["active", "staged", "archived", "experimental"]
+        },
+        "version": {
+          "type": "string",
+          "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$"
+        },
+        "category": {
+          "type": "string",
+          "enum": ["general", "domain_specific", "framework_specific", "experimental", "archived"]
+        },
+        "tags": {
+          "type": "array",
+          "items": { "type": "string", "minLength": 1 },
+          "uniqueItems": true
+        },
+        "compatibility": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "compiler_profile": { "type": ["string", "null"] },
+            "runtime_profiles": {
+              "type": "array",
+              "items": { "type": "string" },
+              "uniqueItems": true
+            },
+            "schema_versions": {
+              "type": "array",
+              "items": { "type": "string" },
+              "uniqueItems": true
+            }
+          }
+        },
+        "dependencies": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "sleeve_ids": { "type": "array", "items": { "type": "string" }, "uniqueItems": true },
+            "neostack_ids": { "type": "array", "items": { "type": "string" }, "uniqueItems": true },
+            "bundle_ids": { "type": "array", "items": { "type": "string" }, "uniqueItems": true },
+            "overlay_ids": { "type": "array", "items": { "type": "string" }, "uniqueItems": true },
+            "schema_ids": { "type": "array", "items": { "type": "string" }, "uniqueItems": true }
+          }
+        },
+        "composition": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "neostack_ids": {
+              "type": "array",
+              "items": { "type": "string", "minLength": 1 },
+              "uniqueItems": true
+            },
+            "bundle_ids": {
+              "type": "array",
+              "items": { "type": "string" },
+              "uniqueItems": true
+            },
+            "overlay_ids": {
+              "type": "array",
+              "items": { "type": "string" },
+              "uniqueItems": true
+            },
+            "local_refs": {
+              "type": "array",
+              "items": { "type": ["string", "object"] }
+            }
+          },
+          "required": ["neostack_ids"]
+        },
+        "routes": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "route_id": { "type": "string", "minLength": 1 },
+              "target": { "type": ["string", "null"] },
+              "priority": { "type": ["integer", "null"] },
+              "mode": { "type": ["string", "null"], "enum": ["serial", "parallel", "conditional", null] },
+              "condition": { "type": ["string", "object", "null"] }
+            },
+            "required": ["route_id"]
+          }
+        },
+        "governance": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "directive_ids": { "type": "array", "items": { "type": "string" }, "uniqueItems": true },
+            "policy_links": { "type": "array", "items": { "type": "string" }, "uniqueItems": true },
+            "overlay_ids": { "type": "array", "items": { "type": "string" }, "uniqueItems": true },
+            "notes": { "type": ["string", "null"] }
+          }
+        },
+        "runtime": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "services": { "type": "array", "items": { "type": "string" }, "uniqueItems": true },
+            "staging_file": { "type": ["string", "null"] },
+            "active_stack_path": { "type": ["string", "null"] },
+            "compiler_profile": { "type": ["string", "null"] },
+            "diagnostics_expectation": { "type": ["string", "null"] },
+            "notes": { "type": ["string", "null"] }
+          }
+        },
+        "capabilities": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "required": { "type": "array", "items": { "type": "string" }, "uniqueItems": true },
+            "optional": { "type": "array", "items": { "type": "string" }, "uniqueItems": true }
+          }
+        },
+        "toolpacks": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "preferred": { "type": "array", "items": { "type": "string" }, "uniqueItems": true },
+            "allowed": { "type": "array", "items": { "type": "string" }, "uniqueItems": true }
+          }
+        },
+        "activation": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "default_route": { "type": ["string", "null"] },
+            "strict_capabilities": { "type": ["boolean", "null"] },
+            "default_state": { "type": ["string", "null"], "enum": ["active", "standby", "off", null] },
+            "notes": { "type": ["string", "null"] }
+          }
+        },
+        "local_deltas": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "blocks": { "type": ["boolean", "null"] },
+            "neoblocks": { "type": ["boolean", "null"] },
+            "neostacks": { "type": ["boolean", "null"] },
+            "bundles": { "type": ["boolean", "null"] },
+            "overlays": { "type": ["boolean", "null"] },
+            "assets": { "type": ["boolean", "null"] },
+            "examples": { "type": ["boolean", "null"] }
+          }
+        },
+        "lockfile": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "path": { "type": ["string", "null"] },
+            "required": { "type": ["boolean", "null"] },
+            "mode": { "type": ["string", "null"], "enum": ["none", "optional", "recommended", "required", null] }
+          }
+        },
+        "examples": {
+          "type": "array",
+          "items": { "type": ["object", "string"] }
+        },
+        "notes": { "type": ["string", "null"] }
+      },
+      "required": ["name", "status", "version", "category", "composition"]
+    },
+    "metadata": {
+      "type": ["object", "null"],
+      "additionalProperties": true
+    }
   },
-  "runtime": {
-    "staging_file": null,
-    "active_stack_path": null,
-    "compiler_helper": null,
-    "notes": null
-  },
-  "activation_notes": null,
-  "examples": [],
-  "source": {
-    "library_name": "{{source_library}}",
-    "library_version": "{{library_semver}}",
-    "created": "{{YYYY-MM-DD}}",
-    "created_by": "{{steward}}"
-  },
-  "notes": null
+  "required": ["identity", "provenance", "sleeve"]
 }
