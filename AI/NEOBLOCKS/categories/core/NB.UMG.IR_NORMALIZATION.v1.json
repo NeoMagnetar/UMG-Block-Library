@@ -1,0 +1,60 @@
+﻿{
+  "identity": {
+    "artifact_id": "NB.UMG.IR_NORMALIZATION.v1",
+    "artifact_type": "neoblock",
+    "human_library_code": null,
+    "content_hash": null,
+    "package_hash": null,
+    "version": "1.0.0"
+  },
+  "provenance": {
+    "created": "2026-04-27",
+    "created_by": "OpenClaw",
+    "supervised_by": null,
+    "source_library": "UMG-Block-Library",
+    "source_library_version": "1.0.0",
+    "reference": "AI/DOCTRINE/UMG_IR.v0.1.md",
+    "origin": "pure_umg_core_reference_stage_4b",
+    "parent_artifact_ids": [],
+    "review_state": "draft"
+  },
+  "neoblock": {
+    "name": "UMG IR Normalization",
+    "description": "Normalize resolved source artifacts into canonical UMG IR.",
+    "status": "active",
+    "version": "1.0.0",
+    "category": "framework_specific",
+    "tags": ["umg", "core", "ir_normalization"],
+    "composition": {
+      "molt_block_ids": [
+        "BLK.INSTRUCTION.UMG.BUILD_IR.v1"
+      ],
+      "ordered_steps": [
+        {
+          "id": "step.normalize.to_ir",
+          "uses": ["BLK.INSTRUCTION.UMG.BUILD_IR.v1"],
+          "mode": "serial",
+          "condition": null,
+          "notes": "Build typed normalized IR from resolved pure UMG source artifacts."
+        }
+      ],
+      "merge_rules": []
+    },
+    "molt_roles": {
+      "ir_builder_instruction": ["BLK.INSTRUCTION.UMG.BUILD_IR.v1"]
+    },
+    "geometry": null,
+    "capabilities": ["CAP.IR.BUILD"],
+    "governance": {
+      "directive_ids": [],
+      "policy_links": [],
+      "route_constraints": []
+    },
+    "examples": [],
+    "notes": "Pure UMG normalization unit. Declarative only; no runtime tool execution."
+  },
+  "metadata": {
+    "stage": "Stage 4B",
+    "batch": "first_core_reference_objects"
+  }
+}

@@ -1,0 +1,60 @@
+﻿{
+  "identity": {
+    "artifact_id": "NB.UMG.ARTIFACT_RESOLUTION.v1",
+    "artifact_type": "neoblock",
+    "human_library_code": null,
+    "content_hash": null,
+    "package_hash": null,
+    "version": "1.0.0"
+  },
+  "provenance": {
+    "created": "2026-04-27",
+    "created_by": "OpenClaw",
+    "supervised_by": null,
+    "source_library": "UMG-Block-Library",
+    "source_library_version": "1.0.0",
+    "reference": "AI/DOCTRINE/UMG_ARTIFACT_IDENTITY_AND_PROVENANCE.v0.1.md",
+    "origin": "pure_umg_core_reference_stage_4b",
+    "parent_artifact_ids": [],
+    "review_state": "draft"
+  },
+  "neoblock": {
+    "name": "UMG Artifact Resolution",
+    "description": "Resolve sleeve-declared artifact references into canonical typed inputs.",
+    "status": "active",
+    "version": "1.0.0",
+    "category": "framework_specific",
+    "tags": ["umg", "core", "artifact_resolution"],
+    "composition": {
+      "molt_block_ids": [
+        "BLK.INSTRUCTION.UMG.RESOLVE_ARTIFACTS.v1"
+      ],
+      "ordered_steps": [
+        {
+          "id": "step.resolve.library_refs",
+          "uses": ["BLK.INSTRUCTION.UMG.RESOLVE_ARTIFACTS.v1"],
+          "mode": "serial",
+          "condition": null,
+          "notes": "Resolve declared sleeve/library references into canonical artifact inputs."
+        }
+      ],
+      "merge_rules": []
+    },
+    "molt_roles": {
+      "resolution_instruction": ["BLK.INSTRUCTION.UMG.RESOLVE_ARTIFACTS.v1"]
+    },
+    "geometry": null,
+    "capabilities": ["CAP.ARTIFACT.RESOLVE"],
+    "governance": {
+      "directive_ids": [],
+      "policy_links": [],
+      "route_constraints": []
+    },
+    "examples": [],
+    "notes": "Declares artifact-resolution capability requirement without executing tools."
+  },
+  "metadata": {
+    "stage": "Stage 4B",
+    "batch": "first_core_reference_objects"
+  }
+}

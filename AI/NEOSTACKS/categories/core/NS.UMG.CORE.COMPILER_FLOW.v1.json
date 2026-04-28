@@ -1,0 +1,76 @@
+﻿{
+  "identity": {
+    "artifact_id": "NS.UMG.CORE.COMPILER_FLOW.v1",
+    "artifact_type": "neostack",
+    "human_library_code": null,
+    "content_hash": null,
+    "package_hash": null,
+    "version": "1.0.0"
+  },
+  "provenance": {
+    "created": "2026-04-27",
+    "created_by": "OpenClaw",
+    "supervised_by": null,
+    "source_library": "UMG-Block-Library",
+    "source_library_version": "1.0.0",
+    "reference": "AI/DOCTRINE/UMG_V0_BUILD_ROADMAP_AMENDMENT_PURE_UMG_REFERENCE_SLICE.v0.1.md",
+    "origin": "pure_umg_core_reference_stage_4b",
+    "parent_artifact_ids": [],
+    "review_state": "draft"
+  },
+  "neostack": {
+    "name": "UMG Core Compiler Flow",
+    "description": "Early pure UMG orchestration lane for request intake, artifact resolution, and IR normalization.",
+    "status": "active",
+    "version": "1.0.0",
+    "category": "framework_specific",
+    "tags": ["umg", "core", "compiler_flow"],
+    "composition": {
+      "neoblock_ids": [
+        "NB.UMG.REQUEST_INTAKE.v1",
+        "NB.UMG.ARTIFACT_RESOLUTION.v1",
+        "NB.UMG.IR_NORMALIZATION.v1"
+      ],
+      "ordered_groups": [
+        {
+          "id": "group.core.compiler_flow",
+          "members": [
+            "NB.UMG.REQUEST_INTAKE.v1",
+            "NB.UMG.ARTIFACT_RESOLUTION.v1",
+            "NB.UMG.IR_NORMALIZATION.v1"
+          ],
+          "mode": "serial",
+          "condition": null,
+          "notes": "Ordered early compiler-flow lane for the pure UMG reference sleeve."
+        }
+      ]
+    },
+    "routes": [
+      {
+        "route_id": "route.umg.core_reference.default",
+        "target": "NB.UMG.IR_NORMALIZATION.v1",
+        "condition": null,
+        "priority": 100,
+        "governance_links": []
+      }
+    ],
+    "activation": {
+      "entry": "NB.UMG.REQUEST_INTAKE.v1",
+      "conditions": [],
+      "fallback": null,
+      "default_state": "active"
+    },
+    "overlays": [],
+    "geometry": null,
+    "capabilities": [
+      "CAP.ARTIFACT.RESOLVE",
+      "CAP.IR.BUILD"
+    ],
+    "examples": [],
+    "notes": "Initial compiler-flow NeoStack before later compiler-execution, trace, matrix, and capability-status objects are authored."
+  },
+  "metadata": {
+    "stage": "Stage 4B",
+    "batch": "first_core_reference_objects"
+  }
+}

@@ -1,0 +1,60 @@
+﻿{
+  "identity": {
+    "artifact_id": "NB.UMG.REQUEST_INTAKE.v1",
+    "artifact_type": "neoblock",
+    "human_library_code": null,
+    "content_hash": null,
+    "package_hash": null,
+    "version": "1.0.0"
+  },
+  "provenance": {
+    "created": "2026-04-27",
+    "created_by": "OpenClaw",
+    "supervised_by": null,
+    "source_library": "UMG-Block-Library",
+    "source_library_version": "1.0.0",
+    "reference": "AI/DOCTRINE/UMG_V0_BUILD_ROADMAP_AMENDMENT_PURE_UMG_REFERENCE_SLICE.v0.1.md",
+    "origin": "pure_umg_core_reference_stage_4b",
+    "parent_artifact_ids": [],
+    "review_state": "draft"
+  },
+  "neoblock": {
+    "name": "UMG Request Intake",
+    "description": "Initial intake unit for normalized pure UMG compiler-flow requests.",
+    "status": "active",
+    "version": "1.0.0",
+    "category": "framework_specific",
+    "tags": ["umg", "core", "request_intake"],
+    "composition": {
+      "molt_block_ids": [
+        "BLK.TRIGGER.UMG.COMPILE_REQUEST.v1"
+      ],
+      "ordered_steps": [
+        {
+          "id": "step.intake.capture",
+          "uses": ["BLK.TRIGGER.UMG.COMPILE_REQUEST.v1"],
+          "mode": "serial",
+          "condition": null,
+          "notes": "Capture normalized compile request entry conditions."
+        }
+      ],
+      "merge_rules": []
+    },
+    "molt_roles": {
+      "entry_trigger": ["BLK.TRIGGER.UMG.COMPILE_REQUEST.v1"]
+    },
+    "geometry": null,
+    "capabilities": [],
+    "governance": {
+      "directive_ids": [],
+      "policy_links": [],
+      "route_constraints": []
+    },
+    "examples": [],
+    "notes": "Pure UMG reference object. Declarative only; no tool execution."
+  },
+  "metadata": {
+    "stage": "Stage 4B",
+    "batch": "first_core_reference_objects"
+  }
+}
