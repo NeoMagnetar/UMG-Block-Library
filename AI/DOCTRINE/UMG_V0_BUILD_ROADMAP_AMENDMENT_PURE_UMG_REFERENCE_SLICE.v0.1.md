@@ -1,8 +1,8 @@
 # UMG v0 Build Roadmap Amendment — Pure UMG Reference Slice v0.1
 
-**Document ID:** `UMG_V0_BUILD_ROADMAP_AMENDMENT.PURE_UMG_REFERENCE_SLICE.v0.1` 
-**Status:** Foundation amendment 
-**Applies to:** `UMG_V0_BUILD_ROADMAP.v0.1` 
+**Document ID:** `UMG_V0_BUILD_ROADMAP_AMENDMENT.PURE_UMG_REFERENCE_SLICE.v0.1`  
+**Status:** Foundation amendment  
+**Applies to:** `UMG_V0_BUILD_ROADMAP.v0.1`  
 **Purpose:** Correct the v0 reference slice from a domain-specific ServUO/UO sleeve to a domain-neutral UMG core reference sleeve.
 
 ---
@@ -23,13 +23,13 @@ The v0 spine remains:
 
 ```text
 Library
- → Sleeve
- → IR
- → Compiler
- → RuntimeSpec + Trace
- → Envoy
- → Relation Matrix
- → Capability Status
+  → Sleeve
+  → IR
+  → Compiler
+  → RuntimeSpec + Trace
+  → Envoy
+  → Relation Matrix
+  → Capability Status
 ```
 
 This should be proven with a domain-neutral UMG reference sleeve before any domain-specific sleeve is used as a stress test.
