@@ -30,5 +30,30 @@ The extracted public structure currently shows at least:
 - `INST.USDA.001` USDA Rural Development Search
 - `SUBJ.USDA.001` USDA Rural Development Programs
 
+## Navigation status
+Status: public HUMAN sleeve summary with direct structured category support.
+
+Related NeoStacks:
+- `../../../NEOSTACKS/categories/finance/INDEX.md`
+
+Related NeoBlocks:
+- `../../../NEOBLOCKS/categories/finance/INDEX.md`
+
+Representative MOLT families:
+- trigger
+- directive
+- instruction
+- subject
+- philosophy
+- blueprint
+
+Canonical source references:
+- `AI/NEOSTACKS/categories/finance/slv-idaho-grants-finder-v1-0.json`
+- `AI/NEOBLOCKS/categories/finance/slv-idaho-grants-finder-v1-0.json`
+
+Backlinks:
+- Back to category: `../README.md`
+- Back to sleeve index: `../../SLEEVE-INDEX.md`
+
 ## Notes
 This sleeve is a public finance/grants research sleeve with Idaho-specific focus and a strong practical search/eligibility posture.

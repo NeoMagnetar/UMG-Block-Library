@@ -25,5 +25,30 @@ The extracted public structure currently carries one explicit NeoBlock example:
 - `PHIL.SOCIAL.001` Social Media Automation Philosophy
 - `BP.SOCIAL.001` Content Calendar Template
 
+## Navigation status
+Status: public HUMAN sleeve summary with strong structured support.
+
+Related NeoStacks:
+- `../../../NEOSTACKS/categories/business/INDEX.md`
+
+Related NeoBlocks:
+- `../../../NEOBLOCKS/categories/business/INDEX.md`
+
+Representative MOLT families:
+- trigger
+- directive
+- instruction
+- subject
+- philosophy
+- blueprint
+
+Canonical source references:
+- `AI/NEOSTACKS/categories/business/slv-business-automation-consultant-v1-0.json`
+- `AI/NEOBLOCKS/categories/business/slv-business-automation-consultant-v1-0.json`
+
+Backlinks:
+- Back to category: `../README.md`
+- Back to sleeve index: `../../SLEEVE-INDEX.md`
+
 ## Notes
 This sleeve is part of the public business category and represents a practical service/business automation advisory posture.

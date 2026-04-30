@@ -34,6 +34,28 @@ Representative NeoBlocks include:
 ## MOLT blocks in this sleeve
 This launcher sleeve is a meta-build/orchestration sleeve and its current extracted surface is largely capability-style NeoBlocks rather than a classic public MOLT family explosion.
 
+## Navigation status
+Status: public HUMAN sleeve summary; stack/block mapping is partly inferred.
+
+Related NeoStacks:
+- `../../../NEOSTACKS/categories/business/INDEX.md`
+
+Related NeoBlocks:
+- `../../../NEOBLOCKS/categories/business/INDEX.md`
+
+Representative MOLT families:
+- mixed orchestration and capability-style families
+- pending tighter public normalization
+
+Canonical source references:
+- `../README.md`
+- `../../../NEOSTACKS/categories/business/INDEX.md`
+- `../../../NEOBLOCKS/categories/business/INDEX.md`
+
+Backlinks:
+- Back to category: `../README.md`
+- Back to sleeve index: `../../SLEEVE-INDEX.md`
+
 ## Notes
 This updated version is aligned to the stronger private launcher sleeve library and should be treated as the public HUMAN-facing summary of the launcher/orchestration lane.
 It is a strong HUMAN-side public entry, but the machine-facing public sleeve lane remains intentionally smaller and more disciplined.

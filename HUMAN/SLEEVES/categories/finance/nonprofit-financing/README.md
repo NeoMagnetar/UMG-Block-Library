@@ -40,5 +40,34 @@ This sleeve includes:
 - strategy blocks
 - use blocks
 
+## Navigation status
+Status: strong HUMAN summary; stack continuity is partly inferred from current structured/public artifacts.
+
+Related NeoStacks:
+- `../../../NEOSTACKS/categories/finance/INDEX.md`
+
+Related NeoBlocks:
+- `../../../NEOBLOCKS/categories/finance/INDEX.md`
+
+Representative MOLT families:
+- aim
+- blueprint
+- directive
+- instruction
+- need
+- philosophy
+- subject
+- trigger
+- strategy
+- use
+
+Canonical source references:
+- `../../../NEOSTACKS/categories/finance/INDEX.md`
+- `AI/NEOBLOCKS/categories/finance/`
+
+Backlinks:
+- Back to category: `../README.md`
+- Back to sleeve index: `../../SLEEVE-INDEX.md`
+
 ## Notes
 This sleeve is a strong public-facing financing/fundraising strategy sleeve because it combines readiness assessment with tactical grant and donor execution.
