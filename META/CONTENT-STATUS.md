@@ -12,9 +12,10 @@
 - AI gates content
 - AI curated sleeves beyond catalog only
 - AI neoblock/neostack category population
-- HUMAN sleeve category population
+- HUMAN sleeve category population beyond current starter browsing docs
 - HUMAN gate index/details beyond starter docs
 - runtime reference samples
+- richer NeoStack and NeoBlock human walkthroughs beyond structured-reference bridge docs
 
 ## Policy
 Placeholder folders are intentional.
