@@ -82,6 +82,9 @@ Compatibility assumptions should be recorded in:
   - loader-level indirection
   - doc-level compatibility references
 - do not implement yet without explicit approval
+- detailed BL-6C design references:
+  - [BL-6C Alias Validation Design](./BL-6C-ALIAS-VALIDATION-DESIGN.md)
+  - [BL-6C Validation Matrix](./BL-6C-VALIDATION-MATRIX.md)
 
 ## Phase 3: Validation shift
 - update validation strategy so canonical IDs become primary
