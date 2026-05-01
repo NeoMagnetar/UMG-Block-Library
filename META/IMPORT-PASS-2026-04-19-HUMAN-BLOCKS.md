@@ -1,13 +1,13 @@
-# Human Block Browse Import Pass — 2026-04-19
+﻿# Human Block Browse Import Pass — 2026-04-19
 
 ## Purpose
 
-Record the first conservative import of human-readable block browse assets from the private resleever into the public UMG Block Library.
+Record the first conservative import of human-readable block browse assets from the private/internal upstream browse lane into the public UMG Block Library.
 
 ## What was imported
 
 Source:
-- `artifacts/umg-envoy-agent-plugin/vendor/UMG_Envoy_Resleever/browse/blocks`
+- `a private/internal upstream browse path for blocks`
 
 Imported into:
 - `HUMAN/MOLT-BLOCKS/blueprints`
@@ -35,7 +35,7 @@ Not imported in this pass:
 
 This pass follows the curated-public-surface rule:
 - copy only clearly public-safe and readable assets
-- do not mirror the entire private resleever
+- do not mirror the entire private/internal upstream browse lane
 - do not leak runtime/private history
 - do not collapse gate/trigger structure into the wrong public lane
 
@@ -48,4 +48,5 @@ Result: the HUMAN-side MOLT block library now contains substantial readable brow
 Future passes should:
 1. review whether trigger browse content belongs in HUMAN/GATES rather than HUMAN/MOLT-BLOCKS
 2. continue curating AI-side canonical data separately from browse-layer readable assets
-3. avoid bulk-copying generated or runtime-tied artifacts from the private resleever
+3. avoid bulk-copying generated or runtime-tied artifacts from the private/internal upstream browse lane
+

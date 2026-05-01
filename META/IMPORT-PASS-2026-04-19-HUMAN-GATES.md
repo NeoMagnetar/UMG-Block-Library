@@ -1,13 +1,13 @@
-# Human Gates Import Pass — 2026-04-19
+﻿# Human Gates Import Pass — 2026-04-19
 
 ## Purpose
 
-Record the conservative import of human-readable trigger/gate browse assets from the private resleever into the public UMG Block Library.
+Record the conservative import of human-readable trigger/gate browse assets from the private/internal upstream browse lane into the public UMG Block Library.
 
 ## What was imported
 
 Source:
-- `artifacts/umg-envoy-agent-plugin/vendor/UMG_Envoy_Resleever/browse/blocks/triggers`
+- `a private/internal upstream browse path for triggers`
 
 Imported into:
 - `HUMAN/GATES`
@@ -39,3 +39,4 @@ Future passes may:
 1. curate `HUMAN/GATES/TRIGGERS.md` and `HUMAN/GATES/ROUTING-PATTERNS.md` to summarize the imported trigger surface
 2. decide whether any AI-side gate manifests/indexes are mature enough for a public-safe canonical export
 3. continue keeping browse-layer human-readable gates separate from AI-side canonical gate schemas/manifests
+
