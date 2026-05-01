@@ -13,6 +13,32 @@ This is not the primary human reading shelf. These files should not be assumed t
 - future contributors
 - humans who need the direct machine-facing lane
 
+## Status
+- active/canonical
+- machine-facing
+
+## Authority class
+- canonical source
+
+## Provenance
+- direct source-backed for machine sleeve data
+- subject to promotion and catalog interpretation
+
+## Navigation path
+```text
+MOLT Block
+→ NeoBlock
+→ NeoStack
+→ Sleeve
+```
+
+## Source path
+- `AI/SLEEVES/`
+- direct catalog: `AI/MANIFESTS/sleeve-catalog.json`
+
+## Placeholder/deferred note
+Some categories or files in this lane remain lighter than the HUMAN shelf and should not be mistaken for complete public promotion coverage.
+
 ## Canonical source rule
 Current status: canonical machine source for direct sleeve data, subject to promotion and catalog rules.
 
@@ -21,10 +47,6 @@ Current status: canonical machine source for direct sleeve data, subject to prom
 - `sleeves/manifests/catalog.json` is the public/package-facing curated catalog.
 - `HUMAN/SLEEVES/` provides readable sleeve summaries for people.
 - `HUMAN/NEOSTACKS/` and `HUMAN/NEOBLOCKS/` explain the intended middle layers between sleeves and MOLT blocks.
-
-## Current status
-- active/canonical
-- machine-facing
 
 ## HUMAN vs machine sleeve note
 Not every sleeve that is discussed in `HUMAN/SLEEVES/` should be assumed to be a public runnable machine sleeve.
@@ -40,6 +62,16 @@ MOLT Block
 → NeoStack
 → Sleeve
 ```
+
+## Backlinks
+- [AI MANIFESTS](../MANIFESTS/README.md)
+- [Public sleeve manifests](../../sleeves/manifests/README.md)
+- [HUMAN SLEEVES](../../HUMAN/SLEEVES/README.md)
+- [HUMAN NEOSTACKS](../../HUMAN/NEOSTACKS/README.md)
+- [HUMAN NEOBLOCKS](../../HUMAN/NEOBLOCKS/README.md)
+
+## Future normalization note
+Do not treat this lane as identical to the public package-facing sleeve lane. Any deduplication or category normalization should wait for governance approval.
 
 ## Where to go next
 - `AI/MANIFESTS/README.md`

@@ -13,6 +13,31 @@ This is not the main human browsing shelf. These JSON libraries are not written 
 - future contributors
 - humans who need the direct machine-facing source
 
+## Status
+- active/canonical
+- machine-facing
+
+## Authority class
+- canonical source
+
+## Provenance
+- direct source-backed for machine-readable MOLT libraries
+- relation to package/export lanes remains partly unresolved
+
+## Navigation path
+```text
+MOLT Block
+→ NeoBlock
+→ NeoStack
+→ Sleeve
+```
+
+## Source path
+- `AI/MOLT-BLOCKS/`
+
+## Placeholder/deferred note
+This lane is substantial, but its long-term doctrine relationship to `blocks/molt/subjects/` remains unresolved.
+
 ## Canonical source rule
 Current status: canonical machine source for MOLT block libraries.
 
@@ -22,10 +47,6 @@ Current status: canonical machine source for MOLT block libraries.
 - `HUMAN/NEOBLOCKS/` groups MOLT blocks into larger useful bundles.
 - `HUMAN/NEOSTACKS/` groups NeoBlocks into workflow lanes.
 - `HUMAN/SLEEVES/categories/` is the top browsing shelf for role/mode-oriented sleeves.
-
-## Current status
-- active/canonical
-- machine-facing
 
 ## AIM / USE / NEED lane note
 The `aim`, `use`, and `need` families appear in multiple places on purpose.
@@ -49,6 +70,15 @@ MOLT Block
 → NeoStack
 → Sleeve
 ```
+
+## Backlinks
+- [HUMAN MOLT-BLOCKS](../../HUMAN/MOLT-BLOCKS/README.md)
+- [blocks/molt/subjects](../../blocks/molt/subjects/README.md)
+- [HUMAN NEOBLOCKS](../../HUMAN/NEOBLOCKS/README.md)
+- [HUMAN NEOSTACKS](../../HUMAN/NEOSTACKS/README.md)
+
+## Future normalization note
+Do not collapse this lane into `blocks/molt/subjects/` without explicit governance approval of source vs export authority.
 
 ## Where to go next
 - `HUMAN/MOLT-BLOCKS/README.md`

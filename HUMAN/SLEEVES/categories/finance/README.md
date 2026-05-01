@@ -41,3 +41,4 @@ This category is meaningfully populated, but it is not fully normalized. Some ca
 - `nonprofit-financing/README.md`
 - `../../../NEOSTACKS/categories/finance/INDEX.md`
 
+

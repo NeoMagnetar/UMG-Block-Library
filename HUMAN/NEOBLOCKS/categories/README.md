@@ -12,6 +12,37 @@ This is not yet a complete polished human walkthrough for every NeoBlock. In man
 - future contributors
 - AI agents that need readable bridge documentation
 
+## Status
+- public-readable
+- structured-reference first
+- partial
+- pending richer walkthroughs
+
+## Authority class
+- compatibility/reference
+
+## Provenance
+- direct for category existence and machine-facing companion lane presence
+- inferred where block relationships are reconstructed from filenames or structured extracts
+
+## Category maturity
+- mixed
+- some categories partially grounded
+- some categories placeholder-only
+
+## Navigation path
+```text
+CATEGORY → SLEEVE → NEOSTACK → NEOBLOCK → MOLT BLOCK
+```
+
+## Source path
+- `HUMAN/NEOBLOCKS/categories/`
+- machine-facing companion: `AI/NEOBLOCKS/categories/`
+- governance definitions: [`META/UMG-GOVERNANCE-REGISTRY.md`](../../../META/UMG-GOVERNANCE-REGISTRY.md)
+
+## Placeholder/deferred note
+This lane is a bridge shelf. Some category continuity is direct; some is explicitly inferred from current machine-facing artifacts.
+
 ## Canonical source rule
 Current status: human-readable explanation built from machine-facing reference shelves.
 
@@ -47,6 +78,14 @@ Coverage is uneven.
 Some categories contain explicit structured artifacts.
 Some categories are still placeholders.
 Where category-level human summaries refer to matching AI artifact filenames, treat that mapping as **inferred from current public machine-facing artifacts**.
+
+## Backlinks
+- [HUMAN NEOSTACKS categories](../../NEOSTACKS/categories/README.md)
+- [HUMAN MOLT-BLOCKS](../../MOLT-BLOCKS/README.md)
+- [Governance registry](../../../META/UMG-GOVERNANCE-REGISTRY.md)
+
+## Future normalization note
+Do not treat this bridge lane as enough evidence on its own to normalize machine-facing block categories.
 
 ## Where to go next
 - `HUMAN/NEOSTACKS/categories/README.md`

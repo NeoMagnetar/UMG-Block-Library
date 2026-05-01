@@ -12,6 +12,30 @@ This is not the authoritative machine runtime catalog, and it is not a guarantee
 - future contributors
 - AI agents that need the public-readable browsing map
 
+## Status
+- public-readable
+- some categories populated
+- some categories placeholder/deferred
+
+## Authority class
+- compatibility/reference
+
+## Provenance
+- direct for category existence and public-readable role
+- inferred where sleeve-to-stack or stack-to-block continuity depends on machine-facing artifacts rather than direct public doctrine
+
+## Navigation path
+```text
+CATEGORY → SLEEVE → NEOSTACK → NEOBLOCK → MOLT BLOCK
+```
+
+## Source path
+- `HUMAN/SLEEVES/categories/`
+
+## Placeholder/deferred note
+Some categories are already useful browsing shelves.
+Some remain placeholders while the public-safe bridge layers are normalized.
+
 ## Canonical source rule
 Current status: human-readable explanation and browsing shelf.
 
@@ -21,11 +45,6 @@ Current status: human-readable explanation and browsing shelf.
 - `AI/MANIFESTS/` contains the direct/source-oriented machine catalog.
 - `HUMAN/NEOSTACKS/` and `HUMAN/NEOBLOCKS/` are the intended middle layers beneath sleeves.
 - `HUMAN/MOLT-BLOCKS/` contains the smallest conceptual families.
-
-## Current status
-- public-readable
-- some categories populated
-- some categories placeholder/deferred
 
 ## Sleeve lane clarification
 Two sleeve shelves exist on purpose:

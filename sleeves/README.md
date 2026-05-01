@@ -1,6 +1,6 @@
-# Public Sleeve Lane
+﻿# Public Sleeve Lane
 
-This sleeve lane is the public-facing sibling of the private `UMG_Envoy_Resleever` sleeve lane.
+This sleeve lane is the public-facing sibling of a stronger private/internal sleeve lane used during broader development and curation.
 
 It is no longer treated as a raw compatibility mirror only.
 It is now a **curated public sleeve lane** with explicit promotion posture for each direct sleeve entry.
@@ -22,5 +22,6 @@ The public lane catalog id is the stable public-facing reference name.
 Payload/runtime ids inside sleeve JSON may differ and should not be confused with the public catalog id.
 
 ## Relationship to the private lane
-The private lane remains authoritative.
+The broader private/internal lane remains the stronger upstream source during current transition phases.
 This public sleeve lane carries approved/promoted or intentionally classified public-safe sleeve artifacts only.
+

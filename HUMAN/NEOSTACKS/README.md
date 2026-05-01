@@ -12,6 +12,33 @@ This is not the canonical machine-readable source lane, and it is not yet a comp
 - future contributors
 - AI agents that need a conceptual bridge layer
 
+## Status
+- public-readable
+- structured-reference first
+- richer walkthroughs deferred
+
+## Authority class
+- compatibility/reference
+
+## Provenance
+- direct for bridge purpose
+- inferred where category or sleeve continuity depends on machine-facing artifacts that are stronger than the public human layer
+
+## Navigation path
+```text
+MOLT Block
+→ NeoBlock
+→ NeoStack
+→ Sleeve
+```
+
+## Source path
+- `HUMAN/NEOSTACKS/`
+- machine-facing companion lane: `AI/NEOSTACKS/`
+
+## Placeholder/deferred note
+This lane is intentionally a bridge shelf, not yet a full walkthrough library for every stack.
+
 ## Canonical source rule
 Current status: human-readable explanation and structured-reference bridge.
 
@@ -44,6 +71,14 @@ The intended future path is:
 ```text
 Sleeve README → NeoStack page → NeoBlock page → MOLT block pages
 ```
+
+## Backlinks
+- [HUMAN SLEEVES categories](../SLEEVES/categories/README.md)
+- [HUMAN NEOBLOCKS](../NEOBLOCKS/README.md)
+- [HUMAN MOLT-BLOCKS](../MOLT-BLOCKS/README.md)
+
+## Future normalization note
+Richer public stack walkthroughs should wait until category authority and machine-facing middle-layer doctrine are approved.
 
 ## Where to go next
 - `HUMAN/SLEEVES/categories/README.md`

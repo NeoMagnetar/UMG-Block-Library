@@ -13,6 +13,33 @@ This should not currently be assumed to be the only canonical authoring shelf fo
 - future contributors
 - humans who need to understand the public/export lane
 
+## Status
+- machine-facing
+- package-facing
+- secondary/export lane pending clarification
+
+## Authority class
+- unresolved
+- export-facing secondary
+
+## Provenance
+- direct for lane existence and package/export posture
+- unresolved for final canonical authority
+
+## Navigation path
+```text
+MOLT Block
+→ NeoBlock
+→ NeoStack
+→ Sleeve
+```
+
+## Source path
+- `blocks/molt/subjects/`
+
+## Placeholder/deferred note
+This lane is real and useful, but it should not be treated as the final canonical authoring shelf without governance approval.
+
 ## Canonical source rule
 Current status: machine-facing secondary/export lane pending final canonical clarification.
 
@@ -20,11 +47,6 @@ Current status: machine-facing secondary/export lane pending final canonical cla
 - `AI/MOLT-BLOCKS/` is the canonical machine-readable source shelf.
 - `HUMAN/MOLT-BLOCKS/` is the readable explanation shelf for people.
 - `HUMAN/NEOBLOCKS/` and `HUMAN/NEOSTACKS/` are the intended bridge layers upward toward sleeves.
-
-## Current status
-- machine-facing
-- package-facing
-- secondary/export lane pending clarification
 
 ## AIM / USE / NEED note
 AIM / USE / NEED JSON exists here because this lane appears to support public-facing packaging/export of selected MOLT block families.
@@ -43,6 +65,15 @@ MOLT Block
 → NeoStack
 → Sleeve
 ```
+
+## Backlinks
+- [AI MOLT-BLOCKS](../../../AI/MOLT-BLOCKS/README.md)
+- [HUMAN MOLT-BLOCKS](../../../HUMAN/MOLT-BLOCKS/README.md)
+- [HUMAN NEOBLOCKS](../../../HUMAN/NEOBLOCKS/README.md)
+- [HUMAN NEOSTACKS](../../../HUMAN/NEOSTACKS/README.md)
+
+## Future normalization note
+This lane should remain explicitly unresolved until maintainers approve the long-term source vs export doctrine.
 
 ## Where to go next
 - `AI/MOLT-BLOCKS/README.md`
