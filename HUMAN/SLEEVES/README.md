@@ -1,6 +1,37 @@
 # Public HUMAN Sleeves
 
+## Purpose
 This folder contains the HUMAN-facing sleeve presentations for the public UMG Block Library lane.
+
+## Status
+- public-readable
+- compatibility/reference
+- mixed maturity across categories
+
+## Authority class
+- compatibility/reference
+
+## Provenance
+- direct for category and sleeve presence in the public HUMAN lane
+- mixed between direct source-backed, inferred, and placeholder entries depending on sleeve
+
+## Category maturity
+- mixed
+- business and finance are stronger
+- meta-random is governance-sensitive
+- creative, governance, and research remain lighter or placeholder-level in the HUMAN sleeve lane
+
+## Navigation path
+```text
+CATEGORY → SLEEVE → NEOSTACK → NEOBLOCK → MOLT BLOCK
+```
+
+## Source path
+- `HUMAN/SLEEVES/`
+- governance definitions: [`META/UMG-GOVERNANCE-REGISTRY.md`](../../META/UMG-GOVERNANCE-REGISTRY.md)
+
+## Placeholder/deferred note
+Not every HUMAN sleeve summary is a public runnable machine sleeve. HUMAN coverage may grow faster than machine-facing promotion.
 
 ## What these files are
 These are human-readable sleeve summaries meant to explain:
@@ -31,6 +62,14 @@ Use these informal posture levels when reading the HUMAN sleeve lane:
 - `meta-random/`
 - `research/`
 - `social-communication/`
+
+## Backlinks
+- [Sleeve index](./SLEEVE-INDEX.md)
+- [Sleeve promotion notes](./SLEEVE-PROMOTION-NOTES.md)
+- [Governance registry](../../META/UMG-GOVERNANCE-REGISTRY.md)
+
+## Future normalization note
+Do not treat this lane as the same thing as the curated public machine sleeve lane. Any sleeve promotion, category reassignment, or lane deduplication should wait for governance approval.
 
 See also:
 - `SLEEVE-INDEX.md`

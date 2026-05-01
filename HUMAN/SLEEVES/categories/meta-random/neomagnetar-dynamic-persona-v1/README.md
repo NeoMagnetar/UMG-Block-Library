@@ -41,5 +41,33 @@ Each domain-specific NeoBlock contains:
 - 1 subject block
 - 1 use block
 
+## Navigation status
+Status: compatibility/reference HUMAN sleeve summary with meaningful public value.
+
+Related NeoStacks:
+- `../../../NEOSTACKS/categories/meta-random/INDEX.md`
+
+Related NeoBlocks:
+- `../../../NEOBLOCKS/categories/meta-random/INDEX.md`
+
+Representative MOLT families:
+- aim
+- blueprint
+- directive
+- instruction
+- need
+- philosophy
+- primary
+- subject
+- use
+
+Canonical source references:
+- `AI/MANIFESTS/sleeve-catalog.json`
+- `sleeves/manifests/catalog.json`
+
+Backlinks:
+- Back to category: `../README.md`
+- Back to sleeve index: `../../SLEEVE-INDEX.md`
+
 ## Notes
 This sleeve is not the tiny public reference sample; it is a richer compatibility/reference sleeve that demonstrates multi-domain routing value in the public lane.

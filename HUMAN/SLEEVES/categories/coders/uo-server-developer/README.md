@@ -24,5 +24,29 @@ The extracted public structure currently carries one explicit NeoBlock example:
 - `SUBJ.ITEM.001` UO Item System Fundamentals
 - `BP.ITEM.001` Item Script Template
 
+## Navigation status
+Status: public HUMAN sleeve summary with direct structured category support.
+
+Related NeoStacks:
+- `../../../NEOSTACKS/categories/coders/INDEX.md`
+
+Related NeoBlocks:
+- `../../../NEOBLOCKS/categories/coders/INDEX.md`
+
+Representative MOLT families:
+- trigger
+- directive
+- instruction
+- subject
+- blueprint
+
+Canonical source references:
+- `AI/NEOSTACKS/categories/coders/slv-uo-server-developer-v1-0.json`
+- `AI/NEOBLOCKS/categories/coders/slv-uo-server-developer-v1-0.json`
+
+Backlinks:
+- Back to category: `../README.md`
+- Back to sleeve index: `../../SLEEVE-INDEX.md`
+
 ## Notes
 This sleeve is part of the public coder category and represents a domain-specialized server-development/operator posture.

@@ -1,5 +1,34 @@
 # Sleeve Promotion Notes
 
+## Purpose
+This note explains how to read HUMAN sleeve promotion posture without confusing it with machine-facing promotion.
+
+## Status
+- public-readable
+- governance/reference note
+
+## Authority class
+- compatibility/reference
+
+## Provenance
+- mixed direct and inferred
+- promotion decisions still depend on stronger machine-facing evidence and governance approval
+
+## Category maturity
+- mixed across categories and sleeves
+
+## Navigation path
+```text
+CATEGORY → SLEEVE → NEOSTACK → NEOBLOCK → MOLT BLOCK
+```
+
+## Source path
+- `HUMAN/SLEEVES/SLEEVE-PROMOTION-NOTES.md`
+- governance definitions: [`META/UMG-GOVERNANCE-REGISTRY.md`](../../META/UMG-GOVERNANCE-REGISTRY.md)
+
+## Placeholder/deferred note
+This note is guidance, not a machine-facing promotion manifest.
+
 Generated: 2026-04-20
 
 ## Key rule
@@ -31,3 +60,11 @@ Improve public quality by:
 - classifying sleeves honestly
 - promoting only real machine-facing sleeves when the structured source is strong enough
 - avoiding fake JSON sleeves made from prose-only materials
+
+## Backlinks
+- [HUMAN SLEEVES](./README.md)
+- [Sleeve index](./SLEEVE-INDEX.md)
+- [Governance registry](../../META/UMG-GOVERNANCE-REGISTRY.md)
+
+## Future normalization note
+No sleeve should be normalized, promoted, or removed from a public machine-facing lane based only on HUMAN summary prose.

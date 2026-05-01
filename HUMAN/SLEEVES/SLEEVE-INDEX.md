@@ -1,5 +1,35 @@
 # Public HUMAN Sleeve Index
 
+## Purpose
+This index gives maintainers and readers a quick maturity-oriented view of the public HUMAN sleeve lane.
+
+## Status
+- public-readable
+- compatibility/reference
+- generated summary index
+
+## Authority class
+- compatibility/reference
+
+## Provenance
+- mixed direct and inferred
+- should be read together with the governance registry before making promotion or normalization decisions
+
+## Category maturity
+- mixed across categories
+
+## Navigation path
+```text
+CATEGORY → SLEEVE → NEOSTACK → NEOBLOCK → MOLT BLOCK
+```
+
+## Source path
+- `HUMAN/SLEEVES/SLEEVE-INDEX.md`
+- governance definitions: [`META/UMG-GOVERNANCE-REGISTRY.md`](../../META/UMG-GOVERNANCE-REGISTRY.md)
+
+## Placeholder/deferred note
+This index is a public governance aid, not a machine-facing promotion contract.
+
 Generated: 2026-04-20
 
 ## Strongly grounded entries
@@ -32,3 +62,11 @@ The public machine-facing JSON sleeve set remains much smaller and more discipli
 
 This is intentional.
 The HUMAN lane may grow faster than the machine-facing sleeve lane.
+
+## Backlinks
+- [HUMAN SLEEVES](./README.md)
+- [Sleeve promotion notes](./SLEEVE-PROMOTION-NOTES.md)
+- [Governance registry](../../META/UMG-GOVERNANCE-REGISTRY.md)
+
+## Future normalization note
+Use this index to inform governance discussions, not to silently upgrade inferred or summary-only sleeves into machine-facing public promotion.
