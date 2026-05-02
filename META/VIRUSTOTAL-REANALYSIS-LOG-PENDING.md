@@ -1,53 +1,53 @@
-# VirusTotal Reanalysis Log — Pending Evidence
+# VirusTotal Reanalysis Log — Evidence Recorded
 
-This record is prepared from the reanalysis template and updated with actual collection attempts made in the current session.
-It still intentionally avoids inventing returned analysis values that have not been observed.
+This record began as a pending evidence log and is now updated with readable user-provided scan evidence.
+It remains constrained to the evidence actually visible in-session.
 
 ## Hash analyzed
 - `9DAF3A2E469B1E9FCE0E385327F71349B6C15877577A6D19D5172D6D4242B530` (ClawHub-scanned artifact hash)
 
 ## Analysis URL
 - attempted lookup URL: `https://www.virustotal.com/gui/file/9DAF3A2E469B1E9FCE0E385327F71349B6C15877577A6D19D5172D6D4242B530`
-- no session-visible detailed analysis URL or API result was retrievable from the current tool path
+- no directly captured interactive VT detail URL was available in-session
 
 ## Analysis date
-- evidence collection attempted on `2026-05-02T17:35:07Z`
+- visible timestamp from pasted evidence: `May 1, 2026, 8:35 AM`
+- initial collection attempt timestamp: `2026-05-02T17:35:07Z`
 
 ## Detection ratio
-- pending returned VirusTotal result
-- not observable from the currently available fetch/browser path
+- no visible malware detections in pasted evidence
+- vendor rows visible in the pasted evidence appeared `Undetected`
+- exact numeric VT detection ratio was not visible in the provided evidence and should not be invented
 
 ## Engines detecting
-- pending returned VirusTotal result
-- not observable from the currently available fetch/browser path
+- no visible detecting engines were shown in the pasted evidence
+- some engines showed `Unable to process file type`, which are not detections
 
 ## Detection names
-- pending returned VirusTotal result
-- not observable from the currently available fetch/browser path
+- no visible malware detection names were present in the pasted evidence
 
 ## Generic / heuristic detections
-- pending returned VirusTotal result
-- current project triage expectation remains that scanner friction may be heuristic/noisy around process-spawn or file-write surfaces, but this has not been confirmed from a returned VT result in-session
+- no visible generic or heuristic malware detection labels were present in the pasted evidence
+- `Unable to process file type` entries are not detections and should not be counted as such
 
 ## Specific detections
-- pending returned VirusTotal result
-- not observable from the currently available fetch/browser path
+- no visible specific malware detection labels were present in the pasted evidence
 
 ## Comments
-- A web search for the hash did not surface a directly readable VirusTotal result page.
-- A direct browser attach attempt failed because no attachable Chrome session was available.
-- A direct fetch of the VirusTotal GUI URL returned only generic page shell content and not analysis details.
+- Evidence source: user-pasted readable security vendor analysis for hash `9daf3a2e469b1e9fce0e385327f71349b6c15877577a6d19d5172d6d4242b530`.
+- Observed vendor state in the pasted evidence was consistent with `Undetected` / no visible malware labels.
+- ClawHub / file reputation verdict still appears `stale`.
 - Local supporting hash exists separately: `BA93BB6873BFECE60F8198ABFFEBB9FED54E68B82B47D2E74605865EA0F22639`.
 - The local supporting hash is not byte-identical proof of the ClawHub-scanned artifact.
-- Supporting security context should be read alongside `SECURITY.md` and `META/SCANNER-SENSITIVE-SURFACE-EXPLANATION.md`.
+- Supporting context should be read alongside `SECURITY.md`, `META/SCANNER-SENSITIVE-SURFACE-EXPLANATION.md`, and `META/COMPILER-BRIDGE-PRESERVATION-NOTE.md`.
 
 ## Next action
-- obtain actual VirusTotal analysis details through an interactive browser session or direct user-provided VT result link/screenshot
-- if VT details become visible, record detection ratio, engines, detection names, and exact heuristic/specific labels here
-- keep publish paused until real evidence is reviewed
+- maintain or submit the ClawHub refresh/requeue request using `META/CLAW-HUB-REFRESH-REQUEST-PACKET.md`
+- keep publish paused
+- classify the present state as Outcome B: clean/undetected vendor analysis while ClawHub stale remains
 
 ## Reviewer
-- OpenClaw agent (documentation/evidence collection attempt only)
+- OpenClaw agent, based on user-provided readable evidence
 
 ## Recheck date
-- next practical recheck should occur when an attachable browser session or direct VT result artifact is available
+- recheck after ClawHub refresh/requeue response or updated reputation panel becomes available
