@@ -1,0 +1,32 @@
+{
+  "triage_id": "TRIAGE.UMG.ENVOY.0_2_8.OVERVIEW.0001",
+  "phase": "TOOL-RUNTIME-23",
+  "subject_package": "umg-envoy-agent",
+  "subject_version": "0.2.8",
+  "triage_state": "active",
+  "interpretation": "scanner-sensitive but explainable",
+  "current_findings": [
+    "Likely scanner concern centers on child_process / spawn / fs.writeFileSync style surfaces.",
+    "No current evidence of hidden install-time malware behavior has been established.",
+    "No package publication or release-facing clearance is justified while triage remains active.",
+    "Static architecture and governance work may continue under preserved non-execution constraints."
+  ],
+  "explicit_non_findings": [
+    "No current evidence of hidden install-time malware behavior.",
+    "No current authorization for publish readiness.",
+    "No current justification for deleting compiler bridge work."
+  ],
+  "release_posture": {
+    "release_allowed": false,
+    "implementation_allowed": false,
+    "security_gate_required": true,
+    "summary": "Release-facing interpretation remains blocked while triage is active and package identity must not be collapsed."
+  },
+  "preserved_constraints": [
+    "Do not publish v0.2.9.",
+    "Do not remove compiler bridge code.",
+    "Do not alter release artifacts.",
+    "Do not run compiler bridge.",
+    "Do not assume local package hash equals ClawHub hash."
+  ]
+}

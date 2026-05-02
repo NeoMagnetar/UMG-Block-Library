@@ -1,0 +1,54 @@
+{
+  "ledger_id": "TRIAGE.UMG.ENVOY.0_2_8.EVIDENCE_LEDGER.0001",
+  "phase": "TOOL-RUNTIME-23",
+  "subject_package": "umg-envoy-agent",
+  "subject_version": "0.2.8",
+  "evidence_entries": [
+    {
+      "entry_id": "EVIDENCE.INTERPRETATION.0001",
+      "type": "current_interpretation",
+      "statement": "Scanner-sensitive but explainable.",
+      "confidence": "medium",
+      "supports": ["continued static documentation work"],
+      "does_not_support": ["release clearance", "implementation authorization"]
+    },
+    {
+      "entry_id": "EVIDENCE.NON_FINDING.0002",
+      "type": "non_finding",
+      "statement": "No current evidence of hidden install-time malware behavior.",
+      "confidence": "medium",
+      "supports": ["non-alarmist triage communication"],
+      "does_not_support": ["claim of package clearance", "publish authorization"]
+    },
+    {
+      "entry_id": "EVIDENCE.IDENTITY.0003",
+      "type": "identity_constraint",
+      "statement": "Local package hash must not be treated as identical proof of the ClawHub-scanned artifact.",
+      "confidence": "high",
+      "supports": ["continued release caution", "identity-separation reporting"],
+      "does_not_support": ["hash-identity collapse", "release justification"]
+    },
+    {
+      "entry_id": "EVIDENCE.PRESERVATION.0004",
+      "type": "preservation_rule",
+      "statement": "Compiler bridge work should be preserved unless concrete evidence proves it unsafe and the user explicitly approves removal.",
+      "confidence": "high",
+      "supports": ["bridge preservation", "architecture continuity"],
+      "does_not_support": ["bridge deletion for optics"]
+    }
+  ],
+  "non_evidence_entries": [
+    {
+      "entry_id": "NON_EVIDENCE.CLEARANCE.0001",
+      "statement": "Heuristic concern alone is not proof of malicious behavior."
+    },
+    {
+      "entry_id": "NON_EVIDENCE.PUBLISH_READY.0002",
+      "statement": "Static governance completeness is not evidence of publish readiness."
+    },
+    {
+      "entry_id": "NON_EVIDENCE.IDENTITY.0003",
+      "statement": "Local artifact possession is not proof of identity with the scanned ClawHub artifact."
+    }
+  ]
+}

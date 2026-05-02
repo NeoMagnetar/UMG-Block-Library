@@ -1,0 +1,38 @@
+{
+  "taxonomy_id": "TRIAGE.UMG.ENVOY.0_2_8.BLOCKERS.0001",
+  "phase": "TOOL-RUNTIME-23",
+  "blockers": [
+    {
+      "blocker_id": "TRIAGE_ACTIVE",
+      "severity": "terminal",
+      "meaning": "Active security triage remains unresolved for release-facing interpretation.",
+      "blocks": ["release review", "publish decision"],
+      "remediation_expectation": "Complete and review the triage documentation pack before any release-facing progression.",
+      "escalation_owner": "security_owner"
+    },
+    {
+      "blocker_id": "HASH_IDENTITY_UNRESOLVED",
+      "severity": "terminal",
+      "meaning": "Local package identity must not be collapsed into the ClawHub-scanned artifact identity.",
+      "blocks": ["release justification", "scan-equivalence claims"],
+      "remediation_expectation": "Preserve identity separation in all reporting and future release review materials.",
+      "escalation_owner": "security_owner"
+    },
+    {
+      "blocker_id": "PUBLISH_AUTHORIZATION_ABSENT",
+      "severity": "critical",
+      "meaning": "No current authorization exists to move from static planning into publication work.",
+      "blocks": ["publish preparation", "release mutation"],
+      "remediation_expectation": "Obtain explicit future authorization only after triage and publish-gate review are complete.",
+      "escalation_owner": "governance_owner"
+    },
+    {
+      "blocker_id": "BRIDGE_PRESERVATION_RULE_ACTIVE",
+      "severity": "elevated",
+      "meaning": "Compiler bridge work is preserved by rule and must not be removed as a superficial scan-remediation tactic.",
+      "blocks": ["bridge deletion", "compiler bridge removal"],
+      "remediation_expectation": "Retain bridge work unless concrete evidence and explicit approval justify change.",
+      "escalation_owner": "maintainer"
+    }
+  ]
+}

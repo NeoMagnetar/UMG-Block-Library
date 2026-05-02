@@ -1,0 +1,37 @@
+{
+  "inventory_id": "TRIAGE.UMG.ENVOY.0_2_8.SCAN_SURFACES.0001",
+  "phase": "TOOL-RUNTIME-23",
+  "subject_package": "umg-envoy-agent",
+  "subject_version": "0.2.8",
+  "scan_sensitive_surface_categories": [
+    {
+      "surface_id": "SURFACE.CHILD_PROCESS",
+      "surface_label": "child_process usage",
+      "reason_for_scanner_attention": "Process-spawn surfaces often trigger heuristic concern because they can be used for command execution.",
+      "current_interpretation": "scanner-sensitive but not by itself proof of malicious intent",
+      "documentation_action": "Require bounded explanation, purpose description, and preserved non-execution review language."
+    },
+    {
+      "surface_id": "SURFACE.SPAWN",
+      "surface_label": "spawn or spawn-adjacent process launch behavior",
+      "reason_for_scanner_attention": "Process launch behaviors may resemble automation or dropper patterns in broad heuristic scanners.",
+      "current_interpretation": "requires contextual review rather than assumption of malware behavior",
+      "documentation_action": "Separate legitimate orchestration rationale from unreviewed execution behavior."
+    },
+    {
+      "surface_id": "SURFACE.FILE_WRITE_SYNC",
+      "surface_label": "fs.writeFileSync or write-adjacent file mutation behavior",
+      "reason_for_scanner_attention": "File-writing behavior can attract heuristic concern when combined with packaging or execution features.",
+      "current_interpretation": "requires path-scope and intent explanation rather than automatic condemnation",
+      "documentation_action": "Document bounded write intent and distinguish packaging/governance artifacts from release mutation."
+    },
+    {
+      "surface_id": "SURFACE.BRIDGE_ORCHESTRATION",
+      "surface_label": "compiler bridge or runtime bridge orchestration references",
+      "reason_for_scanner_attention": "Bridge/orchestration concepts can appear risky when read without operational boundaries.",
+      "current_interpretation": "preserve as architecture work; do not infer unsafe behavior without evidence",
+      "documentation_action": "Keep bridge-preservation and no-execution constraints explicit in all triage materials."
+    }
+  ],
+  "documentation_boundary": "This inventory is interpretive triage packaging only. It does not run, test, mutate, or clear any code path."
+}
