@@ -1,0 +1,80 @@
+{
+  "snapshot_id": "SNAPSHOT.UMG.TOOL_RUNTIME.SECURITY_CONSTRAINTS.0022B",
+  "phase": "TOOL-RUNTIME-22B",
+  "subject": "Envoy v0.2.8 static-governance security boundary carry-forward",
+  "triage_context": {
+    "package": "umg-envoy-agent",
+    "version": "0.2.8",
+    "triage_state": "active",
+    "interpretation": "scanner-sensitive but explainable; static architecture work may proceed, but release/execution decisions remain blocked"
+  },
+  "hard_constraints": [
+    {
+      "constraint_id": "SEC.NO_PUBLISH_V0_2_9",
+      "statement": "Do not publish umg-envoy-agent v0.2.9.",
+      "blocks": ["release", "package publication"],
+      "documentation_only": true
+    },
+    {
+      "constraint_id": "SEC.NO_COMPILER_BRIDGE_REMOVAL",
+      "statement": "Do not remove compiler bridge code.",
+      "blocks": ["bridge deletion", "release mutation"],
+      "documentation_only": true
+    },
+    {
+      "constraint_id": "SEC.NO_RELEASE_ARTIFACT_MUTATION",
+      "statement": "Do not alter release artifacts.",
+      "blocks": ["release mutation"],
+      "documentation_only": true
+    },
+    {
+      "constraint_id": "SEC.NO_COMPILER_BRIDGE_RUN",
+      "statement": "Do not run compiler bridge.",
+      "blocks": ["bridge execution", "runtime execution"],
+      "documentation_only": true
+    },
+    {
+      "constraint_id": "SEC.NO_HASH_IDENTITY_COLLAPSE",
+      "statement": "Do not assume the local package hash equals the ClawHub hash.",
+      "blocks": ["identity collapse", "release justification"],
+      "documentation_only": true
+    },
+    {
+      "constraint_id": "SEC.TRIAGE_WORK_STATIC_ONLY",
+      "statement": "Preserve scanner/security remediation as documentation and triage work only unless explicitly authorized later.",
+      "blocks": ["implementation drift", "execution drift", "release drift"],
+      "documentation_only": true
+    }
+  ],
+  "governance_interpretation_rules": [
+    "Static readiness never equals implementation approval.",
+    "Implementation candidate never equals implementation authorized.",
+    "Release readiness never equals release authorized.",
+    "Structural validity is not permission.",
+    "Provider presence is not permission.",
+    "Approval token presence is not permission bypass."
+  ],
+  "allowed_work_under_constraints": [
+    "static documentation",
+    "schema drafting",
+    "example artifacts",
+    "indexing",
+    "cross-referencing",
+    "security-triage narrative packaging"
+  ],
+  "disallowed_work_under_constraints": [
+    "tool execution",
+    "provider activation",
+    "Desktop Bridge run",
+    "PhaseBridge run",
+    "compiler bridge run",
+    "runtime code patching",
+    "resolver code patching",
+    "harness implementation",
+    "dashboard implementation",
+    "granting approvals",
+    "publishing packages",
+    "altering release artifacts",
+    "deleting bridge work"
+  ]
+}

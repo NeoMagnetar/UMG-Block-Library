@@ -1,0 +1,217 @@
+{
+  "matrix_id": "MATRIX.UMG.TOOL_RUNTIME.PHASES.0022B",
+  "phase": "TOOL-RUNTIME-22B",
+  "scope": "Machine-readable phase-to-artifact-family mapping for TOOL-RUNTIME-1 through TOOL-RUNTIME-21.",
+  "phases": [
+    {
+      "phase_id": "TOOL-RUNTIME-1",
+      "title": "Architecture doctrine",
+      "primary_families": ["doctrine"],
+      "outputs": ["capability model", "toolpack model", "execution mode model", "business sleeve pattern"],
+      "implementation_allowed": false,
+      "release_allowed": false,
+      "security_gate_required": true
+    },
+    {
+      "phase_id": "TOOL-RUNTIME-2A",
+      "title": "Static artifact design set",
+      "primary_families": ["doctrine", "governance_design"],
+      "outputs": ["artifact family definitions", "trust/approval/rollback design", "tenant isolation scaffolding"],
+      "implementation_allowed": false,
+      "release_allowed": false,
+      "security_gate_required": true
+    },
+    {
+      "phase_id": "TOOL-RUNTIME-2B",
+      "title": "Formal schema draft layer",
+      "primary_families": ["schemas"],
+      "outputs": ["capability schema", "toolpack schema", "binding schema", "governance schemas"],
+      "implementation_allowed": false,
+      "release_allowed": false,
+      "security_gate_required": true
+    },
+    {
+      "phase_id": "TOOL-RUNTIME-3",
+      "title": "Resolver preview state model",
+      "primary_families": ["doctrine", "state_taxonomy"],
+      "outputs": ["preview state taxonomy", "blocked reason taxonomy"],
+      "implementation_allowed": false,
+      "release_allowed": false,
+      "security_gate_required": true
+    },
+    {
+      "phase_id": "TOOL-RUNTIME-4",
+      "title": "Preview output schemas and fixtures",
+      "primary_families": ["schemas", "fixtures"],
+      "outputs": ["preview output schemas", "governed preview fixtures", "preserved sentinel mismatch"],
+      "implementation_allowed": false,
+      "release_allowed": false,
+      "security_gate_required": true
+    },
+    {
+      "phase_id": "TOOL-RUNTIME-5",
+      "title": "Cross-schema validation expectation pack",
+      "primary_families": ["doctrine", "expectation_pack"],
+      "outputs": ["expected results", "validation matrix", "outcome classes"],
+      "implementation_allowed": false,
+      "release_allowed": false,
+      "security_gate_required": true
+    },
+    {
+      "phase_id": "TOOL-RUNTIME-6",
+      "title": "Harness contract",
+      "primary_families": ["doctrine", "harness_contract"],
+      "outputs": ["input bundle contract", "runner semantics", "consistency checks", "trace expectations"],
+      "implementation_allowed": false,
+      "release_allowed": false,
+      "security_gate_required": true
+    },
+    {
+      "phase_id": "TOOL-RUNTIME-7",
+      "title": "Harness report and synthetic trace layer",
+      "primary_families": ["schemas", "reporting_examples", "trace_examples"],
+      "outputs": ["harness result schema", "fixture bundle manifest", "synthetic traces", "consistency-failure examples"],
+      "implementation_allowed": false,
+      "release_allowed": false,
+      "security_gate_required": true
+    },
+    {
+      "phase_id": "TOOL-RUNTIME-8",
+      "title": "Machine-readable governance rules and reporting schemas",
+      "primary_families": ["schemas", "reporting_schemas"],
+      "outputs": ["consistency rule catalog", "UI mapping schema", "enterprise report schema", "audit export schema"],
+      "implementation_allowed": false,
+      "release_allowed": false,
+      "security_gate_required": true
+    },
+    {
+      "phase_id": "TOOL-RUNTIME-9",
+      "title": "Example reporting packs",
+      "primary_families": ["reporting_examples"],
+      "outputs": ["enterprise report example", "audit export example", "UI mapping example", "sample harness result bundle"],
+      "implementation_allowed": false,
+      "release_allowed": false,
+      "security_gate_required": true
+    },
+    {
+      "phase_id": "TOOL-RUNTIME-10",
+      "title": "Dashboard state example packs",
+      "primary_families": ["dashboard_examples"],
+      "outputs": ["preview-only dashboard", "dry-run dashboard", "blocked dashboard", "mismatch-note dashboard"],
+      "implementation_allowed": false,
+      "release_allowed": false,
+      "security_gate_required": true
+    },
+    {
+      "phase_id": "TOOL-RUNTIME-11",
+      "title": "Dashboard crosswalk layer",
+      "primary_families": ["dashboard_examples", "crosswalks"],
+      "outputs": ["dashboard section map", "screen-to-report crosswalk", "dashboard-to-audit crosswalk"],
+      "implementation_allowed": false,
+      "release_allowed": false,
+      "security_gate_required": true
+    },
+    {
+      "phase_id": "TOOL-RUNTIME-12",
+      "title": "Language and interpretation layer",
+      "primary_families": ["language_controls", "narratives"],
+      "outputs": ["severity taxonomy", "glossary", "narrative templates", "field dictionary"],
+      "implementation_allowed": false,
+      "release_allowed": false,
+      "security_gate_required": true
+    },
+    {
+      "phase_id": "TOOL-RUNTIME-13",
+      "title": "Governance communication standards",
+      "primary_families": ["language_controls", "communication_governance"],
+      "outputs": ["style guide", "terminology freeze", "evidence checklist framing", "localization readiness"],
+      "implementation_allowed": false,
+      "release_allowed": false,
+      "security_gate_required": true
+    },
+    {
+      "phase_id": "TOOL-RUNTIME-14",
+      "title": "Evidence, ownership, audience, QA, signoff workflow layer",
+      "primary_families": ["evidence", "ownership", "signoff_workflow"],
+      "outputs": ["evidence pack index", "ownership matrix", "audience profiles", "QA checklist", "signoff workflow"],
+      "implementation_allowed": false,
+      "release_allowed": false,
+      "security_gate_required": true
+    },
+    {
+      "phase_id": "TOOL-RUNTIME-15",
+      "title": "Governance pack manifest and signoff/escalation inventory layer",
+      "primary_families": ["schemas", "governance_examples", "signoff", "escalation"],
+      "outputs": ["pack manifest schema", "signoff record", "escalation taxonomy", "artifact inventory"],
+      "implementation_allowed": false,
+      "release_allowed": false,
+      "security_gate_required": true
+    },
+    {
+      "phase_id": "TOOL-RUNTIME-16",
+      "title": "Pack variants and lifecycle semantics",
+      "primary_families": ["variants", "lifecycle", "audience_packaging"],
+      "outputs": ["pack variants", "signoff status taxonomy", "review packet checklists", "lifecycle status map"],
+      "implementation_allowed": false,
+      "release_allowed": false,
+      "security_gate_required": true
+    },
+    {
+      "phase_id": "TOOL-RUNTIME-17",
+      "title": "Maturity, dependency, completeness, escalation models",
+      "primary_families": ["maturity", "dependency", "completeness", "escalation"],
+      "outputs": ["maturity model", "dependency graph", "completeness scoring", "escalation thresholds"],
+      "implementation_allowed": false,
+      "release_allowed": false,
+      "security_gate_required": true
+    },
+    {
+      "phase_id": "TOOL-RUNTIME-18",
+      "title": "Readiness reporting examples",
+      "primary_families": ["readiness_reporting"],
+      "outputs": ["maturity assessment", "dependency health report", "completeness scoring report", "readiness dashboard summary"],
+      "implementation_allowed": false,
+      "release_allowed": false,
+      "security_gate_required": true
+    },
+    {
+      "phase_id": "TOOL-RUNTIME-19",
+      "title": "Readiness packet and decision baseline",
+      "primary_families": ["readiness_packets", "decision_records", "narratives"],
+      "outputs": ["readiness packet example", "maturity-to-review crosswalk", "static assessment narratives", "review decision record baseline"],
+      "implementation_allowed": false,
+      "release_allowed": false,
+      "security_gate_required": true
+    },
+    {
+      "phase_id": "TOOL-RUNTIME-20",
+      "title": "Readiness packet schemas and decision taxonomy",
+      "primary_families": ["schemas", "readiness_packets", "decision_records", "status_taxonomy"],
+      "outputs": ["readiness packet schema", "decision record schema", "packet variants", "decision status taxonomy"],
+      "implementation_allowed": false,
+      "release_allowed": false,
+      "security_gate_required": true
+    },
+    {
+      "phase_id": "TOOL-RUNTIME-21",
+      "title": "Readiness packet example variants and decision record variants",
+      "primary_families": ["readiness_packets", "decision_records", "narratives", "validation_checklists"],
+      "outputs": ["packet example variants", "decision record variants", "dependency health narratives", "validation checklist pack"],
+      "implementation_allowed": false,
+      "release_allowed": false,
+      "security_gate_required": true
+    }
+  ],
+  "global_constraints": [
+    "static governance architecture only",
+    "no runtime implementation",
+    "no resolver implementation",
+    "no harness implementation",
+    "no dashboard implementation",
+    "no provider activation",
+    "no bridge execution",
+    "no compiler bridge run",
+    "no release mutation",
+    "no v0.2.9 publish"
+  ]
+}

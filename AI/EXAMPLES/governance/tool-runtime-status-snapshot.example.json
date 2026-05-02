@@ -1,0 +1,93 @@
+{
+  "snapshot_id": "SNAPSHOT.UMG.TOOL_RUNTIME.STATUS.0022B",
+  "phase": "TOOL-RUNTIME-22B",
+  "based_on_commit": "f50ddfa",
+  "captured_state": {
+    "stack_lane": "static_governance_only",
+    "current_completion_boundary": "TOOL-RUNTIME-22 human-readable index complete; machine-readable supplements added in TOOL-RUNTIME-22B.",
+    "current_stack_includes": [
+      "architecture doctrine",
+      "artifact doctrine",
+      "capability/toolpack/governance schemas",
+      "preview output schemas",
+      "governed fixtures",
+      "expected results and validation matrices",
+      "non-executing harness contract",
+      "synthetic trace/report surfaces",
+      "reporting schemas and examples",
+      "dashboard examples and crosswalks",
+      "language and terminology controls",
+      "evidence/remediation/ownership/signoff support",
+      "maturity/dependency/completeness/escalation models",
+      "readiness packet schemas and decision schemas",
+      "readiness packet examples and decision record variants",
+      "human-readable index and rollup",
+      "machine-readable index supplements"
+    ],
+    "current_stack_excludes": [
+      "runtime implementation",
+      "resolver implementation",
+      "harness implementation",
+      "dashboard implementation",
+      "tool execution",
+      "provider invocation",
+      "Desktop Bridge execution",
+      "PhaseBridge execution",
+      "compiler bridge execution",
+      "release authorization"
+    ]
+  },
+  "status_flags": {
+    "implementation_allowed": false,
+    "release_allowed": false,
+    "security_gate_required": true,
+    "runtime_execution_allowed": false,
+    "release_mutation_allowed": false,
+    "compiler_bridge_run_allowed": false,
+    "compiler_bridge_removal_allowed": false
+  },
+  "maturity_snapshot": {
+    "current_maturity_level": "M6_reviewed_static",
+    "target_maturity_level": "M7_implementation_candidate",
+    "maturity_summary": "The stack is mature as a reviewed static governance bundle but remains below any authorized implementation posture.",
+    "implementation_candidate_is_only_packaging_semantics": true
+  },
+  "security_snapshot": {
+    "envoy_package": "umg-envoy-agent",
+    "envoy_version": "0.2.8",
+    "triage_state": "active",
+    "release_blocked": true,
+    "implementation_drift_blocked": true,
+    "preserved_constraints": [
+      "no v0.2.9 publish",
+      "no compiler bridge removal",
+      "no release artifact mutation",
+      "no compiler bridge run",
+      "no assumption that local package hash equals ClawHub hash"
+    ]
+  },
+  "review_snapshot": {
+    "allowed_review_postures": [
+      "accepted_static",
+      "accepted_with_conditions",
+      "rejected_static",
+      "deferred",
+      "blocked_security",
+      "superseded"
+    ],
+    "default_current_posture": "accepted_static_for_indexing_work; blocked_security_for_release_or_implementation_interpretation",
+    "recheck_required": true
+  },
+  "next_phase_snapshot": {
+    "recommended_phase_id": "TOOL-RUNTIME-23",
+    "recommended_title": "Checklist-to-Packet Crosswalks + Audience Review Bundle Manifests",
+    "static_only": true,
+    "not_authorized": [
+      "runtime behavior",
+      "resolver behavior",
+      "harness execution",
+      "provider activation",
+      "release mutation"
+    ]
+  }
+}

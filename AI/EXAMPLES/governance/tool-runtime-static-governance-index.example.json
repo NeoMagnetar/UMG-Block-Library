@@ -1,0 +1,159 @@
+{
+  "index_id": "INDEX.UMG.TOOL_RUNTIME.STATIC_GOVERNANCE.0022B",
+  "index_version": "0.1.0",
+  "phase": "TOOL-RUNTIME-22B",
+  "based_on_commit": "f50ddfa",
+  "previous_reference_commit": "53ec900",
+  "source_human_index": "META/TOOL-RUNTIME-22-STATIC-GOVERNANCE-PACK-INDEX.md",
+  "source_phase_rollup": "META/TOOL-RUNTIME-22-PHASE-SUMMARY-ROLLUP.md",
+  "governing_doctrine": {
+    "canonical_statement": [
+      "Sleeves declare.",
+      "Toolpacks provide.",
+      "Envoy validates.",
+      "OpenClaw gates execution."
+    ],
+    "preserved_rules": [
+      "static readiness never equals implementation approval",
+      "implementation candidate never equals implementation authorized",
+      "release readiness never equals release authorized",
+      "structural validity is not permission",
+      "provider presence is not permission",
+      "approval token presence is not permission bypass",
+      "preview may say possible",
+      "only runtime gate may say permitted"
+    ]
+  },
+  "security_context": {
+    "active_triage_package": "umg-envoy-agent",
+    "active_triage_version": "0.2.8",
+    "triage_state": "active",
+    "constraints": [
+      "no v0.2.9 publish",
+      "no compiler bridge removal",
+      "no release artifact mutation",
+      "no compiler bridge run",
+      "no assumption that local package hash equals ClawHub hash",
+      "preserve scanner/security remediation as documentation and triage work only unless explicitly authorized later"
+    ]
+  },
+  "stack_posture": {
+    "lane": "static_governance_only",
+    "implementation_allowed": false,
+    "release_allowed": false,
+    "security_gate_required": true,
+    "runtime_execution_allowed": false,
+    "resolver_implementation_allowed": false,
+    "harness_implementation_allowed": false,
+    "dashboard_implementation_allowed": false,
+    "summary": "The Tool Runtime stack is comprehensive as static governance architecture, but no runtime, resolver, harness, dashboard, implementation, or release authority is granted."
+  },
+  "artifact_families": [
+    {
+      "family_id": "doctrine",
+      "description": "Core design and interpretation doctrine for architecture, artifacts, preview, validation, and harness boundaries.",
+      "primary_paths": [
+        "AI/DOCTRINE/UMG_TOOL_RUNTIME_ARCHITECTURE.v0.1.md",
+        "AI/DOCTRINE/UMG_TOOL_RUNTIME_ARTIFACTS.v0.1.md",
+        "AI/DOCTRINE/UMG_TOOL_RUNTIME_RESOLVER_PREVIEW.v0.1.md",
+        "AI/DOCTRINE/UMG_TOOL_RUNTIME_VALIDATION_PACK.v0.1.md",
+        "AI/DOCTRINE/UMG_TOOL_RUNTIME_HARNESS_CONTRACT.v0.1.md"
+      ]
+    },
+    {
+      "family_id": "schemas",
+      "description": "Static machine-readable contracts for capability, toolpack, preview, reporting, governance, readiness, and review decision structures.",
+      "primary_paths": [
+        "AI/SCHEMAS/",
+        "AI/SCHEMAS/governance-readiness-packet.schema.json",
+        "AI/SCHEMAS/review-decision-record.schema.json"
+      ]
+    },
+    {
+      "family_id": "runtime_preview_examples",
+      "description": "Governed preview fixtures, expectations, traces, and harness-report examples.",
+      "primary_paths": [
+        "AI/EXAMPLES/runtime-preview/"
+      ]
+    },
+    {
+      "family_id": "reporting_and_dashboard",
+      "description": "Reporting examples, audit surfaces, dashboard state examples, and dashboard/report crosswalks.",
+      "primary_paths": [
+        "AI/EXAMPLES/reporting/",
+        "AI/EXAMPLES/dashboard/"
+      ]
+    },
+    {
+      "family_id": "governance_examples",
+      "description": "Governance manifests, signoff, escalation, maturity, dependency, readiness, decision, and checklist examples.",
+      "primary_paths": [
+        "AI/EXAMPLES/governance/"
+      ]
+    },
+    {
+      "family_id": "phase_meta",
+      "description": "Human-readable phase notes, summaries, and rollups across the Tool Runtime lane.",
+      "primary_paths": [
+        "META/TOOL-RUNTIME-*.md"
+      ]
+    }
+  ],
+  "review_entry_points": {
+    "fastest_reanchor": [
+      "AI/DOCTRINE/UMG_TOOL_RUNTIME_ARCHITECTURE.v0.1.md",
+      "AI/DOCTRINE/UMG_TOOL_RUNTIME_RESOLVER_PREVIEW.v0.1.md",
+      "AI/DOCTRINE/UMG_TOOL_RUNTIME_VALIDATION_PACK.v0.1.md",
+      "AI/DOCTRINE/UMG_TOOL_RUNTIME_HARNESS_CONTRACT.v0.1.md",
+      "AI/SCHEMAS/governance-readiness-packet.schema.json",
+      "AI/SCHEMAS/review-decision-record.schema.json",
+      "AI/EXAMPLES/governance/governance-readiness-packet.example.json",
+      "AI/EXAMPLES/governance/readiness-packet-variant-examples/",
+      "AI/EXAMPLES/governance/review-decision-record-variants/"
+    ],
+    "security_sensitive_reanchor": [
+      "META/TOOL-RUNTIME-13-GOVERNANCE-STYLE-GUIDE.md",
+      "META/TOOL-RUNTIME-19-DEPENDENCY-RISK-TAXONOMY.md",
+      "META/TOOL-RUNTIME-20-DEPENDENCY-HEALTH-SCORING.md",
+      "META/TOOL-RUNTIME-21-READINESS-VARIANTS.md"
+    ]
+  },
+  "current_identity": {
+    "is": [
+      "doctrine",
+      "schemas",
+      "fixtures",
+      "validation expectations",
+      "harness contract",
+      "reporting examples",
+      "dashboard examples",
+      "language controls",
+      "evidence/remediation/signoff scaffolding",
+      "maturity/dependency/completeness models",
+      "readiness packet and review decision packaging",
+      "example variants for readiness and decisions"
+    ],
+    "is_not": [
+      "runtime implementation",
+      "resolver implementation",
+      "harness implementation",
+      "dashboard implementation",
+      "provider activation",
+      "bridge execution",
+      "compiler execution",
+      "release authorization"
+    ]
+  },
+  "next_safe_phase": {
+    "phase_id": "TOOL-RUNTIME-23",
+    "title": "Checklist-to-Packet Crosswalks + Audience Review Bundle Manifests",
+    "deliverables": [
+      "checklist-to-packet crosswalk examples",
+      "packet-to-decision traceability examples",
+      "audience review bundle manifest examples",
+      "prohibited-interpretation crosswalk examples",
+      "security-triage companion review notes"
+    ],
+    "boundary": "static_only"
+  }
+}
