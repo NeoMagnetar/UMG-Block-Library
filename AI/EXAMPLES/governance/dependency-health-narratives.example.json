@@ -1,0 +1,44 @@
+{
+  "narratives": [
+    {
+      "narrative_id": "excellent_static_health",
+      "technical_summary": "Dependency references are complete, cross-linked, and internally consistent for static governance interpretation. Maturity, completeness, escalation, and evidence surfaces align without creating runtime authority.",
+      "governance_summary": "The packet may be treated as strongly prepared for static review and communication, but not as approval for implementation, execution, or release.",
+      "remediation_expectation": "Only routine maintenance and reference refreshes are expected unless a dependent artifact materially changes.",
+      "escalation_expectation": "No immediate escalation is required beyond ordinary review cadence; retain security gate awareness where applicable.",
+      "prohibited_interpretation": "Do not interpret excellent static health as permission to execute tools, run bridges, or publish releases."
+    },
+    {
+      "narrative_id": "strong_static_health",
+      "technical_summary": "Core dependency artifacts are present and credible, with only minor narrative or packaging gaps that do not compromise static governance usefulness.",
+      "governance_summary": "The packet is fit for continued static review and audience-ready packaging, but active security and authorization constraints still govern next-step limits.",
+      "remediation_expectation": "Address minor evidence, wording, or cross-reference gaps during the next maintenance pass.",
+      "escalation_expectation": "Escalate only if a minor gap begins to create interpretive risk or signoff ambiguity.",
+      "prohibited_interpretation": "Do not collapse strong static health into implementation-candidate approval or release readiness."
+    },
+    {
+      "narrative_id": "review_needed",
+      "technical_summary": "Dependencies are mostly present, but at least one supporting reference, signoff surface, or crosswalk narrative needs review before the packet should be treated as stable for its target audience.",
+      "governance_summary": "The packet can continue in the static lane, but reviewers should treat it as provisional until the identified review items are resolved.",
+      "remediation_expectation": "Refresh the missing or weak references, then rerun the applicable checklist pack before relying on the packet.",
+      "escalation_expectation": "Escalate to governance ownership if unresolved review items begin to affect audience interpretation or readiness scoring.",
+      "prohibited_interpretation": "Do not present a review-needed packet as finalized, approved, or implementation-capable."
+    },
+    {
+      "narrative_id": "remediation_required",
+      "technical_summary": "One or more dependencies, signoff links, or evidence bundles are incomplete enough to reduce confidence in the packet\u2019s static readiness posture.",
+      "governance_summary": "The packet should remain in remediation until the missing references and blocked checklist items are corrected or explicitly waived.",
+      "remediation_expectation": "Complete the missing artifacts, tighten the narrative language, and document the remediation outcome before re-review.",
+      "escalation_expectation": "Escalate to the designated review or governance owner if remediation spans multiple dependent artifacts or delays review milestones.",
+      "prohibited_interpretation": "Do not route a remediation-required packet into release-facing, execution-facing, or implementation-facing decisions."
+    },
+    {
+      "narrative_id": "blocked_dependency_health",
+      "technical_summary": "A terminal blocker remains active in the dependency chain, such as unresolved Envoy v0.2.8 security triage or a required signoff state that prevents advancement regardless of overall documentation maturity.",
+      "governance_summary": "Static packaging may continue for analysis and communication, but readiness advancement is blocked until the named blocker is resolved or formally superseded.",
+      "remediation_expectation": "Maintain the static-only boundary, document the blocker clearly, and wait for the blocking dependency to be resolved through the proper governance path.",
+      "escalation_expectation": "Keep the blocker escalated to the relevant security, release, or governance owner until it is resolved, waived, or superseded.",
+      "prohibited_interpretation": "Do not treat blocked dependency health as a signal to bypass policy, reinterpret approval tokens, or proceed with release mutation."
+    }
+  ]
+}

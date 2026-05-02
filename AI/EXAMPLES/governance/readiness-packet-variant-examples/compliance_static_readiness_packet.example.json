@@ -1,0 +1,39 @@
+{
+  "packet_id": "PKT.READINESS.RUNTIME.GOVERNANCE.0021.COMPLIANCE_STATIC",
+  "assessed_pack_id": "PACK.UMG.TOOL_RUNTIME.GOVERNANCE.0021",
+  "assessed_variant": "compliance_static_readiness_packet",
+  "maturity_assessment_ref": "AI/EXAMPLES/governance/maturity-assessment.example.json#M6_reviewed_static",
+  "dependency_health_ref": "AI/EXAMPLES/governance/dependency-health-report.example.json#compliance_static_health",
+  "completeness_scoring_ref": "AI/EXAMPLES/governance/completeness-scoring-report.example.json#compliance_static_readiness_packet",
+  "escalation_threshold_report_ref": "AI/EXAMPLES/governance/escalation-threshold-report.example.json#THRESH.INCOMPLETE_SIGNOFF.0001",
+  "readiness_dashboard_summary_ref": "AI/EXAMPLES/governance/readiness-dashboard-summary.example.json#compliance_static_readiness_packet",
+  "included_evidence_refs": [
+    "AI/DOCTRINE/UMG_TOOL_RUNTIME_ARCHITECTURE.v0.1.md",
+    "AI/DOCTRINE/UMG_TOOL_RUNTIME_VALIDATION_PACK.v0.1.md",
+    "AI/EXAMPLES/governance/maturity-assessment.example.json",
+    "AI/EXAMPLES/governance/dependency-health-report.example.json",
+    "AI/EXAMPLES/governance/completeness-scoring-report.example.json",
+    "AI/EXAMPLES/governance/escalation-threshold-report.example.json",
+    "META/TOOL-RUNTIME-19-DEPENDENCY-RISK-TAXONOMY.md",
+    "META/TOOL-RUNTIME-20-DEPENDENCY-HEALTH-SCORING.md",
+    "AI/EXAMPLES/reporting/compliance-evidence-checklists.example.json",
+    "AI/EXAMPLES/governance/readiness-packet-variants.example.json#compliance_static_readiness_packet"
+  ],
+  "included_signoff_refs": [
+    "AI/EXAMPLES/governance/signoff-record.example.json",
+    "AI/EXAMPLES/governance/review-decision-record.example.json",
+    "AI/EXAMPLES/reporting/review-signoff-workflow.example.json"
+  ],
+  "implementation_allowed": false,
+  "release_allowed": false,
+  "security_gate_required": true,
+  "readiness_summary": "Compliance static readiness packaging has the evidence and reference surfaces needed for formal review, but it remains constrained to static governance interpretation and cannot relax security, execution, or release boundaries.",
+  "active_constraints": [
+    "Static-only governance lane remains in force.",
+    "Tool execution, provider invocation, compiler bridge runs, and runtime implementation remain disallowed.",
+    "Envoy v0.2.8 security triage remains active and blocks release-facing interpretation.",
+    "Local package hash must not be treated as byte-identical proof of the ClawHub-scanned artifact.",
+    "No v0.2.9 publish, no release artifact mutation, and no compiler bridge removal are permitted in this phase."
+  ],
+  "expiration_or_recheck_date": "2026-06-18T00:00:00Z"
+}

@@ -1,0 +1,26 @@
+{
+  "decision_id": "DECISION.RUNTIME.GOVERNANCE.0021.DEFERRED",
+  "review_type": "compliance_packet_review",
+  "reviewed_packet_id": "PKT.READINESS.RUNTIME.GOVERNANCE.0021.COMPLIANCE_STATIC",
+  "decision_status": "deferred",
+  "rationale": "The compliance packet is directionally sound, but final review is deferred until the evidence bundle and signoff references are refreshed against the most current readiness checklist expectations.",
+  "conditions": [
+    "No audience-facing expansion before evidence references are refreshed."
+  ],
+  "blocked_reasons": [
+    "evidence_refresh_pending",
+    "signoff_alignment_recheck_pending"
+  ],
+  "required_followups": [
+    "Update evidence references to match the latest validation checklist pack.",
+    "Re-run a static checklist review before returning the packet for decision."
+  ],
+  "reviewer_roles": [
+    "compliance_reviewer",
+    "governance_owner"
+  ],
+  "expires_at": "2026-06-18T00:00:00Z",
+  "implementation_allowed": false,
+  "release_allowed": false,
+  "security_gate_required": true
+}

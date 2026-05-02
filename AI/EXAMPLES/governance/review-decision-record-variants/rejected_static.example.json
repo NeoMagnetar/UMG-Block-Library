@@ -1,0 +1,24 @@
+{
+  "decision_id": "DECISION.RUNTIME.GOVERNANCE.0021.REJECTED_STATIC",
+  "review_type": "completeness_review",
+  "reviewed_packet_id": "PKT.READINESS.RUNTIME.GOVERNANCE.0021.RELEASE_BLOCKED",
+  "decision_status": "rejected_static",
+  "rationale": "The packet is not rejected because release is blocked; it is rejected in its current static form because the presented signoff and packaging narrative would be too easy to misread as release progression rather than release prevention.",
+  "conditions": [],
+  "blocked_reasons": [
+    "release_progression_language_too_ambiguous",
+    "signoff_packaging_requires_static_clarification"
+  ],
+  "required_followups": [
+    "Rewrite the summary language to make the blocked posture unmistakable.",
+    "Add an explicit prohibited-interpretation note before re-review."
+  ],
+  "reviewer_roles": [
+    "governance_owner",
+    "review_owner"
+  ],
+  "expires_at": null,
+  "implementation_allowed": false,
+  "release_allowed": false,
+  "security_gate_required": true
+}

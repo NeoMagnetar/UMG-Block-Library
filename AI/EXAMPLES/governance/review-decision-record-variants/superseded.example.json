@@ -1,0 +1,25 @@
+{
+  "decision_id": "DECISION.RUNTIME.GOVERNANCE.0021.SUPERSEDED",
+  "review_type": "variant_packet_review",
+  "reviewed_packet_id": "PKT.READINESS.RUNTIME.GOVERNANCE.0021.IMPLEMENTATION_CANDIDATE",
+  "decision_status": "superseded",
+  "rationale": "This decision record is preserved as a static example of supersession. It models how an implementation-candidate packaging review could be replaced by a later packet revision without implying that implementation was ever permitted.",
+  "conditions": [
+    "Reference the replacement decision record whenever this example is cited."
+  ],
+  "blocked_reasons": [
+    "replaced_by_later_packet_revision"
+  ],
+  "required_followups": [
+    "Link the replacement packet and replacement decision in any future example bundle.",
+    "Retain the superseded record for audit continuity only."
+  ],
+  "reviewer_roles": [
+    "maintainer",
+    "governance_owner"
+  ],
+  "expires_at": null,
+  "implementation_allowed": false,
+  "release_allowed": false,
+  "security_gate_required": true
+}

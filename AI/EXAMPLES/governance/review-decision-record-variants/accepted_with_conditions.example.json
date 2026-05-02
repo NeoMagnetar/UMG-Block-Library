@@ -1,0 +1,29 @@
+{
+  "decision_id": "DECISION.RUNTIME.GOVERNANCE.0021.ACCEPTED_WITH_CONDITIONS",
+  "review_type": "enterprise_readiness_packet_review",
+  "reviewed_packet_id": "PKT.READINESS.RUNTIME.GOVERNANCE.0021.ENTERPRISE_STATIC",
+  "decision_status": "accepted_with_conditions",
+  "rationale": "The enterprise static packet is suitable for audience-ready review distribution, but only if it keeps release-blocked language explicit and avoids any implication that stakeholder polish equals execution authorization.",
+  "conditions": [
+    "Preserve explicit no-release and no-implementation language in all downstream summaries.",
+    "Retain the ClawHub-versus-local hash distinction in security narratives.",
+    "Do not remove compiler bridge preservation language while triage remains active."
+  ],
+  "blocked_reasons": [
+    "security_triage_active",
+    "release_authorization_absent"
+  ],
+  "required_followups": [
+    "Recheck audience wording after the next triage review window.",
+    "Refresh enterprise evidence references if dashboard or report examples are revised."
+  ],
+  "reviewer_roles": [
+    "governance_owner",
+    "security_owner",
+    "executive_reviewer"
+  ],
+  "expires_at": "2026-06-20T00:00:00Z",
+  "implementation_allowed": false,
+  "release_allowed": false,
+  "security_gate_required": true
+}

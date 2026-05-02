@@ -1,0 +1,30 @@
+{
+  "decision_id": "DECISION.RUNTIME.GOVERNANCE.0021.BLOCKED_SECURITY",
+  "review_type": "security_triage_packet_review",
+  "reviewed_packet_id": "PKT.READINESS.RUNTIME.GOVERNANCE.0021.SECURITY_TRIAGE",
+  "decision_status": "blocked_security",
+  "rationale": "Static review coverage is sufficient, but security triage remains active for umg-envoy-agent v0.2.8 and still blocks any implementation-candidate or release-facing interpretation. The local package hash mismatch must remain explicitly distinguished from the ClawHub-scanned artifact identity.",
+  "conditions": [
+    "Preserve no v0.2.9 publish and no release artifact mutation constraints.",
+    "Do not treat local and ClawHub hashes as interchangeable proof.",
+    "Do not remove or run compiler bridge components in response to this review."
+  ],
+  "blocked_reasons": [
+    "envoy_v0_2_8_security_triage_active",
+    "clawhub_local_hash_identity_unresolved",
+    "release_authority_blocked"
+  ],
+  "required_followups": [
+    "Recheck the decision after the next documented security triage milestone.",
+    "Maintain static-only work while the blocker remains active."
+  ],
+  "reviewer_roles": [
+    "security_owner",
+    "governance_owner",
+    "release_owner"
+  ],
+  "expires_at": "2026-05-30T00:00:00Z",
+  "implementation_allowed": false,
+  "release_allowed": false,
+  "security_gate_required": true
+}

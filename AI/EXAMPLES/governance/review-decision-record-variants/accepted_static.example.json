@@ -1,0 +1,24 @@
+{
+  "decision_id": "DECISION.RUNTIME.GOVERNANCE.0021.ACCEPTED_STATIC",
+  "review_type": "readiness_packet_variant_review",
+  "reviewed_packet_id": "PKT.READINESS.RUNTIME.GOVERNANCE.0021.INTERNAL_STATIC",
+  "decision_status": "accepted_static",
+  "rationale": "The internal static readiness packet is complete enough for continued governance review and packaging use. It preserves the static-only boundary and does not overstate implementation or release posture.",
+  "conditions": [
+    "Keep the package strictly in the static governance lane.",
+    "Continue to surface Envoy v0.2.8 security triage as an active blocker for release-facing interpretation."
+  ],
+  "blocked_reasons": [],
+  "required_followups": [
+    "Refresh the packet if maturity or dependency references change materially.",
+    "Recheck the packet before any future implementation-candidate review."
+  ],
+  "reviewer_roles": [
+    "governance_owner",
+    "maintainer"
+  ],
+  "expires_at": null,
+  "implementation_allowed": false,
+  "release_allowed": false,
+  "security_gate_required": true
+}

@@ -1,0 +1,213 @@
+{
+  "checklists": [
+    {
+      "checklist_id": "schema_completeness",
+      "required_fields": [
+        "packet_id",
+        "assessed_pack_id",
+        "assessed_variant",
+        "maturity_assessment_ref",
+        "dependency_health_ref",
+        "completeness_scoring_ref",
+        "escalation_threshold_report_ref",
+        "readiness_dashboard_summary_ref",
+        "implementation_allowed",
+        "release_allowed"
+      ],
+      "required_refs": [
+        "AI/SCHEMAS/governance-readiness-packet.schema.json",
+        "AI/SCHEMAS/review-decision-record.schema.json"
+      ],
+      "required_statuses": [
+        "implementation_allowed=false",
+        "release_allowed=false"
+      ],
+      "blocking_failures": [
+        "Missing schema-required field.",
+        "Unexpected field that breaks schema validity.",
+        "implementation_allowed set true.",
+        "release_allowed set true."
+      ],
+      "warning_failures": [
+        "Reference uses an outdated example path.",
+        "Narrative wording is underspecified for audience interpretation."
+      ],
+      "remediation_requirements": [
+        "Restore schema-valid structure before review.",
+        "Re-run a static validation pass after field corrections."
+      ]
+    },
+    {
+      "checklist_id": "dependency_completeness",
+      "required_fields": [
+        "dependency_health_ref",
+        "completeness_scoring_ref",
+        "escalation_threshold_report_ref"
+      ],
+      "required_refs": [
+        "AI/EXAMPLES/governance/dependency-health-report.example.json",
+        "AI/EXAMPLES/governance/completeness-scoring-report.example.json",
+        "AI/EXAMPLES/governance/escalation-threshold-report.example.json"
+      ],
+      "required_statuses": [
+        "dependency references present",
+        "escalation references present"
+      ],
+      "blocking_failures": [
+        "Missing dependency health reference.",
+        "Missing escalation threshold reference.",
+        "Dependency narrative contradicts blocked security posture."
+      ],
+      "warning_failures": [
+        "Completeness score is present but not variant-aligned.",
+        "Dependency references are technically present but too generic for the target audience."
+      ],
+      "remediation_requirements": [
+        "Align dependency references to the assessed variant.",
+        "Document any remaining gaps as static blockers rather than implied approvals."
+      ]
+    },
+    {
+      "checklist_id": "evidence_completeness",
+      "required_fields": [
+        "included_evidence_refs"
+      ],
+      "required_refs": [
+        "AI/DOCTRINE/UMG_TOOL_RUNTIME_ARCHITECTURE.v0.1.md",
+        "AI/DOCTRINE/UMG_TOOL_RUNTIME_VALIDATION_PACK.v0.1.md",
+        "META/TOOL-RUNTIME-20-DEPENDENCY-HEALTH-SCORING.md"
+      ],
+      "required_statuses": [
+        "at least one doctrine reference present",
+        "at least one dependency or maturity evidence reference present"
+      ],
+      "blocking_failures": [
+        "No included evidence references.",
+        "Evidence bundle omits the governing doctrine layer.",
+        "Evidence bundle omits the security-sensitive scoring or triage reference when required."
+      ],
+      "warning_failures": [
+        "Evidence bundle is complete but redundant.",
+        "Evidence bundle lacks audience-specific convenience references."
+      ],
+      "remediation_requirements": [
+        "Add the missing doctrine or scoring references.",
+        "Trim or annotate redundant evidence only after completeness is restored."
+      ]
+    },
+    {
+      "checklist_id": "signoff_completeness",
+      "required_fields": [
+        "included_signoff_refs"
+      ],
+      "required_refs": [
+        "AI/EXAMPLES/governance/signoff-record.example.json",
+        "AI/EXAMPLES/governance/review-decision-record.example.json"
+      ],
+      "required_statuses": [
+        "signoff refs present",
+        "decision record refs present"
+      ],
+      "blocking_failures": [
+        "No signoff references included.",
+        "Decision packaging lacks a signoff or review record surface.",
+        "Required reviewer roles are absent from the decision record variant."
+      ],
+      "warning_failures": [
+        "Signoff references exist but are not audience-specific.",
+        "Review roles are generic and may need refinement."
+      ],
+      "remediation_requirements": [
+        "Add the missing signoff or decision references.",
+        "Refresh reviewer role alignment before formal review."
+      ]
+    },
+    {
+      "checklist_id": "escalation_completeness",
+      "required_fields": [
+        "active_constraints",
+        "expiration_or_recheck_date"
+      ],
+      "required_refs": [
+        "AI/EXAMPLES/governance/escalation-threshold-report.example.json"
+      ],
+      "required_statuses": [
+        "recheck date present or explicitly null where allowed",
+        "active constraints documented"
+      ],
+      "blocking_failures": [
+        "Escalation threshold reference missing.",
+        "Packet omits active constraints.",
+        "A time-bounded decision omits expiration or recheck logic."
+      ],
+      "warning_failures": [
+        "Recheck date is present but not aligned to the stated blocker cadence.",
+        "Constraints are present but too vague for escalation ownership."
+      ],
+      "remediation_requirements": [
+        "Tie recheck timing to the appropriate review or triage cycle.",
+        "Rewrite constraints so escalation owners can act on them."
+      ]
+    },
+    {
+      "checklist_id": "security_triage_completeness",
+      "required_fields": [
+        "security_gate_required",
+        "readiness_summary",
+        "active_constraints"
+      ],
+      "required_refs": [
+        "AI/EXAMPLES/governance/review-decision-status-taxonomy.example.json",
+        "META/TOOL-RUNTIME-20-DEPENDENCY-HEALTH-SCORING.md"
+      ],
+      "required_statuses": [
+        "security_gate_required=true for triage-sensitive packets",
+        "release_allowed=false",
+        "implementation_allowed=false"
+      ],
+      "blocking_failures": [
+        "Security triage packet omits the active blocker narrative.",
+        "Packet weakens the ClawHub-versus-local hash distinction.",
+        "Packet suggests release or implementation may proceed while triage is active."
+      ],
+      "warning_failures": [
+        "Security summary is technically correct but too soft for release audiences.",
+        "Constraint list mentions triage without naming preservation boundaries."
+      ],
+      "remediation_requirements": [
+        "Restore explicit blocker wording and identity distinction.",
+        "Reassert no publish, no release mutation, and no compiler bridge run boundaries."
+      ]
+    },
+    {
+      "checklist_id": "audience_packaging_completeness",
+      "required_fields": [
+        "assessed_variant",
+        "readiness_summary",
+        "included_evidence_refs",
+        "included_signoff_refs"
+      ],
+      "required_refs": [
+        "AI/EXAMPLES/governance/readiness-packet-variants.example.json",
+        "AI/EXAMPLES/governance/review-decision-status-taxonomy.example.json"
+      ],
+      "required_statuses": [
+        "variant name aligns with audience packaging intent",
+        "summary avoids runtime or release overclaim"
+      ],
+      "blocking_failures": [
+        "Variant packaging conflicts with the declared audience scope.",
+        "Audience-ready summary implies approval or permission not granted by policy.",
+        "Decision status wording contradicts the packet's static-only posture."
+      ],
+      "warning_failures": [
+        "Packet is valid but overly technical for its declared audience.",
+        "Packet is audience-appropriate but missing a prohibited-interpretation cue."
+      ],
+      "remediation_requirements": [
+        "Rewrite the summary and evidence presentation for the target audience.",
+        "Add explicit prohibited-interpretation cues where confusion risk is high."
+      ]
+    }
+  ]
+}
