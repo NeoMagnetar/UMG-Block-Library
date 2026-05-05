@@ -1,0 +1,33 @@
+{
+  "identity": {
+    "artifact_id": "BLK.SUBJECT.UMG.LC.RUNTIME.v0.1",
+    "artifact_type": "molt_block",
+    "molt_type": "subject",
+    "version": "0.1.0",
+    "content_hash": null,
+    "package_hash": null
+  },
+  "provenance": {
+    "created": "2026-05-04",
+    "created_by": "ChatGPT",
+    "supervised_by": "Mag / NeoMagnetar",
+    "source_library": "UMG-Block-Library",
+    "source_library_version": "1.0.0-public-reference",
+    "origin": "langchain_neostack_creation_pass",
+    "review_state": "draft"
+  },
+  "block": {
+    "label": "LangChain Runtime Subject",
+    "category": "runtime_orchestration",
+    "text": "The subject is LangChain/LangGraph execution as an optional runtime bridge for model, tool, retrieval, and graph workflows.",
+    "tags": [
+      "umg",
+      "langchain",
+      "subject",
+      "runtime"
+    ],
+    "runtime_behavior_flags": [
+      "describes_runtime_surface"
+    ]
+  }
+}

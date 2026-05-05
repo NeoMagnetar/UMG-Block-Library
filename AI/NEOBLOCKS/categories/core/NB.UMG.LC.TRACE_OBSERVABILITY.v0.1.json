@@ -1,0 +1,77 @@
+{
+  "identity": {
+    "artifact_id": "NB.UMG.LC.TRACE_OBSERVABILITY.v0.1",
+    "artifact_type": "neoblock",
+    "human_library_code": null,
+    "content_hash": null,
+    "package_hash": null,
+    "version": "0.1.0"
+  },
+  "provenance": {
+    "created": "2026-05-04",
+    "created_by": "ChatGPT",
+    "supervised_by": "Mag / NeoMagnetar",
+    "source_library": "UMG-Block-Library",
+    "source_library_version": "1.0.0-public-reference",
+    "origin": "langchain_neostack_creation_pass",
+    "parent_artifact_ids": [
+      "NS.UMG.LANGCHAIN_BRIDGE.v0.1"
+    ],
+    "review_state": "draft"
+  },
+  "neoblock": {
+    "name": "LangChain Trace Observability",
+    "description": "Map LangChain/LangGraph/tool events into UMG RuntimeSpec Trace events.",
+    "status": "draft_active_candidate",
+    "version": "0.1.0",
+    "category": "framework_specific",
+    "tags": [
+      "umg",
+      "langchain",
+      "trace",
+      "observability"
+    ],
+    "composition": {
+      "molt_block_ids": [
+        "BLK.BLUEPRINT.UMG.LC.RUNTIME_OUTPUT.v0.1"
+      ],
+      "ordered_steps": [
+        {
+          "id": "step.lc.trace.collect",
+          "uses": [
+            "BLK.BLUEPRINT.UMG.LC.RUNTIME_OUTPUT.v0.1"
+          ],
+          "mode": "serial",
+          "condition": "trace.enabled == true",
+          "notes": "Collect provider selection, tool decisions, tool calls, retrieved context, approval checkpoints, errors, and final result."
+        }
+      ],
+      "merge_rules": []
+    },
+    "molt_roles": {},
+    "geometry": null,
+    "capabilities": [
+      "CAP.LC.TRACE.EMIT",
+      "CAP.UMG.RUNTIME_SPEC.TRACE"
+    ],
+    "governance": {
+      "directive_ids": [
+        "BLK.INSTRUCTION.UMG.LC.REQUIRE_SLEEVE_AUTHORITY.v0.1"
+      ],
+      "policy_links": [
+        "permission.contract.json",
+        "runtime.contract.json"
+      ],
+      "route_constraints": [
+        "requires_explicit_stack_activation",
+        "must_return_trace_events"
+      ]
+    },
+    "examples": [],
+    "notes": ""
+  },
+  "metadata": {
+    "stage": "LangChain NeoStack v0.1 package pass",
+    "batch": "langchain_bridge_initial_full_stack"
+  }
+}

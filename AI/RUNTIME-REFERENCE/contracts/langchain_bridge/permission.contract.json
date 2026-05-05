@@ -1,0 +1,60 @@
+{
+  "contract_id": "CONTRACT.UMG.LANGCHAIN_BRIDGE.PERMISSION.v0.1",
+  "default_policy": "deny_if_not_explicitly_allowed",
+  "permission_levels": {
+    "read_only": {
+      "may_execute_without_approval": true,
+      "examples": [
+        "search",
+        "read",
+        "summarize",
+        "classify"
+      ]
+    },
+    "draft_only": {
+      "may_execute_without_approval": true,
+      "examples": [
+        "create draft",
+        "prepare patch",
+        "generate export without publishing"
+      ]
+    },
+    "safe_execute": {
+      "may_execute_without_approval": true,
+      "examples": [
+        "create temp file",
+        "run reversible low-risk operation"
+      ]
+    },
+    "approval_required": {
+      "may_execute_without_approval": false,
+      "examples": [
+        "send email",
+        "update CRM record",
+        "publish content",
+        "run shell command"
+      ]
+    },
+    "blocked": {
+      "may_execute_without_approval": false,
+      "examples": [
+        "delete records",
+        "access undeclared system",
+        "exfiltrate secrets"
+      ]
+    }
+  },
+  "risk_policy": {
+    "low": "allow_if_declared",
+    "medium": "allow_if_declared_or_checkpoint",
+    "high": "approval_required",
+    "destructive": "approval_required",
+    "sensitive": "approval_required"
+  },
+  "model_exposure_policy": {
+    "secrets": "never expose to model text",
+    "credentials": "runtime binding only",
+    "tool_results": "redact according to tool contract"
+  },
+  "trace_required": true
+}

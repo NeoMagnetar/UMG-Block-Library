@@ -1,0 +1,189 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "CONTRACT.UMG.LANGCHAIN_BRIDGE.RUNTIME.v0.1",
+  "title": "UMG LangChain Bridge Runtime Contract",
+  "type": "object",
+  "required": [
+    "neostack_id",
+    "call_mode",
+    "sleeve_id",
+    "task",
+    "provider",
+    "tools",
+    "trace"
+  ],
+  "properties": {
+    "neostack_id": {
+      "const": "NS.UMG.LANGCHAIN_BRIDGE.v0.1"
+    },
+    "call_mode": {
+      "enum": [
+        "simple_agent",
+        "langgraph_workflow",
+        "rag",
+        "tool_bridge_only",
+        "validation_only"
+      ]
+    },
+    "bridge_mode": {
+      "enum": [
+        "direct_openclaw_tool_bridge",
+        "mcp_adapter_bridge",
+        "mock_test_bridge"
+      ]
+    },
+    "sleeve_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "task": {
+      "type": "object",
+      "required": [
+        "user_intent"
+      ],
+      "properties": {
+        "user_intent": {
+          "type": "string"
+        },
+        "input": {},
+        "constraints": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "provider": {
+      "type": "object",
+      "required": [
+        "mode"
+      ],
+      "properties": {
+        "mode": {
+          "enum": [
+            "static",
+            "dynamic",
+            "local",
+            "fallback"
+          ]
+        },
+        "preferred": {
+          "type": "string"
+        },
+        "fallback": {
+          "type": "string"
+        },
+        "model": {
+          "type": "string"
+        },
+        "temperature": {
+          "type": "number"
+        },
+        "max_tokens": {
+          "type": "integer"
+        }
+      }
+    },
+    "tools": {
+      "type": "object",
+      "properties": {
+        "allowed": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "approval_required": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "blocked": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "definitions": {
+          "type": "array",
+          "items": {
+            "$ref": "tool.contract.json#/$defs/tool_definition"
+          }
+        }
+      }
+    },
+    "retrieval": {
+      "type": "object",
+      "properties": {
+        "enabled": {
+          "type": "boolean"
+        },
+        "mode": {
+          "enum": [
+            "2_step_rag",
+            "agentic_rag",
+            "hybrid_rag"
+          ]
+        },
+        "sources": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "langgraph": {
+      "type": "object",
+      "properties": {
+        "enabled": {
+          "type": "boolean"
+        },
+        "checkpointing": {
+          "type": "boolean"
+        },
+        "human_in_loop": {
+          "type": "boolean"
+        },
+        "max_steps": {
+          "type": "integer"
+        }
+      }
+    },
+    "output": {
+      "type": "object",
+      "properties": {
+        "structured": {
+          "type": "boolean"
+        },
+        "schema_name": {
+          "type": "string"
+        },
+        "json_schema": {
+          "type": "object"
+        }
+      }
+    },
+    "trace": {
+      "type": "object",
+      "required": [
+        "enabled"
+      ],
+      "properties": {
+        "enabled": {
+          "type": "boolean"
+        },
+        "mode": {
+          "enum": [
+            "minimal",
+            "full",
+            "debug"
+          ]
+        }
+      }
+    }
+  },
+  "additionalProperties": true
+}

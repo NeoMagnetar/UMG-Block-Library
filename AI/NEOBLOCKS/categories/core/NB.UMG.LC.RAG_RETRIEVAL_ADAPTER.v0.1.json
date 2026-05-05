@@ -1,0 +1,87 @@
+{
+  "identity": {
+    "artifact_id": "NB.UMG.LC.RAG_RETRIEVAL_ADAPTER.v0.1",
+    "artifact_type": "neoblock",
+    "human_library_code": null,
+    "content_hash": null,
+    "package_hash": null,
+    "version": "0.1.0"
+  },
+  "provenance": {
+    "created": "2026-05-04",
+    "created_by": "ChatGPT",
+    "supervised_by": "Mag / NeoMagnetar",
+    "source_library": "UMG-Block-Library",
+    "source_library_version": "1.0.0-public-reference",
+    "origin": "langchain_neostack_creation_pass",
+    "parent_artifact_ids": [
+      "NS.UMG.LANGCHAIN_BRIDGE.v0.1"
+    ],
+    "review_state": "draft"
+  },
+  "neoblock": {
+    "name": "LangChain RAG Retrieval Adapter",
+    "description": "Attach retrieval, vector store, or external knowledge-base context to the active task.",
+    "status": "draft_active_candidate",
+    "version": "0.1.0",
+    "category": "framework_specific",
+    "tags": [
+      "umg",
+      "langchain",
+      "rag",
+      "retrieval"
+    ],
+    "composition": {
+      "molt_block_ids": [
+        "BLK.SUBJECT.UMG.LC.RUNTIME.v0.1",
+        "BLK.BLUEPRINT.UMG.LC.RUNTIME_OUTPUT.v0.1"
+      ],
+      "ordered_steps": [
+        {
+          "id": "step.lc.rag.select_mode",
+          "uses": [
+            "BLK.SUBJECT.UMG.LC.RUNTIME.v0.1"
+          ],
+          "mode": "serial",
+          "condition": "retrieval.enabled == true",
+          "notes": "Select 2-step, agentic, or hybrid retrieval based on sleeve mode."
+        },
+        {
+          "id": "step.lc.rag.return_sources",
+          "uses": [
+            "BLK.BLUEPRINT.UMG.LC.RUNTIME_OUTPUT.v0.1"
+          ],
+          "mode": "serial",
+          "condition": "after_retrieval",
+          "notes": "Return retrieved chunks, source metadata, and confidence notes."
+        }
+      ],
+      "merge_rules": []
+    },
+    "molt_roles": {},
+    "geometry": null,
+    "capabilities": [
+      "CAP.LC.RETRIEVAL",
+      "CAP.LC.RAG.HYBRID"
+    ],
+    "governance": {
+      "directive_ids": [
+        "BLK.INSTRUCTION.UMG.LC.REQUIRE_SLEEVE_AUTHORITY.v0.1"
+      ],
+      "policy_links": [
+        "permission.contract.json",
+        "runtime.contract.json"
+      ],
+      "route_constraints": [
+        "requires_explicit_stack_activation",
+        "must_return_trace_events"
+      ]
+    },
+    "examples": [],
+    "notes": ""
+  },
+  "metadata": {
+    "stage": "LangChain NeoStack v0.1 package pass",
+    "batch": "langchain_bridge_initial_full_stack"
+  }
+}

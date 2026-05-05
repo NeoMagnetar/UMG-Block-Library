@@ -1,0 +1,35 @@
+{
+  "identity": {
+    "artifact_id": "BLK.INSTRUCTION.UMG.LC.FILTER_TOOLS_BY_PERMISSION.v0.1",
+    "artifact_type": "molt_block",
+    "molt_type": "instruction",
+    "version": "0.1.0",
+    "content_hash": null,
+    "package_hash": null
+  },
+  "provenance": {
+    "created": "2026-05-04",
+    "created_by": "ChatGPT",
+    "supervised_by": "Mag / NeoMagnetar",
+    "source_library": "UMG-Block-Library",
+    "source_library_version": "1.0.0-public-reference",
+    "origin": "langchain_neostack_creation_pass",
+    "review_state": "draft"
+  },
+  "block": {
+    "label": "Filter Tools By Permission",
+    "category": "tool_permission",
+    "text": "Expose only tools declared by the active sleeve permission profile. Unknown, blocked, destructive, or approval-required tools must be filtered or checkpointed before reaching the model/tool runtime.",
+    "tags": [
+      "umg",
+      "langchain",
+      "instruction",
+      "tools",
+      "permissions"
+    ],
+    "runtime_behavior_flags": [
+      "filter_tools_before_registration",
+      "approval_checkpoint_required"
+    ]
+  }
+}

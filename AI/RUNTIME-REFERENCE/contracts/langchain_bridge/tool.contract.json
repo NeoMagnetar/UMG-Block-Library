@@ -1,0 +1,84 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "CONTRACT.UMG.LANGCHAIN_BRIDGE.TOOL.v0.1",
+  "title": "UMG LangChain Bridge Tool Contract",
+  "$defs": {
+    "tool_definition": {
+      "type": "object",
+      "required": [
+        "tool_id",
+        "tool_name",
+        "description",
+        "runtime_target",
+        "input_schema",
+        "output_schema",
+        "permission_level",
+        "risk_class",
+        "requires_approval",
+        "trace_enabled"
+      ],
+      "properties": {
+        "tool_id": {
+          "type": "string"
+        },
+        "tool_name": {
+          "type": "string",
+          "pattern": "^[a-z][a-z0-9_]*$"
+        },
+        "description": {
+          "type": "string"
+        },
+        "runtime_target": {
+          "enum": [
+            "openclaw",
+            "mcp",
+            "mock",
+            "local_python",
+            "http_api"
+          ]
+        },
+        "input_schema": {
+          "type": "object"
+        },
+        "output_schema": {
+          "type": "object"
+        },
+        "permission_level": {
+          "enum": [
+            "read_only",
+            "draft_only",
+            "safe_execute",
+            "approval_required",
+            "blocked"
+          ]
+        },
+        "risk_class": {
+          "enum": [
+            "low",
+            "medium",
+            "high",
+            "destructive",
+            "sensitive"
+          ]
+        },
+        "requires_approval": {
+          "type": "boolean"
+        },
+        "trace_enabled": {
+          "type": "boolean"
+        },
+        "secrets_policy": {
+          "enum": [
+            "none",
+            "runtime_only_never_to_model",
+            "blocked"
+          ]
+        },
+        "approval_reason": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": true
+    }
+  }
+}

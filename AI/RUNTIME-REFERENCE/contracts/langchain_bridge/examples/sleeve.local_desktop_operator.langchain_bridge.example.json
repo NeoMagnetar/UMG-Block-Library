@@ -1,0 +1,45 @@
+{
+  "neostack_id": "NS.UMG.LANGCHAIN_BRIDGE.v0.1",
+  "call_mode": "tool_bridge_only",
+  "bridge_mode": "direct_openclaw_tool_bridge",
+  "sleeve_id": "SL.LOCAL_DESKTOP_OPERATOR.v0.1",
+  "task": {
+    "user_intent": "Inspect local desktop state and propose action.",
+    "input": "Find the active window and report whether it is safe to close."
+  },
+  "provider": {
+    "mode": "local",
+    "preferred": "local"
+  },
+  "tools": {
+    "allowed": [
+      "desktop_get_active_window",
+      "desktop_list_windows"
+    ],
+    "approval_required": [
+      "desktop_close_window",
+      "shell_run_command"
+    ],
+    "blocked": [
+      "delete_file"
+    ],
+    "definitions": []
+  },
+  "retrieval": {
+    "enabled": false
+  },
+  "langgraph": {
+    "enabled": true,
+    "checkpointing": true,
+    "human_in_loop": true,
+    "max_steps": 8
+  },
+  "output": {
+    "structured": true,
+    "schema_name": "desktop_inspection_result"
+  },
+  "trace": {
+    "enabled": true,
+    "mode": "full"
+  }
+}

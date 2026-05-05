@@ -1,0 +1,70 @@
+{
+  "manifest_id": "MANIFEST.NS.UMG.LANGCHAIN_BRIDGE.v0.1",
+  "artifact_id": "NS.UMG.LANGCHAIN_BRIDGE.v0.1",
+  "artifact_type": "neostack_manifest",
+  "version": "0.1.0",
+  "status": "draft_candidate_for_agent_review",
+  "library_paths": {
+    "neostack": "AI/NEOSTACKS/categories/core/NS.UMG.LANGCHAIN_BRIDGE.v0.1.json",
+    "neoblocks": "AI/NEOBLOCKS/categories/core/NB.UMG.LC.*.json",
+    "molt_blocks": "AI/MOLT-BLOCKS/{primary,subjects,instructions,directives,blueprints,philosophy}/BLK.*.json",
+    "human_readme": "HUMAN/NEOSTACKS/categories/core/NS.UMG.LANGCHAIN_BRIDGE.v0.1.md",
+    "runtime_contract": "AI/RUNTIME-REFERENCE/contracts/langchain_bridge/runtime.contract.json"
+  },
+  "declared_runtime_modes": [
+    "simple_agent",
+    "langgraph_workflow",
+    "rag",
+    "tool_bridge_only",
+    "validation_only"
+  ],
+  "declared_bridge_modes": [
+    "direct_openclaw_tool_bridge",
+    "mcp_adapter_bridge",
+    "mock_test_bridge"
+  ],
+  "required_contracts": [
+    "runtime.contract.json",
+    "tool.contract.json",
+    "permission.contract.json",
+    "trace.contract.json"
+  ],
+  "runtime_dependencies": {
+    "python": ">=3.11",
+    "langchain": "1.x recommended",
+    "langgraph": "1.x recommended",
+    "langchain-mcp-adapters": "required only for mcp_adapter_bridge",
+    "pydantic": ">=2"
+  },
+  "openclaw_requirements": {
+    "umg_plugin_entrypoints": [
+      "umg.neostack.inspect",
+      "umg.neostack.validate",
+      "umg.neostack.compile",
+      "umg.neostack.invoke",
+      "umg.neostack.trace",
+      "umg.neostack.list_tools",
+      "umg.neostack.permission_check"
+    ],
+    "tool_invocation_binding_required": true,
+    "notes": "The included adapter code supplies schema/permission/trace logic and stubs. The agent must bind invoke_openclaw_tool to the actual OpenClaw plugin/tool runtime."
+  },
+  "security_policy": {
+    "version_pin_required": true,
+    "dependency_audit_required": true,
+    "tool_sandbox_required_for_destructive_actions": true,
+    "secrets_must_not_be_exposed_to_model": true,
+    "human_approval_required_for_high_risk_tools": true,
+    "default_if_unknown_permission": "deny"
+  },
+  "source_notes": {
+    "umg_block_library": "https://github.com/NeoMagnetar/UMG-Block-Library",
+    "langchain_agents": "https://docs.langchain.com/oss/python/langchain/agents",
+    "langchain_tools": "https://docs.langchain.com/oss/python/langchain/tools",
+    "langgraph_overview": "https://docs.langchain.com/oss/python/langgraph/overview",
+    "langchain_mcp": "https://docs.langchain.com/oss/python/langchain/mcp",
+    "langchain_retrieval": "https://docs.langchain.com/oss/python/langchain/retrieval",
+    "langchain_structured_output": "https://docs.langchain.com/oss/python/langchain/structured-output",
+    "langchain_guardrails": "https://docs.langchain.com/oss/python/langchain/guardrails"
+  }
+}

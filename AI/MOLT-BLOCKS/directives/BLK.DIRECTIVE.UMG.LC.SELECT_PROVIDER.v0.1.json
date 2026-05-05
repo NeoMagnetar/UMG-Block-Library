@@ -1,0 +1,34 @@
+{
+  "identity": {
+    "artifact_id": "BLK.DIRECTIVE.UMG.LC.SELECT_PROVIDER.v0.1",
+    "artifact_type": "molt_block",
+    "molt_type": "directive",
+    "version": "0.1.0",
+    "content_hash": null,
+    "package_hash": null
+  },
+  "provenance": {
+    "created": "2026-05-04",
+    "created_by": "ChatGPT",
+    "supervised_by": "Mag / NeoMagnetar",
+    "source_library": "UMG-Block-Library",
+    "source_library_version": "1.0.0-public-reference",
+    "origin": "langchain_neostack_creation_pass",
+    "review_state": "draft"
+  },
+  "block": {
+    "label": "Select LangChain Provider",
+    "category": "provider_selection",
+    "text": "Select the LangChain model provider using sleeve-declared provider mode, preferred provider, local fallback, and budget/capability constraints.",
+    "tags": [
+      "umg",
+      "langchain",
+      "directive",
+      "provider"
+    ],
+    "runtime_behavior_flags": [
+      "provider_selection",
+      "fallback_allowed_if_declared"
+    ]
+  }
+}

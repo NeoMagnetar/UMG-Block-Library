@@ -1,0 +1,187 @@
+{
+  "identity": {
+    "artifact_id": "NS.UMG.LANGCHAIN_BRIDGE.v0.1",
+    "artifact_type": "neostack",
+    "human_library_code": null,
+    "content_hash": null,
+    "package_hash": null,
+    "version": "0.1.0"
+  },
+  "provenance": {
+    "created": "2026-05-04",
+    "created_by": "ChatGPT",
+    "supervised_by": "Mag / NeoMagnetar",
+    "source_library": "UMG-Block-Library",
+    "source_library_version": "1.0.0-public-reference",
+    "reference": "LangChain/LangGraph/MCP official docs + UMG Block Library public repo structure",
+    "origin": "langchain_neostack_creation_pass",
+    "parent_artifact_ids": [],
+    "review_state": "draft_candidate_for_agent_review"
+  },
+  "neostack": {
+    "name": "UMG LangChain Bridge",
+    "description": "Reusable UMG NeoStack for invoking LangChain/LangGraph/MCP workflows from sleeves while preserving UMG governance, OpenClaw tool permissions, structured outputs, and traceability.",
+    "status": "draft_active_candidate",
+    "version": "0.1.0",
+    "category": "framework_specific",
+    "tags": [
+      "umg",
+      "langchain",
+      "langgraph",
+      "mcp",
+      "openclaw",
+      "tool_bridge",
+      "runtime_orchestration",
+      "neostack"
+    ],
+    "composition": {
+      "neoblock_ids": [
+        "NB.UMG.LC.RUNTIME_INTAKE.v0.1",
+        "NB.UMG.LC.PROVIDER_ADAPTER.v0.1",
+        "NB.UMG.LC.PERMISSION_GATE.v0.1",
+        "NB.UMG.LC.TOOL_REGISTRY.v0.1",
+        "NB.UMG.LC.OPENCLAW_TOOL_BRIDGE.v0.1",
+        "NB.UMG.LC.MCP_ADAPTER.v0.1",
+        "NB.UMG.LC.LANGGRAPH_ORCHESTRATOR.v0.1",
+        "NB.UMG.LC.RAG_RETRIEVAL_ADAPTER.v0.1",
+        "NB.UMG.LC.STRUCTURED_OUTPUT_ADAPTER.v0.1",
+        "NB.UMG.LC.TRACE_OBSERVABILITY.v0.1",
+        "NB.UMG.LC.ERROR_RECOVERY.v0.1"
+      ],
+      "ordered_groups": [
+        {
+          "id": "group.lc.intake_and_authority",
+          "members": [
+            "NB.UMG.LC.RUNTIME_INTAKE.v0.1",
+            "NB.UMG.LC.PERMISSION_GATE.v0.1"
+          ],
+          "mode": "serial",
+          "condition": null,
+          "notes": "Normalize the call and enforce sleeve authority before any runtime is created."
+        },
+        {
+          "id": "group.lc.provider_and_tools",
+          "members": [
+            "NB.UMG.LC.PROVIDER_ADAPTER.v0.1",
+            "NB.UMG.LC.TOOL_REGISTRY.v0.1",
+            "NB.UMG.LC.OPENCLAW_TOOL_BRIDGE.v0.1",
+            "NB.UMG.LC.MCP_ADAPTER.v0.1"
+          ],
+          "mode": "routed_serial",
+          "condition": null,
+          "notes": "Select model and expose only approved tools through direct OpenClaw or MCP bridge mode."
+        },
+        {
+          "id": "group.lc.execution_modes",
+          "members": [
+            "NB.UMG.LC.LANGGRAPH_ORCHESTRATOR.v0.1",
+            "NB.UMG.LC.RAG_RETRIEVAL_ADAPTER.v0.1",
+            "NB.UMG.LC.STRUCTURED_OUTPUT_ADAPTER.v0.1"
+          ],
+          "mode": "conditional",
+          "condition": "selected by runtime.contract.json",
+          "notes": "Enable graph, retrieval, and structured output only when declared by the calling sleeve."
+        },
+        {
+          "id": "group.lc_trace_and_recovery",
+          "members": [
+            "NB.UMG.LC.TRACE_OBSERVABILITY.v0.1",
+            "NB.UMG.LC.ERROR_RECOVERY.v0.1"
+          ],
+          "mode": "serial",
+          "condition": null,
+          "notes": "Always normalize errors and emit UMG trace-compatible events."
+        }
+      ]
+    },
+    "routes": [
+      {
+        "route_id": "route.lc.simple_agent",
+        "target": "NB.UMG.LC.TOOL_REGISTRY.v0.1",
+        "condition": "call_mode == simple_agent",
+        "priority": 80,
+        "governance_links": [
+          "permission.contract.json"
+        ]
+      },
+      {
+        "route_id": "route.lc.langgraph_workflow",
+        "target": "NB.UMG.LC.LANGGRAPH_ORCHESTRATOR.v0.1",
+        "condition": "langgraph.enabled == true",
+        "priority": 90,
+        "governance_links": [
+          "runtime.contract.json",
+          "permission.contract.json"
+        ]
+      },
+      {
+        "route_id": "route.lc.rag",
+        "target": "NB.UMG.LC.RAG_RETRIEVAL_ADAPTER.v0.1",
+        "condition": "retrieval.enabled == true",
+        "priority": 70,
+        "governance_links": [
+          "runtime.contract.json"
+        ]
+      },
+      {
+        "route_id": "route.lc.direct_openclaw_tools",
+        "target": "NB.UMG.LC.OPENCLAW_TOOL_BRIDGE.v0.1",
+        "condition": "bridge_mode == direct_openclaw_tool_bridge",
+        "priority": 100,
+        "governance_links": [
+          "tool.contract.json",
+          "permission.contract.json"
+        ]
+      },
+      {
+        "route_id": "route.lc.mcp_tools",
+        "target": "NB.UMG.LC.MCP_ADAPTER.v0.1",
+        "condition": "bridge_mode == mcp_adapter_bridge",
+        "priority": 95,
+        "governance_links": [
+          "tool.contract.json",
+          "permission.contract.json"
+        ]
+      }
+    ],
+    "activation": {
+      "entry": "NB.UMG.LC.RUNTIME_INTAKE.v0.1",
+      "conditions": [
+        "active_sleeve.required_neostacks contains NS.UMG.LANGCHAIN_BRIDGE.v0.1",
+        "runtime_contract.call_mode in allowed_call_modes"
+      ],
+      "fallback": "return DENIED_NO_EXPLICIT_NEOSTACK_ACTIVATION",
+      "default_state": "inactive_until_called"
+    },
+    "overlays": [
+      "UMG governance stays above LangChain runtime",
+      "OpenClaw permissions filter before model/tool exposure",
+      "All outputs return through UMG RuntimeSpec/Trace-compatible shape"
+    ],
+    "geometry": null,
+    "capabilities": [
+      "CAP.LC.RUNTIME.INTAKE",
+      "CAP.LC.PROVIDER.SELECT",
+      "CAP.LC.PERMISSION.FILTER",
+      "CAP.LC.TOOL.REGISTER",
+      "CAP.LC.OPENCLAW.BRIDGE",
+      "CAP.LC.MCP.LOAD_TOOLS",
+      "CAP.LC.LANGGRAPH.ORCHESTRATE",
+      "CAP.LC.RETRIEVAL",
+      "CAP.LC.STRUCTURED_OUTPUT",
+      "CAP.LC.TRACE.EMIT",
+      "CAP.LC.ERROR.NORMALIZE"
+    ],
+    "examples": [
+      "examples/sleeve.crm_assistant.langchain_bridge.example.json",
+      "examples/sleeve.research_rag.langchain_bridge.example.json",
+      "examples/sleeve.local_desktop_operator.langchain_bridge.example.json"
+    ],
+    "notes": "This NeoStack is a reusable runtime bridge, not a replacement for UMG sleeves or compiler governance."
+  },
+  "metadata": {
+    "stage": "LangChain NeoStack v0.1 package pass",
+    "batch": "langchain_bridge_initial_full_stack",
+    "implementation_status": "package_skeleton_plus_runtime_adapters"
+  }
+}

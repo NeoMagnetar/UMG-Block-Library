@@ -1,0 +1,87 @@
+{
+  "identity": {
+    "artifact_id": "NB.UMG.LC.MCP_ADAPTER.v0.1",
+    "artifact_type": "neoblock",
+    "human_library_code": null,
+    "content_hash": null,
+    "package_hash": null,
+    "version": "0.1.0"
+  },
+  "provenance": {
+    "created": "2026-05-04",
+    "created_by": "ChatGPT",
+    "supervised_by": "Mag / NeoMagnetar",
+    "source_library": "UMG-Block-Library",
+    "source_library_version": "1.0.0-public-reference",
+    "origin": "langchain_neostack_creation_pass",
+    "parent_artifact_ids": [
+      "NS.UMG.LANGCHAIN_BRIDGE.v0.1"
+    ],
+    "review_state": "draft"
+  },
+  "neoblock": {
+    "name": "LangChain MCP Adapter",
+    "description": "Load tools, resources, or prompts from MCP servers when the sleeve enables MCP bridge mode.",
+    "status": "draft_active_candidate",
+    "version": "0.1.0",
+    "category": "framework_specific",
+    "tags": [
+      "umg",
+      "langchain",
+      "mcp",
+      "tool_bridge"
+    ],
+    "composition": {
+      "molt_block_ids": [
+        "BLK.DIRECTIVE.UMG.LC.ROUTE_TOOL_BRIDGE.v0.1",
+        "BLK.INSTRUCTION.UMG.LC.FILTER_TOOLS_BY_PERMISSION.v0.1"
+      ],
+      "ordered_steps": [
+        {
+          "id": "step.lc.mcp.load",
+          "uses": [
+            "BLK.DIRECTIVE.UMG.LC.ROUTE_TOOL_BRIDGE.v0.1"
+          ],
+          "mode": "serial",
+          "condition": "bridge_mode == mcp_adapter",
+          "notes": "Load tools from declared MCP servers only."
+        },
+        {
+          "id": "step.lc.mcp.filter",
+          "uses": [
+            "BLK.INSTRUCTION.UMG.LC.FILTER_TOOLS_BY_PERMISSION.v0.1"
+          ],
+          "mode": "serial",
+          "condition": "after_mcp_discovery",
+          "notes": "Permission-filter discovered MCP tools before exposure."
+        }
+      ],
+      "merge_rules": []
+    },
+    "molt_roles": {},
+    "geometry": null,
+    "capabilities": [
+      "CAP.LC.MCP.LOAD_TOOLS",
+      "CAP.LC.MCP.FILTER_TOOLS"
+    ],
+    "governance": {
+      "directive_ids": [
+        "BLK.INSTRUCTION.UMG.LC.REQUIRE_SLEEVE_AUTHORITY.v0.1"
+      ],
+      "policy_links": [
+        "permission.contract.json",
+        "runtime.contract.json"
+      ],
+      "route_constraints": [
+        "requires_explicit_stack_activation",
+        "must_return_trace_events"
+      ]
+    },
+    "examples": [],
+    "notes": ""
+  },
+  "metadata": {
+    "stage": "LangChain NeoStack v0.1 package pass",
+    "batch": "langchain_bridge_initial_full_stack"
+  }
+}

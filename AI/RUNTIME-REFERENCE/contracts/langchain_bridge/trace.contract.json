@@ -1,0 +1,39 @@
+{
+  "contract_id": "CONTRACT.UMG.LANGCHAIN_BRIDGE.TRACE.v0.1",
+  "trace_event_prefix": "LC_BRIDGE",
+  "required_events": [
+    "NEOSTACK_LOADED",
+    "RUNTIME_CONTRACT_VALIDATED",
+    "SLEEVE_PERMISSION_PROFILE_APPLIED",
+    "TOOLS_FILTERED",
+    "PROVIDER_SELECTED",
+    "AGENT_OR_GRAPH_CREATED",
+    "FINAL_RESULT_RETURNED"
+  ],
+  "optional_events": [
+    "MCP_TOOLS_DISCOVERED",
+    "OPENCLAW_TOOL_WRAPPED",
+    "TOOL_REGISTERED",
+    "TOOL_BLOCKED",
+    "TOOL_CALLED",
+    "TOOL_RESULT_RECEIVED",
+    "RAG_QUERY_STARTED",
+    "RAG_CONTEXT_RETRIEVED",
+    "HUMAN_APPROVAL_REQUIRED",
+    "HUMAN_APPROVAL_GRANTED",
+    "HUMAN_APPROVAL_DENIED",
+    "OUTPUT_PARSED",
+    "RUNTIME_ERROR",
+    "FALLBACK_SELECTED"
+  ],
+  "event_shape": {
+    "event_type": "string",
+    "timestamp_utc": "ISO-8601 string",
+    "sleeve_id": "string",
+    "neostack_id": "string",
+    "neoblock_id": "string|null",
+    "tool_id": "string|null",
+    "message": "string",
+    "data": "object"
+  }
+}

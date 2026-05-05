@@ -1,0 +1,56 @@
+{
+  "neostack_id": "NS.UMG.LANGCHAIN_BRIDGE.v0.1",
+  "call_mode": "langgraph_workflow",
+  "bridge_mode": "direct_openclaw_tool_bridge",
+  "sleeve_id": "SL.CLIENT_CRM_ASSISTANT.v0.1",
+  "task": {
+    "user_intent": "Search customer notes and draft a follow-up.",
+    "input": "Find recent customer activity for Jane Doe and draft a follow-up email.",
+    "constraints": [
+      "Do not send email without approval.",
+      "Do not update CRM without approval."
+    ]
+  },
+  "provider": {
+    "mode": "dynamic",
+    "preferred": "openai",
+    "fallback": "local"
+  },
+  "tools": {
+    "allowed": [
+      "crm_search_customer",
+      "crm_read_notes",
+      "email_create_draft"
+    ],
+    "approval_required": [
+      "email_send",
+      "crm_update_record"
+    ],
+    "blocked": [
+      "crm_delete_record"
+    ],
+    "definitions": []
+  },
+  "retrieval": {
+    "enabled": true,
+    "mode": "hybrid_rag",
+    "sources": [
+      "approved_business_docs",
+      "crm_notes"
+    ]
+  },
+  "langgraph": {
+    "enabled": true,
+    "checkpointing": true,
+    "human_in_loop": true,
+    "max_steps": 12
+  },
+  "output": {
+    "structured": true,
+    "schema_name": "crm_followup_result"
+  },
+  "trace": {
+    "enabled": true,
+    "mode": "full"
+  }
+}

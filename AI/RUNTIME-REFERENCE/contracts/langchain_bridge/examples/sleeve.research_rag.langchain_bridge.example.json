@@ -1,0 +1,45 @@
+{
+  "neostack_id": "NS.UMG.LANGCHAIN_BRIDGE.v0.1",
+  "call_mode": "rag",
+  "bridge_mode": "mock_test_bridge",
+  "sleeve_id": "SL.RESEARCH_WITH_RAG.v0.1",
+  "task": {
+    "user_intent": "Research a topic from approved documents and return cited notes.",
+    "input": "Summarize the known differences between UMG sleeves and conventional agents."
+  },
+  "provider": {
+    "mode": "dynamic",
+    "preferred": "openai",
+    "fallback": "local"
+  },
+  "tools": {
+    "allowed": [
+      "library_search",
+      "read_document"
+    ],
+    "approval_required": [],
+    "blocked": [
+      "write_document",
+      "delete_file"
+    ],
+    "definitions": []
+  },
+  "retrieval": {
+    "enabled": true,
+    "mode": "hybrid_rag",
+    "sources": [
+      "approved_library_docs"
+    ]
+  },
+  "langgraph": {
+    "enabled": false
+  },
+  "output": {
+    "structured": true,
+    "schema_name": "research_summary_result"
+  },
+  "trace": {
+    "enabled": true,
+    "mode": "full"
+  }
+}

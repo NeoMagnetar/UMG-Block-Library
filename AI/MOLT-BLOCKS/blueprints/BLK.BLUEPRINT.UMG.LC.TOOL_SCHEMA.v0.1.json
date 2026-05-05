@@ -1,0 +1,33 @@
+{
+  "identity": {
+    "artifact_id": "BLK.BLUEPRINT.UMG.LC.TOOL_SCHEMA.v0.1",
+    "artifact_type": "molt_block",
+    "molt_type": "blueprint",
+    "version": "0.1.0",
+    "content_hash": null,
+    "package_hash": null
+  },
+  "provenance": {
+    "created": "2026-05-04",
+    "created_by": "ChatGPT",
+    "supervised_by": "Mag / NeoMagnetar",
+    "source_library": "UMG-Block-Library",
+    "source_library_version": "1.0.0-public-reference",
+    "origin": "langchain_neostack_creation_pass",
+    "review_state": "draft"
+  },
+  "block": {
+    "label": "LangChain Tool Schema",
+    "category": "tool_schema",
+    "text": "Every exposed tool must declare tool_id, tool_name, description, input_schema, output_schema, permission_level, risk_class, requires_approval, runtime_target, and trace_enabled.",
+    "tags": [
+      "umg",
+      "langchain",
+      "blueprint",
+      "tools"
+    ],
+    "runtime_behavior_flags": [
+      "tool_schema_required"
+    ]
+  }
+}
