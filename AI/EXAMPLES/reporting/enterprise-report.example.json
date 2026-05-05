@@ -1,0 +1,81 @@
+{
+  "report_identity": {
+    "report_id": "ENT.REPORT.RUNTIME.PREVIEW.0001",
+    "generated_at": "2026-05-02T00:00:00Z",
+    "scope": "static_preview_validation_pack"
+  },
+  "executive_summary": "The UMG Tool Runtime governance pack is structurally complete for static preview validation. Most fixtures match their expected posture, with one preserved readiness mismatch sentinel retained for regression visibility.",
+  "fixture_inventory": [
+    "valid-preview-only-chain.json",
+    "dry-run-only-chain.json",
+    "blocked-trust-chain.json",
+    "expired-approval-chain.json",
+    "tenant-violation-chain.json",
+    "rollback-invalid-chain.json",
+    "provider-missing-chain.json",
+    "capability-unknown-chain.json"
+  ],
+  "schema_provenance": [
+    "AI/SCHEMAS/runtimespec-preview.schema.json",
+    "AI/SCHEMAS/validation-trace-preview.schema.json",
+    "AI/SCHEMAS/blocked-reason.schema.json",
+    "AI/SCHEMAS/harness-result-report.schema.json"
+  ],
+  "governance_provenance": [
+    "AI/DOCTRINE/UMG_TOOL_RUNTIME_VALIDATION_PACK.v0.1.md",
+    "AI/DOCTRINE/UMG_TOOL_RUNTIME_HARNESS_CONTRACT.v0.1.md",
+    "AI/EXAMPLES/consistency-rule-catalog.example.json"
+  ],
+  "validation_outcome_summary": {
+    "pass_count": 7,
+    "pass_with_mismatch_note_count": 1,
+    "fail_schema_count": 0,
+    "fail_expectation_count": 0,
+    "fail_consistency_count": 0
+  },
+  "blocked_issue_summary": [
+    {
+      "blocked_reason_code": "TRUST_BLOCKED",
+      "category": "trust",
+      "severity": "critical",
+      "human_summary": "Trust policy blocks the provider/capability chain.",
+      "remediation_guidance": "Review trust registry assignment.",
+      "retry_possible": false,
+      "requires_human_action": true
+    },
+    {
+      "blocked_reason_code": "TENANT_VIOLATION",
+      "category": "tenant",
+      "severity": "critical",
+      "human_summary": "Tenant boundary rules are violated.",
+      "remediation_guidance": "Restore tenant-compliant app/path/toolpack scope.",
+      "retry_possible": false,
+      "requires_human_action": true
+    },
+    {
+      "blocked_reason_code": "ROLLBACK_POLICY_INVALID",
+      "category": "rollback",
+      "severity": "error",
+      "human_summary": "Rollback policy is invalid for the risky action chain.",
+      "remediation_guidance": "Use a governed rollback policy such as reversible_file or checkpoint_required.",
+      "retry_possible": true,
+      "requires_human_action": true
+    }
+  ],
+  "trust_posture": "Trust governance is enforced and terminal when blocked.",
+  "approval_posture": "Approvals are structurally modeled, but missing, expired, or revoked approvals correctly prevent execution-ready posture.",
+  "rollback_posture": "Rollback validity is required for risky chains and blocks readiness when invalid.",
+  "tenant_compliance": "Tenant compliance is explicitly modeled and terminal when violated.",
+  "remediation_roadmap": [
+    "Keep resolver implementation non-executing until reporting and harness layers are complete.",
+    "Preserve and track the readiness mismatch sentinel in the preview-only fixture.",
+    "Formalize report examples and audit exports before any runtime integration work.",
+    "Do not widen authority while security triage on Envoy v0.2.8 remains active."
+  ],
+  "risk_summary": "Current risk remains governance/reporting only. No runtime execution, provider activation, or release mutation has occurred.",
+  "export_metadata": {
+    "format": "json",
+    "exported_by": "static_architecture_example",
+    "security_mode": "no_execution"
+  }
+}

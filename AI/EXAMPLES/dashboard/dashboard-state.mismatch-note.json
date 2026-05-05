@@ -1,0 +1,9 @@
+{
+  "screen_id": "DASH.MISMATCH_NOTE.0001",
+  "outcome": "PASS_WITH_MISMATCH_NOTE",
+  "mismatch_explanation": "The fixture preserves a known readiness/executable-state mismatch sentinel for regression visibility.",
+  "expected_readiness": "preview_only",
+  "observed_readiness_signal": "dry_run_only_semantics_in_executable_state",
+  "recommended_correction": "Align executable_state with governance summary or keep the mismatch explicitly documented as a sentinel.",
+  "preserved_sentinel_behavior": true
+}

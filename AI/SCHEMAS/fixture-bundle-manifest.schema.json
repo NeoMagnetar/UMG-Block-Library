@@ -1,0 +1,112 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://umg.envoy/schemas/fixture-bundle-manifest.schema.json",
+  "title": "UMG Fixture Bundle Manifest Schema v0.1",
+  "description": "Validating schema for static runtime preview fixture bundle manifests. Defines bundle metadata only and does not authorize execution.",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "bundle_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "version": {
+      "type": "string",
+      "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$"
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "description": {
+      "type": "string",
+      "minLength": 1
+    },
+    "fixture_root": {
+      "type": "string",
+      "minLength": 1
+    },
+    "schema_root": {
+      "type": "string",
+      "minLength": 1
+    },
+    "expected_results_file": {
+      "type": "string",
+      "minLength": 1
+    },
+    "validation_matrix_file": {
+      "type": "string",
+      "minLength": 1
+    },
+    "trace_expectations_file": {
+      "type": "string",
+      "minLength": 1
+    },
+    "included_fixtures": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "fixture_name": { "type": "string", "minLength": 1 },
+          "fixture_path": { "type": "string", "minLength": 1 },
+          "expected_result_id": { "type": "string", "minLength": 1 },
+          "trace_expectation_id": { "type": "string", "minLength": 1 },
+          "expected_outcome": {
+            "type": "string",
+            "enum": ["PASS", "PASS_WITH_MISMATCH_NOTE", "FAIL_SCHEMA", "FAIL_EXPECTATION", "FAIL_CONSISTENCY"]
+          },
+          "expected_final_readiness": {
+            "type": "string",
+            "enum": ["preview_only", "dry_run_only", "structurally_executable_pending_gate", "blocked"]
+          },
+          "known_mismatch": { "type": "boolean" },
+          "notes": {
+            "type": "array",
+            "items": { "type": "string", "minLength": 1 },
+            "uniqueItems": true
+          }
+        },
+        "required": [
+          "fixture_name",
+          "fixture_path",
+          "expected_result_id",
+          "trace_expectation_id",
+          "expected_outcome",
+          "expected_final_readiness",
+          "known_mismatch",
+          "notes"
+        ]
+      }
+    },
+    "excluded_fixtures": {
+      "type": "array",
+      "items": { "type": "string", "minLength": 1 },
+      "uniqueItems": true
+    },
+    "security_mode": {
+      "type": "string",
+      "const": "no_execution"
+    },
+    "runner_mode": {
+      "type": "string",
+      "const": "static_validation_only"
+    }
+  },
+  "required": [
+    "bundle_id",
+    "version",
+    "created_at",
+    "description",
+    "fixture_root",
+    "schema_root",
+    "expected_results_file",
+    "validation_matrix_file",
+    "trace_expectations_file",
+    "included_fixtures",
+    "excluded_fixtures",
+    "security_mode",
+    "runner_mode"
+  ]
+}

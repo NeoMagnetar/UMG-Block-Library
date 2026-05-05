@@ -1,0 +1,17 @@
+{
+  "screen_id": "DASH.PENDING_GATE.0001",
+  "readiness": "structurally_executable_pending_gate",
+  "all_structural_checks_pass": true,
+  "openclaw_gate_required": true,
+  "approval_token_summary": {
+    "approval_required": true,
+    "approval_state": "present",
+    "token_scope": "binding"
+  },
+  "execution_authorized": false,
+  "gate_required_banner": {
+    "enabled": true,
+    "label": "OpenClaw Runtime Gate Required",
+    "description": "Structural readiness does not authorize execution. Runtime gate approval is still required."
+  }
+}

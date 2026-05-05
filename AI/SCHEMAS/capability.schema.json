@@ -1,0 +1,153 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://umg.envoy/schemas/capability.schema.json",
+  "title": "UMG Capability Schema v0.1",
+  "description": "Validating schema for static UMG capability registry manifests. Defines structure only and does not grant permission or execution authority.",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "identity": {
+      "$ref": "./artifact.identity.schema.json"
+    },
+    "provenance": {
+      "$ref": "./provenance.schema.json"
+    },
+    "capability": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "capability_id": {
+          "type": "string",
+          "pattern": "^CAP\\.[A-Z0-9._-]+\\.v[0-9]+$"
+        },
+        "version": {
+          "type": "string",
+          "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$"
+        },
+        "description": {
+          "type": "string",
+          "minLength": 1
+        },
+        "risk_level": {
+          "type": "string",
+          "enum": ["low", "medium", "high", "critical"]
+        },
+        "blocked_by_default": {
+          "type": "boolean"
+        },
+        "approval_required": {
+          "type": "boolean"
+        },
+        "allowed_modes": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": ["preview", "dry_run", "assisted", "approved_execute", "blocked"]
+          },
+          "minItems": 1,
+          "uniqueItems": true
+        },
+        "provided_by_toolpacks": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^TP\\.[A-Z0-9._-]+\\.v[0-9]+$"
+          },
+          "minItems": 1,
+          "uniqueItems": true
+        },
+        "side_effect_level": {
+          "type": "string",
+          "enum": ["none", "read_only", "local_mutation", "workflow_transition", "external_action", "critical_action"]
+        },
+        "trust_tier": {
+          "type": "string",
+          "enum": ["TRUST.INTERNAL", "TRUST.OPENCLAW_VERIFIED", "TRUST.BUSINESS_VERIFIED", "TRUST.EXPERIMENTAL", "TRUST.BLOCKED"]
+        },
+        "audit_required": {
+          "type": "boolean"
+        },
+        "diagnostics": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "emitted_events": {
+              "type": "array",
+              "items": { "type": "string", "minLength": 1 },
+              "uniqueItems": true
+            },
+            "blocked_reasons": {
+              "type": "array",
+              "items": { "type": "string", "minLength": 1 },
+              "uniqueItems": true
+            },
+            "validation_notes": {
+              "type": "array",
+              "items": { "type": "string", "minLength": 1 },
+              "uniqueItems": true
+            }
+          },
+          "required": ["emitted_events", "blocked_reasons", "validation_notes"]
+        },
+        "notes": {
+          "type": ["string", "null"]
+        }
+      },
+      "required": [
+        "capability_id",
+        "version",
+        "description",
+        "risk_level",
+        "blocked_by_default",
+        "approval_required",
+        "allowed_modes",
+        "provided_by_toolpacks",
+        "side_effect_level",
+        "trust_tier",
+        "audit_required",
+        "diagnostics"
+      ],
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "risk_level": { "const": "critical" }
+            },
+            "required": ["risk_level"]
+          },
+          "then": {
+            "properties": {
+              "approval_required": { "const": true },
+              "blocked_by_default": { "const": true },
+              "allowed_modes": {
+                "contains": { "const": "approved_execute" }
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "trust_tier": { "const": "TRUST.BLOCKED" }
+            },
+            "required": ["trust_tier"]
+          },
+          "then": {
+            "properties": {
+              "blocked_by_default": { "const": true },
+              "allowed_modes": {
+                "maxItems": 1,
+                "items": { "const": "blocked" }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "metadata": {
+      "type": ["object", "null"],
+      "additionalProperties": true
+    }
+  },
+  "required": ["identity", "provenance", "capability"]
+}

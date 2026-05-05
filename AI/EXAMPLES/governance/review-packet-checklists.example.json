@@ -1,0 +1,67 @@
+{
+  "packets": [
+    {
+      "packet_id": "PKT.ARCHITECTURE_REVIEW.0001",
+      "required_files": ["runtime architecture doctrine", "tool contract doctrine", "artifact design doctrine"],
+      "required_evidence": ["non-execution boundary references", "phase coverage summary"],
+      "reviewer_roles": ["developer", "maintainer", "governance_owner"],
+      "pass_conditions": ["architecture doctrine complete", "execution not implied", "security boundary preserved"],
+      "fail_conditions": ["runtime authority implied", "missing phase linkage"],
+      "signoff_artifact_required": true
+    },
+    {
+      "packet_id": "PKT.SCHEMA_REVIEW.0001",
+      "required_files": ["schema set", "schema examples", "validation matrix"],
+      "required_evidence": ["schema coverage summary", "cross-schema alignment references"],
+      "reviewer_roles": ["developer", "maintainer"],
+      "pass_conditions": ["schema coverage complete", "no execution semantics encoded"],
+      "fail_conditions": ["schema drift", "execution authority implied"],
+      "signoff_artifact_required": true
+    },
+    {
+      "packet_id": "PKT.REPORTING_REVIEW.0001",
+      "required_files": ["enterprise report example", "audit export example", "field dictionary"],
+      "required_evidence": ["reporting schema references", "severity taxonomy references"],
+      "reviewer_roles": ["reporting_owner", "governance_owner"],
+      "pass_conditions": ["language consistent", "blocked reasons preserved", "no ambiguous permission wording"],
+      "fail_conditions": ["narrative drift", "mismatched field meaning"],
+      "signoff_artifact_required": true
+    },
+    {
+      "packet_id": "PKT.DASHBOARD_REVIEW.0001",
+      "required_files": ["dashboard states", "section map", "screen/report crosswalk"],
+      "required_evidence": ["severity legend", "UI mapping example"],
+      "reviewer_roles": ["reporting_owner", "maintainer"],
+      "pass_conditions": ["screen meanings consistent", "terminal states clear"],
+      "fail_conditions": ["dashboard ambiguity", "screen/report mismatch"],
+      "signoff_artifact_required": true
+    },
+    {
+      "packet_id": "PKT.COMPLIANCE_REVIEW.0001",
+      "required_files": ["compliance narratives", "evidence checklists", "audit export references"],
+      "required_evidence": ["blocked issue summaries", "tenant/trust wording"],
+      "reviewer_roles": ["compliance_reviewer", "audit_owner"],
+      "pass_conditions": ["evidence requirements explicit", "blocked states audit-safe"],
+      "fail_conditions": ["missing evidence standards", "unclear control wording"],
+      "signoff_artifact_required": true
+    },
+    {
+      "packet_id": "PKT.SECURITY_TRIAGE_REVIEW.0001",
+      "required_files": ["security triage notes", "ownership matrix", "governance pack manifest"],
+      "required_evidence": ["hash distinction note", "active constraint list"],
+      "reviewer_roles": ["security_owner", "maintainer"],
+      "pass_conditions": ["no publish implied", "no bridge execution implied", "hash distinction preserved"],
+      "fail_conditions": ["release mutation implied", "hash equivalence assumption present"],
+      "signoff_artifact_required": true
+    },
+    {
+      "packet_id": "PKT.RELEASE_READINESS_REVIEW.0001",
+      "required_files": ["governance pack manifest", "signoff records", "readiness review checklists"],
+      "required_evidence": ["security triage status", "release blocker references"],
+      "reviewer_roles": ["release_owner", "security_owner", "governance_owner"],
+      "pass_conditions": ["static governance complete", "release constraints preserved", "no runtime authority implied"],
+      "fail_conditions": ["security triage unresolved", "release_allowed implied"],
+      "signoff_artifact_required": true
+    }
+  ]
+}

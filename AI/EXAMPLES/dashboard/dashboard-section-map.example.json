@@ -1,0 +1,147 @@
+{
+  "sections": [
+    {
+      "section_id": "readiness_banner",
+      "display_name": "Readiness Banner",
+      "source_fields": ["readiness", "execution_authorized", "gate_required_banner"],
+      "report_targets": ["executive_summary", "validation_outcome_summary"],
+      "audit_export_targets": ["harness_results"],
+      "severity_behavior": "prominent_badge_and_banner",
+      "hidden_when_empty": false,
+      "required_for_enterprise_report": true,
+      "required_for_compliance_export": true
+    },
+    {
+      "section_id": "capability_summary",
+      "display_name": "Capability Summary",
+      "source_fields": ["declared_capabilities", "capability_state"],
+      "report_targets": ["fixture_inventory", "executive_summary"],
+      "audit_export_targets": ["expected_results", "validation_matrix"],
+      "severity_behavior": "inline_with_counts",
+      "hidden_when_empty": false,
+      "required_for_enterprise_report": true,
+      "required_for_compliance_export": true
+    },
+    {
+      "section_id": "provider_summary",
+      "display_name": "Provider Summary",
+      "source_fields": ["provider_preview_summary", "provider_state"],
+      "report_targets": ["risk_summary", "validation_outcome_summary"],
+      "audit_export_targets": ["validation_matrix", "synthetic_traces"],
+      "severity_behavior": "status_chip",
+      "hidden_when_empty": false,
+      "required_for_enterprise_report": true,
+      "required_for_compliance_export": true
+    },
+    {
+      "section_id": "binding_summary",
+      "display_name": "Binding Summary",
+      "source_fields": ["binding_state"],
+      "report_targets": ["validation_outcome_summary"],
+      "audit_export_targets": ["harness_results", "synthetic_traces"],
+      "severity_behavior": "technical_detail",
+      "hidden_when_empty": true,
+      "required_for_enterprise_report": false,
+      "required_for_compliance_export": true
+    },
+    {
+      "section_id": "trust_summary",
+      "display_name": "Trust Summary",
+      "source_fields": ["trust_summary", "trust_state"],
+      "report_targets": ["trust_posture", "blocked_issue_summary"],
+      "audit_export_targets": ["synthetic_traces", "consistency_failures"],
+      "severity_behavior": "high_visibility_when_blocked",
+      "hidden_when_empty": false,
+      "required_for_enterprise_report": true,
+      "required_for_compliance_export": true
+    },
+    {
+      "section_id": "approval_summary",
+      "display_name": "Approval Summary",
+      "source_fields": ["approval_requirements", "approval_state"],
+      "report_targets": ["approval_posture", "blocked_issue_summary"],
+      "audit_export_targets": ["synthetic_traces", "harness_results"],
+      "severity_behavior": "warning_when_missing_or_expired",
+      "hidden_when_empty": false,
+      "required_for_enterprise_report": true,
+      "required_for_compliance_export": true
+    },
+    {
+      "section_id": "rollback_summary",
+      "display_name": "Rollback Summary",
+      "source_fields": ["rollback_state", "rollback_posture"],
+      "report_targets": ["rollback_posture", "blocked_issue_summary"],
+      "audit_export_targets": ["synthetic_traces", "consistency_failures"],
+      "severity_behavior": "critical_when_invalid",
+      "hidden_when_empty": false,
+      "required_for_enterprise_report": true,
+      "required_for_compliance_export": true
+    },
+    {
+      "section_id": "tenant_summary",
+      "display_name": "Tenant Summary",
+      "source_fields": ["tenant_compliance", "tenant_boundary"],
+      "report_targets": ["tenant_compliance", "blocked_issue_summary"],
+      "audit_export_targets": ["consistency_failures", "synthetic_traces"],
+      "severity_behavior": "terminal_when_violated",
+      "hidden_when_empty": false,
+      "required_for_enterprise_report": true,
+      "required_for_compliance_export": true
+    },
+    {
+      "section_id": "blocked_reasons_panel",
+      "display_name": "Blocked Reasons",
+      "source_fields": ["blocked_reasons"],
+      "report_targets": ["blocked_issue_summary", "risk_summary"],
+      "audit_export_targets": ["blocked_issue_summary", "synthetic_traces"],
+      "severity_behavior": "sorted_by_priority",
+      "hidden_when_empty": true,
+      "required_for_enterprise_report": true,
+      "required_for_compliance_export": true
+    },
+    {
+      "section_id": "warnings_panel",
+      "display_name": "Warnings",
+      "source_fields": ["warnings"],
+      "report_targets": ["executive_summary"],
+      "audit_export_targets": ["harness_results"],
+      "severity_behavior": "collapsible_warning_list",
+      "hidden_when_empty": true,
+      "required_for_enterprise_report": false,
+      "required_for_compliance_export": false
+    },
+    {
+      "section_id": "mismatch_notes_panel",
+      "display_name": "Mismatch Notes",
+      "source_fields": ["mismatch_notes", "mismatch_explanation"],
+      "report_targets": ["executive_summary", "risk_summary"],
+      "audit_export_targets": ["harness_results", "consistency_failures"],
+      "severity_behavior": "elevated_annotation",
+      "hidden_when_empty": true,
+      "required_for_enterprise_report": false,
+      "required_for_compliance_export": true
+    },
+    {
+      "section_id": "remediation_panel",
+      "display_name": "Remediation Guidance",
+      "source_fields": ["remediation_guidance", "recommended_next_action", "remediation_roadmap"],
+      "report_targets": ["remediation_roadmap"],
+      "audit_export_targets": ["blocked_issue_summary", "consistency_failures"],
+      "severity_behavior": "action_oriented",
+      "hidden_when_empty": false,
+      "required_for_enterprise_report": true,
+      "required_for_compliance_export": true
+    },
+    {
+      "section_id": "audit_export_panel",
+      "display_name": "Audit Export",
+      "source_fields": ["audit_export_variants", "export_metadata"],
+      "report_targets": ["export_metadata"],
+      "audit_export_targets": ["fixture_bundle", "expected_results", "validation_matrix", "trace_expectations"],
+      "severity_behavior": "metadata_only",
+      "hidden_when_empty": false,
+      "required_for_enterprise_report": false,
+      "required_for_compliance_export": true
+    }
+  ]
+}

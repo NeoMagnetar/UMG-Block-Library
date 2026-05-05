@@ -1,0 +1,17 @@
+{
+  "screen_id": "DASH.DRY_RUN_ONLY.0001",
+  "readiness": "dry_run_only",
+  "dry_run_allowed": true,
+  "execution_authorized": false,
+  "constraint_summary": {
+    "missing_approval": true,
+    "mode_constraint": "approved_execute_not_permitted_without_approval"
+  },
+  "warnings": [
+    "Approval is required before execution-ready posture can be reached."
+  ],
+  "remediation_guidance": [
+    "Obtain a bounded approval token for the required capability/binding.",
+    "Remain in dry_run_only until approval state becomes valid."
+  ]
+}

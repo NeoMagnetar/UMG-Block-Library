@@ -1,0 +1,44 @@
+{
+  "triggered_thresholds": [
+    {
+      "threshold_id": "THRESH.UNRESOLVED_MISMATCH.0001",
+      "severity": "elevated",
+      "escalation_owner": "governance_owner",
+      "required_action": "Document mismatch as preserved sentinel or align conflicting fields.",
+      "blocks_static_approval": true,
+      "blocks_implementation_candidate": true,
+      "blocks_release": false,
+      "narrative_summary": "A mismatch remains unresolved and must be either justified or corrected before progression."
+    },
+    {
+      "threshold_id": "THRESH.SECURITY_TRIAGE_BLOCKER.0001",
+      "severity": "terminal",
+      "escalation_owner": "security_owner",
+      "required_action": "Maintain no-release boundary until Envoy v0.2.8 triage is resolved or formally waived.",
+      "blocks_static_approval": false,
+      "blocks_implementation_candidate": true,
+      "blocks_release": true,
+      "narrative_summary": "Security triage remains an active blocker for any release-facing or implementation-candidate posture."
+    },
+    {
+      "threshold_id": "THRESH.INCOMPLETE_SIGNOFF.0001",
+      "severity": "critical",
+      "escalation_owner": "review_owner",
+      "required_action": "Complete the missing signoff artifact before readiness advancement.",
+      "blocks_static_approval": true,
+      "blocks_implementation_candidate": true,
+      "blocks_release": true,
+      "narrative_summary": "Required signoff is incomplete, preventing formal approval progression."
+    },
+    {
+      "threshold_id": "THRESH.RELEASE_READINESS_BLOCKER.0001",
+      "severity": "terminal",
+      "escalation_owner": "release_owner",
+      "required_action": "Defer release readiness and resolve security and signoff blockers.",
+      "blocks_static_approval": false,
+      "blocks_implementation_candidate": true,
+      "blocks_release": true,
+      "narrative_summary": "Release readiness remains blocked until active release constraints are explicitly cleared."
+    }
+  ]
+}

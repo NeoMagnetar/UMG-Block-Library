@@ -1,0 +1,60 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://umg.envoy/schemas/audit-export.schema.json",
+  "title": "UMG Audit Export Schema v0.1",
+  "description": "Validating schema for audit export bundles covering fixture validation assets. Defines export structure only and does not authorize runtime action.",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "fixture_bundle": { "type": "string", "minLength": 1 },
+    "expected_results": { "type": "string", "minLength": 1 },
+    "validation_matrix": { "type": "string", "minLength": 1 },
+    "trace_expectations": { "type": "string", "minLength": 1 },
+    "harness_results": {
+      "type": "array",
+      "items": { "type": "string", "minLength": 1 },
+      "uniqueItems": true
+    },
+    "synthetic_traces": {
+      "type": "array",
+      "items": { "type": "string", "minLength": 1 },
+      "uniqueItems": true
+    },
+    "consistency_failures": {
+      "type": "array",
+      "items": { "type": "string", "minLength": 1 },
+      "uniqueItems": true
+    },
+    "schema_versions": {
+      "type": "array",
+      "items": { "type": "string", "minLength": 1 },
+      "uniqueItems": true
+    },
+    "governance_versions": {
+      "type": "array",
+      "items": { "type": "string", "minLength": 1 },
+      "uniqueItems": true
+    },
+    "export_timestamp": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "export_scope": {
+      "type": "string",
+      "minLength": 1
+    }
+  },
+  "required": [
+    "fixture_bundle",
+    "expected_results",
+    "validation_matrix",
+    "trace_expectations",
+    "harness_results",
+    "synthetic_traces",
+    "consistency_failures",
+    "schema_versions",
+    "governance_versions",
+    "export_timestamp",
+    "export_scope"
+  ]
+}

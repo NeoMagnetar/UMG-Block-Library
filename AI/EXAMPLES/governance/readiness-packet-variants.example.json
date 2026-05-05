@@ -1,0 +1,76 @@
+{
+  "variants": [
+    {
+      "variant_id": "internal_static_readiness_packet",
+      "intended_audience": ["developer", "maintainer"],
+      "required_refs": ["maturity_assessment", "dependency_health", "completeness_scoring"],
+      "optional_refs": ["readiness_dashboard_summary", "evidence_refs"],
+      "required_signoff_status": "pending_review",
+      "implementation_allowed": false,
+      "release_allowed": false,
+      "security_gate_required": false,
+      "export_allowed": true,
+      "sensitivity_level": "medium"
+    },
+    {
+      "variant_id": "enterprise_static_readiness_packet",
+      "intended_audience": ["business_client", "executive"],
+      "required_refs": ["maturity_assessment", "readiness_dashboard_summary"],
+      "optional_refs": ["completeness_scoring", "signoff_refs"],
+      "required_signoff_status": "approved_with_conditions",
+      "implementation_allowed": false,
+      "release_allowed": false,
+      "security_gate_required": true,
+      "export_allowed": true,
+      "sensitivity_level": "medium"
+    },
+    {
+      "variant_id": "compliance_static_readiness_packet",
+      "intended_audience": ["compliance_reviewer", "auditor"],
+      "required_refs": ["dependency_health", "evidence_refs", "signoff_refs"],
+      "optional_refs": ["readiness_dashboard_summary"],
+      "required_signoff_status": "approved_with_conditions",
+      "implementation_allowed": false,
+      "release_allowed": false,
+      "security_gate_required": true,
+      "export_allowed": true,
+      "sensitivity_level": "high"
+    },
+    {
+      "variant_id": "security_triage_readiness_packet",
+      "intended_audience": ["security_reviewer", "release_owner"],
+      "required_refs": ["dependency_health", "escalation_threshold_report", "signoff_refs"],
+      "optional_refs": ["completeness_scoring"],
+      "required_signoff_status": "approved_with_conditions",
+      "implementation_allowed": false,
+      "release_allowed": false,
+      "security_gate_required": true,
+      "export_allowed": false,
+      "sensitivity_level": "high"
+    },
+    {
+      "variant_id": "implementation_candidate_packet",
+      "intended_audience": ["governance_owner", "maintainer", "security_owner"],
+      "required_refs": ["maturity_assessment", "dependency_health", "completeness_scoring", "signoff_refs"],
+      "optional_refs": ["readiness_dashboard_summary", "evidence_refs"],
+      "required_signoff_status": "approved",
+      "implementation_allowed": false,
+      "release_allowed": false,
+      "security_gate_required": true,
+      "export_allowed": false,
+      "sensitivity_level": "high"
+    },
+    {
+      "variant_id": "release_blocked_packet",
+      "intended_audience": ["release_owner", "security_owner", "governance_owner"],
+      "required_refs": ["dependency_health", "escalation_threshold_report", "signoff_refs", "readiness_dashboard_summary"],
+      "optional_refs": ["maturity_assessment"],
+      "required_signoff_status": "blocked",
+      "implementation_allowed": false,
+      "release_allowed": false,
+      "security_gate_required": true,
+      "export_allowed": false,
+      "sensitivity_level": "high"
+    }
+  ]
+}

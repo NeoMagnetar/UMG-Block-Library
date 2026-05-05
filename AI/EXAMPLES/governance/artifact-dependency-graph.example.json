@@ -1,0 +1,114 @@
+{
+  "nodes": [
+    {
+      "artifact_id": "NODE.DOCTRINE.TOOL_CONTRACT",
+      "path": "AI/DOCTRINE/UMG_TOOL_CONTRACT.v0.1.md",
+      "artifact_type": "doctrine",
+      "phase_created": "pre-TOOL-RUNTIME baseline",
+      "depends_on": [],
+      "consumed_by": ["runtime architecture doctrine", "tool runtime artifacts", "resolver preview doctrine"],
+      "dependency_criticality": "critical",
+      "missing_dependency_behavior": "block_downstream_doctrine_alignment"
+    },
+    {
+      "artifact_id": "NODE.SCHEMA.RUNTIME_PREVIEW",
+      "path": "AI/SCHEMAS/runtimespec-preview.schema.json",
+      "artifact_type": "schema",
+      "phase_created": "TOOL-RUNTIME-4",
+      "depends_on": ["NODE.DOCTRINE.TOOL_CONTRACT"],
+      "consumed_by": ["preview fixtures", "harness reports", "reporting examples"],
+      "dependency_criticality": "critical",
+      "missing_dependency_behavior": "block_fixture_validation"
+    },
+    {
+      "artifact_id": "NODE.FIXTURE.VALID_PREVIEW",
+      "path": "AI/EXAMPLES/runtime-preview/valid-preview-only-chain.json",
+      "artifact_type": "fixture",
+      "phase_created": "TOOL-RUNTIME-4",
+      "depends_on": ["NODE.SCHEMA.RUNTIME_PREVIEW"],
+      "consumed_by": ["validation matrix", "trace expectations", "harness result examples"],
+      "dependency_criticality": "high",
+      "missing_dependency_behavior": "block_expected_result_alignment"
+    },
+    {
+      "artifact_id": "NODE.VALIDATION.MATRIX",
+      "path": "AI/EXAMPLES/runtime-preview/validation-matrix.json",
+      "artifact_type": "validation_pack",
+      "phase_created": "TOOL-RUNTIME-5",
+      "depends_on": ["NODE.FIXTURE.VALID_PREVIEW"],
+      "consumed_by": ["harness contract", "expected results", "audit export examples"],
+      "dependency_criticality": "high",
+      "missing_dependency_behavior": "degrade_expectation_validation"
+    },
+    {
+      "artifact_id": "NODE.HARNESS.CONTRACT",
+      "path": "AI/DOCTRINE/UMG_TOOL_RUNTIME_HARNESS_CONTRACT.v0.1.md",
+      "artifact_type": "harness_contract",
+      "phase_created": "TOOL-RUNTIME-6",
+      "depends_on": ["NODE.VALIDATION.MATRIX"],
+      "consumed_by": ["harness report schema", "synthetic traces", "review packet examples"],
+      "dependency_criticality": "high",
+      "missing_dependency_behavior": "block_harness_semantics"
+    },
+    {
+      "artifact_id": "NODE.REPORT.ENTERPRISE",
+      "path": "AI/EXAMPLES/reporting/enterprise-report.example.json",
+      "artifact_type": "report_example",
+      "phase_created": "TOOL-RUNTIME-9",
+      "depends_on": ["NODE.HARNESS.CONTRACT"],
+      "consumed_by": ["dashboard crosswalks", "audience profiles", "governance pack manifest"],
+      "dependency_criticality": "medium",
+      "missing_dependency_behavior": "degrade_enterprise_reporting"
+    },
+    {
+      "artifact_id": "NODE.DASHBOARD.BLOCKED",
+      "path": "AI/EXAMPLES/dashboard/dashboard-state.blocked.json",
+      "artifact_type": "dashboard_example",
+      "phase_created": "TOOL-RUNTIME-10",
+      "depends_on": ["NODE.REPORT.ENTERPRISE"],
+      "consumed_by": ["dashboard layouts", "screen/report crosswalk", "UI glossary"],
+      "dependency_criticality": "medium",
+      "missing_dependency_behavior": "degrade_dashboard_mapping"
+    },
+    {
+      "artifact_id": "NODE.EVIDENCE.INDEX",
+      "path": "AI/EXAMPLES/reporting/evidence-pack-index.example.json",
+      "artifact_type": "evidence_pack",
+      "phase_created": "TOOL-RUNTIME-14",
+      "depends_on": ["NODE.HARNESS.CONTRACT", "NODE.REPORT.ENTERPRISE"],
+      "consumed_by": ["ownership matrix", "signoff workflow", "governance pack manifest"],
+      "dependency_criticality": "high",
+      "missing_dependency_behavior": "block_compliance_readiness"
+    },
+    {
+      "artifact_id": "NODE.REMEDIATION.PACK",
+      "path": "AI/EXAMPLES/reporting/remediation-checklists.example.json",
+      "artifact_type": "remediation_pack",
+      "phase_created": "TOOL-RUNTIME-13",
+      "depends_on": ["NODE.EVIDENCE.INDEX"],
+      "consumed_by": ["ownership matrix", "review workflows"],
+      "dependency_criticality": "medium",
+      "missing_dependency_behavior": "degrade_remediation_guidance"
+    },
+    {
+      "artifact_id": "NODE.MANIFEST.GOVERNANCE_PACK",
+      "path": "AI/EXAMPLES/governance/governance-pack-manifest.example.json",
+      "artifact_type": "manifest",
+      "phase_created": "TOOL-RUNTIME-15",
+      "depends_on": ["NODE.REPORT.ENTERPRISE", "NODE.EVIDENCE.INDEX", "NODE.REMEDIATION.PACK"],
+      "consumed_by": ["signoff record", "release readiness review packet"],
+      "dependency_criticality": "critical",
+      "missing_dependency_behavior": "block_packaging_readiness"
+    },
+    {
+      "artifact_id": "NODE.SIGNOFF.RECORD",
+      "path": "AI/EXAMPLES/governance/signoff-record.example.json",
+      "artifact_type": "signoff_record",
+      "phase_created": "TOOL-RUNTIME-15",
+      "depends_on": ["NODE.MANIFEST.GOVERNANCE_PACK"],
+      "consumed_by": ["status taxonomy", "review packet checklists", "release readiness pack"],
+      "dependency_criticality": "critical",
+      "missing_dependency_behavior": "block_static_approval_chain"
+    }
+  ]
+}

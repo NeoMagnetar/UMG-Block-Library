@@ -1,0 +1,28 @@
+{
+  "variants": [
+    {
+      "export_variant": "partial_export",
+      "dashboard_elements": ["readiness_banner", "capability_summary", "provider_summary", "warnings_panel"],
+      "mapped_export_sections": ["fixture_bundle", "expected_results", "validation_matrix"],
+      "notes": "Minimal export for lightweight review and quick validation sharing."
+    },
+    {
+      "export_variant": "full_export",
+      "dashboard_elements": ["readiness_banner", "capability_summary", "provider_summary", "binding_summary", "trust_summary", "approval_summary", "rollback_summary", "tenant_summary", "blocked_reasons_panel", "mismatch_notes_panel", "remediation_panel", "audit_export_panel"],
+      "mapped_export_sections": ["fixture_bundle", "expected_results", "validation_matrix", "trace_expectations", "harness_results", "synthetic_traces", "consistency_failures"],
+      "notes": "Full technical/governance export aligned to the complete dashboard."
+    },
+    {
+      "export_variant": "enterprise_export",
+      "dashboard_elements": ["readiness_banner", "trust_summary", "approval_summary", "rollback_summary", "blocked_reasons_panel", "remediation_panel"],
+      "mapped_export_sections": ["executive_summary", "blocked_issue_summary", "risk_summary", "remediation_roadmap"],
+      "notes": "Enterprise-facing export prioritizing posture and remediation over raw trace detail."
+    },
+    {
+      "export_variant": "compliance_export",
+      "dashboard_elements": ["trust_summary", "approval_summary", "tenant_summary", "blocked_reasons_panel", "audit_export_panel"],
+      "mapped_export_sections": ["schema_versions", "governance_versions", "blocked_issue_summary", "export_scope"],
+      "notes": "Compliance export emphasizes provenance, governance versions, and blockers."
+    }
+  ]
+}

@@ -1,0 +1,88 @@
+{
+  "artifacts": [
+    {
+      "artifact_id": "ART.DOCTRINE.TOOL_CONTRACT",
+      "artifact_type": "doctrine",
+      "path": "AI/DOCTRINE/UMG_TOOL_CONTRACT.v0.1.md",
+      "phase_created": "TOOL-RUNTIME-1 baseline dependency",
+      "depends_on": [],
+      "consumed_by": ["runtime architecture", "artifact schemas", "resolver preview doctrine"],
+      "review_required": true,
+      "security_sensitive": false,
+      "execution_related": false,
+      "release_related": false
+    },
+    {
+      "artifact_id": "ART.SCHEMA.RUNTIME_PREVIEW",
+      "artifact_type": "schema",
+      "path": "AI/SCHEMAS/runtimespec-preview.schema.json",
+      "phase_created": "TOOL-RUNTIME-4",
+      "depends_on": ["TOOL-RUNTIME-3 resolver preview doctrine"],
+      "consumed_by": ["fixtures", "harness reports", "reporting examples"],
+      "review_required": true,
+      "security_sensitive": false,
+      "execution_related": false,
+      "release_related": false
+    },
+    {
+      "artifact_id": "ART.FIXTURE.VALID_PREVIEW_ONLY",
+      "artifact_type": "fixture",
+      "path": "AI/EXAMPLES/runtime-preview/valid-preview-only-chain.json",
+      "phase_created": "TOOL-RUNTIME-4",
+      "depends_on": ["runtimespec-preview.schema.json"],
+      "consumed_by": ["validation matrix", "trace expectations", "harness examples"],
+      "review_required": true,
+      "security_sensitive": false,
+      "execution_related": false,
+      "release_related": false
+    },
+    {
+      "artifact_id": "ART.REPORT.ENTERPRISE_EXAMPLE",
+      "artifact_type": "report_example",
+      "path": "AI/EXAMPLES/reporting/enterprise-report.example.json",
+      "phase_created": "TOOL-RUNTIME-9",
+      "depends_on": ["enterprise-report.schema.json"],
+      "consumed_by": ["dashboard crosswalk", "audience profiles"],
+      "review_required": true,
+      "security_sensitive": false,
+      "execution_related": false,
+      "release_related": false
+    },
+    {
+      "artifact_id": "ART.DASHBOARD.BLOCKED_STATE",
+      "artifact_type": "dashboard_example",
+      "path": "AI/EXAMPLES/dashboard/dashboard-state.blocked.json",
+      "phase_created": "TOOL-RUNTIME-10",
+      "depends_on": ["preview UI mapping examples"],
+      "consumed_by": ["screen-to-report crosswalk", "dashboard layouts"],
+      "review_required": true,
+      "security_sensitive": false,
+      "execution_related": false,
+      "release_related": false
+    },
+    {
+      "artifact_id": "ART.EVIDENCE.PACK_INDEX",
+      "artifact_type": "evidence_index",
+      "path": "AI/EXAMPLES/reporting/evidence-pack-index.example.json",
+      "phase_created": "TOOL-RUNTIME-14",
+      "depends_on": ["compliance evidence checklists", "remediation packs"],
+      "consumed_by": ["ownership matrix", "signoff workflows"],
+      "review_required": true,
+      "security_sensitive": true,
+      "execution_related": false,
+      "release_related": false
+    },
+    {
+      "artifact_id": "ART.SECURITY.TRIAGE_CONSTRAINT",
+      "artifact_type": "security_constraint",
+      "path": "META/TOOL-RUNTIME-14-EVIDENCE-OWNERSHIP.md",
+      "phase_created": "security addendum + TOOL-RUNTIME-14 carry-forward",
+      "depends_on": ["Envoy v0.2.8 triage notes"],
+      "consumed_by": ["governance pack manifest", "security triage review workflow"],
+      "review_required": true,
+      "security_sensitive": true,
+      "execution_related": false,
+      "release_related": true
+    }
+  ]
+}

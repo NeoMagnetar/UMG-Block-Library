@@ -1,0 +1,8 @@
+{
+  "failure_id": "CONSISTENCY.PROVIDER_BINDING_CONTRADICTION.0001",
+  "description": "Binding is validated while provider state is missing or invalid.",
+  "violated_rule": "provider-binding consistency",
+  "expected_outcome": "FAIL_CONSISTENCY",
+  "observed_problem": "provider_state indicates provider_missing or provider_version_invalid, but binding_state still claims binding_validated.",
+  "recommended_remediation": "Invalidate or remove the binding state until a valid provider is present."
+}

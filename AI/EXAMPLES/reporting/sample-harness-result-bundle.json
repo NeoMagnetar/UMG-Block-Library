@@ -1,0 +1,65 @@
+{
+  "bundle_id": "HARNESS.RESULTS.EXAMPLE.0001",
+  "results": [
+    {
+      "report_id": "REPORT.PASS.0001",
+      "fixture_name": "dry-run-only-chain.json",
+      "outcome": "PASS",
+      "outcome_reason": "Fixture matched schema and expected dry-run-only posture.",
+      "schema_validation": "PASS",
+      "expectation_validation": "PASS",
+      "consistency_validation": "PASS",
+      "trace_expectation_validation": "PASS",
+      "final_readiness": "dry_run_only",
+      "execution_authorized": false
+    },
+    {
+      "report_id": "REPORT.PASS.MISMATCH.0001",
+      "fixture_name": "valid-preview-only-chain.json",
+      "outcome": "PASS_WITH_MISMATCH_NOTE",
+      "outcome_reason": "Fixture is valid with one preserved readiness mismatch sentinel.",
+      "schema_validation": "PASS",
+      "expectation_validation": "PASS_WITH_MISMATCH_NOTE",
+      "consistency_validation": "PASS_WITH_MISMATCH_NOTE",
+      "trace_expectation_validation": "PASS",
+      "final_readiness": "preview_only",
+      "execution_authorized": false
+    },
+    {
+      "report_id": "REPORT.FAIL.SCHEMA.0001",
+      "fixture_name": "broken-preview-schema.json",
+      "outcome": "FAIL_SCHEMA",
+      "outcome_reason": "Fixture would fail runtimespec-preview schema validation.",
+      "schema_validation": "FAIL",
+      "expectation_validation": "FAIL",
+      "consistency_validation": "FAIL",
+      "trace_expectation_validation": "NOT_RUN",
+      "final_readiness": "blocked",
+      "execution_authorized": false
+    },
+    {
+      "report_id": "REPORT.FAIL.EXPECTATION.0001",
+      "fixture_name": "provider-missing-chain.json",
+      "outcome": "FAIL_EXPECTATION",
+      "outcome_reason": "Observed provider state would not match locked expected results.",
+      "schema_validation": "PASS",
+      "expectation_validation": "FAIL",
+      "consistency_validation": "PASS",
+      "trace_expectation_validation": "PASS",
+      "final_readiness": "blocked",
+      "execution_authorized": false
+    },
+    {
+      "report_id": "REPORT.FAIL.CONSISTENCY.0001",
+      "fixture_name": "provider-binding-contradiction.json",
+      "outcome": "FAIL_CONSISTENCY",
+      "outcome_reason": "Provider/binding relationship is internally contradictory.",
+      "schema_validation": "PASS",
+      "expectation_validation": "PASS",
+      "consistency_validation": "FAIL",
+      "trace_expectation_validation": "NOT_RUN",
+      "final_readiness": "blocked",
+      "execution_authorized": false
+    }
+  ]
+}

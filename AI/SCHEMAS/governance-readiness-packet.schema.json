@@ -1,0 +1,97 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://umg.envoy/schemas/governance-readiness-packet.schema.json",
+  "title": "UMG Governance Readiness Packet Schema v0.1",
+  "description": "Validating schema for static governance readiness packets. Defines review packaging only and does not authorize implementation, execution, or release.",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "packet_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "assessed_pack_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "assessed_variant": {
+      "type": "string",
+      "minLength": 1
+    },
+    "maturity_assessment_ref": {
+      "type": "string",
+      "minLength": 1
+    },
+    "dependency_health_ref": {
+      "type": "string",
+      "minLength": 1
+    },
+    "completeness_scoring_ref": {
+      "type": "string",
+      "minLength": 1
+    },
+    "escalation_threshold_report_ref": {
+      "type": "string",
+      "minLength": 1
+    },
+    "readiness_dashboard_summary_ref": {
+      "type": "string",
+      "minLength": 1
+    },
+    "included_evidence_refs": {
+      "type": "array",
+      "items": { "type": "string", "minLength": 1 },
+      "uniqueItems": true
+    },
+    "included_signoff_refs": {
+      "type": "array",
+      "items": { "type": "string", "minLength": 1 },
+      "uniqueItems": true
+    },
+    "implementation_allowed": {
+      "type": "boolean",
+      "default": false,
+      "const": false
+    },
+    "release_allowed": {
+      "type": "boolean",
+      "default": false,
+      "const": false
+    },
+    "security_gate_required": {
+      "type": "boolean"
+    },
+    "readiness_summary": {
+      "type": "string",
+      "minLength": 1
+    },
+    "active_constraints": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "type": "string", "minLength": 1 },
+      "uniqueItems": true
+    },
+    "expiration_or_recheck_date": {
+      "type": ["string", "null"],
+      "format": "date-time"
+    }
+  },
+  "required": [
+    "packet_id",
+    "assessed_pack_id",
+    "assessed_variant",
+    "maturity_assessment_ref",
+    "dependency_health_ref",
+    "completeness_scoring_ref",
+    "escalation_threshold_report_ref",
+    "readiness_dashboard_summary_ref",
+    "included_evidence_refs",
+    "included_signoff_refs",
+    "implementation_allowed",
+    "release_allowed",
+    "security_gate_required",
+    "readiness_summary",
+    "active_constraints",
+    "expiration_or_recheck_date"
+  ]
+}

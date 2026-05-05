@@ -1,0 +1,67 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://umg.envoy/schemas/blocked-reason.schema.json",
+  "title": "UMG Blocked Reason Schema v0.1",
+  "description": "Validating schema for machine-readable resolver preview blocked reasons. Defines governance and structural blockage only and does not authorize runtime action.",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "blocked_reason_code": {
+      "type": "string",
+      "enum": [
+        "CAPABILITY_UNKNOWN",
+        "CAPABILITY_REGISTRY_MISSING",
+        "TRUST_BLOCKED",
+        "PROVIDER_MISSING",
+        "PROVIDER_VERSION_INVALID",
+        "BINDING_MISSING",
+        "BINDING_INVALID",
+        "APPROVAL_REQUIRED",
+        "APPROVAL_MISSING",
+        "APPROVAL_EXPIRED",
+        "APPROVAL_REVOKED",
+        "TENANT_VIOLATION",
+        "EXECUTION_MODE_BLOCKED",
+        "ROLLBACK_POLICY_INVALID",
+        "AUDIT_POLICY_INVALID",
+        "TOOLPACK_BLOCKED",
+        "TARGET_CONSTRAINT_INVALID",
+        "CROSS_SCHEMA_CONFLICT"
+      ]
+    },
+    "category": {
+      "type": "string",
+      "enum": ["capability", "trust", "provider", "binding", "approval", "tenant", "rollback", "governance"]
+    },
+    "severity": {
+      "type": "string",
+      "enum": ["info", "warn", "error", "critical"]
+    },
+    "human_summary": {
+      "type": "string",
+      "minLength": 1
+    },
+    "remediation_guidance": {
+      "type": "string",
+      "minLength": 1
+    },
+    "retry_possible": {
+      "type": "boolean"
+    },
+    "requires_human_action": {
+      "type": "boolean"
+    },
+    "notes": {
+      "type": ["string", "null"]
+    }
+  },
+  "required": [
+    "blocked_reason_code",
+    "category",
+    "severity",
+    "human_summary",
+    "remediation_guidance",
+    "retry_possible",
+    "requires_human_action"
+  ]
+}

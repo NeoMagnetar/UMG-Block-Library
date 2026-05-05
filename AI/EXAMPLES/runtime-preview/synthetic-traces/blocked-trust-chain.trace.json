@@ -1,0 +1,16 @@
+{
+  "trace_id": "TRACE.PREVIEW.TRUSTBLOCK.0001",
+  "timestamp": "2026-05-02T00:00:00Z",
+  "sleeve_id": "SLV.BUSINESS.RUNTIME_TEMPLATE.v1",
+  "tenant_id": "TENANT.EXAMPLE.v1",
+  "fixture_name": "blocked-trust-chain.json",
+  "terminal_readiness": "blocked",
+  "events": [
+    {"event_sequence": 1, "event_type": "capability.declared", "severity": "info", "source_layer": "capability", "blocked_reason": null, "remediation_hint": null, "summary": "Capability declared."},
+    {"event_sequence": 2, "event_type": "provider.found", "severity": "info", "source_layer": "provider", "blocked_reason": null, "remediation_hint": null, "summary": "Provider found."},
+    {"event_sequence": 3, "event_type": "binding.validated", "severity": "info", "source_layer": "binding", "blocked_reason": null, "remediation_hint": null, "summary": "Binding validated."},
+    {"event_sequence": 4, "event_type": "trust.blocked", "severity": "critical", "source_layer": "trust", "blocked_reason": "TRUST_BLOCKED", "remediation_hint": "Review trust registry assignment.", "summary": "Trust policy blocks this chain."},
+    {"event_sequence": 5, "event_type": "preview.executable_state", "severity": "critical", "source_layer": "preview", "blocked_reason": "TRUST_BLOCKED", "remediation_hint": "Do not advance beyond blocked state while trust remains blocked.", "summary": "Final readiness is blocked by trust policy."}
+  ],
+  "summary": "Synthetic trace for trust-blocked fixture."
+}

@@ -1,0 +1,119 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://umg.envoy/schemas/preview-ui-mapping.schema.json",
+  "title": "UMG Preview UI Mapping Schema v0.1",
+  "description": "Validating schema for preview-state UI presentation mappings. Defines display structure only and does not authorize runtime action.",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "readiness_display_mapping": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "readiness": {
+            "type": "string",
+            "enum": ["preview_only", "dry_run_only", "structurally_executable_pending_gate", "blocked"]
+          },
+          "label": { "type": "string", "minLength": 1 },
+          "badge": { "type": "string", "minLength": 1 },
+          "color": { "type": "string", "minLength": 1 },
+          "description": { "type": "string", "minLength": 1 }
+        },
+        "required": ["readiness", "label", "badge", "color", "description"]
+      },
+      "minItems": 4
+    },
+    "blocked_reason_display_mapping": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "blocked_reason_code": { "type": "string", "minLength": 1 },
+          "display_label": { "type": "string", "minLength": 1 },
+          "display_group": { "type": "string", "minLength": 1 },
+          "priority": { "type": "integer", "minimum": 1 }
+        },
+        "required": ["blocked_reason_code", "display_label", "display_group", "priority"]
+      }
+    },
+    "severity_display_mapping": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "severity": { "type": "string", "enum": ["info", "warning", "elevated", "critical", "terminal"] },
+          "label": { "type": "string", "minLength": 1 },
+          "color": { "type": "string", "minLength": 1 },
+          "icon": { "type": "string", "minLength": 1 }
+        },
+        "required": ["severity", "label", "color", "icon"]
+      },
+      "minItems": 5
+    },
+    "remediation_display_mapping": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "show_inline": { "type": "boolean" },
+        "show_expandable": { "type": "boolean" },
+        "show_retry_hint": { "type": "boolean" }
+      },
+      "required": ["show_inline", "show_expandable", "show_retry_hint"]
+    },
+    "governance_summary_panel": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "show_declared_capabilities": { "type": "boolean" },
+        "show_provider_availability": { "type": "boolean" },
+        "show_trust_status": { "type": "boolean" },
+        "show_approval_requirements": { "type": "boolean" },
+        "show_rollback_validity": { "type": "boolean" },
+        "show_tenant_compliance": { "type": "boolean" },
+        "show_final_preview_readiness": { "type": "boolean" }
+      },
+      "required": [
+        "show_declared_capabilities",
+        "show_provider_availability",
+        "show_trust_status",
+        "show_approval_requirements",
+        "show_rollback_validity",
+        "show_tenant_compliance",
+        "show_final_preview_readiness"
+      ]
+    },
+    "mismatch_note_display": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "enabled": { "type": "boolean" },
+        "label": { "type": "string", "minLength": 1 },
+        "severity": { "type": "string", "enum": ["info", "warning", "elevated", "critical", "terminal"] }
+      },
+      "required": ["enabled", "label", "severity"]
+    },
+    "terminal_violation_display": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "enabled": { "type": "boolean" },
+        "banner_label": { "type": "string", "minLength": 1 },
+        "require_acknowledgement": { "type": "boolean" }
+      },
+      "required": ["enabled", "banner_label", "require_acknowledgement"]
+    }
+  },
+  "required": [
+    "readiness_display_mapping",
+    "blocked_reason_display_mapping",
+    "severity_display_mapping",
+    "remediation_display_mapping",
+    "governance_summary_panel",
+    "mismatch_note_display",
+    "terminal_violation_display"
+  ]
+}

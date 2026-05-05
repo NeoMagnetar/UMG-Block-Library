@@ -1,0 +1,17 @@
+{
+  "screen_id": "DASH.TERMINAL_VIOLATION.0001",
+  "severity": "terminal",
+  "terminal_failure": {
+    "trust_failure": true,
+    "tenant_failure": false,
+    "approval_failure": false,
+    "rollback_failure": false
+  },
+  "retry_policy": "no_retry_without_policy_change",
+  "escalation_path": [
+    "human_reviewer",
+    "governance_owner",
+    "security_owner"
+  ],
+  "summary": "A terminal governance violation prevents further readiness progression until policy changes."
+}

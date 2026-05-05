@@ -1,0 +1,36 @@
+{
+  "report_id": "REPORT.RUNTIME.PREVIEW.0001",
+  "generated_at": "2026-05-02T00:00:00Z",
+  "runner_mode": "static_validation_only",
+  "security_mode": "no_execution",
+  "fixture_name": "valid-preview-only-chain.json",
+  "fixture_path": "AI/EXAMPLES/runtime-preview/valid-preview-only-chain.json",
+  "expected_result_path": "AI/EXAMPLES/runtime-preview/EXPECTED_RESULTS.md",
+  "validation_matrix_path": "AI/EXAMPLES/runtime-preview/validation-matrix.json",
+  "schema_set_used": {
+    "runtimespec_preview": "AI/SCHEMAS/runtimespec-preview.schema.json",
+    "validation_trace_preview": "AI/SCHEMAS/validation-trace-preview.schema.json",
+    "blocked_reason": "AI/SCHEMAS/blocked-reason.schema.json"
+  },
+  "governance_schema_set_used": {
+    "capability_schema": "AI/SCHEMAS/capability.schema.json",
+    "toolpack_schema": "AI/SCHEMAS/toolpack.schema.json",
+    "tool_binding_schema": "AI/SCHEMAS/tool-binding.schema.json",
+    "sleeve_runtime_governance_schema": "AI/SCHEMAS/sleeve-runtime-governance.schema.json",
+    "trust_registry_schema": "AI/SCHEMAS/trust-registry.schema.json",
+    "approval_token_schema": "AI/SCHEMAS/approval-token.schema.json",
+    "rollback_taxonomy_schema": "AI/SCHEMAS/rollback-taxonomy.schema.json"
+  },
+  "outcome": "PASS_WITH_MISMATCH_NOTE",
+  "outcome_reason": "Fixture is schema-valid and expectation-valid with one preserved readiness mismatch note.",
+  "schema_validation": "PASS",
+  "expectation_validation": "PASS_WITH_MISMATCH_NOTE",
+  "consistency_validation": "PASS_WITH_MISMATCH_NOTE",
+  "trace_expectation_validation": "PASS",
+  "warnings": [],
+  "errors": [],
+  "mismatch_notes": ["Executable state and governance summary readiness differ by design sentinel."],
+  "blocked_reasons": [],
+  "final_readiness": "preview_only",
+  "execution_authorized": false
+}

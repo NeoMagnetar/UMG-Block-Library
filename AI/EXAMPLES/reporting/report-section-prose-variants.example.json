@@ -1,0 +1,74 @@
+{
+  "sections": [
+    {
+      "section": "executive_summary",
+      "variants": {
+        "standard": "The evaluated chain is structurally complete for governed preview analysis.",
+        "enterprise": "The governance pack presents a stable preview-validation posture with no runtime authority granted.",
+        "compliance": "The evaluated output remains within static governance review boundaries and does not authorize execution.",
+        "technical": "Schema, fixture, and governance layers are aligned for non-executing preview interpretation.",
+        "concise": "Preview-governed, not execution-authorized."
+      }
+    },
+    {
+      "section": "technical_summary",
+      "variants": {
+        "standard": "Provider, binding, trust, approval, rollback, and tenant signals were interpreted according to static governance rules.",
+        "enterprise": "Technical validation supports the reported governance posture without enabling runtime behavior.",
+        "compliance": "Technical evidence aligns with the control posture described in the blocked-reason and readiness outputs.",
+        "technical": "Cross-schema consistency checks and readiness derivation were evaluated at the structural layer only.",
+        "concise": "Structural checks only; no runtime behavior involved."
+      }
+    },
+    {
+      "section": "blocked_summary",
+      "variants": {
+        "standard": "The chain is blocked by one or more governance or structural conditions.",
+        "enterprise": "Operational readiness is blocked pending remediation of the identified governance conditions.",
+        "compliance": "Control posture prevents advancement due to explicit blocked conditions.",
+        "technical": "Blocked reasons prevent readiness progression and override otherwise valid structural signals.",
+        "concise": "Blocked by governance conditions."
+      }
+    },
+    {
+      "section": "mismatch_summary",
+      "variants": {
+        "standard": "A known mismatch note is preserved for validation visibility.",
+        "enterprise": "A documented consistency note remains visible for governance transparency.",
+        "compliance": "A preserved mismatch is recorded and not normalized away.",
+        "technical": "Known sentinel inconsistency remains explicit for regression and consistency-review purposes.",
+        "concise": "Known mismatch preserved."
+      }
+    },
+    {
+      "section": "remediation_roadmap",
+      "variants": {
+        "standard": "Address the highest-priority blocker first, then re-evaluate the chain under the same governance rules.",
+        "enterprise": "Remediation should begin with the most significant governance blocker and proceed in ownership order.",
+        "compliance": "Evidence-backed remediation is required before higher readiness can be reconsidered.",
+        "technical": "Correct the blocked layer, preserve traceability, and rerun static validation after remediation.",
+        "concise": "Remediate blocker, then revalidate."
+      }
+    },
+    {
+      "section": "compliance_summary",
+      "variants": {
+        "standard": "The output remains within static governance review boundaries.",
+        "enterprise": "Compliance posture is represented through blocked reasons, trust state, approval state, and tenant compliance signals.",
+        "compliance": "Required controls and evidence paths are explicitly represented in the preview and reporting layers.",
+        "technical": "Compliance-facing outputs are derived from the same governed fields used by preview and harness layers.",
+        "concise": "Compliance posture explicitly represented."
+      }
+    },
+    {
+      "section": "audit_summary",
+      "variants": {
+        "standard": "Audit-facing artifacts preserve provenance, blocked reasons, trace expectations, and validation outcomes.",
+        "enterprise": "Audit readiness is supported by structured exports and stable governance terminology.",
+        "compliance": "Audit evidence remains exportable without requiring runtime execution or provider activation.",
+        "technical": "Synthetic traces, harness results, and consistency failures provide reproducible review surfaces.",
+        "concise": "Audit evidence preserved and exportable."
+      }
+    }
+  ]
+}

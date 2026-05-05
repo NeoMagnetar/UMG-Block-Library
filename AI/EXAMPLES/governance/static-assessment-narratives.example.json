@@ -1,0 +1,67 @@
+{
+  "narratives": [
+    {
+      "narrative_id": "NARR.STATIC_ARCH_READY.0001",
+      "audience": "developer",
+      "summary": "The governance pack is structurally ready for continued static review.",
+      "technical_detail": "Doctrine, schemas, fixtures, reports, dashboard mappings, and evidence packs are present and cross-linked.",
+      "governance_note": "Static readiness does not imply implementation or execution authority.",
+      "remediation_or_next_step": "Proceed to the next static review gate only.",
+      "prohibited_interpretation": "Do not interpret static readiness as permission to execute or implement runtime behavior."
+    },
+    {
+      "narrative_id": "NARR.SCHEMA_ALIGNED_FIXTURE_INCOMPLETE.0001",
+      "audience": "maintainer",
+      "summary": "The pack is schema-aligned but not yet fully fixture-backed.",
+      "technical_detail": "Structural contracts exist, but fixture or validation-pack coverage is incomplete.",
+      "governance_note": "Validation confidence remains partial until fixtures and expected results are complete.",
+      "remediation_or_next_step": "Add missing fixtures and validation references before elevating maturity.",
+      "prohibited_interpretation": "Do not claim reportable or implementation-candidate posture."
+    },
+    {
+      "narrative_id": "NARR.REPORTABLE_NOT_AUDIT_EXPORTABLE.0001",
+      "audience": "business_client",
+      "summary": "The pack is suitable for governed reporting, but audit-export readiness is incomplete.",
+      "technical_detail": "Reporting and dashboard examples are present, but audit export coverage or evidence linkage remains incomplete.",
+      "governance_note": "Enterprise visibility does not guarantee audit completeness.",
+      "remediation_or_next_step": "Complete evidence and audit-export references before audit-facing use.",
+      "prohibited_interpretation": "Do not treat reportability as audit readiness."
+    },
+    {
+      "narrative_id": "NARR.AUDIT_EXPORTABLE_NOT_REVIEWED.0001",
+      "audience": "auditor",
+      "summary": "The pack is audit-exportable in structure, but formal static review is not yet complete.",
+      "technical_detail": "Audit artifacts exist, but review and signoff posture remains incomplete.",
+      "governance_note": "Export capability is not equivalent to reviewed acceptance.",
+      "remediation_or_next_step": "Complete static review and signoff before treating the pack as reviewed static governance output.",
+      "prohibited_interpretation": "Do not treat exportable artifacts as approved artifacts."
+    },
+    {
+      "narrative_id": "NARR.REVIEWED_STATIC_NOT_IMPLEMENTATION_AUTHORIZED.0001",
+      "audience": "executive",
+      "summary": "The pack is reviewed and coherent for static governance use, but implementation remains unauthorized.",
+      "technical_detail": "Static maturity is high, yet implementation authority has not been granted and is outside the current lane.",
+      "governance_note": "Reviewed static posture is a governance milestone, not an implementation approval.",
+      "remediation_or_next_step": "Require explicit future authorization before any implementation phase is considered.",
+      "prohibited_interpretation": "Do not infer runtime execution or code-change approval from static review completion."
+    },
+    {
+      "narrative_id": "NARR.IMPLEMENTATION_CANDIDATE_SECURITY_GATED.0001",
+      "audience": "security_reviewer",
+      "summary": "The pack may be structurally near implementation-candidate posture, but security gating prevents progression.",
+      "technical_detail": "Maturity and completeness may support candidacy discussion, but active security triage still blocks implementation-facing movement.",
+      "governance_note": "Security gating overrides maturity convenience.",
+      "remediation_or_next_step": "Resolve or formally waive the active security blocker before reassessing candidacy.",
+      "prohibited_interpretation": "Do not treat structural completeness as a security exception."
+    },
+    {
+      "narrative_id": "NARR.RELEASE_BLOCKED_SECURITY_TRIAGE.0001",
+      "audience": "compliance_reviewer",
+      "summary": "Release readiness remains blocked by active Envoy v0.2.8 security triage.",
+      "technical_detail": "No release mutation, publish step, or bridge-related alteration is permissible while the triage boundary remains active.",
+      "governance_note": "Release posture remains blocked regardless of static governance completeness.",
+      "remediation_or_next_step": "Maintain the no-release boundary until triage is resolved or formally waived by the appropriate owner.",
+      "prohibited_interpretation": "Do not infer that a complete static governance pack permits release."
+    }
+  ]
+}

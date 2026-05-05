@@ -1,0 +1,64 @@
+{
+  "statuses": [
+    {
+      "status_id": "accepted_static",
+      "meaning": "Accepted for static governance use only.",
+      "allowed_next_statuses": ["accepted_with_conditions", "superseded", "blocked_security", "deferred"],
+      "required_evidence": ["signoff record", "review packet"],
+      "blocks_implementation": true,
+      "blocks_release": true,
+      "expires": false,
+      "recheck_required": false
+    },
+    {
+      "status_id": "accepted_with_conditions",
+      "meaning": "Accepted for static governance use with explicit conditions and follow-up obligations.",
+      "allowed_next_statuses": ["accepted_static", "deferred", "blocked_security", "superseded"],
+      "required_evidence": ["conditional signoff record", "follow-up list"],
+      "blocks_implementation": true,
+      "blocks_release": true,
+      "expires": true,
+      "recheck_required": true
+    },
+    {
+      "status_id": "rejected_static",
+      "meaning": "Rejected for static governance use in its current state.",
+      "allowed_next_statuses": ["deferred", "superseded"],
+      "required_evidence": ["rejection rationale"],
+      "blocks_implementation": true,
+      "blocks_release": true,
+      "expires": false,
+      "recheck_required": true
+    },
+    {
+      "status_id": "deferred",
+      "meaning": "Review was deferred pending more evidence, remediation, or review readiness.",
+      "allowed_next_statuses": ["accepted_static", "accepted_with_conditions", "rejected_static", "blocked_security"],
+      "required_evidence": ["deferral rationale", "required followups"],
+      "blocks_implementation": true,
+      "blocks_release": true,
+      "expires": true,
+      "recheck_required": true
+    },
+    {
+      "status_id": "blocked_security",
+      "meaning": "Security or triage posture blocks progression regardless of static completeness.",
+      "allowed_next_statuses": ["deferred", "superseded"],
+      "required_evidence": ["security blocker reference", "active constraint list"],
+      "blocks_implementation": true,
+      "blocks_release": true,
+      "expires": true,
+      "recheck_required": true
+    },
+    {
+      "status_id": "superseded",
+      "meaning": "Replaced by a later decision or artifact set.",
+      "allowed_next_statuses": [],
+      "required_evidence": ["replacement reference"],
+      "blocks_implementation": true,
+      "blocks_release": true,
+      "expires": false,
+      "recheck_required": false
+    }
+  ]
+}

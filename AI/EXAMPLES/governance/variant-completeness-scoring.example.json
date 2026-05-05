@@ -1,0 +1,64 @@
+{
+  "variants": [
+    {
+      "variant_id": "internal_development_pack",
+      "required_artifact_categories": ["doctrine", "schema", "fixture", "validation_pack"],
+      "optional_artifact_categories": ["dashboard_example", "narrative_template"],
+      "scoring_weights": {"required": 10, "optional": 3, "consistency_bonus": 5},
+      "minimum_score_for_review": 40,
+      "minimum_score_for_static_approval": 55,
+      "blocking_missing_items": ["schema", "fixture"],
+      "warning_missing_items": ["dashboard_example", "narrative_template"]
+    },
+    {
+      "variant_id": "technical_review_pack",
+      "required_artifact_categories": ["schema", "fixture", "trace_example", "report_example"],
+      "optional_artifact_categories": ["dashboard_layout", "field_dictionary"],
+      "scoring_weights": {"required": 10, "optional": 2, "consistency_bonus": 6},
+      "minimum_score_for_review": 45,
+      "minimum_score_for_static_approval": 60,
+      "blocking_missing_items": ["schema", "trace_example", "report_example"],
+      "warning_missing_items": ["dashboard_layout"]
+    },
+    {
+      "variant_id": "enterprise_client_pack",
+      "required_artifact_categories": ["enterprise_report_example", "dashboard_example", "narrative_template"],
+      "optional_artifact_categories": ["audit_export_example"],
+      "scoring_weights": {"required": 9, "optional": 4, "consistency_bonus": 4},
+      "minimum_score_for_review": 30,
+      "minimum_score_for_static_approval": 42,
+      "blocking_missing_items": ["enterprise_report_example", "narrative_template"],
+      "warning_missing_items": ["audit_export_example"]
+    },
+    {
+      "variant_id": "compliance_review_pack",
+      "required_artifact_categories": ["audit_export_example", "evidence_index", "compliance_narrative_template"],
+      "optional_artifact_categories": ["dashboard_enterprise_layout", "signoff_record"],
+      "scoring_weights": {"required": 10, "optional": 3, "consistency_bonus": 5},
+      "minimum_score_for_review": 40,
+      "minimum_score_for_static_approval": 55,
+      "blocking_missing_items": ["audit_export_example", "evidence_index"],
+      "warning_missing_items": ["dashboard_enterprise_layout"]
+    },
+    {
+      "variant_id": "security_triage_pack",
+      "required_artifact_categories": ["security_constraint", "ownership_matrix", "signoff_record"],
+      "optional_artifact_categories": ["readiness_checklist", "audit_export_example"],
+      "scoring_weights": {"required": 12, "optional": 2, "consistency_bonus": 6},
+      "minimum_score_for_review": 36,
+      "minimum_score_for_static_approval": 50,
+      "blocking_missing_items": ["security_constraint", "ownership_matrix", "signoff_record"],
+      "warning_missing_items": ["audit_export_example"]
+    },
+    {
+      "variant_id": "release_readiness_pack",
+      "required_artifact_categories": ["manifest", "signoff_record", "readiness_checklist"],
+      "optional_artifact_categories": ["enterprise_report_example", "audit_export_example"],
+      "scoring_weights": {"required": 12, "optional": 3, "consistency_bonus": 8},
+      "minimum_score_for_review": 40,
+      "minimum_score_for_static_approval": 56,
+      "blocking_missing_items": ["manifest", "signoff_record", "readiness_checklist"],
+      "warning_missing_items": ["enterprise_report_example"]
+    }
+  ]
+}

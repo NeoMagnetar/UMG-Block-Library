@@ -1,0 +1,84 @@
+{
+  "thresholds": [
+    {
+      "threshold_id": "THRESH.MISSING_REQUIRED_ARTIFACT.0001",
+      "trigger_condition": "required artifact category is absent for the selected pack variant",
+      "severity": "critical",
+      "escalation_owner": "maintainer",
+      "required_action": "restore the missing required artifact before review completion",
+      "blocks_static_approval": true,
+      "blocks_implementation_candidate": true,
+      "blocks_release": true
+    },
+    {
+      "threshold_id": "THRESH.MISSING_EVIDENCE_CHECKLIST.0001",
+      "trigger_condition": "blocked reason exists without mapped evidence checklist",
+      "severity": "elevated",
+      "escalation_owner": "compliance_owner",
+      "required_action": "create or restore the evidence checklist mapping",
+      "blocks_static_approval": true,
+      "blocks_implementation_candidate": true,
+      "blocks_release": true
+    },
+    {
+      "threshold_id": "THRESH.FAILED_QA_CHECKLIST.0001",
+      "trigger_condition": "governance communication QA checklist contains one or more failed mandatory checks",
+      "severity": "critical",
+      "escalation_owner": "reporting_owner",
+      "required_action": "correct QA failures and rerun static review",
+      "blocks_static_approval": true,
+      "blocks_implementation_candidate": true,
+      "blocks_release": false
+    },
+    {
+      "threshold_id": "THRESH.UNRESOLVED_MISMATCH.0001",
+      "trigger_condition": "mismatch remains undocumented or is not an approved sentinel",
+      "severity": "elevated",
+      "escalation_owner": "governance_owner",
+      "required_action": "document the mismatch as preserved sentinel or align the affected fields",
+      "blocks_static_approval": true,
+      "blocks_implementation_candidate": true,
+      "blocks_release": false
+    },
+    {
+      "threshold_id": "THRESH.SECURITY_TRIAGE_BLOCKER.0001",
+      "trigger_condition": "active Envoy v0.2.8 security triage constraint remains unresolved for release-facing posture",
+      "severity": "terminal",
+      "escalation_owner": "security_owner",
+      "required_action": "preserve no-release boundary until triage is resolved or formally waived",
+      "blocks_static_approval": false,
+      "blocks_implementation_candidate": true,
+      "blocks_release": true
+    },
+    {
+      "threshold_id": "THRESH.RELEASE_READINESS_BLOCKER.0001",
+      "trigger_condition": "release-readiness packet lacks required signoff or active constraints are unresolved",
+      "severity": "terminal",
+      "escalation_owner": "release_owner",
+      "required_action": "defer release readiness and resolve blockers before reconsideration",
+      "blocks_static_approval": false,
+      "blocks_implementation_candidate": true,
+      "blocks_release": true
+    },
+    {
+      "threshold_id": "THRESH.TERMINAL_GOVERNANCE_VIOLATION.0001",
+      "trigger_condition": "trust blocked, tenant violation, or equivalent terminal governance state exists",
+      "severity": "terminal",
+      "escalation_owner": "governance_owner",
+      "required_action": "halt progression and escalate through the terminal governance lane",
+      "blocks_static_approval": true,
+      "blocks_implementation_candidate": true,
+      "blocks_release": true
+    },
+    {
+      "threshold_id": "THRESH.INCOMPLETE_SIGNOFF.0001",
+      "trigger_condition": "required signoff record is missing, expired, or incomplete",
+      "severity": "critical",
+      "escalation_owner": "review_owner",
+      "required_action": "complete or renew the required signoff record",
+      "blocks_static_approval": true,
+      "blocks_implementation_candidate": true,
+      "blocks_release": true
+    }
+  ]
+}

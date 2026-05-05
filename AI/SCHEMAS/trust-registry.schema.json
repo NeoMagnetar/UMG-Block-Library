@@ -1,0 +1,166 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://umg.envoy/schemas/trust-registry.schema.json",
+  "title": "UMG Trust Registry Schema v0.1",
+  "description": "Validating schema for static trust tier declarations. Defines trust classification only and does not grant execution authority.",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "identity": {
+      "$ref": "./artifact.identity.schema.json"
+    },
+    "provenance": {
+      "$ref": "./provenance.schema.json"
+    },
+    "trust_registry": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "trust_tier_id": {
+          "type": "string",
+          "enum": ["TRUST.INTERNAL", "TRUST.OPENCLAW_VERIFIED", "TRUST.BUSINESS_VERIFIED", "TRUST.EXPERIMENTAL", "TRUST.BLOCKED"]
+        },
+        "description": {
+          "type": "string",
+          "minLength": 1
+        },
+        "allowed_capability_risk_levels": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": ["low", "medium", "high", "critical"]
+          },
+          "uniqueItems": true
+        },
+        "allowed_execution_modes": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": ["preview", "dry_run", "assisted", "approved_execute", "blocked"]
+          },
+          "uniqueItems": true
+        },
+        "approval_requirements": {
+          "type": "array",
+          "items": { "type": "string", "minLength": 1 },
+          "uniqueItems": true
+        },
+        "provider_requirements": {
+          "type": "array",
+          "items": { "type": "string", "minLength": 1 },
+          "uniqueItems": true
+        },
+        "signing_required": {
+          "type": "boolean"
+        },
+        "audit_required": {
+          "type": "boolean"
+        },
+        "default_blocked": {
+          "type": "boolean"
+        },
+        "tenant_binding_required": {
+          "type": "boolean"
+        },
+        "notes": {
+          "type": ["string", "null"]
+        }
+      },
+      "required": [
+        "trust_tier_id",
+        "description",
+        "allowed_capability_risk_levels",
+        "allowed_execution_modes",
+        "approval_requirements",
+        "provider_requirements",
+        "signing_required",
+        "audit_required",
+        "default_blocked",
+        "tenant_binding_required"
+      ],
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "trust_tier_id": { "const": "TRUST.BLOCKED" }
+            },
+            "required": ["trust_tier_id"]
+          },
+          "then": {
+            "properties": {
+              "allowed_execution_modes": {
+                "maxItems": 0
+              },
+              "default_blocked": { "const": true }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "trust_tier_id": { "const": "TRUST.EXPERIMENTAL" }
+            },
+            "required": ["trust_tier_id"]
+          },
+          "then": {
+            "properties": {
+              "allowed_execution_modes": {
+                "not": {
+                  "contains": { "const": "approved_execute" }
+                }
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "trust_tier_id": { "const": "TRUST.BUSINESS_VERIFIED" }
+            },
+            "required": ["trust_tier_id"]
+          },
+          "then": {
+            "properties": {
+              "tenant_binding_required": { "const": true }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "trust_tier_id": { "const": "TRUST.OPENCLAW_VERIFIED" }
+            },
+            "required": ["trust_tier_id"]
+          },
+          "then": {
+            "properties": {
+              "provider_requirements": {
+                "contains": { "const": "provider_verification_required" }
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "allowed_capability_risk_levels": {
+                "contains": { "enum": ["high", "critical"] }
+              }
+            },
+            "required": ["allowed_capability_risk_levels"]
+          },
+          "then": {
+            "properties": {
+              "audit_required": { "const": true }
+            }
+          }
+        }
+      ]
+    },
+    "metadata": {
+      "type": ["object", "null"],
+      "additionalProperties": true
+    }
+  },
+  "required": ["identity", "provenance", "trust_registry"]
+}

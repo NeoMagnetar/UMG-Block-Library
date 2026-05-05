@@ -1,0 +1,8 @@
+{
+  "failure_id": "CONSISTENCY.ROLLBACK_INVALID_EXECUTABLE_VIOLATION.0001",
+  "description": "Rollback-invalid risky chain still reports execution-ready state.",
+  "violated_rule": "rollback consistency",
+  "expected_outcome": "FAIL_CONSISTENCY",
+  "observed_problem": "rollback_state is invalid for a risky action chain, but executable_state or final readiness remains execution-eligible.",
+  "recommended_remediation": "Require a valid rollback policy before permitting execution-ready classification."
+}

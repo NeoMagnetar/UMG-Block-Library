@@ -1,0 +1,20 @@
+{
+  "layout": "full",
+  "intended_for": ["technical_review", "governance_review", "agent_debugging", "full_validation_review"],
+  "sections": [
+    "readiness_banner",
+    "capability_summary",
+    "provider_summary",
+    "binding_summary",
+    "trust_summary",
+    "approval_summary",
+    "rollback_summary",
+    "tenant_summary",
+    "blocked_reasons_panel",
+    "warnings_panel",
+    "mismatch_notes_panel",
+    "remediation_panel",
+    "audit_export_panel"
+  ],
+  "notes": "Full layout surfaces all governance and reporting detail needed for deep validation review."
+}

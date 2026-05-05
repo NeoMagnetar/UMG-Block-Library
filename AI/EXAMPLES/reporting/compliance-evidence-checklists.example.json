@@ -1,0 +1,68 @@
+{
+  "checklists": [
+    {
+      "checklist_id": "CHK.APPROVAL_MISSING.0001",
+      "required_evidence": ["approval_state output", "expected_result reference", "harness result showing execution_authorized=false"],
+      "recommended_supporting_evidence": ["trace event showing approval.missing", "blocked reason object for APPROVAL_MISSING"],
+      "remediation_proof_requirements": ["fresh bounded approval token reference", "updated preview or harness report after remediation"],
+      "escalation_triggers": ["repeated approval gaps", "attempt to bypass approval requirement"],
+      "compliance_signoff_notes": "Approval absence must remain explicit and must not be normalized away."
+    },
+    {
+      "checklist_id": "CHK.APPROVAL_EXPIRED.0001",
+      "required_evidence": ["approval token metadata with expires_at", "approval_state output showing expired"],
+      "recommended_supporting_evidence": ["trace event showing approval.expired"],
+      "remediation_proof_requirements": ["new valid approval token reference", "revalidated blocked-reason posture"],
+      "escalation_triggers": ["expired approval reused", "approval expiry ignored"],
+      "compliance_signoff_notes": "Expired approvals must be treated as invalid for execution-readiness purposes."
+    },
+    {
+      "checklist_id": "CHK.TRUST_BLOCKED.0001",
+      "required_evidence": ["trust registry classification", "blocked reason object for TRUST_BLOCKED"],
+      "recommended_supporting_evidence": ["trace event showing trust.blocked"],
+      "remediation_proof_requirements": ["updated trust assignment or policy exception record", "revalidated preview state"],
+      "escalation_triggers": ["trust block overridden informally", "terminal trust state ignored"],
+      "compliance_signoff_notes": "Trust-blocked posture is terminal until governance policy changes."
+    },
+    {
+      "checklist_id": "CHK.PROVIDER_MISSING.0001",
+      "required_evidence": ["provider_state output", "validation matrix reference"],
+      "recommended_supporting_evidence": ["trace event showing provider invalid or missing"],
+      "remediation_proof_requirements": ["documented provider chain establishment", "binding/provider revalidation"],
+      "escalation_triggers": ["approval used to mask provider absence"],
+      "compliance_signoff_notes": "Provider absence precedes and limits approval interpretation."
+    },
+    {
+      "checklist_id": "CHK.TENANT_VIOLATION.0001",
+      "required_evidence": ["tenant boundary definition", "blocked reason object for TENANT_VIOLATION"],
+      "recommended_supporting_evidence": ["trace event showing tenant.violation"],
+      "remediation_proof_requirements": ["corrected tenant-scoped roots/apps/toolpacks", "revalidated tenant compliance"],
+      "escalation_triggers": ["cross-tenant attempt", "tenant rule bypass attempt"],
+      "compliance_signoff_notes": "Tenant violations are terminal until corrected."
+    },
+    {
+      "checklist_id": "CHK.ROLLBACK_INVALID.0001",
+      "required_evidence": ["rollback_state output", "rollback policy reference"],
+      "recommended_supporting_evidence": ["trace event showing rollback.invalid"],
+      "remediation_proof_requirements": ["valid rollback model selection", "updated blocked reason posture"],
+      "escalation_triggers": ["risky chain without adequate rollback posture"],
+      "compliance_signoff_notes": "Risky chains require valid rollback evidence before execution-ready posture can be reconsidered."
+    },
+    {
+      "checklist_id": "CHK.CAPABILITY_UNKNOWN.0001",
+      "required_evidence": ["capability_state output showing registry_missing or unknown posture"],
+      "recommended_supporting_evidence": ["trace event showing capability.registry_missing"],
+      "remediation_proof_requirements": ["capability registry artifact or removal of undeclared capability"],
+      "escalation_triggers": ["repeated undeclared capability use"],
+      "compliance_signoff_notes": "Unknown capability declarations should not be silently accepted."
+    },
+    {
+      "checklist_id": "CHK.AUDIT_POLICY_INVALID.0001",
+      "required_evidence": ["audit policy reference", "blocked reason object for AUDIT_POLICY_INVALID"],
+      "recommended_supporting_evidence": ["harness result or trace evidence of audit insufficiency"],
+      "remediation_proof_requirements": ["updated audit policy posture", "revalidated report/export outputs"],
+      "escalation_triggers": ["missing audit evidence for risky or blocked chain"],
+      "compliance_signoff_notes": "Audit policy invalidity must be treated as a real governance blocker when configured as such."
+    }
+  ]
+}

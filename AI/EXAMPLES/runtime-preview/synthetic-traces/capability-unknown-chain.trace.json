@@ -1,0 +1,14 @@
+{
+  "trace_id": "TRACE.PREVIEW.CAPUNKNOWN.0001",
+  "timestamp": "2026-05-02T00:00:00Z",
+  "sleeve_id": "SLV.BUSINESS.RUNTIME_TEMPLATE.v1",
+  "tenant_id": "TENANT.EXAMPLE.v1",
+  "fixture_name": "capability-unknown-chain.json",
+  "terminal_readiness": "blocked",
+  "events": [
+    {"event_sequence": 1, "event_type": "capability.declared", "severity": "info", "source_layer": "capability", "blocked_reason": null, "remediation_hint": null, "summary": "Capability declared."},
+    {"event_sequence": 2, "event_type": "capability.registry_missing", "severity": "warn", "source_layer": "capability", "blocked_reason": "CAPABILITY_UNKNOWN", "remediation_hint": "Register capability or remove declaration.", "summary": "Capability missing from governed registry."},
+    {"event_sequence": 3, "event_type": "preview.executable_state", "severity": "warn", "source_layer": "preview", "blocked_reason": "CAPABILITY_UNKNOWN", "remediation_hint": "Keep chain blocked until capability identity is governed.", "summary": "Final readiness blocked by unknown capability."}
+  ],
+  "summary": "Synthetic trace for capability-unknown fixture."
+}

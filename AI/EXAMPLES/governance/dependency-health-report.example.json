@@ -1,0 +1,20 @@
+{
+  "report_id": "DEP.HEALTH.0001",
+  "assessed_pack_id": "PACK.UMG.TOOL_RUNTIME.GOVERNANCE.0001",
+  "total_dependencies": 11,
+  "satisfied_dependencies": 10,
+  "missing_dependencies": 1,
+  "critical_missing_dependencies": [
+    "security triage resolution artifact"
+  ],
+  "warning_missing_dependencies": [
+    "implementation authorization artifact"
+  ],
+  "dependency_health_score": 91,
+  "blocked_artifacts": [
+    "release readiness pack",
+    "implementation candidate posture"
+  ],
+  "remediation_required": true,
+  "escalation_required": true
+}

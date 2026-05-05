@@ -1,0 +1,13 @@
+{
+  "layout": "partial",
+  "intended_for": ["normal_user_review", "quick_validation_review", "non_enterprise_usage"],
+  "sections": [
+    "readiness_banner",
+    "capability_summary",
+    "provider_summary",
+    "trust_summary",
+    "warnings_panel",
+    "remediation_panel"
+  ],
+  "notes": "Compact layout emphasizing readiness, key blockers, and next actions."
+}

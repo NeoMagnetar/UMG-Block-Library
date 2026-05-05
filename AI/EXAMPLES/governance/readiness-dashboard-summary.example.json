@@ -1,0 +1,36 @@
+{
+  "maturity_status": {
+    "current": "M6_reviewed_static",
+    "target": "M7_implementation_candidate",
+    "implementation_allowed": false
+  },
+  "dependency_health": {
+    "score": 91,
+    "status": "healthy_with_security_blocker"
+  },
+  "completeness_status": {
+    "technical_review_pack": "static_approval_ready",
+    "release_readiness_pack": "not_ready"
+  },
+  "escalation_status": {
+    "active_thresholds": [
+      "THRESH.SECURITY_TRIAGE_BLOCKER.0001",
+      "THRESH.INCOMPLETE_SIGNOFF.0001"
+    ],
+    "highest_severity": "terminal"
+  },
+  "security_triage_status": {
+    "active": true,
+    "package": "umg-envoy-agent@0.2.8",
+    "publish_allowed": false,
+    "release_mutation_allowed": false
+  },
+  "implementation_posture": {
+    "state": "not_authorized",
+    "reason": "Static lane only; explicit implementation authorization absent."
+  },
+  "release_posture": {
+    "state": "blocked",
+    "reason": "Envoy v0.2.8 security triage remains active."
+  }
+}

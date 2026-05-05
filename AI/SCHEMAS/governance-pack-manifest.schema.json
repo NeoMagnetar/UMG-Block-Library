@@ -1,0 +1,109 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://umg.envoy/schemas/governance-pack-manifest.schema.json",
+  "title": "UMG Governance Pack Manifest Schema v0.1",
+  "description": "Validating schema for static governance pack manifests. Defines packaging and review boundaries only and does not authorize execution or release mutation.",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "pack_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "version": {
+      "type": "string",
+      "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$"
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "purpose": {
+      "type": "string",
+      "minLength": 1
+    },
+    "included_doctrine_files": {
+      "type": "array",
+      "items": { "type": "string", "minLength": 1 },
+      "uniqueItems": true
+    },
+    "included_schema_files": {
+      "type": "array",
+      "items": { "type": "string", "minLength": 1 },
+      "uniqueItems": true
+    },
+    "included_example_files": {
+      "type": "array",
+      "items": { "type": "string", "minLength": 1 },
+      "uniqueItems": true
+    },
+    "included_fixture_files": {
+      "type": "array",
+      "items": { "type": "string", "minLength": 1 },
+      "uniqueItems": true
+    },
+    "included_report_files": {
+      "type": "array",
+      "items": { "type": "string", "minLength": 1 },
+      "uniqueItems": true
+    },
+    "included_dashboard_files": {
+      "type": "array",
+      "items": { "type": "string", "minLength": 1 },
+      "uniqueItems": true
+    },
+    "included_evidence_files": {
+      "type": "array",
+      "items": { "type": "string", "minLength": 1 },
+      "uniqueItems": true
+    },
+    "included_remediation_files": {
+      "type": "array",
+      "items": { "type": "string", "minLength": 1 },
+      "uniqueItems": true
+    },
+    "included_signoff_files": {
+      "type": "array",
+      "items": { "type": "string", "minLength": 1 },
+      "uniqueItems": true
+    },
+    "security_boundary": {
+      "type": "string",
+      "minLength": 1
+    },
+    "non_execution_statement": {
+      "type": "string",
+      "minLength": 1
+    },
+    "active_constraints": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "type": "string", "minLength": 1 },
+      "uniqueItems": true
+    },
+    "compatibility_notes": {
+      "type": "array",
+      "items": { "type": "string", "minLength": 1 },
+      "uniqueItems": true
+    }
+  },
+  "required": [
+    "pack_id",
+    "version",
+    "created_at",
+    "purpose",
+    "included_doctrine_files",
+    "included_schema_files",
+    "included_example_files",
+    "included_fixture_files",
+    "included_report_files",
+    "included_dashboard_files",
+    "included_evidence_files",
+    "included_remediation_files",
+    "included_signoff_files",
+    "security_boundary",
+    "non_execution_statement",
+    "active_constraints",
+    "compatibility_notes"
+  ]
+}

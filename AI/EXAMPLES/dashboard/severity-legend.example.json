@@ -1,0 +1,39 @@
+{
+  "severities": [
+    {
+      "severity": "info",
+      "display_label": "Info",
+      "meaning": "Informational state with no active governance blocker.",
+      "user_facing_behavior": "Display inline without escalation.",
+      "remediation_priority": "low"
+    },
+    {
+      "severity": "warning",
+      "display_label": "Warning",
+      "meaning": "Non-terminal issue or missing prerequisite that may still allow preview or dry-run interpretation.",
+      "user_facing_behavior": "Show visible caution and remediation hints.",
+      "remediation_priority": "medium"
+    },
+    {
+      "severity": "elevated",
+      "display_label": "Elevated",
+      "meaning": "Material mismatch or governance concern requiring operator review.",
+      "user_facing_behavior": "Highlight strongly and retain in report summaries.",
+      "remediation_priority": "medium_high"
+    },
+    {
+      "severity": "critical",
+      "display_label": "Critical",
+      "meaning": "Strong governance or structural blocker preventing readiness progression.",
+      "user_facing_behavior": "Prominent blocked-state presentation with remediation and human action guidance.",
+      "remediation_priority": "high"
+    },
+    {
+      "severity": "terminal",
+      "display_label": "Terminal",
+      "meaning": "Policy-terminal violation that cannot be retried without policy or configuration change.",
+      "user_facing_behavior": "Show terminal banner and escalation path; suppress retry recommendations.",
+      "remediation_priority": "immediate"
+    }
+  ]
+}

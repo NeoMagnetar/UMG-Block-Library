@@ -1,0 +1,18 @@
+{
+  "trace_id": "TRACE.PREVIEW.VALID.0001",
+  "timestamp": "2026-05-02T00:00:00Z",
+  "sleeve_id": "SLV.BUSINESS.RUNTIME_TEMPLATE.v1",
+  "tenant_id": "TENANT.EXAMPLE.v1",
+  "fixture_name": "valid-preview-only-chain.json",
+  "terminal_readiness": "preview_only",
+  "events": [
+    {"event_sequence": 1, "event_type": "capability.declared", "severity": "info", "source_layer": "capability", "blocked_reason": null, "remediation_hint": null, "summary": "Capability declared in preview fixture."},
+    {"event_sequence": 2, "event_type": "capability.registry_known", "severity": "info", "source_layer": "capability", "blocked_reason": null, "remediation_hint": null, "summary": "Capability registry entry is known."},
+    {"event_sequence": 3, "event_type": "provider.found", "severity": "info", "source_layer": "provider", "blocked_reason": null, "remediation_hint": null, "summary": "Provider toolpack is available."},
+    {"event_sequence": 4, "event_type": "binding.validated", "severity": "info", "source_layer": "binding", "blocked_reason": null, "remediation_hint": null, "summary": "Binding is structurally valid."},
+    {"event_sequence": 5, "event_type": "trust.valid", "severity": "info", "source_layer": "trust", "blocked_reason": null, "remediation_hint": null, "summary": "Trust tier is valid."},
+    {"event_sequence": 6, "event_type": "rollback.valid", "severity": "info", "source_layer": "rollback", "blocked_reason": null, "remediation_hint": null, "summary": "Rollback posture is valid for preview-safe chain."},
+    {"event_sequence": 7, "event_type": "preview.executable_state", "severity": "warn", "source_layer": "preview", "blocked_reason": null, "remediation_hint": "Preserve mismatch note for readiness/executable-state inconsistency.", "summary": "Preview-only chain with known readiness mismatch sentinel."}
+  ],
+  "summary": "Synthetic trace for valid preview-only fixture with preserved mismatch sentinel."
+}

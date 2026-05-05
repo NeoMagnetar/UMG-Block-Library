@@ -1,0 +1,36 @@
+{
+  "translatable_fields": [
+    "display_label",
+    "executive_summary_text",
+    "technical_summary_text",
+    "remediation_text",
+    "audit_note_text",
+    "human_summary",
+    "remediation_guidance"
+  ],
+  "non_translatable_governance_tokens": [
+    "preview_only",
+    "dry_run_only",
+    "structurally_executable_pending_gate",
+    "blocked",
+    "TRUST_BLOCKED",
+    "APPROVAL_EXPIRED",
+    "TENANT_VIOLATION",
+    "ROLLBACK_POLICY_INVALID",
+    "PROVIDER_MISSING",
+    "CAPABILITY_UNKNOWN"
+  ],
+  "severity_translation_requirements": [
+    "display labels may be localized",
+    "underlying severity token must remain stable"
+  ],
+  "blocked_reason_token_preservation": true,
+  "compliance_language_caution_notes": [
+    "Do not localize machine-readable blocked reason codes.",
+    "Do not weaken compliance wording during translation."
+  ],
+  "enterprise_localization_notes": [
+    "Executive prose may be localized for audience readability.",
+    "Canonical governance terms should remain recognizable even in localized output."
+  ]
+}

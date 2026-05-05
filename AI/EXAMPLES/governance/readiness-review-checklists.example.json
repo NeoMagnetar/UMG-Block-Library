@@ -1,0 +1,44 @@
+{
+  "checklists": [
+    {
+      "checklist_id": "READY.STATIC_ARCHITECTURE.0001",
+      "scope": "static architecture readiness",
+      "items": ["doctrine present", "non-execution boundary preserved", "phase outputs indexed", "security boundary documented"]
+    },
+    {
+      "checklist_id": "READY.SCHEMA.0001",
+      "scope": "schema readiness",
+      "items": ["schema set drafted", "schema examples present", "reporting schemas aligned", "manifest schema present"]
+    },
+    {
+      "checklist_id": "READY.FIXTURE.0001",
+      "scope": "fixture readiness",
+      "items": ["fixtures present", "expected results present", "trace expectations present", "known mismatch sentinel documented"]
+    },
+    {
+      "checklist_id": "READY.REPORTING.0001",
+      "scope": "reporting readiness",
+      "items": ["enterprise report example present", "audit export example present", "harness result example present", "field dictionary present"]
+    },
+    {
+      "checklist_id": "READY.DASHBOARD.0001",
+      "scope": "dashboard readiness",
+      "items": ["screen states present", "layout variants present", "section map present", "screen/report crosswalk present"]
+    },
+    {
+      "checklist_id": "READY.COMPLIANCE.0001",
+      "scope": "compliance readiness",
+      "items": ["compliance narratives present", "evidence checklists present", "tenant/trust wording present", "audit scope references present"]
+    },
+    {
+      "checklist_id": "READY.SECURITY_TRIAGE.0001",
+      "scope": "security triage readiness",
+      "items": ["triage note preserved", "hash distinction preserved", "publish/removal prohibition preserved", "scanner remediation ownership defined"]
+    },
+    {
+      "checklist_id": "READY.RELEASE.0001",
+      "scope": "release readiness",
+      "items": ["release blockers documented", "security signoff required", "governance signoff required", "no release implied by static completeness"]
+    }
+  ]
+}

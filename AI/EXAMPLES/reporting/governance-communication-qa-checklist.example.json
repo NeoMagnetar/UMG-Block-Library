@@ -1,0 +1,67 @@
+{
+  "qa_checks": [
+    {
+      "check_id": "QA.SEVERITY_WORDING.0001",
+      "topic": "severity wording",
+      "criteria": "Severity labels and descriptions match the approved taxonomy.",
+      "pass_condition": "Info/warning/elevated/critical/terminal language is used consistently.",
+      "fail_condition": "Severity terms are mixed, inflated, or contradicted."
+    },
+    {
+      "check_id": "QA.BLOCKED_REASON_CONSISTENCY.0001",
+      "topic": "blocked reason consistency",
+      "criteria": "Blocked reason wording matches machine-readable tokens and narrative text.",
+      "pass_condition": "Human summaries clearly correspond to blocked reason codes.",
+      "fail_condition": "Blocked reasons are vague, missing, or mislabeled."
+    },
+    {
+      "check_id": "QA.REMEDIATION_CLARITY.0001",
+      "topic": "remediation clarity",
+      "criteria": "Remediation language is bounded, actionable, and tied to the actual issue class.",
+      "pass_condition": "Next actions are specific and non-ambiguous.",
+      "fail_condition": "Remediation language is vague or generic."
+    },
+    {
+      "check_id": "QA.EVIDENCE_COMPLETENESS.0001",
+      "topic": "evidence completeness",
+      "criteria": "Required and supporting evidence references are present for governed blocked conditions.",
+      "pass_condition": "Evidence expectations are explicit.",
+      "fail_condition": "Evidence requirements are missing or underspecified."
+    },
+    {
+      "check_id": "QA.NO_EXECUTION_LANGUAGE.0001",
+      "topic": "no execution-authorizing language",
+      "criteria": "Outputs do not imply execution authority where none exists.",
+      "pass_condition": "Language clearly distinguishes structural readiness from permission.",
+      "fail_condition": "Text implies the system may execute, approve, or proceed automatically."
+    },
+    {
+      "check_id": "QA.NO_AMBIGUOUS_PERMISSION_LANGUAGE.0001",
+      "topic": "no ambiguous permission language",
+      "criteria": "Terms like approved, safe, ready, or allowed are scoped precisely.",
+      "pass_condition": "Permission language is bounded and field-specific.",
+      "fail_condition": "Permission language is vague or overstated."
+    },
+    {
+      "check_id": "QA.TENANT_BOUNDARY_CLARITY.0001",
+      "topic": "tenant boundary clarity",
+      "criteria": "Tenant rules and violations are described explicitly.",
+      "pass_condition": "Tenant-compliance posture is understandable to reviewers.",
+      "fail_condition": "Tenant scope is unclear or under-described."
+    },
+    {
+      "check_id": "QA.APPROVAL_BOUNDARY_CLARITY.0001",
+      "topic": "approval boundary clarity",
+      "criteria": "Approval presence is not confused with execution authorization.",
+      "pass_condition": "Approval wording remains bounded and precise.",
+      "fail_condition": "Approval is described as if it authorizes execution by itself."
+    },
+    {
+      "check_id": "QA.SECURITY_TRIAGE_BOUNDARY.0001",
+      "topic": "security-triage boundary preservation",
+      "criteria": "Outputs preserve the active Envoy v0.2.8 security triage boundary.",
+      "pass_condition": "No text implies release, bridge execution, artifact mutation, or package publish during triage.",
+      "fail_condition": "Outputs imply release changes or runtime/bridge activity while triage remains active."
+    }
+  ]
+}

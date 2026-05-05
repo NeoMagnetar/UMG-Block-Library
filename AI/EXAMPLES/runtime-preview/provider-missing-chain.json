@@ -1,0 +1,70 @@
+{
+  "runtime_spec_preview_version": "0.1",
+  "runtime_spec_id": "RSP.PREVIEW.PROVIDERMISS.0001",
+  "source_ir_id": "IR.EXAMPLE.0007",
+  "active_sleeve": "SLV.BUSINESS.RUNTIME_TEMPLATE.v1",
+  "requested_execution_mode": "assisted",
+  "capability_state": [
+    {
+      "capability_id": "CAP.DESKTOP.UI.TYPE.v1",
+      "declared": true,
+      "registry_state": "registry_known",
+      "risk_level": "high",
+      "blocked_by_default": true,
+      "allowed_modes": ["assisted", "approved_execute"]
+    }
+  ],
+  "provider_state": [
+    {
+      "capability_id": "CAP.DESKTOP.UI.TYPE.v1",
+      "toolpack_id": "TP.OPENCLAW.DESKTOP_BRIDGE.v1",
+      "provider_state": "provider_missing",
+      "version_state": "provider_version_invalid"
+    }
+  ],
+  "binding_state": [],
+  "trust_state": [
+    {
+      "trust_tier_id": "TRUST.OPENCLAW_VERIFIED",
+      "trust_state": "trust_valid",
+      "tenant_binding_required": false,
+      "tenant_bound": true
+    }
+  ],
+  "approval_state": [
+    {
+      "capability_id": "CAP.DESKTOP.UI.TYPE.v1",
+      "binding_id": "BIND.DESKTOP.UI.TYPE.v1",
+      "approval_state": "approval_required",
+      "approval_required": true
+    }
+  ],
+  "rollback_state": [],
+  "executable_state": {
+    "state": "blocked_reason",
+    "mode_limit": "blocked",
+    "blocked_reasons": ["PROVIDER_MISSING"]
+  },
+  "warnings": [],
+  "errors": ["No provider toolpack is available for the declared capability."],
+  "blocked_reasons": [
+    {
+      "blocked_reason_code": "PROVIDER_MISSING",
+      "category": "provider",
+      "severity": "error",
+      "human_summary": "No provider is available for the requested capability.",
+      "remediation_guidance": "Add or allow a toolpack that provides the capability before attempting higher execution modes.",
+      "retry_possible": true,
+      "requires_human_action": true
+    }
+  ],
+  "governance_summary": {
+    "declared_capabilities": ["CAP.DESKTOP.UI.TYPE.v1"],
+    "provider_availability": "missing",
+    "trust_status": "valid",
+    "approval_requirements": "required",
+    "rollback_validity": "mixed",
+    "tenant_compliance": "compliant",
+    "final_preview_readiness": "blocked"
+  }
+}

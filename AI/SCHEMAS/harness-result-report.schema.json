@@ -1,0 +1,149 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://umg.envoy/schemas/harness-result-report.schema.json",
+  "title": "UMG Harness Result Report Schema v0.1",
+  "description": "Validating schema for static validation harness result reports. Defines reporting structure only and does not authorize execution.",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "report_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "generated_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "runner_mode": {
+      "type": "string",
+      "const": "static_validation_only"
+    },
+    "security_mode": {
+      "type": "string",
+      "const": "no_execution"
+    },
+    "fixture_name": {
+      "type": "string",
+      "minLength": 1
+    },
+    "fixture_path": {
+      "type": "string",
+      "minLength": 1
+    },
+    "expected_result_path": {
+      "type": "string",
+      "minLength": 1
+    },
+    "validation_matrix_path": {
+      "type": "string",
+      "minLength": 1
+    },
+    "schema_set_used": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "runtimespec_preview": { "type": "string", "minLength": 1 },
+        "validation_trace_preview": { "type": "string", "minLength": 1 },
+        "blocked_reason": { "type": "string", "minLength": 1 }
+      },
+      "required": ["runtimespec_preview", "validation_trace_preview", "blocked_reason"]
+    },
+    "governance_schema_set_used": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "capability_schema": { "type": "string", "minLength": 1 },
+        "toolpack_schema": { "type": "string", "minLength": 1 },
+        "tool_binding_schema": { "type": "string", "minLength": 1 },
+        "sleeve_runtime_governance_schema": { "type": "string", "minLength": 1 },
+        "trust_registry_schema": { "type": "string", "minLength": 1 },
+        "approval_token_schema": { "type": "string", "minLength": 1 },
+        "rollback_taxonomy_schema": { "type": "string", "minLength": 1 }
+      },
+      "required": [
+        "capability_schema",
+        "toolpack_schema",
+        "tool_binding_schema",
+        "sleeve_runtime_governance_schema",
+        "trust_registry_schema",
+        "approval_token_schema",
+        "rollback_taxonomy_schema"
+      ]
+    },
+    "outcome": {
+      "type": "string",
+      "enum": ["PASS", "PASS_WITH_MISMATCH_NOTE", "FAIL_SCHEMA", "FAIL_EXPECTATION", "FAIL_CONSISTENCY"]
+    },
+    "outcome_reason": {
+      "type": "string",
+      "minLength": 1
+    },
+    "schema_validation": {
+      "type": "string",
+      "enum": ["PASS", "FAIL"]
+    },
+    "expectation_validation": {
+      "type": "string",
+      "enum": ["PASS", "FAIL", "PASS_WITH_MISMATCH_NOTE"]
+    },
+    "consistency_validation": {
+      "type": "string",
+      "enum": ["PASS", "FAIL", "PASS_WITH_MISMATCH_NOTE"]
+    },
+    "trace_expectation_validation": {
+      "type": "string",
+      "enum": ["PASS", "FAIL", "NOT_RUN"]
+    },
+    "warnings": {
+      "type": "array",
+      "items": { "type": "string", "minLength": 1 },
+      "uniqueItems": true
+    },
+    "errors": {
+      "type": "array",
+      "items": { "type": "string", "minLength": 1 },
+      "uniqueItems": true
+    },
+    "mismatch_notes": {
+      "type": "array",
+      "items": { "type": "string", "minLength": 1 },
+      "uniqueItems": true
+    },
+    "blocked_reasons": {
+      "type": "array",
+      "items": { "$ref": "./blocked-reason.schema.json" }
+    },
+    "final_readiness": {
+      "type": "string",
+      "enum": ["preview_only", "dry_run_only", "structurally_executable_pending_gate", "blocked"]
+    },
+    "execution_authorized": {
+      "type": "boolean",
+      "const": false
+    }
+  },
+  "required": [
+    "report_id",
+    "generated_at",
+    "runner_mode",
+    "security_mode",
+    "fixture_name",
+    "fixture_path",
+    "expected_result_path",
+    "validation_matrix_path",
+    "schema_set_used",
+    "governance_schema_set_used",
+    "outcome",
+    "outcome_reason",
+    "schema_validation",
+    "expectation_validation",
+    "consistency_validation",
+    "trace_expectation_validation",
+    "warnings",
+    "errors",
+    "mismatch_notes",
+    "blocked_reasons",
+    "final_readiness",
+    "execution_authorized"
+  ]
+}

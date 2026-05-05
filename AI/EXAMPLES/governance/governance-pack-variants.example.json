@@ -1,0 +1,76 @@
+{
+  "variants": [
+    {
+      "variant_id": "internal_development_pack",
+      "intended_audience": ["developer", "maintainer"],
+      "included_sections": ["doctrine", "schemas", "fixtures", "validation_pack", "harness_contract", "consistency_failures"],
+      "excluded_sections": ["enterprise_client_narratives"],
+      "required_artifact_types": ["doctrine", "schema", "fixture", "report_example"],
+      "optional_artifact_types": ["dashboard_example", "audit_export_example"],
+      "sensitivity_level": "medium",
+      "export_allowed": true,
+      "signoff_required": true,
+      "active_constraints": ["no_execution", "no_release_mutation", "security_triage_active"]
+    },
+    {
+      "variant_id": "technical_review_pack",
+      "intended_audience": ["developer", "maintainer", "governance_owner"],
+      "included_sections": ["doctrine", "schemas", "fixtures", "synthetic_traces", "harness_reports", "consistency_rules"],
+      "excluded_sections": ["executive_summary_only_views"],
+      "required_artifact_types": ["schema", "fixture", "trace_example", "report_example"],
+      "optional_artifact_types": ["dashboard_layout", "narrative_template"],
+      "sensitivity_level": "medium_high",
+      "export_allowed": true,
+      "signoff_required": true,
+      "active_constraints": ["no_execution", "no_runtime_implementation", "security_triage_active"]
+    },
+    {
+      "variant_id": "enterprise_client_pack",
+      "intended_audience": ["business_client", "executive"],
+      "included_sections": ["executive_summary", "blocked_issue_summary", "remediation_roadmap", "dashboard_enterprise_layout"],
+      "excluded_sections": ["raw_fixture_detail", "synthetic_trace_detail", "low_level_schema_lists"],
+      "required_artifact_types": ["enterprise_report_example", "dashboard_example", "narrative_template"],
+      "optional_artifact_types": ["audit_export_example"],
+      "sensitivity_level": "medium",
+      "export_allowed": true,
+      "signoff_required": true,
+      "active_constraints": ["no_execution", "no_release_mutation", "security_triage_active"]
+    },
+    {
+      "variant_id": "compliance_review_pack",
+      "intended_audience": ["compliance_reviewer", "auditor"],
+      "included_sections": ["blocked_issue_summary", "evidence_checklists", "audit_exports", "tenant_and_trust_posture"],
+      "excluded_sections": ["nonessential_ui_preferences"],
+      "required_artifact_types": ["audit_export_example", "evidence_index", "compliance_narrative_template"],
+      "optional_artifact_types": ["dashboard_enterprise_layout", "signoff_record"],
+      "sensitivity_level": "high",
+      "export_allowed": true,
+      "signoff_required": true,
+      "active_constraints": ["no_execution", "no_release_mutation", "security_triage_active"]
+    },
+    {
+      "variant_id": "security_triage_pack",
+      "intended_audience": ["security_reviewer", "maintainer", "release_owner"],
+      "included_sections": ["security_boundary", "active_constraints", "scanner_remediation_ownership", "release_blockers"],
+      "excluded_sections": ["runtime_enablement_language"],
+      "required_artifact_types": ["security_constraint", "ownership_matrix", "signoff_record"],
+      "optional_artifact_types": ["audit_export_example", "readiness_checklist"],
+      "sensitivity_level": "high",
+      "export_allowed": false,
+      "signoff_required": true,
+      "active_constraints": ["no_v0.2.9_publish", "no_compiler_bridge_removal", "no_release_artifact_mutation", "no_hash_equivalence_assumption"]
+    },
+    {
+      "variant_id": "release_readiness_pack",
+      "intended_audience": ["release_owner", "security_owner", "governance_owner"],
+      "included_sections": ["signoff_records", "security_triage_status", "readiness_checklists", "governance_pack_manifest"],
+      "excluded_sections": ["runtime_execution_claims"],
+      "required_artifact_types": ["signoff_record", "readiness_checklist", "manifest"],
+      "optional_artifact_types": ["enterprise_report_example", "audit_export_example"],
+      "sensitivity_level": "high",
+      "export_allowed": false,
+      "signoff_required": true,
+      "active_constraints": ["release_allowed_false_while_triage_active", "no_execution", "no_release_mutation"]
+    }
+  ]
+}

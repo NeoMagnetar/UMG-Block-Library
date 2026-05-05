@@ -1,0 +1,52 @@
+{
+  "templates": [
+    {
+      "template_id": "ENT.NARRATIVE.PREVIEW_ONLY.0001",
+      "readiness_state": "preview_only",
+      "executive_summary_text": "The evaluated chain is structurally valid for preview-only governance review and does not authorize execution.",
+      "technical_summary_text": "Capability, provider, and trust signals support preview semantics, while execution authority remains disabled by design.",
+      "remediation_text": "Continue with documentation or dry-run planning only if governance posture remains unchanged.",
+      "audit_note_text": "No execution was authorized or performed; preview-only posture was preserved."
+    },
+    {
+      "template_id": "ENT.NARRATIVE.DRY_RUN_ONLY.0001",
+      "readiness_state": "dry_run_only",
+      "executive_summary_text": "The chain is structurally suitable for dry-run interpretation but is not execution-ready.",
+      "technical_summary_text": "Provider and binding signals are present, but approval or mode constraints prevent higher readiness.",
+      "remediation_text": "Resolve approval or mode blockers before considering any future gated execution posture.",
+      "audit_note_text": "Dry-run-only state was maintained and no runtime authority was granted."
+    },
+    {
+      "template_id": "ENT.NARRATIVE.PENDING_GATE.0001",
+      "readiness_state": "structurally_executable_pending_gate",
+      "executive_summary_text": "The chain is structurally complete but remains subject to OpenClaw runtime gate approval.",
+      "technical_summary_text": "All structural checks pass, but execution authority is intentionally withheld until runtime gating is explicitly satisfied.",
+      "remediation_text": "Retain preview-only governance until gate conditions and approval posture are formally accepted.",
+      "audit_note_text": "Structural readiness does not imply or authorize execution."
+    },
+    {
+      "template_id": "ENT.NARRATIVE.BLOCKED.0001",
+      "readiness_state": "blocked",
+      "executive_summary_text": "The chain is blocked by one or more governance or structural violations.",
+      "technical_summary_text": "Blocked reasons prevent readiness progression and must be resolved before the chain can advance.",
+      "remediation_text": "Address the highest-priority blocked reason first and re-evaluate only after remediation is complete.",
+      "audit_note_text": "Blocked posture prevented execution-ready classification and no runtime action occurred."
+    },
+    {
+      "template_id": "ENT.NARRATIVE.MISMATCH_NOTE.0001",
+      "readiness_state": "preview_only",
+      "executive_summary_text": "The chain is acceptable for governed interpretation but contains a preserved mismatch note.",
+      "technical_summary_text": "A known sentinel inconsistency remains visible for regression and consistency-review purposes.",
+      "remediation_text": "Either align the affected fields or keep the mismatch explicitly documented as a preserved validation sentinel.",
+      "audit_note_text": "Mismatch visibility was preserved intentionally and not normalized away."
+    },
+    {
+      "template_id": "ENT.NARRATIVE.TERMINAL_VIOLATION.0001",
+      "readiness_state": "blocked",
+      "executive_summary_text": "A terminal governance violation prevents further readiness progression under the current policy posture.",
+      "technical_summary_text": "Terminal trust, tenant, approval, or rollback conditions require policy or boundary change before retry is appropriate.",
+      "remediation_text": "Escalate to the relevant governance owner; do not retry until the governing condition changes.",
+      "audit_note_text": "Terminal governance posture was enforced and no retry was recommended."
+    }
+  ]
+}

@@ -1,0 +1,67 @@
+{
+  "audiences": [
+    {
+      "audience_id": "developer",
+      "information_needs": ["schema alignment", "fixture consistency", "blocked reasons", "trace expectations"],
+      "hidden_fields": [],
+      "preferred_summary_level": "technical",
+      "required_sections": ["validation_outcome_summary", "blocked_issue_summary", "risk_summary"],
+      "prohibited_sections": [],
+      "export_variant": "full_export"
+    },
+    {
+      "audience_id": "maintainer",
+      "information_needs": ["provider posture", "trust posture", "remediation ownership", "release safety boundaries"],
+      "hidden_fields": [],
+      "preferred_summary_level": "technical_enterprise_mix",
+      "required_sections": ["executive_summary", "blocked_issue_summary", "remediation_roadmap"],
+      "prohibited_sections": [],
+      "export_variant": "full_export"
+    },
+    {
+      "audience_id": "auditor",
+      "information_needs": ["evidence completeness", "trace reproducibility", "audit export scope"],
+      "hidden_fields": ["low_priority_ui_display_preferences"],
+      "preferred_summary_level": "audit",
+      "required_sections": ["schema_provenance", "governance_provenance", "blocked_issue_summary"],
+      "prohibited_sections": [],
+      "export_variant": "compliance_export"
+    },
+    {
+      "audience_id": "business_client",
+      "information_needs": ["readiness posture", "blocked posture", "remediation roadmap"],
+      "hidden_fields": ["low_level_binding_state", "synthetic_trace_details"],
+      "preferred_summary_level": "enterprise",
+      "required_sections": ["executive_summary", "blocked_issue_summary", "remediation_roadmap"],
+      "prohibited_sections": ["raw_trace_events"],
+      "export_variant": "enterprise_export"
+    },
+    {
+      "audience_id": "executive",
+      "information_needs": ["decision posture", "risk summary", "blocked issue summary"],
+      "hidden_fields": ["technical_event_sequences", "binding_level_detail"],
+      "preferred_summary_level": "concise_enterprise",
+      "required_sections": ["executive_summary", "risk_summary"],
+      "prohibited_sections": ["synthetic_trace_details", "raw_schema_lists"],
+      "export_variant": "enterprise_export"
+    },
+    {
+      "audience_id": "compliance_reviewer",
+      "information_needs": ["blocked reasons", "evidence requirements", "signoff posture", "tenant and trust boundaries"],
+      "hidden_fields": [],
+      "preferred_summary_level": "compliance",
+      "required_sections": ["blocked_issue_summary", "tenant_compliance", "export_metadata"],
+      "prohibited_sections": [],
+      "export_variant": "compliance_export"
+    },
+    {
+      "audience_id": "support_agent",
+      "information_needs": ["high-level blocked posture", "approved remediation guidance", "escalation path"],
+      "hidden_fields": ["raw_consistency_failure_examples", "schema_provenance"],
+      "preferred_summary_level": "support_facing",
+      "required_sections": ["executive_summary", "remediation_roadmap"],
+      "prohibited_sections": ["compliance_internal_notes"],
+      "export_variant": "partial_export"
+    }
+  ]
+}

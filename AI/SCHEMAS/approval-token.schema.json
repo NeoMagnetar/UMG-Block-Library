@@ -1,0 +1,158 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://umg.envoy/schemas/approval-token.schema.json",
+  "title": "UMG Approval Token Schema v0.1",
+  "description": "Validating schema for bounded runtime approval grants. Defines approval structure only and does not bypass OpenClaw gating.",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "identity": {
+      "$ref": "./artifact.identity.schema.json"
+    },
+    "provenance": {
+      "$ref": "./provenance.schema.json"
+    },
+    "approval_token": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "approval_id": {
+          "type": "string",
+          "pattern": "^APR\\.[A-Z0-9._-]+$"
+        },
+        "granted_by": {
+          "type": "string",
+          "minLength": 1
+        },
+        "granted_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "expires_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "tenant_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "sleeve_id": {
+          "type": "string",
+          "pattern": "^SLV\\.[A-Z0-9._-]+\\.v[0-9]+$"
+        },
+        "capability_id": {
+          "type": "string",
+          "pattern": "^CAP\\.[A-Z0-9._-]+\\.v[0-9]+$"
+        },
+        "toolpack_id": {
+          "type": "string",
+          "pattern": "^TP\\.[A-Z0-9._-]+\\.v[0-9]+$"
+        },
+        "tool_binding_id": {
+          "type": "string",
+          "pattern": "^BIND\\.[A-Z0-9._-]+\\.v[0-9]+$"
+        },
+        "execution_mode": {
+          "type": "string",
+          "enum": ["preview", "dry_run", "assisted", "approved_execute", "blocked"]
+        },
+        "reusable": {
+          "type": "boolean"
+        },
+        "revoked": {
+          "type": "boolean"
+        },
+        "approval_scope": {
+          "type": "string",
+          "enum": ["session", "phase", "capability", "binding", "workflow", "one_time"]
+        },
+        "approval_reason": {
+          "type": ["string", "null"]
+        },
+        "approval_channel": {
+          "type": ["string", "null"]
+        },
+        "max_uses": {
+          "type": ["integer", "null"],
+          "minimum": 1
+        },
+        "used_count": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "phase_id": {
+          "type": ["string", "null"]
+        },
+        "workflow_id": {
+          "type": ["string", "null"]
+        },
+        "human_confirmation_text": {
+          "type": ["string", "null"]
+        },
+        "audit_signature": {
+          "type": ["string", "null"]
+        },
+        "notes": {
+          "type": ["string", "null"]
+        }
+      },
+      "required": [
+        "approval_id",
+        "granted_by",
+        "granted_at",
+        "expires_at",
+        "tenant_id",
+        "sleeve_id",
+        "capability_id",
+        "toolpack_id",
+        "tool_binding_id",
+        "execution_mode",
+        "reusable",
+        "revoked"
+      ],
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "execution_mode": { "const": "blocked" }
+            },
+            "required": ["execution_mode"]
+          },
+          "then": false
+        },
+        {
+          "if": {
+            "properties": {
+              "reusable": { "const": true }
+            },
+            "required": ["reusable"]
+          },
+          "then": {
+            "anyOf": [
+              { "required": ["max_uses"] },
+              { "required": ["expires_at"] }
+            ]
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "approval_scope": { "const": "one_time" }
+            },
+            "required": ["approval_scope"]
+          },
+          "then": {
+            "properties": {
+              "reusable": { "const": false }
+            }
+          }
+        }
+      ]
+    },
+    "metadata": {
+      "type": ["object", "null"],
+      "additionalProperties": true
+    }
+  },
+  "required": ["identity", "provenance", "approval_token"]
+}

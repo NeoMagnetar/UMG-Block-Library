@@ -1,0 +1,92 @@
+{
+  "maturity_levels": [
+    {
+      "maturity_id": "M0_proposed",
+      "meaning": "Concept exists but is not yet drafted into governed artifacts.",
+      "required_artifact_types": [],
+      "required_review_statuses": [],
+      "required_evidence": [],
+      "allowed_next_maturity": ["M1_drafted"],
+      "implementation_allowed": false,
+      "release_allowed": false,
+      "security_gate_required": false
+    },
+    {
+      "maturity_id": "M1_drafted",
+      "meaning": "Initial doctrine or artifact drafts exist but are not yet schema-aligned.",
+      "required_artifact_types": ["doctrine"],
+      "required_review_statuses": ["draft"],
+      "required_evidence": ["draft artifact reference"],
+      "allowed_next_maturity": ["M2_schema_aligned", "blocked"],
+      "implementation_allowed": false,
+      "release_allowed": false,
+      "security_gate_required": false
+    },
+    {
+      "maturity_id": "M2_schema_aligned",
+      "meaning": "Drafted structures align to a formal schema layer.",
+      "required_artifact_types": ["doctrine", "schema"],
+      "required_review_statuses": ["pending_review"],
+      "required_evidence": ["schema references", "schema/example alignment summary"],
+      "allowed_next_maturity": ["M3_fixture_backed", "blocked"],
+      "implementation_allowed": false,
+      "release_allowed": false,
+      "security_gate_required": false
+    },
+    {
+      "maturity_id": "M3_fixture_backed",
+      "meaning": "Schemas are backed by preview fixtures, expected results, and trace expectations.",
+      "required_artifact_types": ["schema", "fixture", "validation_pack"],
+      "required_review_statuses": ["pending_review"],
+      "required_evidence": ["fixture coverage", "validation matrix", "trace expectations"],
+      "allowed_next_maturity": ["M4_reportable", "blocked"],
+      "implementation_allowed": false,
+      "release_allowed": false,
+      "security_gate_required": false
+    },
+    {
+      "maturity_id": "M4_reportable",
+      "meaning": "The pack has governed report, dashboard, and narrative output layers.",
+      "required_artifact_types": ["report_example", "dashboard_example", "narrative_template"],
+      "required_review_statuses": ["reviewed"],
+      "required_evidence": ["report examples", "dashboard mappings", "language style references"],
+      "allowed_next_maturity": ["M5_audit_exportable", "blocked"],
+      "implementation_allowed": false,
+      "release_allowed": false,
+      "security_gate_required": false
+    },
+    {
+      "maturity_id": "M5_audit_exportable",
+      "meaning": "The pack can be exported and reviewed as an audit-ready static bundle.",
+      "required_artifact_types": ["audit_export_example", "evidence_index", "signoff_record"],
+      "required_review_statuses": ["reviewed"],
+      "required_evidence": ["audit export references", "evidence checklists", "signoff workflow examples"],
+      "allowed_next_maturity": ["M6_reviewed_static", "blocked"],
+      "implementation_allowed": false,
+      "release_allowed": false,
+      "security_gate_required": true
+    },
+    {
+      "maturity_id": "M6_reviewed_static",
+      "meaning": "The static governance pack has been reviewed, signed off, and packaged coherently.",
+      "required_artifact_types": ["manifest", "signoff_record", "ownership_matrix", "review_packet"],
+      "required_review_statuses": ["approved", "approved_with_conditions"],
+      "required_evidence": ["governance pack manifest", "signoff records", "review packet completion"],
+      "allowed_next_maturity": ["M7_implementation_candidate", "blocked", "superseded"],
+      "implementation_allowed": false,
+      "release_allowed": false,
+      "security_gate_required": true
+    },
+    {
+      "maturity_id": "M7_implementation_candidate",
+      "meaning": "Static governance pack is complete enough to support a future explicit implementation review, but implementation is still not automatically allowed.",
+      "required_artifact_types": ["manifest", "maturity_model", "dependency_graph", "escalation_thresholds"],
+      "required_review_statuses": ["approved", "approved_with_conditions"],
+      "required_evidence": ["maturity evidence", "dependency completeness review", "security triage review state"],
+      "allowed_next_maturity": ["blocked", "superseded"],
+      "implementation_allowed": false,
+      "release_allowed": false,
+      "security_gate_required": true
+    }
+  ]
+}

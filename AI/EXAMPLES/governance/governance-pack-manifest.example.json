@@ -1,0 +1,73 @@
+{
+  "pack_id": "PACK.UMG.TOOL_RUNTIME.GOVERNANCE.0001",
+  "version": "1.0.0",
+  "created_at": "2026-05-02T00:00:00Z",
+  "purpose": "Bundle static Tool Runtime governance doctrine, schemas, fixtures, reporting examples, dashboard mappings, evidence packs, and signoff artifacts into a coherent reviewable package.",
+  "included_doctrine_files": [
+    "AI/DOCTRINE/UMG_TOOL_CONTRACT.v0.1.md",
+    "AI/DOCTRINE/UMG_TOOL_RUNTIME_ARCHITECTURE.v0.1.md",
+    "AI/DOCTRINE/UMG_TOOL_RUNTIME_ARTIFACTS.v0.1.md",
+    "AI/DOCTRINE/UMG_TOOL_RUNTIME_RESOLVER_PREVIEW.v0.1.md",
+    "AI/DOCTRINE/UMG_TOOL_RUNTIME_VALIDATION_PACK.v0.1.md",
+    "AI/DOCTRINE/UMG_TOOL_RUNTIME_HARNESS_CONTRACT.v0.1.md"
+  ],
+  "included_schema_files": [
+    "AI/SCHEMAS/capability.schema.json",
+    "AI/SCHEMAS/toolpack.schema.json",
+    "AI/SCHEMAS/tool-binding.schema.json",
+    "AI/SCHEMAS/runtimespec-preview.schema.json",
+    "AI/SCHEMAS/validation-trace-preview.schema.json",
+    "AI/SCHEMAS/harness-result-report.schema.json",
+    "AI/SCHEMAS/governance-pack-manifest.schema.json"
+  ],
+  "included_example_files": [
+    "AI/EXAMPLES/reporting/enterprise-report.example.json",
+    "AI/EXAMPLES/reporting/audit-export.example.json",
+    "AI/EXAMPLES/reporting/report-section-prose-variants.example.json",
+    "AI/EXAMPLES/reporting/governance-communication-qa-checklist.example.json",
+    "AI/EXAMPLES/governance/signoff-record.example.json"
+  ],
+  "included_fixture_files": [
+    "AI/EXAMPLES/runtime-preview/valid-preview-only-chain.json",
+    "AI/EXAMPLES/runtime-preview/dry-run-only-chain.json",
+    "AI/EXAMPLES/runtime-preview/blocked-trust-chain.json",
+    "AI/EXAMPLES/runtime-preview/validation-matrix.json"
+  ],
+  "included_report_files": [
+    "AI/EXAMPLES/reporting/sample-harness-result-bundle.json",
+    "AI/EXAMPLES/runtime-preview/harness-result-report.example.json",
+    "AI/EXAMPLES/reporting/enterprise-report.example.json"
+  ],
+  "included_dashboard_files": [
+    "AI/EXAMPLES/dashboard/dashboard-state.preview-only.json",
+    "AI/EXAMPLES/dashboard/dashboard-state.blocked.json",
+    "AI/EXAMPLES/dashboard/dashboard-layout.enterprise.example.json"
+  ],
+  "included_evidence_files": [
+    "AI/EXAMPLES/reporting/evidence-pack-index.example.json",
+    "AI/EXAMPLES/reporting/compliance-evidence-checklists.example.json"
+  ],
+  "included_remediation_files": [
+    "AI/EXAMPLES/reporting/remediation-checklists.example.json",
+    "AI/EXAMPLES/reporting/remediation-ownership-matrix.example.json"
+  ],
+  "included_signoff_files": [
+    "AI/EXAMPLES/governance/signoff-record.example.json",
+    "AI/EXAMPLES/reporting/review-signoff-workflow.example.json"
+  ],
+  "security_boundary": "Static governance packaging only. No execution, provider activation, bridge invocation, release mutation, or package publishing.",
+  "non_execution_statement": "This governance pack defines structure, language, evidence, reporting, and signoff posture only. It does not authorize runtime behavior.",
+  "active_constraints": [
+    "Envoy v0.2.8 ClawHub/VirusTotal triage remains active.",
+    "Do not publish v0.2.9.",
+    "Do not remove compiler bridge code.",
+    "Do not alter release artifacts.",
+    "Do not run compiler bridge.",
+    "Do not assume local package hash equals ClawHub hash."
+  ],
+  "compatibility_notes": [
+    "Pack covers Tool Runtime phases 1 through 15 as static governance artifacts.",
+    "Schemas and examples are intended for future validation harnesses and reporting surfaces.",
+    "No runtime implementation is implied by manifest inclusion."
+  ]
+}

@@ -1,0 +1,84 @@
+{
+  "lifecycle_states": [
+    {
+      "lifecycle_status": "proposed",
+      "meaning": "Artifact concept exists but is not yet drafted.",
+      "allowed_transitions": ["drafted", "blocked"],
+      "required_review": false,
+      "requires_security_check": false,
+      "usable_for_runtime": false,
+      "usable_for_reporting": false,
+      "usable_for_audit": false
+    },
+    {
+      "lifecycle_status": "drafted",
+      "meaning": "Artifact content exists but has not completed static validation review.",
+      "allowed_transitions": ["validated_static", "blocked", "superseded"],
+      "required_review": true,
+      "requires_security_check": false,
+      "usable_for_runtime": false,
+      "usable_for_reporting": true,
+      "usable_for_audit": false
+    },
+    {
+      "lifecycle_status": "validated_static",
+      "meaning": "Artifact is structurally valid for static governance use.",
+      "allowed_transitions": ["reviewed", "blocked", "superseded"],
+      "required_review": true,
+      "requires_security_check": false,
+      "usable_for_runtime": false,
+      "usable_for_reporting": true,
+      "usable_for_audit": true
+    },
+    {
+      "lifecycle_status": "reviewed",
+      "meaning": "Artifact has completed a formal review pass.",
+      "allowed_transitions": ["approved_static", "blocked", "superseded"],
+      "required_review": true,
+      "requires_security_check": false,
+      "usable_for_runtime": false,
+      "usable_for_reporting": true,
+      "usable_for_audit": true
+    },
+    {
+      "lifecycle_status": "approved_static",
+      "meaning": "Artifact is accepted for static governance/reporting/audit use.",
+      "allowed_transitions": ["superseded", "deprecated", "blocked"],
+      "required_review": true,
+      "requires_security_check": false,
+      "usable_for_runtime": false,
+      "usable_for_reporting": true,
+      "usable_for_audit": true
+    },
+    {
+      "lifecycle_status": "superseded",
+      "meaning": "Artifact has been replaced by a later artifact.",
+      "allowed_transitions": [],
+      "required_review": false,
+      "requires_security_check": false,
+      "usable_for_runtime": false,
+      "usable_for_reporting": false,
+      "usable_for_audit": true
+    },
+    {
+      "lifecycle_status": "deprecated",
+      "meaning": "Artifact remains historically relevant but is no longer preferred for active use.",
+      "allowed_transitions": ["superseded", "blocked"],
+      "required_review": false,
+      "requires_security_check": false,
+      "usable_for_runtime": false,
+      "usable_for_reporting": true,
+      "usable_for_audit": true
+    },
+    {
+      "lifecycle_status": "blocked",
+      "meaning": "Artifact is held by governance or security constraints and may not progress.",
+      "allowed_transitions": ["drafted", "validated_static", "superseded"],
+      "required_review": true,
+      "requires_security_check": true,
+      "usable_for_runtime": false,
+      "usable_for_reporting": false,
+      "usable_for_audit": true
+    }
+  ]
+}

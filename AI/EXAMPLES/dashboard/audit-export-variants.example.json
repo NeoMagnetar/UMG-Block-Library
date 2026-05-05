@@ -1,0 +1,32 @@
+{
+  "variants": [
+    {
+      "variant": "partial_export",
+      "included_sections": ["fixture_bundle", "expected_results", "validation_matrix"],
+      "omitted_sections": ["synthetic_traces", "consistency_failures", "full_harness_results"],
+      "intended_audience": "internal_reviewers",
+      "sensitivity_level": "low"
+    },
+    {
+      "variant": "full_export",
+      "included_sections": ["fixture_bundle", "expected_results", "validation_matrix", "trace_expectations", "harness_results", "synthetic_traces", "consistency_failures"],
+      "omitted_sections": [],
+      "intended_audience": "engineering_and_governance",
+      "sensitivity_level": "medium"
+    },
+    {
+      "variant": "enterprise_export",
+      "included_sections": ["executive_summary", "fixture_inventory", "validation_outcome_summary", "blocked_issue_summary", "risk_summary"],
+      "omitted_sections": ["low_level_trace_details", "raw_consistency_failure_examples"],
+      "intended_audience": "enterprise_stakeholders",
+      "sensitivity_level": "medium_high"
+    },
+    {
+      "variant": "compliance_export",
+      "included_sections": ["schema_provenance", "governance_provenance", "blocked_issue_summary", "audit_export_references", "security_mode"],
+      "omitted_sections": ["ui_presentation_preferences"],
+      "intended_audience": "compliance_and_audit",
+      "sensitivity_level": "high"
+    }
+  ]
+}

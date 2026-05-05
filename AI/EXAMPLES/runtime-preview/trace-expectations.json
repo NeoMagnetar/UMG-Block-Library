@@ -1,0 +1,109 @@
+{
+  "trace_expectations_version": "0.1",
+  "fixtures": [
+    {
+      "fixture": "valid-preview-only-chain.json",
+      "expected_event_families": [
+        "capability.declared",
+        "capability.registry_known",
+        "provider.found",
+        "binding.validated",
+        "trust.valid",
+        "rollback.valid",
+        "preview.executable_state"
+      ],
+      "expected_terminal_readiness": "preview_only",
+      "expected_trace_outcome": "PASS_WITH_MISMATCH_NOTE"
+    },
+    {
+      "fixture": "dry-run-only-chain.json",
+      "expected_event_families": [
+        "capability.declared",
+        "capability.registry_known",
+        "provider.found",
+        "binding.validated",
+        "trust.valid",
+        "approval.missing",
+        "rollback.valid",
+        "preview.executable_state"
+      ],
+      "expected_terminal_readiness": "dry_run_only",
+      "expected_trace_outcome": "PASS"
+    },
+    {
+      "fixture": "blocked-trust-chain.json",
+      "expected_event_families": [
+        "capability.declared",
+        "provider.found",
+        "binding.validated",
+        "trust.blocked",
+        "preview.executable_state"
+      ],
+      "expected_terminal_readiness": "blocked",
+      "expected_trace_outcome": "PASS"
+    },
+    {
+      "fixture": "expired-approval-chain.json",
+      "expected_event_families": [
+        "capability.declared",
+        "provider.found",
+        "binding.validated",
+        "trust.valid",
+        "approval.expired",
+        "rollback.valid",
+        "preview.executable_state"
+      ],
+      "expected_terminal_readiness": "blocked",
+      "expected_trace_outcome": "PASS"
+    },
+    {
+      "fixture": "tenant-violation-chain.json",
+      "expected_event_families": [
+        "capability.declared",
+        "provider.found",
+        "binding.validated",
+        "trust.valid",
+        "approval.present",
+        "tenant.violation",
+        "rollback.valid",
+        "preview.executable_state"
+      ],
+      "expected_terminal_readiness": "blocked",
+      "expected_trace_outcome": "PASS"
+    },
+    {
+      "fixture": "rollback-invalid-chain.json",
+      "expected_event_families": [
+        "capability.declared",
+        "provider.found",
+        "binding.validated",
+        "trust.valid",
+        "approval.present",
+        "rollback.invalid",
+        "preview.executable_state"
+      ],
+      "expected_terminal_readiness": "blocked",
+      "expected_trace_outcome": "PASS"
+    },
+    {
+      "fixture": "provider-missing-chain.json",
+      "expected_event_families": [
+        "capability.declared",
+        "provider.invalid",
+        "preview.executable_state"
+      ],
+      "expected_terminal_readiness": "blocked",
+      "expected_trace_outcome": "PASS"
+    },
+    {
+      "fixture": "capability-unknown-chain.json",
+      "expected_event_families": [
+        "capability.declared",
+        "capability.registry_missing",
+        "preview.executable_state"
+      ],
+      "expected_terminal_readiness": "blocked",
+      "expected_trace_outcome": "PASS"
+    }
+  ]
+}

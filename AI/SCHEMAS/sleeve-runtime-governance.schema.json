@@ -1,0 +1,295 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://umg.envoy/schemas/sleeve-runtime-governance.schema.json",
+  "title": "UMG Sleeve Runtime Governance Schema v0.1",
+  "description": "Validating schema for business or tool-enabled sleeve runtime governance declarations. Defines governance structure only and does not authorize execution.",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "identity": {
+      "$ref": "./artifact.identity.schema.json"
+    },
+    "provenance": {
+      "$ref": "./provenance.schema.json"
+    },
+    "runtime_governance": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "sleeve_id": {
+          "type": "string",
+          "pattern": "^SLV\\.[A-Z0-9._-]+\\.v[0-9]+$"
+        },
+        "version": {
+          "type": "string",
+          "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$"
+        },
+        "business_profile": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "tenant_id": { "type": "string", "minLength": 1 },
+            "business_domain": { "type": "string", "minLength": 1 },
+            "operator_roles": {
+              "type": "array",
+              "items": { "type": "string", "minLength": 1 },
+              "minItems": 1,
+              "uniqueItems": true
+            },
+            "automation_posture": { "type": "string", "minLength": 1 }
+          },
+          "required": ["tenant_id", "business_domain", "operator_roles", "automation_posture"]
+        },
+        "software_inventory": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "target_apps": {
+              "type": "array",
+              "items": { "type": "string", "minLength": 1 },
+              "uniqueItems": true
+            },
+            "target_windows": {
+              "type": "array",
+              "items": { "type": "string", "minLength": 1 },
+              "uniqueItems": true
+            },
+            "plugin_dependencies": {
+              "type": "array",
+              "items": { "type": "string", "minLength": 1 },
+              "uniqueItems": true
+            }
+          },
+          "required": ["target_apps", "target_windows", "plugin_dependencies"]
+        },
+        "required_capabilities": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^CAP\\.[A-Z0-9._-]+\\.v[0-9]+$"
+          },
+          "uniqueItems": true
+        },
+        "optional_capabilities": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^CAP\\.[A-Z0-9._-]+\\.v[0-9]+$"
+          },
+          "uniqueItems": true
+        },
+        "approved_capabilities": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^CAP\\.[A-Z0-9._-]+\\.v[0-9]+$"
+          },
+          "uniqueItems": true
+        },
+        "preferred_toolpacks": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^TP\\.[A-Z0-9._-]+\\.v[0-9]+$"
+          },
+          "uniqueItems": true
+        },
+        "allowed_toolpacks": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^TP\\.[A-Z0-9._-]+\\.v[0-9]+$"
+          },
+          "uniqueItems": true
+        },
+        "blocked_toolpacks": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^TP\\.[A-Z0-9._-]+\\.v[0-9]+$"
+          },
+          "uniqueItems": true
+        },
+        "execution_mode": {
+          "type": "string",
+          "enum": ["preview", "dry_run", "assisted", "approved_execute", "blocked"]
+        },
+        "approval_mode": {
+          "type": "string",
+          "enum": ["none", "human_required", "per_step", "per_phase", "per_capability", "multi_approver_required"]
+        },
+        "approval_checkpoints": {
+          "type": "array",
+          "items": { "type": "string", "minLength": 1 },
+          "minItems": 1,
+          "uniqueItems": true
+        },
+        "rollback_model": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "required": { "type": "boolean" },
+            "default_policy": {
+              "type": "string",
+              "enum": ["none", "manual_only", "reversible_file", "reversible_ui", "checkpoint_required", "transactional"]
+            },
+            "manual_override_required": { "type": "boolean" }
+          },
+          "required": ["required", "default_policy", "manual_override_required"]
+        },
+        "audit_policy": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "required": { "type": "boolean" },
+            "trace_level": {
+              "type": "string",
+              "enum": ["none", "summary", "full"]
+            },
+            "retain_bindings": { "type": "boolean" },
+            "retain_approval_tokens": { "type": "boolean" },
+            "retain_failure_reasons": { "type": "boolean" }
+          },
+          "required": ["required", "trace_level", "retain_bindings", "retain_approval_tokens", "retain_failure_reasons"]
+        },
+        "escalation_path": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "on_policy_failure": { "type": "string", "minLength": 1 },
+            "on_runtime_block": { "type": "string", "minLength": 1 },
+            "on_unrecoverable_error": { "type": "string", "minLength": 1 }
+          },
+          "required": ["on_policy_failure", "on_runtime_block", "on_unrecoverable_error"]
+        },
+        "tenant_boundary": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "tenant_id": { "type": "string", "minLength": 1 },
+            "allowed_roots": {
+              "type": "array",
+              "items": { "type": "string", "minLength": 1 },
+              "uniqueItems": true
+            },
+            "blocked_roots": {
+              "type": "array",
+              "items": { "type": "string", "minLength": 1 },
+              "uniqueItems": true
+            },
+            "allowed_apps": {
+              "type": "array",
+              "items": { "type": "string", "minLength": 1 },
+              "uniqueItems": true
+            },
+            "blocked_apps": {
+              "type": "array",
+              "items": { "type": "string", "minLength": 1 },
+              "uniqueItems": true
+            },
+            "allowed_toolpacks": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "pattern": "^TP\\.[A-Z0-9._-]+\\.v[0-9]+$"
+              },
+              "uniqueItems": true
+            },
+            "blocked_toolpacks": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "pattern": "^TP\\.[A-Z0-9._-]+\\.v[0-9]+$"
+              },
+              "uniqueItems": true
+            },
+            "audit_namespace": { "type": "string", "minLength": 1 },
+            "data_boundary": { "type": "string", "minLength": 1 }
+          },
+          "required": [
+            "tenant_id",
+            "allowed_roots",
+            "blocked_roots",
+            "allowed_apps",
+            "blocked_apps",
+            "allowed_toolpacks",
+            "blocked_toolpacks",
+            "audit_namespace",
+            "data_boundary"
+          ]
+        },
+        "notes": {
+          "type": ["string", "null"]
+        }
+      },
+      "required": [
+        "sleeve_id",
+        "version",
+        "business_profile",
+        "software_inventory",
+        "required_capabilities",
+        "optional_capabilities",
+        "approved_capabilities",
+        "preferred_toolpacks",
+        "allowed_toolpacks",
+        "blocked_toolpacks",
+        "execution_mode",
+        "approval_mode",
+        "approval_checkpoints",
+        "rollback_model",
+        "audit_policy",
+        "escalation_path",
+        "tenant_boundary"
+      ],
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "execution_mode": { "const": "approved_execute" }
+            },
+            "required": ["execution_mode"]
+          },
+          "then": {
+            "properties": {
+              "approval_mode": {
+                "not": { "const": "none" }
+              },
+              "audit_policy": {
+                "properties": {
+                  "required": { "const": true }
+                },
+                "required": ["required"]
+              },
+              "rollback_model": {
+                "properties": {
+                  "required": { "const": true }
+                },
+                "required": ["required"]
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "approval_mode": { "const": "none" }
+            },
+            "required": ["approval_mode"]
+          },
+          "then": {
+            "properties": {
+              "execution_mode": {
+                "enum": ["preview", "blocked"]
+              }
+            }
+          }
+        }
+      ]
+    },
+    "metadata": {
+      "type": ["object", "null"],
+      "additionalProperties": true
+    }
+  },
+  "required": ["identity", "provenance", "runtime_governance"]
+}

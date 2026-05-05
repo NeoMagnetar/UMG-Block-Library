@@ -1,0 +1,22 @@
+{
+  "packet_id": "PKT.READINESS.RUNTIME.GOVERNANCE.0001",
+  "assessed_pack_id": "PACK.UMG.TOOL_RUNTIME.GOVERNANCE.0001",
+  "assessed_variant": "technical_review_pack",
+  "maturity_assessment_ref": "AI/EXAMPLES/governance/maturity-assessment.example.json",
+  "dependency_health_ref": "AI/EXAMPLES/governance/dependency-health-report.example.json",
+  "completeness_scoring_ref": "AI/EXAMPLES/governance/completeness-scoring-report.example.json",
+  "escalation_threshold_report_ref": "AI/EXAMPLES/governance/escalation-threshold-report.example.json",
+  "readiness_dashboard_summary_ref": "AI/EXAMPLES/governance/readiness-dashboard-summary.example.json",
+  "included_evidence_refs": [
+    "AI/EXAMPLES/reporting/evidence-pack-index.example.json",
+    "AI/EXAMPLES/reporting/compliance-evidence-checklists.example.json"
+  ],
+  "included_signoff_refs": [
+    "AI/EXAMPLES/governance/signoff-record.example.json",
+    "AI/EXAMPLES/reporting/review-signoff-workflow.example.json"
+  ],
+  "implementation_allowed": false,
+  "release_allowed": false,
+  "security_gate_required": true,
+  "readiness_summary": "The governance stack is ready for static technical review as a coherent packet, but implementation and release remain disallowed pending explicit authorization and security triage resolution."
+}

@@ -1,0 +1,76 @@
+{
+  "templates": [
+    {
+      "template_id": "COMP.NARRATIVE.NO_EXECUTION_AUTHORIZED.0001",
+      "blocked_reason_code": "EXECUTION_MODE_BLOCKED",
+      "compliance_summary": "No execution authority was granted under the evaluated preview state.",
+      "evidence_required": "Harness result report showing execution_authorized=false.",
+      "remediation_required": "None unless execution authority was expected by policy.",
+      "escalation_required": false
+    },
+    {
+      "template_id": "COMP.NARRATIVE.APPROVAL_MISSING.0001",
+      "blocked_reason_code": "APPROVAL_MISSING",
+      "compliance_summary": "Required approval was absent for the evaluated execution path.",
+      "evidence_required": "Approval-state records and expected-result references showing approval required.",
+      "remediation_required": "Obtain bounded approval according to policy before higher readiness is considered.",
+      "escalation_required": true
+    },
+    {
+      "template_id": "COMP.NARRATIVE.APPROVAL_EXPIRED.0001",
+      "blocked_reason_code": "APPROVAL_EXPIRED",
+      "compliance_summary": "An approval token existed but was expired at evaluation time.",
+      "evidence_required": "Approval token metadata with granted_at and expires_at values.",
+      "remediation_required": "Issue a fresh bounded approval token if policy still allows the action.",
+      "escalation_required": true
+    },
+    {
+      "template_id": "COMP.NARRATIVE.TRUST_BLOCKED.0001",
+      "blocked_reason_code": "TRUST_BLOCKED",
+      "compliance_summary": "Trust policy explicitly blocked the evaluated chain.",
+      "evidence_required": "Trust registry classification and corresponding blocked reason output.",
+      "remediation_required": "Review trust assignment; do not bypass the trust boundary.",
+      "escalation_required": true
+    },
+    {
+      "template_id": "COMP.NARRATIVE.TENANT_VIOLATION.0001",
+      "blocked_reason_code": "TENANT_VIOLATION",
+      "compliance_summary": "Tenant boundary controls were violated by the evaluated chain.",
+      "evidence_required": "Tenant boundary definition plus blocked reason output and fixture trace references.",
+      "remediation_required": "Restore tenant-scoped roots, apps, and toolpack boundaries before retry.",
+      "escalation_required": true
+    },
+    {
+      "template_id": "COMP.NARRATIVE.ROLLBACK_INVALID.0001",
+      "blocked_reason_code": "ROLLBACK_POLICY_INVALID",
+      "compliance_summary": "Rollback posture was inadequate for the assessed risk or side-effect level.",
+      "evidence_required": "Rollback-state output and policy mapping for the affected chain.",
+      "remediation_required": "Adopt a compliant rollback model before execution-ready posture is reconsidered.",
+      "escalation_required": true
+    },
+    {
+      "template_id": "COMP.NARRATIVE.PROVIDER_MISSING.0001",
+      "blocked_reason_code": "PROVIDER_MISSING",
+      "compliance_summary": "No valid provider existed for the declared capability chain.",
+      "evidence_required": "Provider-state output and binding/provider comparison records.",
+      "remediation_required": "Establish a governed provider chain before any higher readiness is considered.",
+      "escalation_required": false
+    },
+    {
+      "template_id": "COMP.NARRATIVE.CAPABILITY_UNKNOWN.0001",
+      "blocked_reason_code": "CAPABILITY_UNKNOWN",
+      "compliance_summary": "A capability was declared without governed registry recognition.",
+      "evidence_required": "Capability-state output showing registry_missing or unknown capability posture.",
+      "remediation_required": "Register the capability or remove the undeclared capability reference.",
+      "escalation_required": false
+    },
+    {
+      "template_id": "COMP.NARRATIVE.AUDIT_POLICY_INVALID.0001",
+      "blocked_reason_code": "AUDIT_POLICY_INVALID",
+      "compliance_summary": "Audit policy posture was insufficient for the evaluated chain.",
+      "evidence_required": "Audit-policy reference plus blocked reason output.",
+      "remediation_required": "Restore required audit policy before considering any higher readiness state.",
+      "escalation_required": true
+    }
+  ]
+}

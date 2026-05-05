@@ -1,0 +1,134 @@
+{
+  "components": [
+    {
+      "component_id": "readiness_banner",
+      "display_name": "Readiness Banner",
+      "short_description": "Top-level summary of current preview readiness and execution authorization state.",
+      "source_fields": ["readiness", "execution_authorized", "gate_required_banner"],
+      "shown_when": "always",
+      "hidden_when": "never",
+      "severity_behavior": "high_visibility_status_banner",
+      "user_interpretation": "Primary answer to whether the chain is preview-only, dry-run-only, pending gate, or blocked."
+    },
+    {
+      "component_id": "capability_summary",
+      "display_name": "Capability Summary",
+      "short_description": "Lists declared and interpreted capabilities involved in the chain.",
+      "source_fields": ["declared_capabilities", "capability_state"],
+      "shown_when": "capabilities_present",
+      "hidden_when": "no_capability_data",
+      "severity_behavior": "inline_counts_and_status",
+      "user_interpretation": "Shows what the sleeve/runtime chain says it needs."
+    },
+    {
+      "component_id": "provider_summary",
+      "display_name": "Provider Summary",
+      "short_description": "Summarizes whether required providers are present and version-valid.",
+      "source_fields": ["provider_preview_summary", "provider_state"],
+      "shown_when": "provider_data_present",
+      "hidden_when": "no_provider_data",
+      "severity_behavior": "status_chip_or_blocker",
+      "user_interpretation": "Explains whether a provider chain exists for the declared capabilities."
+    },
+    {
+      "component_id": "binding_summary",
+      "display_name": "Binding Summary",
+      "short_description": "Shows whether capability-to-tool bindings exist and validate.",
+      "source_fields": ["binding_state"],
+      "shown_when": "binding_data_present",
+      "hidden_when": "no_binding_data",
+      "severity_behavior": "technical_detail",
+      "user_interpretation": "Explains whether the chain has a structurally valid provider/tool mapping."
+    },
+    {
+      "component_id": "trust_summary",
+      "display_name": "Trust Summary",
+      "short_description": "Displays trust tier posture and whether trust blocks the chain.",
+      "source_fields": ["trust_summary", "trust_state"],
+      "shown_when": "always",
+      "hidden_when": "never",
+      "severity_behavior": "terminal_when_blocked",
+      "user_interpretation": "Explains whether governance trust policy allows the chain to proceed."
+    },
+    {
+      "component_id": "approval_summary",
+      "display_name": "Approval Summary",
+      "short_description": "Summarizes whether approval is required, present, missing, expired, or revoked.",
+      "source_fields": ["approval_requirements", "approval_state"],
+      "shown_when": "approval_data_present",
+      "hidden_when": "no_approval_data",
+      "severity_behavior": "warning_or_critical_when_missing_or_expired",
+      "user_interpretation": "Explains approval posture without implying runtime permission."
+    },
+    {
+      "component_id": "rollback_summary",
+      "display_name": "Rollback Summary",
+      "short_description": "Shows whether rollback policy is valid for the side-effect/risk posture.",
+      "source_fields": ["rollback_state", "rollback_posture"],
+      "shown_when": "rollback_data_present",
+      "hidden_when": "no_rollback_data",
+      "severity_behavior": "critical_when_invalid",
+      "user_interpretation": "Explains whether a risky chain has an acceptable rollback posture."
+    },
+    {
+      "component_id": "tenant_summary",
+      "display_name": "Tenant Summary",
+      "short_description": "Shows whether the chain stays within tenant boundaries.",
+      "source_fields": ["tenant_compliance", "tenant_boundary"],
+      "shown_when": "tenant_scope_present",
+      "hidden_when": "no_tenant_scope",
+      "severity_behavior": "terminal_when_violated",
+      "user_interpretation": "Explains whether tenant rules are satisfied."
+    },
+    {
+      "component_id": "blocked_reasons_panel",
+      "display_name": "Blocked Reasons",
+      "short_description": "Lists stable blocked-reason tokens and human-readable explanations.",
+      "source_fields": ["blocked_reasons"],
+      "shown_when": "blocked_reasons_present",
+      "hidden_when": "no_blocked_reasons",
+      "severity_behavior": "sorted_by_priority_and_severity",
+      "user_interpretation": "Explains why the chain cannot advance."
+    },
+    {
+      "component_id": "warnings_panel",
+      "display_name": "Warnings",
+      "short_description": "Shows non-terminal warnings and degraded-state notes.",
+      "source_fields": ["warnings"],
+      "shown_when": "warnings_present",
+      "hidden_when": "no_warnings",
+      "severity_behavior": "collapsible_warning_list",
+      "user_interpretation": "Explains issues that should be addressed before advancing, but are not terminal blockers."
+    },
+    {
+      "component_id": "mismatch_notes_panel",
+      "display_name": "Mismatch Notes",
+      "short_description": "Displays preserved mismatch notes, sentinels, and known consistency exceptions.",
+      "source_fields": ["mismatch_notes", "mismatch_explanation"],
+      "shown_when": "mismatch_notes_present",
+      "hidden_when": "no_mismatch_notes",
+      "severity_behavior": "elevated_annotation",
+      "user_interpretation": "Explains known inconsistencies that are intentionally preserved for validation visibility."
+    },
+    {
+      "component_id": "remediation_panel",
+      "display_name": "Remediation Guidance",
+      "short_description": "Provides next actions, remediation paths, and escalation recommendations.",
+      "source_fields": ["remediation_guidance", "recommended_next_action", "remediation_roadmap"],
+      "shown_when": "always",
+      "hidden_when": "never",
+      "severity_behavior": "action_oriented",
+      "user_interpretation": "Explains what to do next within governance limits."
+    },
+    {
+      "component_id": "audit_export_panel",
+      "display_name": "Audit Export",
+      "short_description": "Shows how current state maps to exportable audit/reporting bundles.",
+      "source_fields": ["audit_export_variants", "export_metadata"],
+      "shown_when": "audit_exports_available",
+      "hidden_when": "no_export_mapping",
+      "severity_behavior": "metadata_only",
+      "user_interpretation": "Explains where the current view can be exported for audit or compliance use."
+    }
+  ]
+}

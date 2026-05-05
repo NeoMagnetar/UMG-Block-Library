@@ -1,0 +1,36 @@
+{
+  "bundle_id": "BUNDLE.RUNTIME.PREVIEW.0001",
+  "version": "1.0.0",
+  "created_at": "2026-05-02T00:00:00Z",
+  "description": "Static runtime preview fixture bundle for non-executing harness validation.",
+  "fixture_root": "AI/EXAMPLES/runtime-preview",
+  "schema_root": "AI/SCHEMAS",
+  "expected_results_file": "AI/EXAMPLES/runtime-preview/EXPECTED_RESULTS.md",
+  "validation_matrix_file": "AI/EXAMPLES/runtime-preview/validation-matrix.json",
+  "trace_expectations_file": "AI/EXAMPLES/runtime-preview/trace-expectations.json",
+  "included_fixtures": [
+    {
+      "fixture_name": "valid-preview-only-chain.json",
+      "fixture_path": "AI/EXAMPLES/runtime-preview/valid-preview-only-chain.json",
+      "expected_result_id": "valid-preview-only-chain",
+      "trace_expectation_id": "valid-preview-only-chain",
+      "expected_outcome": "PASS_WITH_MISMATCH_NOTE",
+      "expected_final_readiness": "preview_only",
+      "known_mismatch": true,
+      "notes": ["Known readiness/executable-state mismatch sentinel."]
+    },
+    {
+      "fixture_name": "dry-run-only-chain.json",
+      "fixture_path": "AI/EXAMPLES/runtime-preview/dry-run-only-chain.json",
+      "expected_result_id": "dry-run-only-chain",
+      "trace_expectation_id": "dry-run-only-chain",
+      "expected_outcome": "PASS",
+      "expected_final_readiness": "dry_run_only",
+      "known_mismatch": false,
+      "notes": []
+    }
+  ],
+  "excluded_fixtures": [],
+  "security_mode": "no_execution",
+  "runner_mode": "static_validation_only"
+}

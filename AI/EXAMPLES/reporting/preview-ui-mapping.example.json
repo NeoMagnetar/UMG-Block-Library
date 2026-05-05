@@ -1,0 +1,126 @@
+{
+  "readiness_display_mapping": [
+    {
+      "readiness": "preview_only",
+      "label": "Preview Only",
+      "badge": "PREVIEW",
+      "color": "blue",
+      "description": "Structurally valid for preview semantics only; no execution readiness implied."
+    },
+    {
+      "readiness": "dry_run_only",
+      "label": "Dry Run Only",
+      "badge": "DRY RUN",
+      "color": "teal",
+      "description": "Structurally valid for simulation/planning but not execution-ready."
+    },
+    {
+      "readiness": "structurally_executable_pending_gate",
+      "label": "Pending Runtime Gate",
+      "badge": "PENDING GATE",
+      "color": "gold",
+      "description": "Structurally complete, but still requires runtime approval and OpenClaw gate acceptance."
+    },
+    {
+      "readiness": "blocked",
+      "label": "Blocked",
+      "badge": "BLOCKED",
+      "color": "red",
+      "description": "One or more governance or structural blockers prevent readiness."
+    }
+  ],
+  "blocked_reason_display_mapping": [
+    {
+      "blocked_reason_code": "TRUST_BLOCKED",
+      "display_label": "Trust Policy Block",
+      "display_group": "Trust",
+      "priority": 1
+    },
+    {
+      "blocked_reason_code": "APPROVAL_EXPIRED",
+      "display_label": "Approval Expired",
+      "display_group": "Approval",
+      "priority": 2
+    },
+    {
+      "blocked_reason_code": "TENANT_VIOLATION",
+      "display_label": "Tenant Boundary Violation",
+      "display_group": "Tenant",
+      "priority": 3
+    },
+    {
+      "blocked_reason_code": "ROLLBACK_POLICY_INVALID",
+      "display_label": "Rollback Policy Invalid",
+      "display_group": "Rollback",
+      "priority": 4
+    },
+    {
+      "blocked_reason_code": "PROVIDER_MISSING",
+      "display_label": "Provider Missing",
+      "display_group": "Provider",
+      "priority": 5
+    },
+    {
+      "blocked_reason_code": "CAPABILITY_UNKNOWN",
+      "display_label": "Unknown Capability",
+      "display_group": "Capability",
+      "priority": 6
+    }
+  ],
+  "severity_display_mapping": [
+    {
+      "severity": "info",
+      "label": "Info",
+      "color": "blue",
+      "icon": "info-circle"
+    },
+    {
+      "severity": "warning",
+      "label": "Warning",
+      "color": "yellow",
+      "icon": "alert-triangle"
+    },
+    {
+      "severity": "elevated",
+      "label": "Elevated",
+      "color": "orange",
+      "icon": "shield-alert"
+    },
+    {
+      "severity": "critical",
+      "label": "Critical",
+      "color": "red",
+      "icon": "shield-x"
+    },
+    {
+      "severity": "terminal",
+      "label": "Terminal",
+      "color": "darkred",
+      "icon": "octagon-x"
+    }
+  ],
+  "remediation_display_mapping": {
+    "show_inline": true,
+    "show_expandable": true,
+    "show_retry_hint": true
+  },
+  "governance_summary_panel": {
+    "show_declared_capabilities": true,
+    "show_provider_availability": true,
+    "show_trust_status": true,
+    "show_approval_requirements": true,
+    "show_rollback_validity": true,
+    "show_tenant_compliance": true,
+    "show_final_preview_readiness": true
+  },
+  "mismatch_note_display": {
+    "enabled": true,
+    "label": "Known Consistency Note",
+    "severity": "warning"
+  },
+  "terminal_violation_display": {
+    "enabled": true,
+    "banner_label": "Terminal Governance Violation",
+    "require_acknowledgement": true
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "failure_id": "CONSISTENCY.READINESS_EXECUTABLE_STATE_MISMATCH.0001",
+  "description": "Governance summary readiness does not align with executable_state semantics.",
+  "violated_rule": "readiness consistency",
+  "expected_outcome": "FAIL_CONSISTENCY",
+  "observed_problem": "governance_summary.final_preview_readiness and executable_state.state describe different readiness levels without an approved exception record.",
+  "recommended_remediation": "Align executable_state with governance summary or explicitly document the mismatch as a preserved sentinel."
+}

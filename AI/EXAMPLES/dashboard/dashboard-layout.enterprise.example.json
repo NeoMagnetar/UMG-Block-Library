@@ -1,0 +1,15 @@
+{
+  "layout": "enterprise",
+  "intended_for": ["client_review", "compliance_review", "executive_summary", "audit_support", "remediation_ownership"],
+  "sections": [
+    "readiness_banner",
+    "trust_summary",
+    "approval_summary",
+    "rollback_summary",
+    "tenant_summary",
+    "blocked_reasons_panel",
+    "remediation_panel",
+    "audit_export_panel"
+  ],
+  "notes": "Enterprise layout suppresses low-level detail in favor of posture, blockers, remediation, and audit readiness."
+}

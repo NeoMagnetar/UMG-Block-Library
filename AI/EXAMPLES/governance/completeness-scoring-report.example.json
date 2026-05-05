@@ -1,0 +1,70 @@
+{
+  "variants": [
+    {
+      "variant_id": "internal_development_pack",
+      "score": 58,
+      "minimum_score_for_review": 40,
+      "minimum_score_for_static_approval": 55,
+      "blocking_missing_items": [],
+      "warning_missing_items": ["additional dashboard examples"],
+      "static_approval_ready": true,
+      "implementation_candidate_ready": false,
+      "release_ready": false
+    },
+    {
+      "variant_id": "technical_review_pack",
+      "score": 63,
+      "minimum_score_for_review": 45,
+      "minimum_score_for_static_approval": 60,
+      "blocking_missing_items": [],
+      "warning_missing_items": ["implementation authorization artifact"],
+      "static_approval_ready": true,
+      "implementation_candidate_ready": false,
+      "release_ready": false
+    },
+    {
+      "variant_id": "enterprise_client_pack",
+      "score": 45,
+      "minimum_score_for_review": 30,
+      "minimum_score_for_static_approval": 42,
+      "blocking_missing_items": [],
+      "warning_missing_items": ["expanded enterprise evidence pack"],
+      "static_approval_ready": true,
+      "implementation_candidate_ready": false,
+      "release_ready": false
+    },
+    {
+      "variant_id": "compliance_review_pack",
+      "score": 57,
+      "minimum_score_for_review": 40,
+      "minimum_score_for_static_approval": 55,
+      "blocking_missing_items": [],
+      "warning_missing_items": ["compliance signoff artifact example variants"],
+      "static_approval_ready": true,
+      "implementation_candidate_ready": false,
+      "release_ready": false
+    },
+    {
+      "variant_id": "security_triage_pack",
+      "score": 50,
+      "minimum_score_for_review": 36,
+      "minimum_score_for_static_approval": 50,
+      "blocking_missing_items": [],
+      "warning_missing_items": ["fresh triage resolution evidence"],
+      "static_approval_ready": true,
+      "implementation_candidate_ready": false,
+      "release_ready": false
+    },
+    {
+      "variant_id": "release_readiness_pack",
+      "score": 44,
+      "minimum_score_for_review": 40,
+      "minimum_score_for_static_approval": 56,
+      "blocking_missing_items": ["security triage resolution", "release signoff completion"],
+      "warning_missing_items": [],
+      "static_approval_ready": false,
+      "implementation_candidate_ready": false,
+      "release_ready": false
+    }
+  ]
+}

@@ -1,0 +1,192 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://umg.envoy/schemas/tool-binding.schema.json",
+  "title": "UMG Tool Binding Schema v0.1",
+  "description": "Validating schema for static capability-to-tool binding manifests. Defines mapping structure only and does not grant execution authority.",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "identity": {
+      "$ref": "./artifact.identity.schema.json"
+    },
+    "provenance": {
+      "$ref": "./provenance.schema.json"
+    },
+    "binding": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "binding_id": {
+          "type": "string",
+          "pattern": "^BIND\\.[A-Z0-9._-]+\\.v[0-9]+$"
+        },
+        "capability_id": {
+          "type": "string",
+          "pattern": "^CAP\\.[A-Z0-9._-]+\\.v[0-9]+$"
+        },
+        "tool_provider": {
+          "type": "string",
+          "pattern": "^TP\\.[A-Z0-9._-]+\\.v[0-9]+$"
+        },
+        "openclaw_tool_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "allowed_modes": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": ["preview", "dry_run", "assisted", "approved_execute", "blocked"]
+          },
+          "minItems": 1,
+          "uniqueItems": true
+        },
+        "approval_required": {
+          "type": "boolean"
+        },
+        "audit_required": {
+          "type": "boolean"
+        },
+        "dry_run_supported": {
+          "type": "boolean"
+        },
+        "rollback_policy": {
+          "type": "string",
+          "enum": ["none", "manual_only", "reversible_file", "reversible_ui", "checkpoint_required", "transactional"]
+        },
+        "trust_tier": {
+          "type": "string",
+          "enum": ["TRUST.INTERNAL", "TRUST.OPENCLAW_VERIFIED", "TRUST.BUSINESS_VERIFIED", "TRUST.EXPERIMENTAL", "TRUST.BLOCKED"]
+        },
+        "risk_level": {
+          "type": "string",
+          "enum": ["low", "medium", "high", "critical"]
+        },
+        "target_constraints": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "allowed_window_titles": {
+              "type": "array",
+              "items": { "type": "string", "minLength": 1 },
+              "uniqueItems": true
+            },
+            "required_window_match": {
+              "type": "boolean"
+            },
+            "allowed_file_roots": {
+              "type": "array",
+              "items": { "type": "string", "minLength": 1 },
+              "uniqueItems": true
+            },
+            "denied_file_roots": {
+              "type": "array",
+              "items": { "type": "string", "minLength": 1 },
+              "uniqueItems": true
+            },
+            "allowed_app_ids": {
+              "type": "array",
+              "items": { "type": "string", "minLength": 1 },
+              "uniqueItems": true
+            },
+            "blocked_app_ids": {
+              "type": "array",
+              "items": { "type": "string", "minLength": 1 },
+              "uniqueItems": true
+            },
+            "coordinate_bounds_required": {
+              "type": "boolean"
+            },
+            "user_confirmation_required": {
+              "type": "boolean"
+            }
+          },
+          "required": [
+            "allowed_window_titles",
+            "required_window_match",
+            "allowed_file_roots",
+            "denied_file_roots",
+            "allowed_app_ids",
+            "blocked_app_ids",
+            "coordinate_bounds_required",
+            "user_confirmation_required"
+          ]
+        },
+        "failure_policy": {
+          "type": "string",
+          "enum": ["fail_closed", "warn_and_skip_optional", "defer_to_human", "stop_workflow"]
+        },
+        "notes": {
+          "type": ["string", "null"]
+        }
+      },
+      "required": [
+        "binding_id",
+        "capability_id",
+        "tool_provider",
+        "openclaw_tool_id",
+        "allowed_modes",
+        "approval_required",
+        "audit_required",
+        "dry_run_supported",
+        "rollback_policy",
+        "trust_tier",
+        "risk_level",
+        "target_constraints",
+        "failure_policy"
+      ],
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "risk_level": { "enum": ["high", "critical"] }
+            },
+            "required": ["risk_level"]
+          },
+          "then": {
+            "properties": {
+              "approval_required": { "const": true },
+              "audit_required": { "const": true }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "risk_level": { "const": "critical" }
+            },
+            "required": ["risk_level"]
+          },
+          "then": {
+            "properties": {
+              "allowed_modes": {
+                "contains": { "const": "approved_execute" }
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "trust_tier": { "const": "TRUST.BLOCKED" }
+            },
+            "required": ["trust_tier"]
+          },
+          "then": {
+            "properties": {
+              "allowed_modes": {
+                "maxItems": 1,
+                "items": { "const": "blocked" }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "metadata": {
+      "type": ["object", "null"],
+      "additionalProperties": true
+    }
+  },
+  "required": ["identity", "provenance", "binding"]
+}

@@ -1,0 +1,84 @@
+{
+  "entries": [
+    {
+      "blocked_reason_code": "APPROVAL_MISSING",
+      "evidence_checklist_id": "CHK.APPROVAL_MISSING.0001",
+      "required_evidence": ["approval_state output", "expected_result reference", "harness result showing execution_authorized=false"],
+      "supporting_evidence": ["trace event showing approval.missing", "blocked reason object for APPROVAL_MISSING"],
+      "remediation_pack_id": "REMED.APPROVAL.0001",
+      "escalation_required": true,
+      "signoff_required": true,
+      "audit_export_section": "blocked_issue_summary"
+    },
+    {
+      "blocked_reason_code": "APPROVAL_EXPIRED",
+      "evidence_checklist_id": "CHK.APPROVAL_EXPIRED.0001",
+      "required_evidence": ["approval token metadata with expires_at", "approval_state output showing expired"],
+      "supporting_evidence": ["trace event showing approval.expired"],
+      "remediation_pack_id": "REMED.APPROVAL.0001",
+      "escalation_required": true,
+      "signoff_required": true,
+      "audit_export_section": "blocked_issue_summary"
+    },
+    {
+      "blocked_reason_code": "TRUST_BLOCKED",
+      "evidence_checklist_id": "CHK.TRUST_BLOCKED.0001",
+      "required_evidence": ["trust registry classification", "blocked reason object for TRUST_BLOCKED"],
+      "supporting_evidence": ["trace event showing trust.blocked"],
+      "remediation_pack_id": "REMED.TRUST.0001",
+      "escalation_required": true,
+      "signoff_required": true,
+      "audit_export_section": "blocked_issue_summary"
+    },
+    {
+      "blocked_reason_code": "PROVIDER_MISSING",
+      "evidence_checklist_id": "CHK.PROVIDER_MISSING.0001",
+      "required_evidence": ["provider_state output", "validation matrix reference"],
+      "supporting_evidence": ["trace event showing provider invalid or missing"],
+      "remediation_pack_id": "REMED.PROVIDER.0001",
+      "escalation_required": false,
+      "signoff_required": true,
+      "audit_export_section": "validation_matrix"
+    },
+    {
+      "blocked_reason_code": "TENANT_VIOLATION",
+      "evidence_checklist_id": "CHK.TENANT_VIOLATION.0001",
+      "required_evidence": ["tenant boundary definition", "blocked reason object for TENANT_VIOLATION"],
+      "supporting_evidence": ["trace event showing tenant.violation"],
+      "remediation_pack_id": "REMED.TENANT.0001",
+      "escalation_required": true,
+      "signoff_required": true,
+      "audit_export_section": "blocked_issue_summary"
+    },
+    {
+      "blocked_reason_code": "ROLLBACK_POLICY_INVALID",
+      "evidence_checklist_id": "CHK.ROLLBACK_INVALID.0001",
+      "required_evidence": ["rollback_state output", "rollback policy reference"],
+      "supporting_evidence": ["trace event showing rollback.invalid"],
+      "remediation_pack_id": "REMED.ROLLBACK.0001",
+      "escalation_required": true,
+      "signoff_required": true,
+      "audit_export_section": "blocked_issue_summary"
+    },
+    {
+      "blocked_reason_code": "CAPABILITY_UNKNOWN",
+      "evidence_checklist_id": "CHK.CAPABILITY_UNKNOWN.0001",
+      "required_evidence": ["capability_state output showing registry_missing or unknown posture"],
+      "supporting_evidence": ["trace event showing capability.registry_missing"],
+      "remediation_pack_id": "REMED.REPORTING.0001",
+      "escalation_required": false,
+      "signoff_required": false,
+      "audit_export_section": "expected_results"
+    },
+    {
+      "blocked_reason_code": "AUDIT_POLICY_INVALID",
+      "evidence_checklist_id": "CHK.AUDIT_POLICY_INVALID.0001",
+      "required_evidence": ["audit policy reference", "blocked reason object for AUDIT_POLICY_INVALID"],
+      "supporting_evidence": ["harness result or trace evidence of audit insufficiency"],
+      "remediation_pack_id": "REMED.AUDIT.0001",
+      "escalation_required": true,
+      "signoff_required": true,
+      "audit_export_section": "blocked_issue_summary"
+    }
+  ]
+}

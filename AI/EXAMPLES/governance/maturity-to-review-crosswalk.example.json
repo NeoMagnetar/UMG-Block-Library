@@ -1,0 +1,84 @@
+{
+  "crosswalk": [
+    {
+      "maturity_id": "M0_proposed",
+      "required_review_gate": "concept_review",
+      "required_packet_variant": "internal_development_pack",
+      "required_signoff_status": "draft",
+      "allowed_next_review": "draft_review",
+      "implementation_review_allowed": false,
+      "release_review_allowed": false,
+      "security_review_required": false
+    },
+    {
+      "maturity_id": "M1_drafted",
+      "required_review_gate": "draft_review",
+      "required_packet_variant": "internal_development_pack",
+      "required_signoff_status": "pending_review",
+      "allowed_next_review": "schema_review",
+      "implementation_review_allowed": false,
+      "release_review_allowed": false,
+      "security_review_required": false
+    },
+    {
+      "maturity_id": "M2_schema_aligned",
+      "required_review_gate": "schema_review",
+      "required_packet_variant": "technical_review_pack",
+      "required_signoff_status": "pending_review",
+      "allowed_next_review": "fixture_review",
+      "implementation_review_allowed": false,
+      "release_review_allowed": false,
+      "security_review_required": false
+    },
+    {
+      "maturity_id": "M3_fixture_backed",
+      "required_review_gate": "fixture_review",
+      "required_packet_variant": "technical_review_pack",
+      "required_signoff_status": "pending_review",
+      "allowed_next_review": "reporting_review",
+      "implementation_review_allowed": false,
+      "release_review_allowed": false,
+      "security_review_required": false
+    },
+    {
+      "maturity_id": "M4_reportable",
+      "required_review_gate": "reporting_review",
+      "required_packet_variant": "enterprise_client_pack",
+      "required_signoff_status": "approved_with_conditions",
+      "allowed_next_review": "audit_review",
+      "implementation_review_allowed": false,
+      "release_review_allowed": false,
+      "security_review_required": false
+    },
+    {
+      "maturity_id": "M5_audit_exportable",
+      "required_review_gate": "audit_review",
+      "required_packet_variant": "compliance_review_pack",
+      "required_signoff_status": "approved_with_conditions",
+      "allowed_next_review": "static_signoff_review",
+      "implementation_review_allowed": false,
+      "release_review_allowed": false,
+      "security_review_required": true
+    },
+    {
+      "maturity_id": "M6_reviewed_static",
+      "required_review_gate": "static_signoff_review",
+      "required_packet_variant": "technical_review_pack",
+      "required_signoff_status": "approved",
+      "allowed_next_review": "implementation_candidate_review",
+      "implementation_review_allowed": false,
+      "release_review_allowed": false,
+      "security_review_required": true
+    },
+    {
+      "maturity_id": "M7_implementation_candidate",
+      "required_review_gate": "implementation_candidate_review",
+      "required_packet_variant": "release_readiness_pack",
+      "required_signoff_status": "approved_with_conditions",
+      "allowed_next_review": "future_explicit_implementation_authorization_only",
+      "implementation_review_allowed": false,
+      "release_review_allowed": false,
+      "security_review_required": true
+    }
+  ]
+}

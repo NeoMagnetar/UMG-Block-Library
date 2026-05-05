@@ -1,0 +1,112 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://umg.envoy/schemas/validation-trace-preview.schema.json",
+  "title": "UMG Validation Trace Preview Schema v0.1",
+  "description": "Validating schema for non-executing resolver preview validation traces. Defines trace output only and does not authorize runtime action.",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "trace_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "timestamp": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "sleeve_id": {
+      "type": "string",
+      "pattern": "^SLV\\.[A-Z0-9._-]+\\.v[0-9]+$"
+    },
+    "tenant_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "events": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "event_sequence": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "event_type": {
+            "type": "string",
+            "enum": [
+              "capability.declared",
+              "capability.registry_known",
+              "capability.registry_missing",
+              "provider.found",
+              "provider.invalid",
+              "binding.validated",
+              "binding.invalid",
+              "trust.valid",
+              "trust.blocked",
+              "approval.present",
+              "approval.expired",
+              "approval.missing",
+              "tenant.valid",
+              "tenant.violation",
+              "rollback.valid",
+              "rollback.invalid",
+              "preview.executable_state"
+            ]
+          },
+          "severity": {
+            "type": "string",
+            "enum": ["info", "warn", "error", "critical"]
+          },
+          "source_layer": {
+            "type": "string",
+            "enum": ["capability", "trust", "provider", "binding", "approval", "tenant", "rollback", "governance", "preview"]
+          },
+          "blocked_reason": {
+            "type": ["string", "null"],
+            "enum": [
+              "CAPABILITY_UNKNOWN",
+              "CAPABILITY_REGISTRY_MISSING",
+              "TRUST_BLOCKED",
+              "PROVIDER_MISSING",
+              "PROVIDER_VERSION_INVALID",
+              "BINDING_MISSING",
+              "BINDING_INVALID",
+              "APPROVAL_REQUIRED",
+              "APPROVAL_MISSING",
+              "APPROVAL_EXPIRED",
+              "APPROVAL_REVOKED",
+              "TENANT_VIOLATION",
+              "EXECUTION_MODE_BLOCKED",
+              "ROLLBACK_POLICY_INVALID",
+              "AUDIT_POLICY_INVALID",
+              "TOOLPACK_BLOCKED",
+              "TARGET_CONSTRAINT_INVALID",
+              "CROSS_SCHEMA_CONFLICT",
+              null
+            ]
+          },
+          "remediation_hint": {
+            "type": ["string", "null"]
+          },
+          "summary": {
+            "type": ["string", "null"]
+          }
+        },
+        "required": [
+          "event_sequence",
+          "event_type",
+          "severity",
+          "source_layer",
+          "blocked_reason",
+          "remediation_hint"
+        ]
+      }
+    },
+    "summary": {
+      "type": ["string", "null"]
+    }
+  },
+  "required": ["trace_id", "timestamp", "sleeve_id", "tenant_id", "events"]
+}

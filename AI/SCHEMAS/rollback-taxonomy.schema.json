@@ -1,0 +1,132 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://umg.envoy/schemas/rollback-taxonomy.schema.json",
+  "title": "UMG Rollback Taxonomy Schema v0.1",
+  "description": "Validating schema for rollback classifications used by runtime governance. Defines rollback structure only and does not imply automatic recovery authority.",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "identity": {
+      "$ref": "./artifact.identity.schema.json"
+    },
+    "provenance": {
+      "$ref": "./provenance.schema.json"
+    },
+    "rollback_taxonomy": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "rollback_policy_id": {
+          "type": "string",
+          "enum": ["none", "manual_only", "reversible_file", "reversible_ui", "checkpoint_required", "transactional"]
+        },
+        "description": {
+          "type": "string",
+          "minLength": 1
+        },
+        "side_effect_level": {
+          "type": "string",
+          "enum": ["none", "read_only", "local_mutation", "workflow_transition", "external_action", "critical_action"]
+        },
+        "automatic_rollback_supported": {
+          "type": "boolean"
+        },
+        "manual_intervention_required": {
+          "type": "boolean"
+        },
+        "checkpoint_required": {
+          "type": "boolean"
+        },
+        "audit_required": {
+          "type": "boolean"
+        },
+        "notes": {
+          "type": ["string", "null"]
+        }
+      },
+      "required": [
+        "rollback_policy_id",
+        "description",
+        "side_effect_level",
+        "automatic_rollback_supported",
+        "manual_intervention_required",
+        "checkpoint_required",
+        "audit_required"
+      ],
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "side_effect_level": { "enum": ["local_mutation", "workflow_transition", "external_action", "critical_action"] }
+            },
+            "required": ["side_effect_level"]
+          },
+          "then": {
+            "properties": {
+              "audit_required": { "const": true }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "rollback_policy_id": { "const": "none" }
+            },
+            "required": ["rollback_policy_id"]
+          },
+          "then": {
+            "properties": {
+              "side_effect_level": { "enum": ["none", "read_only"] },
+              "automatic_rollback_supported": { "const": false }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "rollback_policy_id": { "const": "reversible_file" }
+            },
+            "required": ["rollback_policy_id"]
+          },
+          "then": {
+            "properties": {
+              "side_effect_level": { "const": "local_mutation" }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "rollback_policy_id": { "const": "reversible_ui" }
+            },
+            "required": ["rollback_policy_id"]
+          },
+          "then": {
+            "properties": {
+              "side_effect_level": { "const": "external_action" },
+              "manual_intervention_required": { "const": true }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "rollback_policy_id": { "const": "checkpoint_required" }
+            },
+            "required": ["rollback_policy_id"]
+          },
+          "then": {
+            "properties": {
+              "checkpoint_required": { "const": true }
+            }
+          }
+        }
+      ]
+    },
+    "metadata": {
+      "type": ["object", "null"],
+      "additionalProperties": true
+    }
+  },
+  "required": ["identity", "provenance", "rollback_taxonomy"]
+}

@@ -1,0 +1,49 @@
+{
+  "workflows": [
+    {
+      "workflow_id": "WF.INTERNAL_TECHNICAL_REVIEW.0001",
+      "required_inputs": ["fixtures", "validation matrix", "trace expectations", "harness report examples"],
+      "reviewer_roles": ["developer", "maintainer"],
+      "signoff_conditions": ["schema-valid examples", "consistent mappings", "no execution-authorizing language"],
+      "rejection_conditions": ["schema mismatch", "consistency contradiction", "ambiguous execution language"],
+      "evidence_required": ["static artifacts", "example outputs", "crosswalk references"],
+      "output_artifacts": ["review notes", "accepted mapping pack"]
+    },
+    {
+      "workflow_id": "WF.GOVERNANCE_REVIEW.0001",
+      "required_inputs": ["style guide", "terminology freeze", "narrative templates", "QA checklist"],
+      "reviewer_roles": ["governance_owner", "maintainer"],
+      "signoff_conditions": ["canonical terminology preserved", "severity language consistent", "blocked-state wording bounded"],
+      "rejection_conditions": ["terminology drift", "severity misuse", "ambiguous permission language"],
+      "evidence_required": ["style artifacts", "glossary", "field dictionary"],
+      "output_artifacts": ["governance signoff record"]
+    },
+    {
+      "workflow_id": "WF.ENTERPRISE_COMPLIANCE_REVIEW.0001",
+      "required_inputs": ["enterprise report examples", "compliance evidence checklists", "audit export examples"],
+      "reviewer_roles": ["compliance_reviewer", "audit_owner"],
+      "signoff_conditions": ["evidence expectations explicit", "blocked reasons audit-safe", "tenant and trust posture clear"],
+      "rejection_conditions": ["missing evidence requirements", "unclear blocked posture", "inadequate compliance wording"],
+      "evidence_required": ["evidence pack index", "compliance narratives", "audit export mappings"],
+      "output_artifacts": ["compliance review notes", "signoff recommendation"]
+    },
+    {
+      "workflow_id": "WF.SECURITY_TRIAGE_REVIEW.0001",
+      "required_inputs": ["security boundary notes", "scanner/remediation ownership entries", "release-mutation prohibitions"],
+      "reviewer_roles": ["security_owner", "maintainer"],
+      "signoff_conditions": ["no release mutation implied", "no bridge execution implied", "hash distinction preserved"],
+      "rejection_conditions": ["text implies publish or execution during triage", "local hash treated as ClawHub identity proof"],
+      "evidence_required": ["security triage notes", "ownership matrix"],
+      "output_artifacts": ["security triage review note"]
+    },
+    {
+      "workflow_id": "WF.RELEASE_READINESS_REVIEW.0001",
+      "required_inputs": ["all static governance packs", "security triage status", "signoff records"],
+      "reviewer_roles": ["release_owner", "security_owner", "governance_owner"],
+      "signoff_conditions": ["security triage resolved or explicitly waived", "governance packs complete", "no ambiguous authority language"],
+      "rejection_conditions": ["security triage active without approval", "release language ahead of governance state"],
+      "evidence_required": ["review records", "ownership matrix", "evidence pack index"],
+      "output_artifacts": ["release readiness recommendation"]
+    }
+  ]
+}

@@ -1,0 +1,8 @@
+{
+  "failure_id": "CONSISTENCY.APPROVAL_EXPIRED_EXECUTABLE_VIOLATION.0001",
+  "description": "Expired approval chain still reports execution-ready state.",
+  "violated_rule": "approval consistency",
+  "expected_outcome": "FAIL_CONSISTENCY",
+  "observed_problem": "approval_state is approval_expired but executable_state or final readiness still imply structural execution readiness.",
+  "recommended_remediation": "Block the chain until a non-expired approval token is present."
+}

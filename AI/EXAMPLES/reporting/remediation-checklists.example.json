@@ -1,0 +1,67 @@
+{
+  "remediations": [
+    {
+      "remediation_id": "REMED.TRUST.0001",
+      "issue_class": "trust remediation",
+      "remediation_steps": ["review trust registry assignment", "confirm intended trust tier", "update governance reference if policy changed"],
+      "validation_requirements": ["trust_state revalidation", "blocked reason reassessment"],
+      "retry_conditions": ["trust policy corrected"],
+      "escalation_conditions": ["terminal trust block remains unresolved"],
+      "closure_requirements": ["final readiness re-evaluated", "terminal trust note removed or justified"]
+    },
+    {
+      "remediation_id": "REMED.PROVIDER.0001",
+      "issue_class": "provider remediation",
+      "remediation_steps": ["identify missing provider", "verify governed toolpack availability", "recheck provider version compatibility"],
+      "validation_requirements": ["provider_state valid", "binding_state re-evaluated"],
+      "retry_conditions": ["provider chain established"],
+      "escalation_conditions": ["no governed provider exists"],
+      "closure_requirements": ["provider missing blocker removed", "trace expectation updated if needed"]
+    },
+    {
+      "remediation_id": "REMED.APPROVAL.0001",
+      "issue_class": "approval remediation",
+      "remediation_steps": ["confirm approval requirement", "issue or refresh bounded approval token", "verify scope matches capability/binding"],
+      "validation_requirements": ["approval_state present and valid", "execution remains unauthorized until gate conditions are met"],
+      "retry_conditions": ["valid approval present"],
+      "escalation_conditions": ["approval policy conflict"],
+      "closure_requirements": ["approval blocker removed", "updated evidence recorded"]
+    },
+    {
+      "remediation_id": "REMED.ROLLBACK.0001",
+      "issue_class": "rollback remediation",
+      "remediation_steps": ["review side-effect level", "select compliant rollback model", "document rollback posture"],
+      "validation_requirements": ["rollback_state valid", "blocked reason cleared"],
+      "retry_conditions": ["rollback policy becomes valid"],
+      "escalation_conditions": ["no acceptable rollback model exists for intended action"],
+      "closure_requirements": ["rollback invalid blocker removed", "risk posture re-evaluated"]
+    },
+    {
+      "remediation_id": "REMED.TENANT.0001",
+      "issue_class": "tenant remediation",
+      "remediation_steps": ["review tenant boundary rules", "restore allowed roots/apps/toolpacks", "remove cross-tenant references"],
+      "validation_requirements": ["tenant compliance restored", "terminal violation removed"],
+      "retry_conditions": ["tenant boundary is compliant"],
+      "escalation_conditions": ["tenant rule breach persists"],
+      "closure_requirements": ["tenant violation blocker removed", "compliance note updated"]
+    },
+    {
+      "remediation_id": "REMED.REPORTING.0001",
+      "issue_class": "reporting remediation",
+      "remediation_steps": ["align report outputs with schema", "restore missing blocked reason objects", "preserve documented mismatch notes"],
+      "validation_requirements": ["report schema pass", "consistency checks pass or remain explicitly documented"],
+      "retry_conditions": ["reporting inconsistencies corrected"],
+      "escalation_conditions": ["repeated report/output drift"],
+      "closure_requirements": ["reporting outputs aligned to canonical mappings"]
+    },
+    {
+      "remediation_id": "REMED.AUDIT.0001",
+      "issue_class": "audit remediation",
+      "remediation_steps": ["restore missing provenance references", "rebuild audit export completeness", "verify evidence list coverage"],
+      "validation_requirements": ["audit export revalidated", "required evidence present"],
+      "retry_conditions": ["audit package complete"],
+      "escalation_conditions": ["material audit evidence remains missing"],
+      "closure_requirements": ["audit export package marked complete for static review"]
+    }
+  ]
+}

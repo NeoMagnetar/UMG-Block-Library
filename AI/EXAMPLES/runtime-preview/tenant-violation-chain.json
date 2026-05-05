@@ -1,0 +1,85 @@
+{
+  "runtime_spec_preview_version": "0.1",
+  "runtime_spec_id": "RSP.PREVIEW.TENANT.0001",
+  "source_ir_id": "IR.EXAMPLE.0005",
+  "active_sleeve": "SLV.BUSINESS.RUNTIME_TEMPLATE.v1",
+  "requested_execution_mode": "assisted",
+  "capability_state": [
+    {
+      "capability_id": "CAP.DESKTOP.APP.LAUNCH.v1",
+      "declared": true,
+      "registry_state": "registry_known",
+      "risk_level": "high",
+      "blocked_by_default": true,
+      "allowed_modes": ["assisted", "approved_execute"]
+    }
+  ],
+  "provider_state": [
+    {
+      "capability_id": "CAP.DESKTOP.APP.LAUNCH.v1",
+      "toolpack_id": "TP.OPENCLAW.DESKTOP_BRIDGE.v1",
+      "provider_state": "provider_available",
+      "version_state": "provider_version_valid"
+    }
+  ],
+  "binding_state": [
+    {
+      "binding_id": "BIND.DESKTOP.APP.LAUNCH.v1",
+      "capability_id": "CAP.DESKTOP.APP.LAUNCH.v1",
+      "tool_provider": "TP.OPENCLAW.DESKTOP_BRIDGE.v1",
+      "binding_state": "binding_validated",
+      "allowed_modes": ["assisted", "approved_execute"],
+      "failure_policy": "stop_workflow"
+    }
+  ],
+  "trust_state": [
+    {
+      "trust_tier_id": "TRUST.BUSINESS_VERIFIED",
+      "trust_state": "trust_valid",
+      "tenant_binding_required": true,
+      "tenant_bound": true
+    }
+  ],
+  "approval_state": [
+    {
+      "capability_id": "CAP.DESKTOP.APP.LAUNCH.v1",
+      "binding_id": "BIND.DESKTOP.APP.LAUNCH.v1",
+      "approval_state": "approval_present",
+      "approval_required": true
+    }
+  ],
+  "rollback_state": [
+    {
+      "binding_id": "BIND.DESKTOP.APP.LAUNCH.v1",
+      "rollback_policy_id": "manual_only",
+      "rollback_state": "valid"
+    }
+  ],
+  "executable_state": {
+    "state": "blocked_reason",
+    "mode_limit": "blocked",
+    "blocked_reasons": ["TENANT_VIOLATION"]
+  },
+  "warnings": [],
+  "errors": ["Requested app or root is outside the tenant boundary."],
+  "blocked_reasons": [
+    {
+      "blocked_reason_code": "TENANT_VIOLATION",
+      "category": "tenant",
+      "severity": "critical",
+      "human_summary": "The requested action violates tenant boundary constraints.",
+      "remediation_guidance": "Adjust target roots/apps or re-scope the sleeve to the correct tenant boundary.",
+      "retry_possible": false,
+      "requires_human_action": true
+    }
+  ],
+  "governance_summary": {
+    "declared_capabilities": ["CAP.DESKTOP.APP.LAUNCH.v1"],
+    "provider_availability": "complete",
+    "trust_status": "valid",
+    "approval_requirements": "required",
+    "rollback_validity": "valid",
+    "tenant_compliance": "violating",
+    "final_preview_readiness": "blocked"
+  }
+}

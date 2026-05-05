@@ -1,0 +1,95 @@
+{
+  "mappings": [
+    {
+      "term": "readiness banner",
+      "canonical_field": "final_readiness",
+      "source_artifact": "AI/SCHEMAS/harness-result-report.schema.json",
+      "target_artifacts": [
+        "AI/SCHEMAS/runtimespec-preview.schema.json",
+        "AI/SCHEMAS/enterprise-report.schema.json",
+        "AI/EXAMPLES/dashboard/dashboard-state.preview-only.json"
+      ],
+      "description": "Top-level readiness term shown across dashboard, harness report, and enterprise report surfaces.",
+      "transformation_notes": "Dashboard may render as badge/banner while reports render as summary text."
+    },
+    {
+      "term": "provider availability",
+      "canonical_field": "provider_state",
+      "source_artifact": "AI/SCHEMAS/runtimespec-preview.schema.json",
+      "target_artifacts": [
+        "AI/SCHEMAS/harness-result-report.schema.json",
+        "AI/SCHEMAS/enterprise-report.schema.json"
+      ],
+      "description": "Represents whether a governed provider exists and is version-valid for a capability chain.",
+      "transformation_notes": "Enterprise reports may compress detailed provider state into posture text."
+    },
+    {
+      "term": "blocked reasons panel",
+      "canonical_field": "blocked_reasons",
+      "source_artifact": "AI/SCHEMAS/blocked-reason.schema.json",
+      "target_artifacts": [
+        "AI/SCHEMAS/harness-result-report.schema.json",
+        "AI/SCHEMAS/enterprise-report.schema.json",
+        "AI/SCHEMAS/validation-trace-preview.schema.json"
+      ],
+      "description": "Stable machine-readable and human-readable explanation for blocked chains.",
+      "transformation_notes": "UI may sort by severity/priority; exports should preserve raw blocked reason objects."
+    },
+    {
+      "term": "approval summary",
+      "canonical_field": "approval_state",
+      "source_artifact": "AI/SCHEMAS/runtimespec-preview.schema.json",
+      "target_artifacts": [
+        "AI/SCHEMAS/enterprise-report.schema.json",
+        "AI/SCHEMAS/audit-export.schema.json"
+      ],
+      "description": "Approval posture describing whether approval is required, present, missing, expired, or revoked.",
+      "transformation_notes": "Narrative templates may translate approval states into enterprise/compliance prose."
+    },
+    {
+      "term": "trust summary",
+      "canonical_field": "trust_state",
+      "source_artifact": "AI/SCHEMAS/runtimespec-preview.schema.json",
+      "target_artifacts": [
+        "AI/SCHEMAS/enterprise-report.schema.json",
+        "AI/SCHEMAS/audit-export.schema.json",
+        "AI/EXAMPLES/dashboard/dashboard-state.blocked.json"
+      ],
+      "description": "Indicates whether trust posture is valid or terminally blocked.",
+      "transformation_notes": "Terminal trust issues should map to high-visibility dashboard and report language."
+    },
+    {
+      "term": "mismatch note",
+      "canonical_field": "mismatch_notes",
+      "source_artifact": "AI/SCHEMAS/harness-result-report.schema.json",
+      "target_artifacts": [
+        "AI/EXAMPLES/dashboard/dashboard-state.mismatch-note.json",
+        "AI/SCHEMAS/enterprise-report.schema.json"
+      ],
+      "description": "Represents preserved, documented inconsistencies that should remain visible to validators and reviewers.",
+      "transformation_notes": "Mismatch notes should not be silently normalized away in any output surface."
+    },
+    {
+      "term": "trace event",
+      "canonical_field": "events",
+      "source_artifact": "AI/SCHEMAS/validation-trace-preview.schema.json",
+      "target_artifacts": [
+        "AI/SCHEMAS/audit-export.schema.json",
+        "AI/EXAMPLES/runtime-preview/trace-expectations.json"
+      ],
+      "description": "Ordered preview-validation event record used for trace comparison and audit review.",
+      "transformation_notes": "UI may present a collapsed timeline while exports preserve full event detail."
+    },
+    {
+      "term": "tenant compliance",
+      "canonical_field": "tenant_compliance",
+      "source_artifact": "AI/SCHEMAS/enterprise-report.schema.json",
+      "target_artifacts": [
+        "AI/SCHEMAS/runtimespec-preview.schema.json",
+        "AI/EXAMPLES/dashboard/dashboard-state.terminal-violation.json"
+      ],
+      "description": "Summarizes whether the chain stays within governed tenant boundaries.",
+      "transformation_notes": "Terminal tenant failures should map to blocked readiness and compliance narrative templates."
+    }
+  ]
+}

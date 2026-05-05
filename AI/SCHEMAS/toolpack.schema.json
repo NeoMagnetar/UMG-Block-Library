@@ -1,8 +1,8 @@
-﻿{
+{
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://umg.envoy/schemas/toolpack.schema.json",
-  "title": "UMG Tool Pack Schema v0.1",
-  "description": "Validating schema for a UMG Tool Pack as an executable capability provider package.",
+  "title": "UMG Tool Pack Schema v0.2-draft",
+  "description": "Validating schema for static UMG toolpack provider manifests. Defines provider supply only and does not grant execution authority.",
   "type": "object",
   "additionalProperties": false,
   "properties": {
@@ -16,91 +16,237 @@
       "type": "object",
       "additionalProperties": false,
       "properties": {
-        "name": { "type": "string", "minLength": 1 },
-        "description": { "type": ["string", "null"] },
-        "status": {
+        "toolpack_id": {
           "type": "string",
-          "enum": ["active", "deprecated", "experimental", "archived"]
+          "pattern": "^TP\\.[A-Z0-9._-]+\\.v[0-9]+$"
         },
         "version": {
           "type": "string",
           "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$"
         },
-        "category": {
+        "provider": {
           "type": "string",
-          "enum": ["general", "domain_specific", "framework_specific", "experimental", "archived"]
+          "minLength": 1
         },
-        "tags": {
+        "provided_capabilities": {
           "type": "array",
-          "items": { "type": "string", "minLength": 1 },
-          "uniqueItems": true
-        },
-        "provides_capabilities": {
-          "type": "array",
-          "items": { "type": "string", "minLength": 1 },
+          "items": {
+            "type": "string",
+            "pattern": "^CAP\\.[A-Z0-9._-]+\\.v[0-9]+$"
+          },
           "minItems": 1,
           "uniqueItems": true
         },
-        "tools": {
+        "declared_tool_surfaces": {
           "type": "array",
           "items": {
             "type": "object",
             "additionalProperties": false,
             "properties": {
-              "tool_id": { "type": "string", "minLength": 1 },
-              "surface": { "type": ["string", "null"] },
-              "description": { "type": ["string", "null"] },
-              "input_contract": { "type": ["string", "object", "null"] },
-              "output_contract": { "type": ["string", "object", "null"] },
-              "safe_mode": { "type": ["string", "null"], "enum": ["read_only", "bounded_write", "interactive", "privileged", null] },
-              "requires_human_approval": { "type": ["boolean", "null"] }
+              "tool_id": {
+                "type": "string",
+                "minLength": 1
+              },
+              "surface_kind": {
+                "type": "string",
+                "enum": ["read_only", "side_effect", "relay_orchestration", "bounded_execution"]
+              },
+              "description": {
+                "type": ["string", "null"]
+              },
+              "approval_required": {
+                "type": "boolean"
+              }
             },
-            "required": ["tool_id"]
-          }
+            "required": ["tool_id", "surface_kind", "approval_required"]
+          },
+          "minItems": 1
         },
         "bindings": {
-          "type": "object",
-          "additionalProperties": false,
-          "properties": {
-            "runtime_surface": { "type": ["string", "null"] },
-            "host_kinds": { "type": "array", "items": { "type": "string" }, "uniqueItems": true },
-            "transport_modes": { "type": "array", "items": { "type": "string" }, "uniqueItems": true }
-          }
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^BIND\\.[A-Z0-9._-]+\\.v[0-9]+$"
+          },
+          "minItems": 1,
+          "uniqueItems": true
         },
         "permissions": {
           "type": "object",
           "additionalProperties": false,
           "properties": {
-            "trust_level": { "type": ["string", "null"], "enum": ["public_safe", "developer_local", "private_resleever", "internal_operator", null] },
-            "required_approvals": { "type": "array", "items": { "type": "string" }, "uniqueItems": true },
-            "restricted_contexts": { "type": "array", "items": { "type": "string" }, "uniqueItems": true }
-          }
+            "trust_tier": {
+              "type": "string",
+              "enum": ["TRUST.INTERNAL", "TRUST.OPENCLAW_VERIFIED", "TRUST.BUSINESS_VERIFIED", "TRUST.EXPERIMENTAL", "TRUST.BLOCKED"]
+            },
+            "required_approvals": {
+              "type": "array",
+              "items": { "type": "string", "minLength": 1 },
+              "uniqueItems": true
+            },
+            "restricted_contexts": {
+              "type": "array",
+              "items": { "type": "string", "minLength": 1 },
+              "uniqueItems": true
+            }
+          },
+          "required": ["trust_tier", "required_approvals", "restricted_contexts"]
         },
         "compatibility": {
           "type": "object",
           "additionalProperties": false,
           "properties": {
-            "runtime_profiles": { "type": "array", "items": { "type": "string" }, "uniqueItems": true },
-            "plugin_versions": { "type": "array", "items": { "type": "string" }, "uniqueItems": true },
-            "schema_versions": { "type": "array", "items": { "type": "string" }, "uniqueItems": true }
-          }
+            "minimum_envoy_version": {
+              "type": "string",
+              "minLength": 1
+            },
+            "minimum_openclaw_version": {
+              "type": "string",
+              "minLength": 1
+            },
+            "supported_execution_modes": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "enum": ["preview", "dry_run", "assisted", "approved_execute", "blocked"]
+              },
+              "minItems": 1,
+              "uniqueItems": true
+            },
+            "supported_platforms": {
+              "type": "array",
+              "items": { "type": "string", "minLength": 1 },
+              "minItems": 1,
+              "uniqueItems": true
+            },
+            "required_plugin_config": {
+              "type": "array",
+              "items": { "type": "string", "minLength": 1 },
+              "uniqueItems": true
+            }
+          },
+          "required": [
+            "minimum_envoy_version",
+            "minimum_openclaw_version",
+            "supported_execution_modes",
+            "supported_platforms",
+            "required_plugin_config"
+          ]
         },
         "runtime_constraints": {
           "type": "object",
           "additionalProperties": false,
           "properties": {
-            "fail_closed": { "type": ["boolean", "null"] },
-            "allowed_lanes": { "type": "array", "items": { "type": "string" }, "uniqueItems": true },
-            "notes": { "type": ["string", "null"] }
+            "fail_closed": {
+              "type": "boolean"
+            },
+            "bounded_execution_required": {
+              "type": "boolean"
+            },
+            "tenant_binding_required": {
+              "type": "boolean"
+            },
+            "notes": {
+              "type": ["string", "null"]
+            }
+          },
+          "required": ["fail_closed", "bounded_execution_required", "tenant_binding_required"]
+        },
+        "diagnostics": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "emitted_events": {
+              "type": "array",
+              "items": { "type": "string", "minLength": 1 },
+              "uniqueItems": true
+            },
+            "blocked_reasons": {
+              "type": "array",
+              "items": { "type": "string", "minLength": 1 },
+              "uniqueItems": true
+            },
+            "validation_notes": {
+              "type": "array",
+              "items": { "type": "string", "minLength": 1 },
+              "uniqueItems": true
+            }
+          },
+          "required": ["emitted_events", "blocked_reasons", "validation_notes"]
+        },
+        "failure_policy": {
+          "type": "string",
+          "enum": ["fail_closed", "warn_and_skip_optional", "defer_to_human", "stop_workflow"]
+        },
+        "notes": {
+          "type": ["string", "null"]
+        }
+      },
+      "required": [
+        "toolpack_id",
+        "version",
+        "provider",
+        "provided_capabilities",
+        "declared_tool_surfaces",
+        "bindings",
+        "permissions",
+        "compatibility",
+        "runtime_constraints",
+        "diagnostics",
+        "failure_policy"
+      ],
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "permissions": {
+                "properties": {
+                  "trust_tier": { "const": "TRUST.BLOCKED" }
+                },
+                "required": ["trust_tier"]
+              }
+            },
+            "required": ["permissions"]
+          },
+          "then": {
+            "properties": {
+              "compatibility": {
+                "properties": {
+                  "supported_execution_modes": {
+                    "maxItems": 1,
+                    "items": { "const": "blocked" }
+                  }
+                }
+              }
+            }
           }
         },
-        "examples": {
-          "type": "array",
-          "items": { "type": ["object", "string"] }
-        },
-        "notes": { "type": ["string", "null"] }
-      },
-      "required": ["name", "status", "version", "category", "provides_capabilities"]
+        {
+          "if": {
+            "properties": {
+              "declared_tool_surfaces": {
+                "contains": {
+                  "type": "object",
+                  "properties": {
+                    "surface_kind": { "enum": ["side_effect", "relay_orchestration", "bounded_execution"] }
+                  },
+                  "required": ["surface_kind"]
+                }
+              }
+            },
+            "required": ["declared_tool_surfaces"]
+          },
+          "then": {
+            "properties": {
+              "runtime_constraints": {
+                "properties": {
+                  "bounded_execution_required": { "const": true }
+                }
+              }
+            }
+          }
+        }
+      ]
     },
     "metadata": {
       "type": ["object", "null"],

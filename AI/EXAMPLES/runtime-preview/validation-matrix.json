@@ -1,0 +1,200 @@
+{
+  "validation_pack_version": "0.1",
+  "fixtures": [
+    {
+      "fixture": "valid-preview-only-chain.json",
+      "purpose": "read-only preview-safe structural validation",
+      "expected_final_readiness": "preview_only",
+      "expected_capability_state": ["declared", "registry_known"],
+      "expected_provider_state": ["provider_available", "provider_version_valid"],
+      "expected_binding_state": ["binding_validated"],
+      "expected_trust_state": ["trust_valid"],
+      "expected_approval_state": ["approval_required:false"],
+      "expected_rollback_state": ["valid"],
+      "expected_executable_state": "preview_only_semantics",
+      "expected_blocked_reasons": [],
+      "expected_warnings": [],
+      "expected_errors": [],
+      "expected_governance_summary": {
+        "provider_availability": "complete",
+        "trust_status": "valid",
+        "approval_requirements": "none",
+        "rollback_validity": "valid",
+        "tenant_compliance": "compliant",
+        "final_preview_readiness": "preview_only"
+      },
+      "expected_outcome": "PASS_WITH_MISMATCH_NOTE",
+      "notes": [
+        "Fixture currently contains executable_state.state=dry_run_only while governance summary says preview_only."
+      ]
+    },
+    {
+      "fixture": "dry-run-only-chain.json",
+      "purpose": "valid chain held below execution by missing approval",
+      "expected_final_readiness": "dry_run_only",
+      "expected_capability_state": ["declared", "registry_known"],
+      "expected_provider_state": ["provider_available", "provider_version_valid"],
+      "expected_binding_state": ["binding_validated"],
+      "expected_trust_state": ["trust_valid"],
+      "expected_approval_state": ["approval_missing"],
+      "expected_rollback_state": ["valid"],
+      "expected_executable_state": "dry_run_only",
+      "expected_blocked_reasons": ["APPROVAL_MISSING"],
+      "expected_warnings": ["approval_missing_warning"],
+      "expected_errors": [],
+      "expected_governance_summary": {
+        "provider_availability": "complete",
+        "trust_status": "valid",
+        "approval_requirements": "required",
+        "rollback_validity": "valid",
+        "tenant_compliance": "compliant",
+        "final_preview_readiness": "dry_run_only"
+      },
+      "expected_outcome": "PASS"
+    },
+    {
+      "fixture": "blocked-trust-chain.json",
+      "purpose": "trust policy hard block",
+      "expected_final_readiness": "blocked",
+      "expected_capability_state": ["declared", "registry_known"],
+      "expected_provider_state": ["provider_available", "provider_version_valid"],
+      "expected_binding_state": ["binding_validated"],
+      "expected_trust_state": ["trust_blocked"],
+      "expected_approval_state": ["approval_required"],
+      "expected_rollback_state": ["valid"],
+      "expected_executable_state": "blocked_reason",
+      "expected_blocked_reasons": ["TRUST_BLOCKED"],
+      "expected_warnings": [],
+      "expected_errors": ["trust_blocking_error"],
+      "expected_governance_summary": {
+        "provider_availability": "complete",
+        "trust_status": "blocked",
+        "approval_requirements": "required",
+        "rollback_validity": "valid",
+        "tenant_compliance": "mixed",
+        "final_preview_readiness": "blocked"
+      },
+      "expected_outcome": "PASS"
+    },
+    {
+      "fixture": "expired-approval-chain.json",
+      "purpose": "expired approval blocks readiness",
+      "expected_final_readiness": "blocked",
+      "expected_capability_state": ["declared", "registry_known"],
+      "expected_provider_state": ["provider_available", "provider_version_valid"],
+      "expected_binding_state": ["binding_validated"],
+      "expected_trust_state": ["trust_valid"],
+      "expected_approval_state": ["approval_expired"],
+      "expected_rollback_state": ["valid"],
+      "expected_executable_state": "blocked_reason",
+      "expected_blocked_reasons": ["APPROVAL_EXPIRED"],
+      "expected_warnings": [],
+      "expected_errors": ["approval_expired_error"],
+      "expected_governance_summary": {
+        "provider_availability": "complete",
+        "trust_status": "valid",
+        "approval_requirements": "required",
+        "rollback_validity": "valid",
+        "tenant_compliance": "compliant",
+        "final_preview_readiness": "blocked"
+      },
+      "expected_outcome": "PASS"
+    },
+    {
+      "fixture": "tenant-violation-chain.json",
+      "purpose": "tenant boundary override",
+      "expected_final_readiness": "blocked",
+      "expected_capability_state": ["declared", "registry_known"],
+      "expected_provider_state": ["provider_available", "provider_version_valid"],
+      "expected_binding_state": ["binding_validated"],
+      "expected_trust_state": ["trust_valid"],
+      "expected_approval_state": ["approval_present"],
+      "expected_rollback_state": ["valid"],
+      "expected_executable_state": "blocked_reason",
+      "expected_blocked_reasons": ["TENANT_VIOLATION"],
+      "expected_warnings": [],
+      "expected_errors": ["tenant_violation_error"],
+      "expected_governance_summary": {
+        "provider_availability": "complete",
+        "trust_status": "valid",
+        "approval_requirements": "required",
+        "rollback_validity": "valid",
+        "tenant_compliance": "violating",
+        "final_preview_readiness": "blocked"
+      },
+      "expected_outcome": "PASS"
+    },
+    {
+      "fixture": "rollback-invalid-chain.json",
+      "purpose": "invalid rollback for risky action",
+      "expected_final_readiness": "blocked",
+      "expected_capability_state": ["declared", "registry_known"],
+      "expected_provider_state": ["provider_available", "provider_version_valid"],
+      "expected_binding_state": ["binding_validated"],
+      "expected_trust_state": ["trust_valid"],
+      "expected_approval_state": ["approval_present"],
+      "expected_rollback_state": ["invalid"],
+      "expected_executable_state": "blocked_reason",
+      "expected_blocked_reasons": ["ROLLBACK_POLICY_INVALID"],
+      "expected_warnings": [],
+      "expected_errors": ["rollback_invalid_error"],
+      "expected_governance_summary": {
+        "provider_availability": "complete",
+        "trust_status": "valid",
+        "approval_requirements": "required",
+        "rollback_validity": "invalid",
+        "tenant_compliance": "compliant",
+        "final_preview_readiness": "blocked"
+      },
+      "expected_outcome": "PASS"
+    },
+    {
+      "fixture": "provider-missing-chain.json",
+      "purpose": "missing provider blocks chain",
+      "expected_final_readiness": "blocked",
+      "expected_capability_state": ["declared", "registry_known"],
+      "expected_provider_state": ["provider_missing"],
+      "expected_binding_state": ["binding_absent"],
+      "expected_trust_state": ["trust_valid"],
+      "expected_approval_state": ["approval_required"],
+      "expected_rollback_state": ["absent_or_mixed"],
+      "expected_executable_state": "blocked_reason",
+      "expected_blocked_reasons": ["PROVIDER_MISSING"],
+      "expected_warnings": [],
+      "expected_errors": ["provider_missing_error"],
+      "expected_governance_summary": {
+        "provider_availability": "missing",
+        "trust_status": "valid",
+        "approval_requirements": "required",
+        "rollback_validity": "mixed",
+        "tenant_compliance": "compliant",
+        "final_preview_readiness": "blocked"
+      },
+      "expected_outcome": "PASS"
+    },
+    {
+      "fixture": "capability-unknown-chain.json",
+      "purpose": "unknown capability remains blocked in preview",
+      "expected_final_readiness": "blocked",
+      "expected_capability_state": ["declared", "registry_missing"],
+      "expected_provider_state": ["provider_absent"],
+      "expected_binding_state": ["binding_absent"],
+      "expected_trust_state": ["trust_valid"],
+      "expected_approval_state": ["approval_absent"],
+      "expected_rollback_state": ["absent_or_mixed"],
+      "expected_executable_state": "blocked_reason",
+      "expected_blocked_reasons": ["CAPABILITY_UNKNOWN"],
+      "expected_warnings": ["unknown_capability_warning"],
+      "expected_errors": [],
+      "expected_governance_summary": {
+        "provider_availability": "missing",
+        "trust_status": "valid",
+        "approval_requirements": "none",
+        "rollback_validity": "mixed",
+        "tenant_compliance": "mixed",
+        "final_preview_readiness": "blocked"
+      },
+      "expected_outcome": "PASS"
+    }
+  ]
+}

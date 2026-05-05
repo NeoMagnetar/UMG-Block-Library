@@ -1,0 +1,84 @@
+{
+  "profiles": [
+    {
+      "audience_id": "developer",
+      "pack_variant": "internal_development_pack",
+      "included_sections": ["schemas", "fixtures", "validation_pack", "trace_expectations"],
+      "hidden_sections": [],
+      "language_style": "technical",
+      "evidence_depth": "medium",
+      "export_variant": "full_export",
+      "sensitivity_constraints": ["no runtime execution implication"]
+    },
+    {
+      "audience_id": "maintainer",
+      "pack_variant": "technical_review_pack",
+      "included_sections": ["doctrine", "schemas", "blocked_issue_summary", "remediation ownership"],
+      "hidden_sections": [],
+      "language_style": "technical_enterprise_mix",
+      "evidence_depth": "medium_high",
+      "export_variant": "full_export",
+      "sensitivity_constraints": ["security triage constraints must remain visible"]
+    },
+    {
+      "audience_id": "auditor",
+      "pack_variant": "compliance_review_pack",
+      "included_sections": ["audit exports", "evidence checklists", "blocked reasons", "schema provenance"],
+      "hidden_sections": ["nonessential_ui_preferences"],
+      "language_style": "audit",
+      "evidence_depth": "high",
+      "export_variant": "compliance_export",
+      "sensitivity_constraints": ["machine-readable tokens preserved"]
+    },
+    {
+      "audience_id": "business_client",
+      "pack_variant": "enterprise_client_pack",
+      "included_sections": ["executive summary", "blocked issue summary", "remediation roadmap"],
+      "hidden_sections": ["low_level_binding_state", "synthetic_trace_detail"],
+      "language_style": "enterprise",
+      "evidence_depth": "low_medium",
+      "export_variant": "enterprise_export",
+      "sensitivity_constraints": ["hide low-level internal detail"]
+    },
+    {
+      "audience_id": "executive",
+      "pack_variant": "enterprise_client_pack",
+      "included_sections": ["executive summary", "risk summary", "readiness posture"],
+      "hidden_sections": ["raw_trace_events", "schema_lists"],
+      "language_style": "concise_enterprise",
+      "evidence_depth": "low",
+      "export_variant": "enterprise_export",
+      "sensitivity_constraints": ["focus on posture and blockers"]
+    },
+    {
+      "audience_id": "compliance_reviewer",
+      "pack_variant": "compliance_review_pack",
+      "included_sections": ["blocked reasons", "evidence requirements", "tenant/trust posture", "audit export references"],
+      "hidden_sections": [],
+      "language_style": "compliance",
+      "evidence_depth": "high",
+      "export_variant": "compliance_export",
+      "sensitivity_constraints": ["preserve control language"]
+    },
+    {
+      "audience_id": "support_agent",
+      "pack_variant": "internal_development_pack",
+      "included_sections": ["high-level blocked posture", "approved remediation guidance", "escalation path"],
+      "hidden_sections": ["raw_consistency_failures", "schema_provenance"],
+      "language_style": "support_facing",
+      "evidence_depth": "low",
+      "export_variant": "partial_export",
+      "sensitivity_constraints": ["do not expose internal-only governance detail"]
+    },
+    {
+      "audience_id": "security_reviewer",
+      "pack_variant": "security_triage_pack",
+      "included_sections": ["security boundary", "active constraints", "scanner remediation ownership", "release blockers"],
+      "hidden_sections": ["nonsecurity_ui_layout_preferences"],
+      "language_style": "security",
+      "evidence_depth": "high",
+      "export_variant": "compliance_export",
+      "sensitivity_constraints": ["preserve hash distinction and no-release posture"]
+    }
+  ]
+}

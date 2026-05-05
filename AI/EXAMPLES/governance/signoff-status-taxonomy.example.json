@@ -1,0 +1,84 @@
+{
+  "statuses": [
+    {
+      "status_id": "draft",
+      "meaning": "Artifact is authored but not yet formally reviewed.",
+      "allowed_next_statuses": ["pending_review", "superseded", "blocked"],
+      "required_evidence": [],
+      "required_roles": ["author"],
+      "expiration_behavior": "none",
+      "implementation_allowed": false,
+      "release_allowed": false
+    },
+    {
+      "status_id": "pending_review",
+      "meaning": "Artifact is ready for review but has no active approval.",
+      "allowed_next_statuses": ["approved", "approved_with_conditions", "rejected", "blocked"],
+      "required_evidence": ["artifact reference", "review packet"],
+      "required_roles": ["reviewer"],
+      "expiration_behavior": "recheck_if_stale",
+      "implementation_allowed": false,
+      "release_allowed": false
+    },
+    {
+      "status_id": "approved",
+      "meaning": "Artifact is accepted for static governance use.",
+      "allowed_next_statuses": ["superseded", "expired", "blocked"],
+      "required_evidence": ["signoff record"],
+      "required_roles": ["reviewer", "owner"],
+      "expiration_behavior": "recheck_on_policy_change",
+      "implementation_allowed": false,
+      "release_allowed": false
+    },
+    {
+      "status_id": "approved_with_conditions",
+      "meaning": "Artifact is accepted for static governance use with explicit follow-up conditions.",
+      "allowed_next_statuses": ["approved", "expired", "blocked", "superseded"],
+      "required_evidence": ["conditional signoff record", "followup list"],
+      "required_roles": ["reviewer", "owner"],
+      "expiration_behavior": "must_recheck_by_condition_date",
+      "implementation_allowed": false,
+      "release_allowed": false
+    },
+    {
+      "status_id": "rejected",
+      "meaning": "Artifact failed review and may not be treated as accepted governance output.",
+      "allowed_next_statuses": ["draft", "pending_review", "superseded"],
+      "required_evidence": ["rejection reasons"],
+      "required_roles": ["reviewer"],
+      "expiration_behavior": "none",
+      "implementation_allowed": false,
+      "release_allowed": false
+    },
+    {
+      "status_id": "expired",
+      "meaning": "Artifact requires re-review because approval timing or boundary assumptions have expired.",
+      "allowed_next_statuses": ["pending_review", "superseded", "blocked"],
+      "required_evidence": ["expiration note", "recheck requirement"],
+      "required_roles": ["owner"],
+      "expiration_behavior": "must_reenter_review",
+      "implementation_allowed": false,
+      "release_allowed": false
+    },
+    {
+      "status_id": "superseded",
+      "meaning": "Artifact has been replaced by a later accepted artifact.",
+      "allowed_next_statuses": [],
+      "required_evidence": ["replacement artifact reference"],
+      "required_roles": ["owner"],
+      "expiration_behavior": "none",
+      "implementation_allowed": false,
+      "release_allowed": false
+    },
+    {
+      "status_id": "blocked",
+      "meaning": "Artifact is prevented from progression by active governance, security, or release constraints.",
+      "allowed_next_statuses": ["pending_review", "superseded"],
+      "required_evidence": ["blocked reason", "constraint reference"],
+      "required_roles": ["owner", "reviewer"],
+      "expiration_behavior": "recheck_after_blocker_changes",
+      "implementation_allowed": false,
+      "release_allowed": false
+    }
+  ]
+}

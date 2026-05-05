@@ -1,0 +1,18 @@
+{
+  "trace_id": "TRACE.PREVIEW.ROLLBACK.0001",
+  "timestamp": "2026-05-02T00:00:00Z",
+  "sleeve_id": "SLV.BUSINESS.RUNTIME_TEMPLATE.v1",
+  "tenant_id": "TENANT.EXAMPLE.v1",
+  "fixture_name": "rollback-invalid-chain.json",
+  "terminal_readiness": "blocked",
+  "events": [
+    {"event_sequence": 1, "event_type": "capability.declared", "severity": "info", "source_layer": "capability", "blocked_reason": null, "remediation_hint": null, "summary": "Capability declared."},
+    {"event_sequence": 2, "event_type": "provider.found", "severity": "info", "source_layer": "provider", "blocked_reason": null, "remediation_hint": null, "summary": "Provider found."},
+    {"event_sequence": 3, "event_type": "binding.validated", "severity": "info", "source_layer": "binding", "blocked_reason": null, "remediation_hint": null, "summary": "Binding validated."},
+    {"event_sequence": 4, "event_type": "trust.valid", "severity": "info", "source_layer": "trust", "blocked_reason": null, "remediation_hint": null, "summary": "Trust state valid."},
+    {"event_sequence": 5, "event_type": "approval.present", "severity": "info", "source_layer": "approval", "blocked_reason": null, "remediation_hint": null, "summary": "Approval token present."},
+    {"event_sequence": 6, "event_type": "rollback.invalid", "severity": "error", "source_layer": "rollback", "blocked_reason": "ROLLBACK_POLICY_INVALID", "remediation_hint": "Use reversible_file or checkpoint_required.", "summary": "Rollback policy invalid for risky write chain."},
+    {"event_sequence": 7, "event_type": "preview.executable_state", "severity": "error", "source_layer": "preview", "blocked_reason": "ROLLBACK_POLICY_INVALID", "remediation_hint": "Block execution readiness until rollback policy is corrected.", "summary": "Final readiness blocked by rollback invalidity."}
+  ],
+  "summary": "Synthetic trace for rollback-invalid fixture."
+}

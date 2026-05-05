@@ -1,0 +1,22 @@
+{
+  "screen_id": "DASH.BLOCKED.0001",
+  "readiness": "blocked",
+  "blocked_reasons": [
+    {
+      "code": "TRUST_BLOCKED",
+      "severity": "critical",
+      "terminal": true,
+      "remediation_guidance": "Review trust registry assignment before any higher readiness is considered.",
+      "human_action_required": true
+    },
+    {
+      "code": "APPROVAL_EXPIRED",
+      "severity": "error",
+      "terminal": false,
+      "remediation_guidance": "Issue a new bounded approval token.",
+      "human_action_required": true
+    }
+  ],
+  "summary": "The chain is blocked by one or more governance failures.",
+  "human_action_required": true
+}

@@ -1,0 +1,45 @@
+{
+  "fixture_bundle": "AI/EXAMPLES/runtime-preview/fixture-bundle-manifest.example.json",
+  "expected_results": "AI/EXAMPLES/runtime-preview/EXPECTED_RESULTS.md",
+  "validation_matrix": "AI/EXAMPLES/runtime-preview/validation-matrix.json",
+  "trace_expectations": "AI/EXAMPLES/runtime-preview/trace-expectations.json",
+  "harness_results": [
+    "AI/EXAMPLES/runtime-preview/harness-result-report.example.json"
+  ],
+  "synthetic_traces": [
+    "AI/EXAMPLES/runtime-preview/synthetic-traces/valid-preview-only-chain.trace.json",
+    "AI/EXAMPLES/runtime-preview/synthetic-traces/dry-run-only-chain.trace.json",
+    "AI/EXAMPLES/runtime-preview/synthetic-traces/blocked-trust-chain.trace.json",
+    "AI/EXAMPLES/runtime-preview/synthetic-traces/expired-approval-chain.trace.json",
+    "AI/EXAMPLES/runtime-preview/synthetic-traces/tenant-violation-chain.trace.json",
+    "AI/EXAMPLES/runtime-preview/synthetic-traces/rollback-invalid-chain.trace.json",
+    "AI/EXAMPLES/runtime-preview/synthetic-traces/provider-missing-chain.trace.json",
+    "AI/EXAMPLES/runtime-preview/synthetic-traces/capability-unknown-chain.trace.json"
+  ],
+  "consistency_failures": [
+    "AI/EXAMPLES/runtime-preview/consistency-failures/readiness-executable-state-mismatch.json",
+    "AI/EXAMPLES/runtime-preview/consistency-failures/provider-binding-contradiction.json",
+    "AI/EXAMPLES/runtime-preview/consistency-failures/trust-terminal-violation.json",
+    "AI/EXAMPLES/runtime-preview/consistency-failures/approval-expired-executable-violation.json",
+    "AI/EXAMPLES/runtime-preview/consistency-failures/rollback-invalid-executable-violation.json",
+    "AI/EXAMPLES/runtime-preview/consistency-failures/blocked-reason-missing.json"
+  ],
+  "schema_versions": [
+    "AI/SCHEMAS/runtimespec-preview.schema.json@v0.1",
+    "AI/SCHEMAS/validation-trace-preview.schema.json@v0.1",
+    "AI/SCHEMAS/blocked-reason.schema.json@v0.1",
+    "AI/SCHEMAS/harness-result-report.schema.json@v0.1",
+    "AI/SCHEMAS/fixture-bundle-manifest.schema.json@v0.1",
+    "AI/SCHEMAS/consistency-rule-catalog.schema.json@v0.1",
+    "AI/SCHEMAS/preview-ui-mapping.schema.json@v0.1",
+    "AI/SCHEMAS/enterprise-report.schema.json@v0.1",
+    "AI/SCHEMAS/audit-export.schema.json@v0.1"
+  ],
+  "governance_versions": [
+    "AI/DOCTRINE/UMG_TOOL_RUNTIME_VALIDATION_PACK.v0.1.md",
+    "AI/DOCTRINE/UMG_TOOL_RUNTIME_HARNESS_CONTRACT.v0.1.md",
+    "AI/DOCTRINE/UMG_TOOL_RUNTIME_RESOLVER_PREVIEW.v0.1.md"
+  ],
+  "export_timestamp": "2026-05-02T00:00:00Z",
+  "export_scope": "static_preview_reporting_examples"
+}

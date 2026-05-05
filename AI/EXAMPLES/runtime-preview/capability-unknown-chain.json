@@ -1,0 +1,56 @@
+{
+  "runtime_spec_preview_version": "0.1",
+  "runtime_spec_id": "RSP.PREVIEW.CAPUNKNOWN.0001",
+  "source_ir_id": "IR.EXAMPLE.0008",
+  "active_sleeve": "SLV.BUSINESS.RUNTIME_TEMPLATE.v1",
+  "requested_execution_mode": "preview",
+  "capability_state": [
+    {
+      "capability_id": "CAP.UNKNOWN.EXAMPLE.v1",
+      "declared": true,
+      "registry_state": "registry_missing",
+      "risk_level": "medium",
+      "blocked_by_default": true,
+      "allowed_modes": ["preview", "blocked"]
+    }
+  ],
+  "provider_state": [],
+  "binding_state": [],
+  "trust_state": [
+    {
+      "trust_tier_id": "TRUST.EXPERIMENTAL",
+      "trust_state": "trust_valid",
+      "tenant_binding_required": false,
+      "tenant_bound": false
+    }
+  ],
+  "approval_state": [],
+  "rollback_state": [],
+  "executable_state": {
+    "state": "blocked_reason",
+    "mode_limit": "preview",
+    "blocked_reasons": ["CAPABILITY_UNKNOWN"]
+  },
+  "warnings": ["Declared capability is not known to the registry and has no provider chain."],
+  "errors": [],
+  "blocked_reasons": [
+    {
+      "blocked_reason_code": "CAPABILITY_UNKNOWN",
+      "category": "capability",
+      "severity": "warn",
+      "human_summary": "The declared capability is not known to the governed capability registry.",
+      "remediation_guidance": "Register the capability or remove the declaration from the sleeve governance chain.",
+      "retry_possible": true,
+      "requires_human_action": true
+    }
+  ],
+  "governance_summary": {
+    "declared_capabilities": ["CAP.UNKNOWN.EXAMPLE.v1"],
+    "provider_availability": "missing",
+    "trust_status": "valid",
+    "approval_requirements": "none",
+    "rollback_validity": "mixed",
+    "tenant_compliance": "mixed",
+    "final_preview_readiness": "blocked"
+  }
+}

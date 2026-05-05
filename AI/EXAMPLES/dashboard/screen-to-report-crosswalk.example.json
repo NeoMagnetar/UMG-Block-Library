@@ -1,0 +1,52 @@
+{
+  "screens": [
+    {
+      "screen": "preview_only",
+      "enterprise_report_sections": ["executive_summary", "fixture_inventory", "validation_outcome_summary"],
+      "audit_export_sections": ["fixture_bundle", "expected_results", "validation_matrix"],
+      "harness_result_fields": ["outcome", "final_readiness", "warnings"],
+      "blocked_reason_fields": [],
+      "governance_summary_fields": ["provider_availability", "trust_status", "final_preview_readiness"]
+    },
+    {
+      "screen": "dry_run_only",
+      "enterprise_report_sections": ["executive_summary", "approval_posture", "remediation_roadmap"],
+      "audit_export_sections": ["expected_results", "trace_expectations", "harness_results"],
+      "harness_result_fields": ["outcome", "warnings", "final_readiness"],
+      "blocked_reason_fields": ["APPROVAL_MISSING"],
+      "governance_summary_fields": ["approval_requirements", "rollback_validity", "final_preview_readiness"]
+    },
+    {
+      "screen": "structurally_executable_pending_gate",
+      "enterprise_report_sections": ["executive_summary", "trust_posture", "approval_posture"],
+      "audit_export_sections": ["harness_results", "trace_expectations"],
+      "harness_result_fields": ["outcome_reason", "final_readiness", "execution_authorized"],
+      "blocked_reason_fields": [],
+      "governance_summary_fields": ["trust_status", "approval_requirements", "final_preview_readiness"]
+    },
+    {
+      "screen": "blocked",
+      "enterprise_report_sections": ["blocked_issue_summary", "risk_summary", "remediation_roadmap"],
+      "audit_export_sections": ["blocked_issue_summary", "synthetic_traces", "consistency_failures"],
+      "harness_result_fields": ["errors", "blocked_reasons", "final_readiness"],
+      "blocked_reason_fields": ["blocked_reason_code", "severity", "human_summary", "remediation_guidance"],
+      "governance_summary_fields": ["trust_status", "tenant_compliance", "final_preview_readiness"]
+    },
+    {
+      "screen": "mismatch_note",
+      "enterprise_report_sections": ["executive_summary", "risk_summary"],
+      "audit_export_sections": ["harness_results", "consistency_failures"],
+      "harness_result_fields": ["mismatch_notes", "outcome"],
+      "blocked_reason_fields": [],
+      "governance_summary_fields": ["final_preview_readiness"]
+    },
+    {
+      "screen": "terminal_violation",
+      "enterprise_report_sections": ["blocked_issue_summary", "risk_summary", "remediation_roadmap"],
+      "audit_export_sections": ["consistency_failures", "synthetic_traces", "harness_results"],
+      "harness_result_fields": ["blocked_reasons", "errors", "final_readiness"],
+      "blocked_reason_fields": ["blocked_reason_code", "severity", "requires_human_action"],
+      "governance_summary_fields": ["trust_status", "tenant_compliance", "final_preview_readiness"]
+    }
+  ]
+}

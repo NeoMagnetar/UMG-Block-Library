@@ -1,0 +1,75 @@
+{
+  "runtime_spec_preview_version": "0.1",
+  "runtime_spec_id": "RSP.PREVIEW.VALID.0001",
+  "source_ir_id": "IR.EXAMPLE.0001",
+  "active_sleeve": "SLV.BUSINESS.RUNTIME_TEMPLATE.v1",
+  "requested_execution_mode": "preview",
+  "capability_state": [
+    {
+      "capability_id": "CAP.FILE.READ.v1",
+      "declared": true,
+      "registry_state": "registry_known",
+      "risk_level": "low",
+      "blocked_by_default": false,
+      "allowed_modes": ["preview", "dry_run", "assisted", "approved_execute"]
+    }
+  ],
+  "provider_state": [
+    {
+      "capability_id": "CAP.FILE.READ.v1",
+      "toolpack_id": "TP.UMG.CORE_RUNTIME.v1",
+      "provider_state": "provider_available",
+      "version_state": "provider_version_valid"
+    }
+  ],
+  "binding_state": [
+    {
+      "binding_id": "BIND.FILE.READ.v1",
+      "capability_id": "CAP.FILE.READ.v1",
+      "tool_provider": "TP.UMG.CORE_RUNTIME.v1",
+      "binding_state": "binding_validated",
+      "allowed_modes": ["preview", "dry_run", "assisted", "approved_execute"],
+      "failure_policy": "fail_closed"
+    }
+  ],
+  "trust_state": [
+    {
+      "trust_tier_id": "TRUST.OPENCLAW_VERIFIED",
+      "trust_state": "trust_valid",
+      "tenant_binding_required": false,
+      "tenant_bound": true
+    }
+  ],
+  "approval_state": [
+    {
+      "capability_id": "CAP.FILE.READ.v1",
+      "binding_id": "BIND.FILE.READ.v1",
+      "approval_state": "approval_required",
+      "approval_required": false
+    }
+  ],
+  "rollback_state": [
+    {
+      "binding_id": "BIND.FILE.READ.v1",
+      "rollback_policy_id": "none",
+      "rollback_state": "valid"
+    }
+  ],
+  "executable_state": {
+    "state": "dry_run_only",
+    "mode_limit": "preview",
+    "blocked_reasons": []
+  },
+  "warnings": [],
+  "errors": [],
+  "blocked_reasons": [],
+  "governance_summary": {
+    "declared_capabilities": ["CAP.FILE.READ.v1"],
+    "provider_availability": "complete",
+    "trust_status": "valid",
+    "approval_requirements": "none",
+    "rollback_validity": "valid",
+    "tenant_compliance": "compliant",
+    "final_preview_readiness": "preview_only"
+  }
+}

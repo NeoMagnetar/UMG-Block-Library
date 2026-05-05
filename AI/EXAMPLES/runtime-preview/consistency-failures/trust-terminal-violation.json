@@ -1,0 +1,8 @@
+{
+  "failure_id": "CONSISTENCY.TRUST_TERMINAL_VIOLATION.0001",
+  "description": "Trust-blocked chain still reports non-blocked final readiness.",
+  "violated_rule": "trust consistency",
+  "expected_outcome": "FAIL_CONSISTENCY",
+  "observed_problem": "trust_state includes trust_blocked but final readiness or executable state is not blocked.",
+  "recommended_remediation": "Force final readiness to blocked whenever trust_blocked is present."
+}

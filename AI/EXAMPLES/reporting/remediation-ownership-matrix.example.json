@@ -1,0 +1,84 @@
+{
+  "ownership": [
+    {
+      "remediation_id": "REMED.TRUST.0001",
+      "issue_class": "trust remediation",
+      "primary_owner_role": "governance_owner",
+      "secondary_owner_role": "maintainer",
+      "escalation_owner_role": "compliance_owner",
+      "required_signoff_roles": ["governance_owner", "compliance_owner"],
+      "retry_authority": "governance_owner",
+      "closure_authority": "compliance_owner"
+    },
+    {
+      "remediation_id": "REMED.PROVIDER.0001",
+      "issue_class": "provider remediation",
+      "primary_owner_role": "maintainer",
+      "secondary_owner_role": "developer",
+      "escalation_owner_role": "governance_owner",
+      "required_signoff_roles": ["maintainer"],
+      "retry_authority": "maintainer",
+      "closure_authority": "governance_owner"
+    },
+    {
+      "remediation_id": "REMED.APPROVAL.0001",
+      "issue_class": "approval remediation",
+      "primary_owner_role": "approver",
+      "secondary_owner_role": "governance_owner",
+      "escalation_owner_role": "compliance_owner",
+      "required_signoff_roles": ["approver", "governance_owner"],
+      "retry_authority": "approver",
+      "closure_authority": "governance_owner"
+    },
+    {
+      "remediation_id": "REMED.ROLLBACK.0001",
+      "issue_class": "rollback remediation",
+      "primary_owner_role": "technical_owner",
+      "secondary_owner_role": "governance_owner",
+      "escalation_owner_role": "compliance_owner",
+      "required_signoff_roles": ["technical_owner", "governance_owner"],
+      "retry_authority": "technical_owner",
+      "closure_authority": "governance_owner"
+    },
+    {
+      "remediation_id": "REMED.TENANT.0001",
+      "issue_class": "tenant remediation",
+      "primary_owner_role": "tenant_owner",
+      "secondary_owner_role": "governance_owner",
+      "escalation_owner_role": "compliance_owner",
+      "required_signoff_roles": ["tenant_owner", "compliance_owner"],
+      "retry_authority": "tenant_owner",
+      "closure_authority": "compliance_owner"
+    },
+    {
+      "remediation_id": "REMED.REPORTING.0001",
+      "issue_class": "reporting remediation",
+      "primary_owner_role": "reporting_owner",
+      "secondary_owner_role": "maintainer",
+      "escalation_owner_role": "governance_owner",
+      "required_signoff_roles": ["reporting_owner"],
+      "retry_authority": "reporting_owner",
+      "closure_authority": "governance_owner"
+    },
+    {
+      "remediation_id": "REMED.AUDIT.0001",
+      "issue_class": "audit remediation",
+      "primary_owner_role": "audit_owner",
+      "secondary_owner_role": "compliance_owner",
+      "escalation_owner_role": "governance_owner",
+      "required_signoff_roles": ["audit_owner", "compliance_owner"],
+      "retry_authority": "audit_owner",
+      "closure_authority": "compliance_owner"
+    },
+    {
+      "remediation_id": "REMED.SECURITY.SCANNER.0001",
+      "issue_class": "scanner/security remediation",
+      "primary_owner_role": "security_owner",
+      "secondary_owner_role": "maintainer",
+      "escalation_owner_role": "release_owner",
+      "required_signoff_roles": ["security_owner", "release_owner"],
+      "retry_authority": "security_owner",
+      "closure_authority": "release_owner"
+    }
+  ]
+}

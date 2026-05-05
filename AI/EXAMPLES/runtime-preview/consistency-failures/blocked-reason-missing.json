@@ -1,0 +1,8 @@
+{
+  "failure_id": "CONSISTENCY.BLOCKED_REASON_MISSING.0001",
+  "description": "Blocked output lacks corresponding blocked reason tokens or objects.",
+  "violated_rule": "blocked-reason consistency",
+  "expected_outcome": "FAIL_CONSISTENCY",
+  "observed_problem": "executable_state or final readiness is blocked, but no matching blocked reason token/object is emitted.",
+  "recommended_remediation": "Emit stable blocked reason tokens and corresponding blocked reason objects for all blocked outcomes."
+}

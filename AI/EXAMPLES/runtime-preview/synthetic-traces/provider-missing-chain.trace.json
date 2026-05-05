@@ -1,0 +1,14 @@
+{
+  "trace_id": "TRACE.PREVIEW.PROVIDERMISS.0001",
+  "timestamp": "2026-05-02T00:00:00Z",
+  "sleeve_id": "SLV.BUSINESS.RUNTIME_TEMPLATE.v1",
+  "tenant_id": "TENANT.EXAMPLE.v1",
+  "fixture_name": "provider-missing-chain.json",
+  "terminal_readiness": "blocked",
+  "events": [
+    {"event_sequence": 1, "event_type": "capability.declared", "severity": "info", "source_layer": "capability", "blocked_reason": null, "remediation_hint": null, "summary": "Capability declared."},
+    {"event_sequence": 2, "event_type": "provider.invalid", "severity": "error", "source_layer": "provider", "blocked_reason": "PROVIDER_MISSING", "remediation_hint": "Provide or allow a toolpack that supplies the capability.", "summary": "Provider is missing or unusable."},
+    {"event_sequence": 3, "event_type": "preview.executable_state", "severity": "error", "source_layer": "preview", "blocked_reason": "PROVIDER_MISSING", "remediation_hint": "Do not claim readiness while provider is missing.", "summary": "Final readiness blocked by provider absence."}
+  ],
+  "summary": "Synthetic trace for provider-missing fixture."
+}

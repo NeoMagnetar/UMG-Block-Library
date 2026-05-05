@@ -1,0 +1,19 @@
+{
+  "signoff_id": "SIGNOFF.GOVERNANCE.0001",
+  "artifact_or_pack_id": "PACK.UMG.TOOL_RUNTIME.GOVERNANCE.0001",
+  "reviewer_role": "governance_owner",
+  "reviewer_name_or_placeholder": "REVIEWER_PLACEHOLDER",
+  "review_type": "governance_review",
+  "reviewed_at": "2026-05-02T00:00:00Z",
+  "approval_status": "conditional_approval",
+  "conditions": [
+    "Security triage boundary must remain active until explicitly resolved.",
+    "No runtime execution authority may be inferred from governance pack completeness."
+  ],
+  "rejection_reasons": [],
+  "required_followups": [
+    "Preserve hash distinction between ClawHub-scanned artifact and local package artifact.",
+    "Keep release mutation prohibited while triage remains active."
+  ],
+  "expiration_or_recheck_date": "2026-06-01T00:00:00Z"
+}

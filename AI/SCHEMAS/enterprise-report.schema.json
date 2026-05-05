@@ -1,0 +1,97 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://umg.envoy/schemas/enterprise-report.schema.json",
+  "title": "UMG Enterprise Report Schema v0.1",
+  "description": "Validating schema for enterprise-facing static validation reports. Defines reporting structure only and does not authorize runtime action.",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "report_identity": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "report_id": { "type": "string", "minLength": 1 },
+        "generated_at": { "type": "string", "format": "date-time" },
+        "scope": { "type": "string", "minLength": 1 }
+      },
+      "required": ["report_id", "generated_at", "scope"]
+    },
+    "executive_summary": { "type": "string", "minLength": 1 },
+    "fixture_inventory": {
+      "type": "array",
+      "items": { "type": "string", "minLength": 1 },
+      "minItems": 1,
+      "uniqueItems": true
+    },
+    "schema_provenance": {
+      "type": "array",
+      "items": { "type": "string", "minLength": 1 },
+      "minItems": 1,
+      "uniqueItems": true
+    },
+    "governance_provenance": {
+      "type": "array",
+      "items": { "type": "string", "minLength": 1 },
+      "minItems": 1,
+      "uniqueItems": true
+    },
+    "validation_outcome_summary": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "pass_count": { "type": "integer", "minimum": 0 },
+        "pass_with_mismatch_note_count": { "type": "integer", "minimum": 0 },
+        "fail_schema_count": { "type": "integer", "minimum": 0 },
+        "fail_expectation_count": { "type": "integer", "minimum": 0 },
+        "fail_consistency_count": { "type": "integer", "minimum": 0 }
+      },
+      "required": [
+        "pass_count",
+        "pass_with_mismatch_note_count",
+        "fail_schema_count",
+        "fail_expectation_count",
+        "fail_consistency_count"
+      ]
+    },
+    "blocked_issue_summary": {
+      "type": "array",
+      "items": { "$ref": "./blocked-reason.schema.json" }
+    },
+    "trust_posture": { "type": "string", "minLength": 1 },
+    "approval_posture": { "type": "string", "minLength": 1 },
+    "rollback_posture": { "type": "string", "minLength": 1 },
+    "tenant_compliance": { "type": "string", "minLength": 1 },
+    "remediation_roadmap": {
+      "type": "array",
+      "items": { "type": "string", "minLength": 1 },
+      "uniqueItems": true
+    },
+    "risk_summary": { "type": "string", "minLength": 1 },
+    "export_metadata": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "format": { "type": "string", "minLength": 1 },
+        "exported_by": { "type": "string", "minLength": 1 },
+        "security_mode": { "type": "string", "const": "no_execution" }
+      },
+      "required": ["format", "exported_by", "security_mode"]
+    }
+  },
+  "required": [
+    "report_identity",
+    "executive_summary",
+    "fixture_inventory",
+    "schema_provenance",
+    "governance_provenance",
+    "validation_outcome_summary",
+    "blocked_issue_summary",
+    "trust_posture",
+    "approval_posture",
+    "rollback_posture",
+    "tenant_compliance",
+    "remediation_roadmap",
+    "risk_summary",
+    "export_metadata"
+  ]
+}

@@ -1,0 +1,83 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://umg.envoy/schemas/consistency-rule-catalog.schema.json",
+  "title": "UMG Consistency Rule Catalog Schema v0.1",
+  "description": "Validating schema for machine-readable governance consistency rules. Defines static governance rules only and does not authorize execution.",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "catalog_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "version": {
+      "type": "string",
+      "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$"
+    },
+    "rules": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "rule_id": { "type": "string", "minLength": 1 },
+          "rule_name": { "type": "string", "minLength": 1 },
+          "category": {
+            "type": "string",
+            "enum": ["readiness", "trust", "provider", "binding", "approval", "rollback", "tenant", "reporting"]
+          },
+          "severity": {
+            "type": "string",
+            "enum": ["info", "warning", "elevated", "critical", "terminal"]
+          },
+          "trigger_conditions": {
+            "type": "array",
+            "items": { "type": "string", "minLength": 1 },
+            "minItems": 1,
+            "uniqueItems": true
+          },
+          "expected_behavior": {
+            "type": "string",
+            "minLength": 1
+          },
+          "violation_behavior": {
+            "type": "string",
+            "minLength": 1
+          },
+          "remediation_guidance": {
+            "type": "string",
+            "minLength": 1
+          },
+          "retry_possible": {
+            "type": "boolean"
+          },
+          "terminal": {
+            "type": "boolean"
+          },
+          "governance_layer": {
+            "type": "string",
+            "enum": ["schema", "preview", "trust", "provider", "binding", "approval", "rollback", "tenant", "reporting"]
+          },
+          "notes": {
+            "type": ["string", "null"]
+          }
+        },
+        "required": [
+          "rule_id",
+          "rule_name",
+          "category",
+          "severity",
+          "trigger_conditions",
+          "expected_behavior",
+          "violation_behavior",
+          "remediation_guidance",
+          "retry_possible",
+          "terminal",
+          "governance_layer"
+        ]
+      }
+    }
+  },
+  "required": ["catalog_id", "version", "rules"]
+}

@@ -1,0 +1,323 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://umg.envoy/schemas/runtimespec-preview.schema.json",
+  "title": "UMG RuntimeSpec Preview Schema v0.1",
+  "description": "Validating schema for non-executing RuntimeSpec preview outputs. Defines structural governance readiness only and does not authorize runtime action.",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "runtime_spec_preview_version": {
+      "type": "string"
+    },
+    "runtime_spec_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "source_ir_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "active_sleeve": {
+      "type": "string",
+      "pattern": "^SLV\\.[A-Z0-9._-]+\\.v[0-9]+$"
+    },
+    "requested_execution_mode": {
+      "type": "string",
+      "enum": ["preview", "dry_run", "assisted", "approved_execute", "blocked"]
+    },
+    "capability_state": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "capability_id": {
+            "type": "string",
+            "pattern": "^CAP\\.[A-Z0-9._-]+\\.v[0-9]+$"
+          },
+          "declared": {
+            "type": "boolean"
+          },
+          "registry_state": {
+            "type": "string",
+            "enum": ["declared", "registry_known", "registry_missing"]
+          },
+          "risk_level": {
+            "type": "string",
+            "enum": ["low", "medium", "high", "critical"]
+          },
+          "blocked_by_default": {
+            "type": "boolean"
+          },
+          "allowed_modes": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "enum": ["preview", "dry_run", "assisted", "approved_execute", "blocked"]
+            },
+            "uniqueItems": true
+          }
+        },
+        "required": ["capability_id", "declared", "registry_state", "risk_level", "blocked_by_default", "allowed_modes"]
+      }
+    },
+    "provider_state": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "capability_id": {
+            "type": "string",
+            "pattern": "^CAP\\.[A-Z0-9._-]+\\.v[0-9]+$"
+          },
+          "toolpack_id": {
+            "type": "string",
+            "pattern": "^TP\\.[A-Z0-9._-]+\\.v[0-9]+$"
+          },
+          "provider_state": {
+            "type": "string",
+            "enum": ["provider_available", "provider_missing"]
+          },
+          "version_state": {
+            "type": "string",
+            "enum": ["provider_version_valid", "provider_version_invalid"]
+          }
+        },
+        "required": ["capability_id", "toolpack_id", "provider_state", "version_state"]
+      }
+    },
+    "binding_state": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "binding_id": {
+            "type": "string",
+            "pattern": "^BIND\\.[A-Z0-9._-]+\\.v[0-9]+$"
+          },
+          "capability_id": {
+            "type": "string",
+            "pattern": "^CAP\\.[A-Z0-9._-]+\\.v[0-9]+$"
+          },
+          "tool_provider": {
+            "type": "string",
+            "pattern": "^TP\\.[A-Z0-9._-]+\\.v[0-9]+$"
+          },
+          "binding_state": {
+            "type": "string",
+            "enum": ["binding_present", "binding_validated", "binding_invalid"]
+          },
+          "allowed_modes": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "enum": ["preview", "dry_run", "assisted", "approved_execute", "blocked"]
+            },
+            "uniqueItems": true
+          },
+          "failure_policy": {
+            "type": "string",
+            "enum": ["fail_closed", "warn_and_skip_optional", "defer_to_human", "stop_workflow"]
+          }
+        },
+        "required": ["binding_id", "capability_id", "tool_provider", "binding_state", "allowed_modes", "failure_policy"]
+      }
+    },
+    "trust_state": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "trust_tier_id": {
+            "type": "string",
+            "enum": ["TRUST.INTERNAL", "TRUST.OPENCLAW_VERIFIED", "TRUST.BUSINESS_VERIFIED", "TRUST.EXPERIMENTAL", "TRUST.BLOCKED"]
+          },
+          "trust_state": {
+            "type": "string",
+            "enum": ["trust_valid", "trust_blocked"]
+          },
+          "tenant_binding_required": {
+            "type": "boolean"
+          },
+          "tenant_bound": {
+            "type": "boolean"
+          }
+        },
+        "required": ["trust_tier_id", "trust_state", "tenant_binding_required", "tenant_bound"]
+      }
+    },
+    "approval_state": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "capability_id": {
+            "type": "string",
+            "pattern": "^CAP\\.[A-Z0-9._-]+\\.v[0-9]+$"
+          },
+          "binding_id": {
+            "type": "string",
+            "pattern": "^BIND\\.[A-Z0-9._-]+\\.v[0-9]+$"
+          },
+          "approval_state": {
+            "type": "string",
+            "enum": ["approval_required", "approval_present", "approval_missing", "approval_expired", "approval_revoked"]
+          },
+          "approval_required": {
+            "type": "boolean"
+          }
+        },
+        "required": ["capability_id", "binding_id", "approval_state", "approval_required"]
+      }
+    },
+    "rollback_state": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "binding_id": {
+            "type": "string",
+            "pattern": "^BIND\\.[A-Z0-9._-]+\\.v[0-9]+$"
+          },
+          "rollback_policy_id": {
+            "type": "string",
+            "enum": ["none", "manual_only", "reversible_file", "reversible_ui", "checkpoint_required", "transactional"]
+          },
+          "rollback_state": {
+            "type": "string",
+            "enum": ["valid", "invalid"]
+          }
+        },
+        "required": ["binding_id", "rollback_policy_id", "rollback_state"]
+      }
+    },
+    "executable_state": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "state": {
+          "type": "string",
+          "enum": ["executable", "dry_run_only", "blocked_reason"]
+        },
+        "mode_limit": {
+          "type": "string",
+          "enum": ["preview", "dry_run", "assisted", "approved_execute", "blocked"]
+        },
+        "blocked_reasons": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": [
+              "CAPABILITY_UNKNOWN",
+              "CAPABILITY_REGISTRY_MISSING",
+              "TRUST_BLOCKED",
+              "PROVIDER_MISSING",
+              "PROVIDER_VERSION_INVALID",
+              "BINDING_MISSING",
+              "BINDING_INVALID",
+              "APPROVAL_REQUIRED",
+              "APPROVAL_MISSING",
+              "APPROVAL_EXPIRED",
+              "APPROVAL_REVOKED",
+              "TENANT_VIOLATION",
+              "EXECUTION_MODE_BLOCKED",
+              "ROLLBACK_POLICY_INVALID",
+              "AUDIT_POLICY_INVALID",
+              "TOOLPACK_BLOCKED",
+              "TARGET_CONSTRAINT_INVALID",
+              "CROSS_SCHEMA_CONFLICT"
+            ]
+          },
+          "uniqueItems": true
+        }
+      },
+      "required": ["state", "mode_limit", "blocked_reasons"]
+    },
+    "warnings": {
+      "type": "array",
+      "items": { "type": "string", "minLength": 1 },
+      "uniqueItems": true
+    },
+    "errors": {
+      "type": "array",
+      "items": { "type": "string", "minLength": 1 },
+      "uniqueItems": true
+    },
+    "blocked_reasons": {
+      "type": "array",
+      "items": {
+        "$ref": "./blocked-reason.schema.json"
+      }
+    },
+    "governance_summary": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "declared_capabilities": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^CAP\\.[A-Z0-9._-]+\\.v[0-9]+$"
+          },
+          "uniqueItems": true
+        },
+        "provider_availability": {
+          "type": "string",
+          "enum": ["complete", "partial", "missing"]
+        },
+        "trust_status": {
+          "type": "string",
+          "enum": ["valid", "blocked", "mixed"]
+        },
+        "approval_requirements": {
+          "type": "string",
+          "enum": ["none", "required", "mixed"]
+        },
+        "rollback_validity": {
+          "type": "string",
+          "enum": ["valid", "invalid", "mixed"]
+        },
+        "tenant_compliance": {
+          "type": "string",
+          "enum": ["compliant", "violating", "mixed"]
+        },
+        "final_preview_readiness": {
+          "type": "string",
+          "enum": ["preview_only", "dry_run_only", "structurally_executable_pending_gate", "blocked"]
+        }
+      },
+      "required": [
+        "declared_capabilities",
+        "provider_availability",
+        "trust_status",
+        "approval_requirements",
+        "rollback_validity",
+        "tenant_compliance",
+        "final_preview_readiness"
+      ]
+    }
+  },
+  "required": [
+    "runtime_spec_preview_version",
+    "runtime_spec_id",
+    "source_ir_id",
+    "active_sleeve",
+    "requested_execution_mode",
+    "capability_state",
+    "provider_state",
+    "binding_state",
+    "trust_state",
+    "approval_state",
+    "rollback_state",
+    "executable_state",
+    "warnings",
+    "errors",
+    "blocked_reasons",
+    "governance_summary"
+  ]
+}

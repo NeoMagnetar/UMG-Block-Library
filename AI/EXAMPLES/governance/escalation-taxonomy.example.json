@@ -1,0 +1,68 @@
+{
+  "escalations": [
+    {
+      "escalation_id": "ESC.GOVERNANCE_AMBIGUITY.0001",
+      "severity": "elevated",
+      "owner_role": "governance_owner",
+      "required_evidence": ["conflicting doctrine reference", "affected artifact reference"],
+      "escalation_path": ["maintainer", "governance_owner"],
+      "closure_condition": "Canonical wording or mapping conflict resolved."
+    },
+    {
+      "escalation_id": "ESC.SECURITY_TRIAGE.0001",
+      "severity": "critical",
+      "owner_role": "security_owner",
+      "required_evidence": ["security triage note", "hash distinction record", "scanner or VT findings summary"],
+      "escalation_path": ["maintainer", "security_owner", "release_owner"],
+      "closure_condition": "Security triage resolved or explicitly waived by appropriate owner."
+    },
+    {
+      "escalation_id": "ESC.PROVIDER_TRUST_FAILURE.0001",
+      "severity": "terminal",
+      "owner_role": "governance_owner",
+      "required_evidence": ["trust_state output", "provider_state output", "blocked reason object"],
+      "escalation_path": ["maintainer", "governance_owner", "compliance_owner"],
+      "closure_condition": "Provider/trust relationship becomes governance-valid or remains formally blocked."
+    },
+    {
+      "escalation_id": "ESC.APPROVAL_FAILURE.0001",
+      "severity": "critical",
+      "owner_role": "approver",
+      "required_evidence": ["approval_state output", "approval token metadata if present"],
+      "escalation_path": ["approver", "governance_owner"],
+      "closure_condition": "Approval requirement resolved or action remains formally unapproved."
+    },
+    {
+      "escalation_id": "ESC.TENANT_VIOLATION.0001",
+      "severity": "terminal",
+      "owner_role": "tenant_owner",
+      "required_evidence": ["tenant boundary definition", "tenant violation blocked reason"],
+      "escalation_path": ["tenant_owner", "governance_owner", "compliance_owner"],
+      "closure_condition": "Tenant-compliant scope restored."
+    },
+    {
+      "escalation_id": "ESC.ROLLBACK_INVALIDITY.0001",
+      "severity": "critical",
+      "owner_role": "technical_owner",
+      "required_evidence": ["rollback_state output", "rollback policy reference"],
+      "escalation_path": ["technical_owner", "governance_owner"],
+      "closure_condition": "Rollback policy becomes valid for the governed chain."
+    },
+    {
+      "escalation_id": "ESC.AUDIT_FAILURE.0001",
+      "severity": "critical",
+      "owner_role": "audit_owner",
+      "required_evidence": ["audit export reference", "missing evidence summary"],
+      "escalation_path": ["audit_owner", "compliance_owner"],
+      "closure_condition": "Required audit evidence restored or omission formally documented."
+    },
+    {
+      "escalation_id": "ESC.RELEASE_READINESS_BLOCKER.0001",
+      "severity": "terminal",
+      "owner_role": "release_owner",
+      "required_evidence": ["signoff records", "security triage status", "governance pack manifest"],
+      "escalation_path": ["maintainer", "security_owner", "release_owner"],
+      "closure_condition": "Release readiness blockers are resolved or release remains explicitly deferred."
+    }
+  ]
+}
