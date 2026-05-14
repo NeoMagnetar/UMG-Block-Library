@@ -1,0 +1,18 @@
+{
+  "sleeve_folder": "primary.sample",
+  "title": "Sample Primary NeoBlock",
+  "category": "sample",
+  "neoblocks": [
+    {
+      "id": "primary.sample",
+      "name": "Sample Primary NeoBlock",
+      "kind": "neoblock",
+      "molt_type": "Primary",
+      "status": "alpha6_sample_target",
+      "public_curated": true,
+      "content": "Sample Primary NeoBlock target for Alpha.6 resolver availability testing.",
+      "runtime_policy": "readonly_no_execution",
+      "refs": []
+    }
+  ]
+}

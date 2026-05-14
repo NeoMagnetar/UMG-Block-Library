@@ -1,0 +1,18 @@
+{
+  "sleeve_folder": "subject.sample",
+  "title": "Sample Subject NeoBlock",
+  "category": "sample",
+  "neoblocks": [
+    {
+      "id": "subject.sample",
+      "name": "Sample Subject NeoBlock",
+      "kind": "neoblock",
+      "molt_type": "Subject",
+      "status": "alpha6_sample_target",
+      "public_curated": true,
+      "content": "Sample Subject NeoBlock target for Alpha.6 resolver availability testing.",
+      "runtime_policy": "readonly_no_execution",
+      "refs": []
+    }
+  ]
+}

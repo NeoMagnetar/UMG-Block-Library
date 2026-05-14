@@ -1,0 +1,18 @@
+{
+  "sleeve_folder": "trigger.sample",
+  "title": "Sample Trigger NeoBlock",
+  "category": "sample",
+  "neoblocks": [
+    {
+      "id": "trigger.sample",
+      "name": "Sample Trigger NeoBlock",
+      "kind": "neoblock",
+      "molt_type": "Trigger",
+      "status": "alpha6_sample_target",
+      "public_curated": true,
+      "content": "Sample Trigger NeoBlock target for Alpha.6 resolver availability testing.",
+      "runtime_policy": "readonly_no_execution",
+      "refs": []
+    }
+  ]
+}

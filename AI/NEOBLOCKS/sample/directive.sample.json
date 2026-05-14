@@ -1,0 +1,18 @@
+{
+  "sleeve_folder": "directive.sample",
+  "title": "Sample Directive NeoBlock",
+  "category": "sample",
+  "neoblocks": [
+    {
+      "id": "directive.sample",
+      "name": "Sample Directive NeoBlock",
+      "kind": "neoblock",
+      "molt_type": "Directive",
+      "status": "alpha6_sample_target",
+      "public_curated": true,
+      "content": "Sample Directive NeoBlock target for Alpha.6 resolver availability testing.",
+      "runtime_policy": "readonly_no_execution",
+      "refs": []
+    }
+  ]
+}
