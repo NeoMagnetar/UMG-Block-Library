@@ -1,0 +1,26 @@
+{
+  "sleeve_id": "neomagnetar-dynamic-persona-v1",
+  "title": "Neomagnetar Dynamic Persona Sleeve",
+  "snap_id": "default",
+  "primary_shell_block_id": "primary.sample",
+  "block_refs": [
+    { "block_id": "primary.sample", "enabled": true },
+    { "block_id": "directive.sample", "enabled": true },
+    { "block_id": "instruction.sample", "enabled": true },
+    { "block_id": "subject.sample", "enabled": true },
+    { "block_id": "philosophy.sample", "enabled": true },
+    { "block_id": "blueprint.sample", "enabled": true },
+    { "block_id": "trigger.sample", "enabled": true }
+  ],
+  "strategy": { "mode": "public-coder", "compiler": "bundled-adapter" },
+  "constraints": ["public-safe", "compiler-visible", "no-private-paths"],
+  "context": { "audience": "developers" },
+  "values": { "debuggable": true },
+  "format": { "style": "technical" },
+  "tool_requests": [],
+  "metadata": {
+    "normalization_basis": "faithful public-curated mirror from existing bundled public sample structure",
+    "source_evidence": "C:\\/.openclaw\\workspace\\work\\public-next\\package\\public-content\\sleeves\\public-coder-envoy.sleeve.json",
+    "catalog_identity_preserved": true
+  }
+}

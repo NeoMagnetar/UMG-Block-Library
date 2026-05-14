@@ -26,8 +26,8 @@
       "id": "neomagnetar-dynamic-persona-v1",
       "name": "Neomagnetar Dynamic Persona Sleeve",
       "status": "compatibility_reference",
-      "source_path": "../generated/sleeve-neomagnetar-dynamic-persona-v1.json",
-      "notes": "Meaningful public compatibility/reference sleeve with multi-domain routing value. Public catalog id is stable; payload runtime id remains sleeve_neomagnetar_dynamic_persona_v1."
+      "source_path": "../sleeve-neomagnetar-dynamic-persona-v1.json",
+      "notes": "Meaningful public compatibility/reference sleeve with multi-domain routing value. Public catalog id is stable. Normalized to an explicit public-curated sleeves-lane JSON target for safe readonly inspection."
     }
   ]
 }
