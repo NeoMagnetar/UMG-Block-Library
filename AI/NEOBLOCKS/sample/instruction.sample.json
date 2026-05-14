@@ -1,18 +1,25 @@
 {
-  "sleeve_folder": "instruction.sample",
-  "title": "Sample Instruction NeoBlock",
-  "category": "sample",
-  "neoblocks": [
-    {
-      "id": "instruction.sample",
-      "name": "Sample Instruction NeoBlock",
-      "kind": "neoblock",
-      "molt_type": "Instruction",
-      "status": "alpha6_sample_target",
-      "public_curated": true,
-      "content": "Sample Instruction NeoBlock target for Alpha.6 resolver availability testing.",
-      "runtime_policy": "readonly_no_execution",
-      "refs": []
-    }
-  ]
+  "identity": {
+    "id": "instruction.sample",
+    "kind": "neoblock",
+    "molt_type": "Instruction"
+  },
+  "metadata": {
+    "title": "Sample Instruction NeoBlock",
+    "status": "alpha6_sample_target",
+    "public_curated": true,
+    "created_for": "UMG Envoy Agent Alpha.6 Step 8A",
+    "schema_alignment": "step8a_fix_approved_sample_neoblock_schema"
+  },
+  "neoblock": {
+    "molt_type": "Instruction",
+    "role": "sample",
+    "content": "Sample Instruction NeoBlock target for Alpha.6 resolver shallow-load testing.",
+    "refs": []
+  },
+  "provenance": {
+    "source": "UMG Envoy Agent Alpha.6 Step 8A approved sample target normalization",
+    "runtime_policy": "readonly_no_execution",
+    "target_ref": "instruction.sample"
+  }
 }

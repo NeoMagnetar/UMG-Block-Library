@@ -1,18 +1,25 @@
 {
-  "sleeve_folder": "primary.sample",
-  "title": "Sample Primary NeoBlock",
-  "category": "sample",
-  "neoblocks": [
-    {
-      "id": "primary.sample",
-      "name": "Sample Primary NeoBlock",
-      "kind": "neoblock",
-      "molt_type": "Primary",
-      "status": "alpha6_sample_target",
-      "public_curated": true,
-      "content": "Sample Primary NeoBlock target for Alpha.6 resolver availability testing.",
-      "runtime_policy": "readonly_no_execution",
-      "refs": []
-    }
-  ]
+  "identity": {
+    "id": "primary.sample",
+    "kind": "neoblock",
+    "molt_type": "Primary"
+  },
+  "metadata": {
+    "title": "Sample Primary NeoBlock",
+    "status": "alpha6_sample_target",
+    "public_curated": true,
+    "created_for": "UMG Envoy Agent Alpha.6 Step 8A",
+    "schema_alignment": "step8a_fix_approved_sample_neoblock_schema"
+  },
+  "neoblock": {
+    "molt_type": "Primary",
+    "role": "sample",
+    "content": "Sample Primary NeoBlock target for Alpha.6 resolver shallow-load testing.",
+    "refs": []
+  },
+  "provenance": {
+    "source": "UMG Envoy Agent Alpha.6 Step 8A approved sample target normalization",
+    "runtime_policy": "readonly_no_execution",
+    "target_ref": "primary.sample"
+  }
 }
