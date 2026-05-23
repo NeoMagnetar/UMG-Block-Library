@@ -36,6 +36,14 @@ MOLT Block
 → Sleeve
 ```
 
+Naming convention:
+- RuntimeSpec is the canonical type and schema concept.
+- `runtime-spec.json` is the canonical artifact filename form.
+- Trace is the canonical type and schema concept.
+- `trace.json` is the canonical artifact filename form.
+- NeoStack is the canonical typed structural layer above NeoBlock and below Sleeve.
+- Use `stack` only for informal human-facing prose when no typed schema object is implied.
+
 Plain-language meaning:
 - MOLT Block = one small idea, rule, purpose, or constraint
 - NeoBlock = useful bundle of MOLT blocks
