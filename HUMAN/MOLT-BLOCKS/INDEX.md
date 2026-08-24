@@ -1,47 +1,27 @@
-# MOLT BLOCKS INDEX
+# MOLT Block Library Index
 
-This public lane publishes baseline public-safe categories plus dedicated subject-adjacent libraries for AIM, USE, and NEED, including the new business and coding domain variants.
+## H4 aggregate shelves
 
-## Published categories
-- blueprints
-- directives
-- instructions
-- subjects
-- primary
-- philosophy
-- aim
-- use
-- need
+| Lane | Records | Notes |
+| --- | ---: | --- |
+| Trigger | 0 | Canon unresolved; no synthetic records |
+| Directive | 200 | Current aggregate shelf |
+| Instruction | 330 | Includes Language 30 and Persona 100 |
+| Subject | 200 | Current aggregate shelf |
+| Primary | 200 | Current aggregate shelf |
+| Philosophy | 270 | Studio depth relationship unresolved |
+| Blueprint | 170 | Structural/output forms in 16 categories |
 
-## Base AIM / USE / NEED
-Machine-facing JSON:
-- `AI/MOLT-BLOCKS/aim.library.v1.0.0.json`
-- `AI/MOLT-BLOCKS/use.library.v1.0.0.json`
-- `AI/MOLT-BLOCKS/need.library.v1.0.0.json`
+- [Blueprint index](./blueprints/INDEX.md)
+- [Instruction index](./instructions/INDEX.md)
+- [Instruction > Language](./instructions/language/INDEX.md)
 
-Human-facing docs:
-- `HUMAN/MOLT-BLOCKS/aim/AIM-LIBRARY-v1.0.0.md`
-- `HUMAN/MOLT-BLOCKS/use/USE-LIBRARY-v1.0.0.md`
-- `HUMAN/MOLT-BLOCKS/need/NEED-LIBRARY-v1.0.0.md`
+## Platform extension shelves
 
-## Business domain AIM / USE / NEED
-Machine-facing JSON:
-- `AI/MOLT-BLOCKS/aim.business.library.v1.0.0.json`
-- `AI/MOLT-BLOCKS/use.business.library.v1.0.0.json`
-- `AI/MOLT-BLOCKS/need.business.library.v1.0.0.json`
+AIM, USE, and NEED are classified `PLATFORM_EXTENSION / NOT_H4_MOLT`. Paths and IDs remain stable for compatibility.
 
-Human-facing docs:
-- `HUMAN/MOLT-BLOCKS/aim/AIM-BUSINESS-LIBRARY-v1.0.0.md`
-- `HUMAN/MOLT-BLOCKS/use/USE-BUSINESS-LIBRARY-v1.0.0.md`
-- `HUMAN/MOLT-BLOCKS/need/NEED-BUSINESS-LIBRARY-v1.0.0.md`
+- AIM: `HUMAN/MOLT-BLOCKS/aim/`
+- USE: `HUMAN/MOLT-BLOCKS/use/`
+- NEED: `HUMAN/MOLT-BLOCKS/need/`
 
-## Coding domain AIM / USE / NEED
-Machine-facing JSON:
-- `AI/MOLT-BLOCKS/aim.coding.library.v1.0.0.json`
-- `AI/MOLT-BLOCKS/use.coding.library.v1.0.0.json`
-- `AI/MOLT-BLOCKS/need.coding.library.v1.0.0.json`
-
-Human-facing docs:
-- `HUMAN/MOLT-BLOCKS/aim/AIM-CODING-LIBRARY-v1.0.0.md`
-- `HUMAN/MOLT-BLOCKS/use/USE-CODING-LIBRARY-v1.0.0.md`
-- `HUMAN/MOLT-BLOCKS/need/NEED-CODING-LIBRARY-v1.0.0.md`
+Business and coding variants remain source-backed Platform extensions. Machine truth and hashes are in `AI/MANIFESTS/h4-block-library-manifest.json`.

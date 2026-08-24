@@ -3,6 +3,8 @@
 ## What this section is
 This section is the machine-readable manifest shelf for the UMG Block Library. It contains source-oriented indexes that help agents and tooling discover sleeves, block libraries, gates, NeoBlocks, NeoStacks, and release-approved content.
 
+The BR-1 H4 classification truth surface is `h4-block-library-manifest.json`. It distinguishes promoted H4 MOLT records, draft H4 candidates, Platform extensions, and derived exports. It records the locked source-base commit plus raw-file and canonical-record SHA-256 hashes.
+
 ## What this section is not
 This is not the public browsing shelf for humans, and it is not the same thing as the package-facing manifest lane under `sleeves/manifests/`. It should not be read as a promise that every referenced object is publicly promoted for package/runtime use.
 
@@ -42,6 +44,10 @@ This lane is stronger than a placeholder, but it must still be interpreted separ
 ## Canonical source rule
 Current status: canonical machine source for direct/source-oriented manifest discovery.
 
+The manifest is Block Library authority only. Compiler semantic authority remains compiler-vNext H4 commit `c505f9a7f23010574733c8c03c4162af5317a5eb`.
+
+The manifest exposes only seven H4 compiler types. Persona and Language are Instruction categories; AIM/USE/NEED are Platform extensions.
+
 ## How this maps to nearby sections
 - `AI/SLEEVES/` contains the machine-readable sleeve shelf these manifests help describe.
 - `HUMAN/SLEEVES/` contains readable explanations for people.
@@ -65,6 +71,7 @@ Reasons they may differ include:
 If a manifest entry includes `source_path`, read that as a locator pointing back to the source-oriented artifact location used by maintainers or machine tooling. It is not automatically a promise that the same sleeve is public, promoted, or package-facing.
 
 ## Backlinks
+- [H4 Block Library manifest](./h4-block-library-manifest.json)
 - [Direct sleeve catalog](./sleeve-catalog.json)
 - [Public sleeve manifests](../../sleeves/manifests/README.md)
 - [AI SLEEVES](../SLEEVES/README.md)
