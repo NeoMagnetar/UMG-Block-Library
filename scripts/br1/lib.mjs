@@ -54,6 +54,61 @@ export const LANGUAGE_MAP = [
 
 const languageById = new Map(LANGUAGE_MAP.map((item) => [item.old_id, item]));
 
+const BR2M_SHARED_PROVENANCE = {
+  library_name: "Hermes supplemental education library",
+  library_version: "v0.3.4",
+  provided_by: "Hermes supplemental source",
+  source_class: "supplemental",
+  source_id: "umg-mcp-v0.3.4-supplemental-education",
+  source_record_provenance: "supplemental",
+  source_lifecycle_status: "draft; reviewed non-canonical supplemental runtime record.",
+  source_path: "src/umg_runtime/compat/library/supplemental-education.json",
+  source_file_sha256: "0c325fbbb3617bb9da56af8f8081e59b35b0f12d2962ea3078d17fd9cd514ac6",
+  first_proven_local_git_commit: "a0dd512dc7ca70f2cf36c1197f1e2bd084b76e89",
+  first_proven_local_git_commit_at: "2026-08-15T09:46:49-09:00",
+  commit_metadata_author: "Hermes Agent <hermes-agent@local>",
+  authorship_status: "PARTIAL_UNPROVEN_ORIGINAL_AUTHORSHIP",
+  qualification_artifact: "BR2P_GLOBAL_CANDIDATE_DECISIONS.json",
+  qualification_recommendation: "QUALIFIED_FOR_GLOBAL_PROMOTION",
+  h4_projection_notes: "Partial provenance: supplemental source and local Git lineage proven; original authorship not claimed.",
+};
+
+const BR2M_AUTHORIZED_RECORDS = [
+  ["SUPP-EDU-INST-001", "instruction", "instructional_method", "Explain Through Analogy", "Action: Map an unfamiliar concept to a familiar structure. State each correspondence clearly, demonstrate the useful relationship, and identify where the analogy stops applying.", 0],
+  ["SUPP-EDU-INST-002", "instruction", "instructional_method", "Apply Teach-Back", "Action: Ask the learner to explain the concept in their own words. Identify missing or incorrect relationships, correct them precisely, and repeat until understanding is demonstrated.", 1],
+  ["SUPP-EDU-INST-003", "instruction", "instructional_method", "Demonstrate With Worked Example", "Action: Walk through one concrete worked example from start to finish, narrating each step, the decision behind it, and why it works, before asking the learner to try a similar case.", 2],
+  ["SUPP-EDU-SUBJ-001", "subject", "computer_science", "Recursion", "Subject: Self-referential computational and conceptual processes containing a terminating base case and a recursive step that reduces the problem toward that base case.", 3],
+  ["SUPP-EDU-PHIL-001", "philosophy", "instructional_philosophy", "Adaptive Instruction", "Philosophy: Adapt explanation, pacing, examples, and representation to evidence of learner understanding while preserving conceptual accuracy and learner agency.", 5],
+  ["SUPP-EDU-BP-001", "blueprint", "instructional_blueprint", "Analogy and Teach-Back Learning Loop", "Blueprint: Define concept -> connect familiar analogy -> state analogy limits -> demonstrate worked example -> learner teaches back -> diagnose gaps -> correct -> retry -> summarize transferable rule.", 6],
+].map(([id, h4_type, subcategory, name, content, sourceIndex]) => ({
+  id,
+  h4_type,
+  category: "education_learning",
+  category_label: "Education Learning",
+  subcategory,
+  name,
+  classification: "H4_CANONICAL_MOLT",
+  lifecycle_status: "active",
+  not_h4_molt: false,
+  source_format: `aggregate_${h4_type}_v1`,
+  source_path: `AI/MOLT-BLOCKS/${h4_type === "philosophy" ? "philosophy" : `${h4_type}s`}/library.v1.0.0.json`,
+  former_lane: null,
+  former_category: null,
+  content_projection: {
+    strategy: "qualified_normalized_content_v1",
+    source_fields: ["normalized_content"],
+    content,
+  },
+  provenance: {
+    ...BR2M_SHARED_PROVENANCE,
+    source_record_id: id,
+    source_record_block_id: id,
+    source_record_type: h4_type.toUpperCase(),
+    source_artifact: `src/umg_runtime/compat/library/supplemental-education.json#/${sourceIndex}`,
+    ...(id === "SUPP-EDU-INST-003" ? { source_declared_canonical: false } : {}),
+  },
+}));
+
 export const BLUEPRINT_CATEGORY_LABELS = {
   poetry_verse_forms: "Poetry Forms",
   academic_writing: "Academic Writing",
@@ -230,6 +285,13 @@ function addLine(lines, fields, label, fieldName, value) {
 export function projectAggregate(entry, h4Type) {
   const lines = [];
   const fields = [];
+  if (typeof entry.normalized_content === "string" && entry.normalized_content.length > 0) {
+    return {
+      strategy: "qualified_normalized_content_v1",
+      source_fields: ["normalized_content"],
+      content: entry.normalized_content,
+    };
+  }
   if (languageById.has(entry.id)) {
     addLine(lines, fields, "Language", "name", entry.name);
     addLine(lines, fields, "Structure", "structure", entry.structure);
@@ -499,10 +561,10 @@ export function h4Projection(record) {
     content: record.content_projection.content,
     title: record.name,
     provenance: {
-      sourceId: record.id,
+      sourceId: String(record.provenance?.source_id ?? record.id),
       sourceVersion: String(record.provenance?.library_version ?? record.provenance?.source_library_version ?? "unknown"),
-      sourceUri: record.source_path,
-      notes: `Block Library ${record.classification}; projection ${record.content_projection.strategy}`,
+      sourceUri: String(record.provenance?.source_path ?? record.source_path),
+      notes: String(record.provenance?.h4_projection_notes ?? `Block Library ${record.classification}; projection ${record.content_projection.strategy}`),
     },
   };
 }
@@ -545,7 +607,7 @@ export function validateState(records, { phase = "final", references = null } = 
     else canonicalIds.set(record.id, record.source_path);
   }
   const laneCounts = countBy(records.aggregate, (record) => record.h4_type);
-  if (records.aggregate.length !== 1370) issues.push({ severity: "error", code: "AGGREGATE_COUNT", actual: records.aggregate.length, expected: 1370 });
+  if (records.aggregate.length !== 1376) issues.push({ severity: "error", code: "AGGREGATE_COUNT", actual: records.aggregate.length, expected: 1376 });
   if (records.candidates.length !== 9) issues.push({ severity: "error", code: "CANDIDATE_COUNT", actual: records.candidates.length, expected: 9 });
   if (records.platformExtensions.length !== 900) issues.push({ severity: "error", code: "PLATFORM_EXTENSION_COUNT", actual: records.platformExtensions.length, expected: 900 });
   if (records.derivedExports.length !== 300) issues.push({ severity: "error", code: "DERIVED_EXPORT_COUNT", actual: records.derivedExports.length, expected: 300 });
@@ -564,14 +626,60 @@ export function validateState(records, { phase = "final", references = null } = 
     }
   }
   if (phase === "final") {
-    if (laneCounts.blueprint !== 170) issues.push({ severity: "error", code: "BLUEPRINT_FINAL_COUNT", actual: laneCounts.blueprint, expected: 170 });
-    if (laneCounts.instruction !== 330) issues.push({ severity: "error", code: "INSTRUCTION_FINAL_COUNT", actual: laneCounts.instruction, expected: 330 });
+    const expectedLaneCounts = {
+      trigger: 0,
+      directive: 200,
+      instruction: 333,
+      subject: 201,
+      primary: 200,
+      philosophy: 271,
+      blueprint: 171,
+    };
+    for (const [lane, expected] of Object.entries(expectedLaneCounts)) {
+      const actual = laneCounts[lane] ?? 0;
+      if (actual !== expected) issues.push({ severity: "error", code: "FINAL_LANE_COUNT", lane, actual, expected });
+    }
+
+    const expectedById = new Map(BR2M_AUTHORIZED_RECORDS.map((record) => [record.id, record]));
+    const actualBr2mIds = records.aggregate.filter((record) => record.id.startsWith("SUPP-EDU-")).map((record) => record.id).sort();
+    const expectedBr2mIds = [...expectedById.keys()].sort();
+    if (canonicalJson(actualBr2mIds) !== canonicalJson(expectedBr2mIds)) {
+      issues.push({ severity: "error", code: "BR2M_AUTHORIZED_ID_SET", actual: actualBr2mIds, expected: expectedBr2mIds });
+    }
+    for (const [id, expected] of expectedById) {
+      const matches = records.aggregate.filter((record) => record.id === id);
+      if (matches.length !== 1) {
+        issues.push({ severity: "error", code: "BR2M_AUTHORIZED_RECORD_PRESENCE", id, actual: matches.length, expected: 1 });
+        continue;
+      }
+      const actual = { ...matches[0] };
+      delete actual.hashes;
+      if (canonicalJson(actual) !== canonicalJson(expected)) {
+        issues.push({ severity: "error", code: "BR2M_AUTHORIZED_RECORD_METADATA", id, actual, expected });
+      }
+    }
+
+    const bp004Occurrences = all.filter((record) => record.id === "BP-004");
+    if (bp004Occurrences.length) issues.push({ severity: "error", code: "BR2M_FORBIDDEN_BP_004", id: "BP-004", actual: bp004Occurrences.length, expected: 0 });
+
+    const prim006Matches = records.aggregate.filter((record) => record.id === "PRIM.006");
+    const prim006ExpectedHash = "683dbeb4585f3b9e75afd220a7e8041ffda0b948f0328c41141a5f7f2ce2e0db";
+    if (prim006Matches.length !== 1 || prim006Matches[0]?.h4_type !== "primary" || prim006Matches[0]?.hashes?.canonical_record_sha256 !== prim006ExpectedHash) {
+      issues.push({
+        severity: "error",
+        code: "BR2M_PRIM_006_PRESERVATION",
+        id: "PRIM.006",
+        actual: prim006Matches.map((record) => ({ h4_type: record.h4_type, canonical_record_sha256: record.hashes?.canonical_record_sha256 })),
+        expected: [{ h4_type: "primary", canonical_record_sha256: prim006ExpectedHash }],
+      });
+    }
     const blueprintCategories = countBy(records.aggregate.filter((record) => record.h4_type === "blueprint"), (record) => record.category);
     for (const category of Object.keys(BLUEPRINT_CATEGORY_LABELS)) {
       const expected = category === "poetry_verse_forms" ? 20 : 10;
       if (blueprintCategories[category] !== expected) issues.push({ severity: "error", code: "BLUEPRINT_CATEGORY_COUNT", category, actual: blueprintCategories[category] ?? 0, expected });
     }
-    if (Object.keys(blueprintCategories).length !== 16) issues.push({ severity: "error", code: "BLUEPRINT_CATEGORY_FAMILY_COUNT", actual: Object.keys(blueprintCategories).length, expected: 16 });
+    if (blueprintCategories.education_learning !== 1) issues.push({ severity: "error", code: "BLUEPRINT_CATEGORY_COUNT", category: "education_learning", actual: blueprintCategories.education_learning ?? 0, expected: 1 });
+    if (Object.keys(blueprintCategories).length !== 17) issues.push({ severity: "error", code: "BLUEPRINT_CATEGORY_FAMILY_COUNT", actual: Object.keys(blueprintCategories).length, expected: 17 });
   } else {
     if (laneCounts.blueprint !== 200) issues.push({ severity: "error", code: "BLUEPRINT_BASELINE_COUNT", actual: laneCounts.blueprint, expected: 200 });
     if (laneCounts.instruction !== 300) issues.push({ severity: "error", code: "INSTRUCTION_BASELINE_COUNT", actual: laneCounts.instruction, expected: 300 });

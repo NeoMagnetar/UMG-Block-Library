@@ -13,7 +13,7 @@
       "last_expanded_at": "2026-04-17T18:31:13Z",
       "last_expanded_by": "OpenClaw"
     },
-    "entry_count": 330
+    "entry_count": 333
   },
   "entries": [
     {
@@ -9725,6 +9725,150 @@
       "conventions": "camelCase with prefix; NS prefix; bracket syntax for messages; property syntax",
       "output_characteristics": "Apple legacy; verbose; iOS/macOS older apps; dynamic runtime; being replaced by Swift",
       "notes": null
+    },
+    {
+      "id": "SUPP-EDU-INST-001",
+      "type": "INSTRUCTION",
+      "name": "Explain Through Analogy",
+      "category": "education_learning",
+      "subcategory": "instructional_method",
+      "status": "active",
+      "version": "1.0.0",
+      "tags": [
+        "instruction",
+        "education",
+        "analogy",
+        "analogical-reasoning",
+        "conceptual-explanation"
+      ],
+      "source": {
+        "library_name": "Hermes supplemental education library",
+        "library_version": "v0.3.4",
+        "provided_by": "Hermes supplemental source",
+        "source_class": "supplemental",
+        "source_id": "umg-mcp-v0.3.4-supplemental-education",
+        "source_record_id": "SUPP-EDU-INST-001",
+        "source_record_block_id": "SUPP-EDU-INST-001",
+        "source_record_type": "INSTRUCTION",
+        "source_record_provenance": "supplemental",
+        "source_lifecycle_status": "draft; reviewed non-canonical supplemental runtime record.",
+        "source_path": "src/umg_runtime/compat/library/supplemental-education.json",
+        "source_artifact": "src/umg_runtime/compat/library/supplemental-education.json#/0",
+        "source_file_sha256": "0c325fbbb3617bb9da56af8f8081e59b35b0f12d2962ea3078d17fd9cd514ac6",
+        "first_proven_local_git_commit": "a0dd512dc7ca70f2cf36c1197f1e2bd084b76e89",
+        "first_proven_local_git_commit_at": "2026-08-15T09:46:49-09:00",
+        "commit_metadata_author": "Hermes Agent <hermes-agent@local>",
+        "authorship_status": "PARTIAL_UNPROVEN_ORIGINAL_AUTHORSHIP",
+        "qualification_artifact": "BR2P_GLOBAL_CANDIDATE_DECISIONS.json",
+        "qualification_recommendation": "QUALIFIED_FOR_GLOBAL_PROMOTION",
+        "h4_projection_notes": "Partial provenance: supplemental source and local Git lineage proven; original authorship not claimed."
+      },
+      "normalized_content": "Action: Map an unfamiliar concept to a familiar structure. State each correspondence clearly, demonstrate the useful relationship, and identify where the analogy stops applying.",
+      "content": {
+        "summary": "Explain Through Analogy",
+        "details": null,
+        "structure": null
+      },
+      "action": "Action: Map an unfamiliar concept to a familiar structure. State each correspondence clearly, demonstrate the useful relationship, and identify where the analogy stops applying.",
+      "expected_output": null,
+      "notes": "Promoted by BR-2M from a BR-2P-qualified Hermes supplemental record; original authorship is not claimed."
+    },
+    {
+      "id": "SUPP-EDU-INST-002",
+      "type": "INSTRUCTION",
+      "name": "Apply Teach-Back",
+      "category": "education_learning",
+      "subcategory": "instructional_method",
+      "status": "active",
+      "version": "1.0.0",
+      "tags": [
+        "instruction",
+        "education",
+        "teach-back",
+        "learner-restatement",
+        "comprehension-check",
+        "feedback-loop"
+      ],
+      "source": {
+        "library_name": "Hermes supplemental education library",
+        "library_version": "v0.3.4",
+        "provided_by": "Hermes supplemental source",
+        "source_class": "supplemental",
+        "source_id": "umg-mcp-v0.3.4-supplemental-education",
+        "source_record_id": "SUPP-EDU-INST-002",
+        "source_record_block_id": "SUPP-EDU-INST-002",
+        "source_record_type": "INSTRUCTION",
+        "source_record_provenance": "supplemental",
+        "source_lifecycle_status": "draft; reviewed non-canonical supplemental runtime record.",
+        "source_path": "src/umg_runtime/compat/library/supplemental-education.json",
+        "source_artifact": "src/umg_runtime/compat/library/supplemental-education.json#/1",
+        "source_file_sha256": "0c325fbbb3617bb9da56af8f8081e59b35b0f12d2962ea3078d17fd9cd514ac6",
+        "first_proven_local_git_commit": "a0dd512dc7ca70f2cf36c1197f1e2bd084b76e89",
+        "first_proven_local_git_commit_at": "2026-08-15T09:46:49-09:00",
+        "commit_metadata_author": "Hermes Agent <hermes-agent@local>",
+        "authorship_status": "PARTIAL_UNPROVEN_ORIGINAL_AUTHORSHIP",
+        "qualification_artifact": "BR2P_GLOBAL_CANDIDATE_DECISIONS.json",
+        "qualification_recommendation": "QUALIFIED_FOR_GLOBAL_PROMOTION",
+        "h4_projection_notes": "Partial provenance: supplemental source and local Git lineage proven; original authorship not claimed."
+      },
+      "normalized_content": "Action: Ask the learner to explain the concept in their own words. Identify missing or incorrect relationships, correct them precisely, and repeat until understanding is demonstrated.",
+      "content": {
+        "summary": "Apply Teach-Back",
+        "details": null,
+        "structure": null
+      },
+      "action": "Action: Ask the learner to explain the concept in their own words. Identify missing or incorrect relationships, correct them precisely, and repeat until understanding is demonstrated.",
+      "expected_output": null,
+      "notes": "Promoted by BR-2M from a BR-2P-qualified Hermes supplemental record; original authorship is not claimed."
+    },
+    {
+      "id": "SUPP-EDU-INST-003",
+      "type": "INSTRUCTION",
+      "name": "Demonstrate With Worked Example",
+      "category": "education_learning",
+      "subcategory": "instructional_method",
+      "status": "active",
+      "version": "1.0.0",
+      "tags": [
+        "instruction",
+        "education",
+        "worked-example",
+        "demonstration",
+        "step-narration",
+        "concrete-practice"
+      ],
+      "source": {
+        "library_name": "Hermes supplemental education library",
+        "library_version": "v0.3.4",
+        "provided_by": "Hermes supplemental source",
+        "source_class": "supplemental",
+        "source_id": "umg-mcp-v0.3.4-supplemental-education",
+        "source_record_id": "SUPP-EDU-INST-003",
+        "source_record_block_id": "SUPP-EDU-INST-003",
+        "source_record_type": "INSTRUCTION",
+        "source_record_provenance": "supplemental",
+        "source_lifecycle_status": "draft; reviewed non-canonical supplemental runtime record.",
+        "source_path": "src/umg_runtime/compat/library/supplemental-education.json",
+        "source_artifact": "src/umg_runtime/compat/library/supplemental-education.json#/2",
+        "source_file_sha256": "0c325fbbb3617bb9da56af8f8081e59b35b0f12d2962ea3078d17fd9cd514ac6",
+        "first_proven_local_git_commit": "a0dd512dc7ca70f2cf36c1197f1e2bd084b76e89",
+        "first_proven_local_git_commit_at": "2026-08-15T09:46:49-09:00",
+        "commit_metadata_author": "Hermes Agent <hermes-agent@local>",
+        "authorship_status": "PARTIAL_UNPROVEN_ORIGINAL_AUTHORSHIP",
+        "qualification_artifact": "BR2P_GLOBAL_CANDIDATE_DECISIONS.json",
+        "qualification_recommendation": "QUALIFIED_FOR_GLOBAL_PROMOTION",
+        "h4_projection_notes": "Partial provenance: supplemental source and local Git lineage proven; original authorship not claimed.",
+        "source_declared_canonical": false
+      },
+      "normalized_content": "Action: Walk through one concrete worked example from start to finish, narrating each step, the decision behind it, and why it works, before asking the learner to try a similar case.",
+      "content": {
+        "summary": "Demonstrate With Worked Example",
+        "details": null,
+        "structure": null
+      },
+      "action": "Action: Walk through one concrete worked example from start to finish, narrating each step, the decision behind it, and why it works, before asking the learner to try a similar case.",
+      "expected_output": null,
+      "notes": "Promoted by BR-2M from a BR-2P-qualified Hermes supplemental record; original authorship is not claimed."
     }
   ]
 }

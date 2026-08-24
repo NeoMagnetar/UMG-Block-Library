@@ -5,6 +5,21 @@ AI/MOLT-BLOCKS/aim.library.v1.0.0.json text eol=lf
 AI/MOLT-BLOCKS/blueprints/BLK.BLUEPRINT.UMG.LC.RUNTIME_OUTPUT.v0.1.json text eol=lf
 AI/MOLT-BLOCKS/blueprints/BLK.BLUEPRINT.UMG.LC.TOOL_SCHEMA.v0.1.json text eol=lf
 AI/MOLT-BLOCKS/blueprints/library.v1.0.0.json text eol=lf
+
+# Keep deterministic BR-1/BR-2 generator outputs byte-stable across Linux and Windows.
+AI/MANIFESTS/h4-block-library-manifest.json text eol=lf
+reports/BR1_LANGUAGE_MIGRATION_MAP.json text eol=lf
+reports/BR1_FINAL_REFERENCE_GRAPH.json text eol=lf
+reports/BR1_LANGUAGE_MIGRATION_REPORT.md text eol=lf
+reports/BR1_PLATFORM_EXTENSION_CLASSIFICATION.md text eol=lf
+reports/BR1_PERSONA_STATUS.md text eol=lf
+reports/BR1_TRIGGER_STATUS.md text eol=lf
+reports/BR1_REFERENCE_GRAPH_REPORT.md text eol=lf
+reports/BR1_COMPONENT_REFERENCE_VALIDATION.md text eol=lf
+reports/BR1_COMPILER_V0_REFERENCE_AUDIT.md text eol=lf
+reports/BR1_VALIDATION_REPORT.md text eol=lf
+reports/BR1_GITHUB_STUDIO_CROSSWALK.md text eol=lf
+reports/BR1_PHILOSOPHY_DEPTH_MODEL.md text eol=lf
 AI/MOLT-BLOCKS/directives/BLK.DIRECTIVE.UMG.LC.ROUTE_TOOL_BRIDGE.v0.1.json text eol=lf
 AI/MOLT-BLOCKS/directives/BLK.DIRECTIVE.UMG.LC.SELECT_PROVIDER.v0.1.json text eol=lf
 AI/MOLT-BLOCKS/directives/library.v1.0.0.json text eol=lf
