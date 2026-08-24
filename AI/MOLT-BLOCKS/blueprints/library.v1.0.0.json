@@ -13,7 +13,7 @@
       "last_expanded_at": "2026-04-17T18:31:13Z",
       "last_expanded_by": "OpenClaw"
     },
-    "entry_count": 170
+    "entry_count": 171
   },
   "entries": [
     {
@@ -4605,6 +4605,49 @@
       "conventions": "Plan sprint backlog, sync daily, build and test, demo to stakeholders, reflect and improve, repeat two-week cycles",
       "output_characteristics": null,
       "notes": null
+    },
+    {
+      "id": "SUPP-EDU-BP-001",
+      "type": "BLUEPRINT",
+      "name": "Analogy and Teach-Back Learning Loop",
+      "category": "education_learning",
+      "subcategory": "instructional_blueprint",
+      "status": "active",
+      "version": "1.0.0",
+      "tags": [
+        "blueprint",
+        "education",
+        "analogy",
+        "teach-back",
+        "learning-loop"
+      ],
+      "source": {
+        "library_name": "Hermes supplemental education library",
+        "library_version": "v0.3.4",
+        "provided_by": "Hermes supplemental source",
+        "source_class": "supplemental",
+        "source_id": "umg-mcp-v0.3.4-supplemental-education",
+        "source_record_id": "SUPP-EDU-BP-001",
+        "source_record_block_id": "SUPP-EDU-BP-001",
+        "source_record_type": "BLUEPRINT",
+        "source_record_provenance": "supplemental",
+        "source_lifecycle_status": "draft; reviewed non-canonical supplemental runtime record.",
+        "source_path": "src/umg_runtime/compat/library/supplemental-education.json",
+        "source_artifact": "src/umg_runtime/compat/library/supplemental-education.json#/6",
+        "source_file_sha256": "0c325fbbb3617bb9da56af8f8081e59b35b0f12d2962ea3078d17fd9cd514ac6",
+        "first_proven_local_git_commit": "a0dd512dc7ca70f2cf36c1197f1e2bd084b76e89",
+        "first_proven_local_git_commit_at": "2026-08-15T09:46:49-09:00",
+        "commit_metadata_author": "Hermes Agent <hermes-agent@local>",
+        "authorship_status": "PARTIAL_UNPROVEN_ORIGINAL_AUTHORSHIP",
+        "qualification_artifact": "BR2P_GLOBAL_CANDIDATE_DECISIONS.json",
+        "qualification_recommendation": "QUALIFIED_FOR_GLOBAL_PROMOTION",
+        "h4_projection_notes": "Partial provenance: supplemental source and local Git lineage proven; original authorship not claimed."
+      },
+      "normalized_content": "Blueprint: Define concept -> connect familiar analogy -> state analogy limits -> demonstrate worked example -> learner teaches back -> diagnose gaps -> correct -> retry -> summarize transferable rule.",
+      "structure": "Blueprint: Define concept -> connect familiar analogy -> state analogy limits -> demonstrate worked example -> learner teaches back -> diagnose gaps -> correct -> retry -> summarize transferable rule.",
+      "conventions": null,
+      "output_characteristics": null,
+      "notes": "Promoted by BR-2M from a BR-2P-qualified Hermes supplemental record; original authorship is not claimed."
     }
   ]
 }

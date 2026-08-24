@@ -332,26 +332,33 @@ ${warningRows.length ? markdownTable(warningRows, ["Code", "ID", "Detail"]) : "N
 
 function renderStudioCrosswalk(records) {
   const lanes = countBy(records.aggregate, (record) => record.h4_type);
+  const divergence = (lane, studioCount) => {
+    const githubCount = lanes[lane] ?? 0;
+    const delta = githubCount - studioCount;
+    const signedDelta = delta > 0 ? `+${delta}` : String(delta);
+    return `BR-2M COUNT DIVERGENCE: GITHUB ${signedDelta} (${githubCount} VS ${studioCount} STUDIO); RECORD EQUIVALENCE UNRESOLVED`;
+  };
   return `# BR-1 GitHub / Studio Crosswalk
 
 | Lane | GitHub aggregate | Studio presentation | Relationship |
 | --- | ---: | ---: | --- |
 | Trigger | ${lanes.trigger ?? 0} | 100 | UNRESOLVED |
 | Directive | ${lanes.directive ?? 0} | 200 | COUNT-ALIGNED; RECORD EQUIVALENCE UNRESOLVED |
-| Instruction | ${lanes.instruction ?? 0} | 330 | COUNT-ALIGNED AFTER LANGUAGE MIGRATION; RECORD EQUIVALENCE UNRESOLVED |
-| Subject | ${lanes.subject ?? 0} | 200 | COUNT-ALIGNED; RECORD EQUIVALENCE UNRESOLVED |
+| Instruction | ${lanes.instruction ?? 0} | 330 | ${divergence("instruction", 330)} |
+| Subject | ${lanes.subject ?? 0} | 200 | ${divergence("subject", 200)} |
 | Primary | ${lanes.primary ?? 0} | 200 | COUNT-ALIGNED; RECORD EQUIVALENCE UNRESOLVED |
 | Philosophy | ${lanes.philosophy ?? 0} | 1,537 | DERIVED PRESENTATION / DEPTH UNRESOLVED |
-| Blueprint | ${lanes.blueprint ?? 0} | 170 | TAXONOMY AND COUNT ALIGNED; RECORD EQUIVALENCE UNRESOLVED |
+| Blueprint | ${lanes.blueprint ?? 0} | 170 | ${divergence("blueprint", 170)} |
 
 No Studio equivalence is claimed without record-level source data.
 `;
 }
 
-function renderPhilosophyDepth() {
+function renderPhilosophyDepth(records) {
+  const philosophyCount = records.aggregate.filter((record) => record.h4_type === "philosophy").length;
   return `# BR-1 Philosophy Depth Model
 
-- GitHub aggregate Philosophy records: **270**
+- GitHub aggregate Philosophy records: **${philosophyCount}**
 - Studio presentation items: **1,537**
 - Top-level framework equivalence: **UNRESOLVED**
 - Nested principle relationship: **UNRESOLVED**
@@ -405,7 +412,7 @@ function writeFinal() {
   writeText("reports/BR1_COMPILER_V0_REFERENCE_AUDIT.md", compilerAudit.markdown);
   writeText("reports/BR1_VALIDATION_REPORT.md", renderValidationReport(validation, graph, referenceReport.introduced));
   writeText("reports/BR1_GITHUB_STUDIO_CROSSWALK.md", renderStudioCrosswalk(records));
-  writeText("reports/BR1_PHILOSOPHY_DEPTH_MODEL.md", renderPhilosophyDepth());
+  writeText("reports/BR1_PHILOSOPHY_DEPTH_MODEL.md", renderPhilosophyDepth(records));
   console.log(JSON.stringify({ command, validation: finalStatus, lane_counts: countBy(records.aggregate, (record) => record.h4_type), reference_graph: graph.summary, new_canonical_reference_failures: referenceReport.introduced.length, compiler_v0_references: compilerAudit.matches.length }, null, 2));
   if (finalStatus !== "PASS") process.exitCode = 1;
 }

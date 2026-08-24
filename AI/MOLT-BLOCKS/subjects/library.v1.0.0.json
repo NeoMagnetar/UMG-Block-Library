@@ -13,7 +13,7 @@
       "last_expanded_at": "2026-04-17T18:31:13Z",
       "last_expanded_by": "OpenClaw"
     },
-    "entry_count": 200
+    "entry_count": 201
   },
   "entries": [
     {
@@ -6116,6 +6116,49 @@
         "Order management"
       ],
       "notes": null
+    },
+    {
+      "id": "SUPP-EDU-SUBJ-001",
+      "type": "SUBJECT",
+      "name": "Recursion",
+      "category": "education_learning",
+      "subcategory": "computer_science",
+      "status": "active",
+      "version": "1.0.0",
+      "tags": [
+        "subject",
+        "computer-science",
+        "recursion",
+        "recursive-function",
+        "base-case",
+        "call-stack"
+      ],
+      "source": {
+        "library_name": "Hermes supplemental education library",
+        "library_version": "v0.3.4",
+        "provided_by": "Hermes supplemental source",
+        "source_class": "supplemental",
+        "source_id": "umg-mcp-v0.3.4-supplemental-education",
+        "source_record_id": "SUPP-EDU-SUBJ-001",
+        "source_record_block_id": "SUPP-EDU-SUBJ-001",
+        "source_record_type": "SUBJECT",
+        "source_record_provenance": "supplemental",
+        "source_lifecycle_status": "draft; reviewed non-canonical supplemental runtime record.",
+        "source_path": "src/umg_runtime/compat/library/supplemental-education.json",
+        "source_artifact": "src/umg_runtime/compat/library/supplemental-education.json#/3",
+        "source_file_sha256": "0c325fbbb3617bb9da56af8f8081e59b35b0f12d2962ea3078d17fd9cd514ac6",
+        "first_proven_local_git_commit": "a0dd512dc7ca70f2cf36c1197f1e2bd084b76e89",
+        "first_proven_local_git_commit_at": "2026-08-15T09:46:49-09:00",
+        "commit_metadata_author": "Hermes Agent <hermes-agent@local>",
+        "authorship_status": "PARTIAL_UNPROVEN_ORIGINAL_AUTHORSHIP",
+        "qualification_artifact": "BR2P_GLOBAL_CANDIDATE_DECISIONS.json",
+        "qualification_recommendation": "QUALIFIED_FOR_GLOBAL_PROMOTION",
+        "h4_projection_notes": "Partial provenance: supplemental source and local Git lineage proven; original authorship not claimed."
+      },
+      "normalized_content": "Subject: Self-referential computational and conceptual processes containing a terminating base case and a recursive step that reduces the problem toward that base case.",
+      "definition": "Subject: Self-referential computational and conceptual processes containing a terminating base case and a recursive step that reduces the problem toward that base case.",
+      "examples": [],
+      "notes": "Promoted by BR-2M from a BR-2P-qualified Hermes supplemental record; original authorship is not claimed."
     }
   ]
 }

@@ -2,7 +2,7 @@
 
 ## Summary
 
-- Definitions indexed: **2316**
+- Definitions indexed: **2322**
 - Resolved machine references: **114**
 - Baseline canonical failures: **0**
 - Baseline reference warnings: **24**
