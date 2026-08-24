@@ -1,0 +1,157 @@
+{
+  "summary": {
+    "definitions": 2316,
+    "resolved": 114,
+    "canonical_failures": 0,
+    "warnings": 24,
+    "malformed_json": 0
+  },
+  "canonical_failures": [],
+  "warnings": [
+    {
+      "source_path": "AI/NEOBLOCKS/categories/core/NB.UMG.ARTIFACT_RESOLUTION.v1.json",
+      "source_posture": "warning",
+      "field": "neoblock.composition.molt_block_ids",
+      "target_id": "BLK.INSTRUCTION.UMG.RESOLVE_ARTIFACTS.v1"
+    },
+    {
+      "source_path": "AI/NEOBLOCKS/categories/core/NB.UMG.ARTIFACT_RESOLUTION.v1.json",
+      "source_posture": "warning",
+      "field": "neoblock.composition.ordered_steps.0.uses",
+      "target_id": "BLK.INSTRUCTION.UMG.RESOLVE_ARTIFACTS.v1"
+    },
+    {
+      "source_path": "AI/NEOBLOCKS/categories/core/NB.UMG.ARTIFACT_RESOLUTION.v1.json",
+      "source_posture": "warning",
+      "field": "neoblock.molt_roles",
+      "target_id": "BLK.INSTRUCTION.UMG.RESOLVE_ARTIFACTS.v1"
+    },
+    {
+      "source_path": "AI/NEOBLOCKS/categories/core/NB.UMG.CAPABILITY_STATUS.v1.json",
+      "source_posture": "warning",
+      "field": "neoblock.composition.molt_block_ids",
+      "target_id": "BLK.SUBJECT.UMG.ARTIFACT_LIBRARY.v1"
+    },
+    {
+      "source_path": "AI/NEOBLOCKS/categories/core/NB.UMG.CAPABILITY_STATUS.v1.json",
+      "source_posture": "warning",
+      "field": "neoblock.composition.ordered_steps.0.uses",
+      "target_id": "BLK.SUBJECT.UMG.ARTIFACT_LIBRARY.v1"
+    },
+    {
+      "source_path": "AI/NEOBLOCKS/categories/core/NB.UMG.CAPABILITY_STATUS.v1.json",
+      "source_posture": "warning",
+      "field": "neoblock.molt_roles",
+      "target_id": "BLK.SUBJECT.UMG.ARTIFACT_LIBRARY.v1"
+    },
+    {
+      "source_path": "AI/NEOBLOCKS/categories/core/NB.UMG.COMPILER_EXECUTION.v1.json",
+      "source_posture": "warning",
+      "field": "neoblock.composition.molt_block_ids",
+      "target_id": "BLK.INSTRUCTION.UMG.RUN_COMPILER.v1"
+    },
+    {
+      "source_path": "AI/NEOBLOCKS/categories/core/NB.UMG.COMPILER_EXECUTION.v1.json",
+      "source_posture": "warning",
+      "field": "neoblock.composition.ordered_steps.0.uses",
+      "target_id": "BLK.INSTRUCTION.UMG.RUN_COMPILER.v1"
+    },
+    {
+      "source_path": "AI/NEOBLOCKS/categories/core/NB.UMG.COMPILER_EXECUTION.v1.json",
+      "source_posture": "warning",
+      "field": "neoblock.molt_roles",
+      "target_id": "BLK.INSTRUCTION.UMG.RUN_COMPILER.v1"
+    },
+    {
+      "source_path": "AI/NEOBLOCKS/categories/core/NB.UMG.IR_NORMALIZATION.v1.json",
+      "source_posture": "warning",
+      "field": "neoblock.composition.molt_block_ids",
+      "target_id": "BLK.INSTRUCTION.UMG.BUILD_IR.v1"
+    },
+    {
+      "source_path": "AI/NEOBLOCKS/categories/core/NB.UMG.IR_NORMALIZATION.v1.json",
+      "source_posture": "warning",
+      "field": "neoblock.composition.ordered_steps.0.uses",
+      "target_id": "BLK.INSTRUCTION.UMG.BUILD_IR.v1"
+    },
+    {
+      "source_path": "AI/NEOBLOCKS/categories/core/NB.UMG.IR_NORMALIZATION.v1.json",
+      "source_posture": "warning",
+      "field": "neoblock.molt_roles",
+      "target_id": "BLK.INSTRUCTION.UMG.BUILD_IR.v1"
+    },
+    {
+      "source_path": "AI/NEOBLOCKS/categories/core/NB.UMG.RELATION_MATRIX_EMIT.v1.json",
+      "source_posture": "warning",
+      "field": "neoblock.composition.molt_block_ids",
+      "target_id": "BLK.INSTRUCTION.UMG.EMIT_RELATION_MATRIX.v1"
+    },
+    {
+      "source_path": "AI/NEOBLOCKS/categories/core/NB.UMG.RELATION_MATRIX_EMIT.v1.json",
+      "source_posture": "warning",
+      "field": "neoblock.composition.ordered_steps.0.uses",
+      "target_id": "BLK.INSTRUCTION.UMG.EMIT_RELATION_MATRIX.v1"
+    },
+    {
+      "source_path": "AI/NEOBLOCKS/categories/core/NB.UMG.RELATION_MATRIX_EMIT.v1.json",
+      "source_posture": "warning",
+      "field": "neoblock.molt_roles",
+      "target_id": "BLK.INSTRUCTION.UMG.EMIT_RELATION_MATRIX.v1"
+    },
+    {
+      "source_path": "AI/NEOBLOCKS/categories/core/NB.UMG.REQUEST_INTAKE.v1.json",
+      "source_posture": "warning",
+      "field": "neoblock.composition.molt_block_ids",
+      "target_id": "BLK.TRIGGER.UMG.COMPILE_REQUEST.v1"
+    },
+    {
+      "source_path": "AI/NEOBLOCKS/categories/core/NB.UMG.REQUEST_INTAKE.v1.json",
+      "source_posture": "warning",
+      "field": "neoblock.composition.ordered_steps.0.uses",
+      "target_id": "BLK.TRIGGER.UMG.COMPILE_REQUEST.v1"
+    },
+    {
+      "source_path": "AI/NEOBLOCKS/categories/core/NB.UMG.REQUEST_INTAKE.v1.json",
+      "source_posture": "warning",
+      "field": "neoblock.molt_roles",
+      "target_id": "BLK.TRIGGER.UMG.COMPILE_REQUEST.v1"
+    },
+    {
+      "source_path": "AI/NEOBLOCKS/categories/core/NB.UMG.RUNTIME_SPEC_TRACE.v1.json",
+      "source_posture": "warning",
+      "field": "neoblock.composition.molt_block_ids",
+      "target_id": "BLK.BLUEPRINT.UMG.RUNTIME_SPEC_TRACE_OUTPUT.v1"
+    },
+    {
+      "source_path": "AI/NEOBLOCKS/categories/core/NB.UMG.RUNTIME_SPEC_TRACE.v1.json",
+      "source_posture": "warning",
+      "field": "neoblock.composition.molt_block_ids",
+      "target_id": "BLK.INSTRUCTION.UMG.EMIT_TRACE.v1"
+    },
+    {
+      "source_path": "AI/NEOBLOCKS/categories/core/NB.UMG.RUNTIME_SPEC_TRACE.v1.json",
+      "source_posture": "warning",
+      "field": "neoblock.composition.ordered_steps.0.uses",
+      "target_id": "BLK.BLUEPRINT.UMG.RUNTIME_SPEC_TRACE_OUTPUT.v1"
+    },
+    {
+      "source_path": "AI/NEOBLOCKS/categories/core/NB.UMG.RUNTIME_SPEC_TRACE.v1.json",
+      "source_posture": "warning",
+      "field": "neoblock.composition.ordered_steps.1.uses",
+      "target_id": "BLK.INSTRUCTION.UMG.EMIT_TRACE.v1"
+    },
+    {
+      "source_path": "AI/NEOBLOCKS/categories/core/NB.UMG.RUNTIME_SPEC_TRACE.v1.json",
+      "source_posture": "warning",
+      "field": "neoblock.molt_roles",
+      "target_id": "BLK.BLUEPRINT.UMG.RUNTIME_SPEC_TRACE_OUTPUT.v1"
+    },
+    {
+      "source_path": "AI/NEOBLOCKS/categories/core/NB.UMG.RUNTIME_SPEC_TRACE.v1.json",
+      "source_posture": "warning",
+      "field": "neoblock.molt_roles",
+      "target_id": "BLK.INSTRUCTION.UMG.EMIT_TRACE.v1"
+    }
+  ],
+  "malformed_json": []
+}
