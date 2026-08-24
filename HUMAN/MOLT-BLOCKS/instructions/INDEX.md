@@ -1,6 +1,39 @@
 # Instructions Blocks
 
-Total blocks: **300**
+Total blocks: **330**
+
+## Language
+
+- [BP.001 - Python](./language/BP.001-python.md)
+- [BP.002 - JavaScript](./language/BP.002-javascript.md)
+- [BP.003 - Java](./language/BP.003-java.md)
+- [BP.004 - C++](./language/BP.004-cpp.md)
+- [BP.005 - C#](./language/BP.005-csharp.md)
+- [BP.006 - Ruby](./language/BP.006-ruby.md)
+- [BP.007 - Go](./language/BP.007-go.md)
+- [BP.008 - Rust](./language/BP.008-rust.md)
+- [BP.009 - Swift](./language/BP.009-swift.md)
+- [BP.010 - Kotlin](./language/BP.010-kotlin.md)
+- [BP.011 - PHP](./language/BP.011-php.md)
+- [BP.012 - TypeScript](./language/BP.012-typescript.md)
+- [BP.013 - Scala](./language/BP.013-scala.md)
+- [BP.014 - Haskell](./language/BP.014-haskell.md)
+- [BP.015 - Erlang](./language/BP.015-erlang.md)
+- [BP.016 - Elixir](./language/BP.016-elixir.md)
+- [BP.017 - Clojure](./language/BP.017-clojure.md)
+- [BP.018 - R](./language/BP.018-r.md)
+- [BP.019 - MATLAB](./language/BP.019-matlab.md)
+- [BP.020 - Julia](./language/BP.020-julia.md)
+- [BP.021 - Perl](./language/BP.021-perl.md)
+- [BP.022 - Lua](./language/BP.022-lua.md)
+- [BP.023 - Assembly](./language/BP.023-assembly.md)
+- [BP.024 - SQL](./language/BP.024-sql.md)
+- [BP.025 - HTML](./language/BP.025-html.md)
+- [BP.026 - CSS](./language/BP.026-css.md)
+- [BP.027 - Shell/Bash](./language/BP.027-shell-bash.md)
+- [BP.028 - PowerShell](./language/BP.028-powershell.md)
+- [BP.029 - Dart](./language/BP.029-dart.md)
+- [BP.030 - Objective-C](./language/BP.030-objective-c.md)
 
 ## adaptation_actions
 - [INST.091 ? Pivot approach](./INST.091-pivot-approach.md)

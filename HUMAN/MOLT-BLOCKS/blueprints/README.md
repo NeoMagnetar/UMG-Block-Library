@@ -1,1 +1,5 @@
-﻿# BLUEPRINTS\n\nThis category is populated in the AI layer as baseline JSON library content. Human-curated item-by-item pages can be added later.\n
+# Blueprint
+
+The aggregate Blueprint shelf contains 170 structural/output-form records across 16 reviewed presentation categories.
+
+Programming-language records were reclassified by BR-1 to [Instruction > Language](../instructions/language/README.md) without changing their historical `BP.*` IDs. Compatibility stubs remain at their former HUMAN paths.
