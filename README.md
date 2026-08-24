@@ -18,6 +18,8 @@ It is meant to be real on day one, not falsely complete.
 
 ## Start here
 - `START-HERE.md`
+- `AI/DOCTRINE/H4_BLOCK_LIBRARY_CLASSIFICATION.v1.md`
+- `AI/MANIFESTS/h4-block-library-manifest.json`
 - `META/PUBLIC-SCOPE.md`
 - `META/CONTENT-STATUS.md`
 - `AI/README.md`
@@ -50,6 +52,28 @@ Plain-language meaning:
 - NeoStack = workflow lane made from NeoBlocks
 - Sleeve = configuration package that chooses stacks/blocks for a role or operating mode
 
+## Current H4 compiler lanes
+
+The compiler-vNext H4 authority defines exactly seven MOLT lanes:
+
+```text
+Trigger
+Directive
+Instruction
+Subject
+Primary
+Philosophy
+Blueprint
+```
+
+- Language is an `Instruction` category. The historical `BP.001` through `BP.030` IDs are retained for compatibility.
+- Persona is an `Instruction` category, not an eighth compiler lane.
+- AIM, USE, and NEED are Platform extensions retained at compatibility paths; they are not H4 MOLT lanes.
+- OFF is a Governance prohibition, not a MOLT type.
+- Priority and compiler-v0 material are legacy/historical unless an artifact explicitly declares compatibility use.
+
+The machine-readable classification and record hashes are published in `AI/MANIFESTS/h4-block-library-manifest.json`.
+
 ## AI vs HUMAN
 - `AI/` is the machine-readable shelf.
 - `HUMAN/` is the human-readable shelf.
@@ -67,6 +91,6 @@ Not every human sleeve page is automatically a runnable public machine sleeve. U
 
 ## Duplicate-looking lanes at a glance
 Some lanes look duplicated because they serve different audiences:
-- `AI/MOLT-BLOCKS/` = canonical machine-readable source block libraries
+- `AI/MOLT-BLOCKS/` = aggregate H4 source shelves plus path-compatible Platform extension sources; consult the H4 manifest for authority classification
 - `HUMAN/MOLT-BLOCKS/` = readable browsing shelf for people
-- `blocks/molt/subjects/` = machine-facing secondary/export lane pending final canonical clarification
+- `blocks/molt/subjects/` = derived/export Platform-extension mirrors, not H4 canonical records

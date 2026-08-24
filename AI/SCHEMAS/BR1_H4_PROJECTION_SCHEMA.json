@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://umg.local/schemas/br1-h4-projection.schema.json",
+  "title": "UMG BR-1 H4 Compiler Projection",
+  "description": "Self-contained compatibility snapshot of the compiler-vNext H4 MoltBlock projection at c505f9a7f23010574733c8c03c4162af5317a5eb. It does not replace compiler authority.",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "id": { "type": "string", "minLength": 1 },
+    "type": {
+      "enum": ["trigger", "directive", "instruction", "subject", "primary", "philosophy", "blueprint"]
+    },
+    "content": { "type": "string", "minLength": 1 },
+    "title": { "type": "string" },
+    "tags": {
+      "type": "array",
+      "items": { "type": "string", "minLength": 1 },
+      "uniqueItems": true
+    },
+    "provenance": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "sourceId": { "type": "string", "minLength": 1 },
+        "sourceVersion": { "type": "string", "minLength": 1 },
+        "sourceUri": { "type": "string", "minLength": 1 },
+        "notes": { "type": "string" }
+      }
+    }
+  },
+  "required": ["id", "type", "content"]
+}

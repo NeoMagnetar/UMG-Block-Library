@@ -1,10 +1,9 @@
-# BP.019 ? MATLAB
+# BP.019 - Historical Blueprint path
 
-**Type:** BLUEPRINT
-**Category:** programming_languages
-**Subcategory:** matlab
-**Domain:** PROGRAMMING_LANGUAGES
-**Status:** active
+This ID is retained, but the record is now classified as **Instruction > Language**.
 
-## Tags
-blueprint, programming-languages, matlab
+- Current page: [MATLAB](../instructions/language/BP.019-matlab.md)
+- Former lane: `blueprint`
+- Former category: `programming_languages`
+- ID renamed: **NO**
+- Compatibility classification: `LEGACY_COMPATIBILITY`

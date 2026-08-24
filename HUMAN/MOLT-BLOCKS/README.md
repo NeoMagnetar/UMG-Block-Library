@@ -1,50 +1,35 @@
 # HUMAN MOLT-BLOCKS
 
-## What this section is
-This section is the human-readable browsing shelf for MOLT block families. It helps people understand the smallest conceptual units in the library before they are bundled into NeoBlocks, NeoStacks, and sleeves.
+This is the readable browsing shelf. Machine authority and hashes live in `AI/MANIFESTS/h4-block-library-manifest.json`.
 
-## What this section is not
-This section is not the canonical machine-readable source. These pages should not be treated as automatic machine JSON payloads.
+## H4 lanes
 
-## Who should use this
-- Humans
-- maintainers
-- future contributors
-- AI agents that need readable explanation rather than direct machine JSON
+The current compiler lanes are exactly Trigger, Directive, Instruction, Subject, Primary, Philosophy, and Blueprint.
 
-## Canonical source rule
-Current status: human-readable explanation.
+Important category relationships:
 
-## How this maps to nearby sections
-- `AI/MOLT-BLOCKS/` contains the canonical machine-readable JSON libraries.
-- `blocks/molt/subjects/` appears to be a machine/package/export lane for public-facing block artifacts.
-- `HUMAN/NEOBLOCKS/` bundles MOLT blocks into useful units.
-- `HUMAN/NEOSTACKS/` assembles NeoBlocks into workflow lanes.
-- `HUMAN/SLEEVES/categories/` is the browsing shelf for role/mode-oriented sleeves.
+- [Instruction > Language](./instructions/language/README.md) contains 30 language records with retained historical `BP.*` IDs.
+- Instruction > Persona contains 100 `PERS.*` records and is not an eighth MOLT lane.
+- Blueprint contains 170 structural/output-form records across 16 presentation categories.
+- Direct aggregate Trigger canon is unresolved; no records were fabricated.
 
-## Current status
-- public-readable
-- compatibility/reference
+## Platform extensions
 
-## AIM / USE / NEED note
-The `aim`, `use`, and `need` families here are readable shelves for people.
+The AIM, USE, and NEED shelves remain readable and useful, but they are Platform extensions rather than compiler MOLT lanes. Their machine paths and IDs remain stable for compatibility.
 
-- `HUMAN/MOLT-BLOCKS/aim`, `use`, and `need` are for browsing and explanation.
-- `AI/MOLT-BLOCKS/*.json` is the canonical machine-readable block library lane.
-- `blocks/molt/subjects/*.json` appears to be a machine-facing secondary/export lane pending final canonical clarification.
+- `HUMAN/MOLT-BLOCKS/aim/`
+- `HUMAN/MOLT-BLOCKS/use/`
+- `HUMAN/MOLT-BLOCKS/need/`
 
-## MOLT chain
-A MOLT block is one small idea, rule, purpose, or constraint.
+The `blocks/molt/subjects/` copies are derived/export mirrors.
+
+## Composition path
 
 ```text
-MOLT Block
-→ NeoBlock
-→ NeoStack
-→ Sleeve
+H4 MOLT Block
+-> NeoBlock
+-> NeoStack
+-> Sleeve
 ```
 
-## Where to go next
-- `AI/MOLT-BLOCKS/README.md`
-- `HUMAN/NEOBLOCKS/README.md`
-- `HUMAN/NEOSTACKS/README.md`
-- `HUMAN/SLEEVES/categories/README.md`
+Readable pages are documentation and do not automatically promote a draft, sample, extension, or historical artifact.

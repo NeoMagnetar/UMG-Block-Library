@@ -1,10 +1,9 @@
-# BP.027 ? Shell/Bash
+# BP.027 - Historical Blueprint path
 
-**Type:** BLUEPRINT
-**Category:** programming_languages
-**Subcategory:** shell_bash
-**Domain:** PROGRAMMING_LANGUAGES
-**Status:** active
+This ID is retained, but the record is now classified as **Instruction > Language**.
 
-## Tags
-blueprint, programming-languages, shell-bash
+- Current page: [Shell/Bash](../instructions/language/BP.027-shell-bash.md)
+- Former lane: `blueprint`
+- Former category: `programming_languages`
+- ID renamed: **NO**
+- Compatibility classification: `LEGACY_COMPATIBILITY`

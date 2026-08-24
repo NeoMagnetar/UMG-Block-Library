@@ -1,10 +1,9 @@
-# BP.015 ? Erlang
+# BP.015 - Historical Blueprint path
 
-**Type:** BLUEPRINT
-**Category:** programming_languages
-**Subcategory:** erlang
-**Domain:** PROGRAMMING_LANGUAGES
-**Status:** active
+This ID is retained, but the record is now classified as **Instruction > Language**.
 
-## Tags
-blueprint, programming-languages, erlang
+- Current page: [Erlang](../instructions/language/BP.015-erlang.md)
+- Former lane: `blueprint`
+- Former category: `programming_languages`
+- ID renamed: **NO**
+- Compatibility classification: `LEGACY_COMPATIBILITY`

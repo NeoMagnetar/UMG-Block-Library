@@ -1,10 +1,9 @@
-# BP.022 ? Lua
+# BP.022 - Historical Blueprint path
 
-**Type:** BLUEPRINT
-**Category:** programming_languages
-**Subcategory:** lua
-**Domain:** PROGRAMMING_LANGUAGES
-**Status:** active
+This ID is retained, but the record is now classified as **Instruction > Language**.
 
-## Tags
-blueprint, programming-languages, lua
+- Current page: [Lua](../instructions/language/BP.022-lua.md)
+- Former lane: `blueprint`
+- Former category: `programming_languages`
+- ID renamed: **NO**
+- Compatibility classification: `LEGACY_COMPATIBILITY`

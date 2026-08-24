@@ -1,10 +1,9 @@
-# BP.011 ? PHP
+# BP.011 - Historical Blueprint path
 
-**Type:** BLUEPRINT
-**Category:** programming_languages
-**Subcategory:** php
-**Domain:** PROGRAMMING_LANGUAGES
-**Status:** active
+This ID is retained, but the record is now classified as **Instruction > Language**.
 
-## Tags
-blueprint, programming-languages, php
+- Current page: [PHP](../instructions/language/BP.011-php.md)
+- Former lane: `blueprint`
+- Former category: `programming_languages`
+- ID renamed: **NO**
+- Compatibility classification: `LEGACY_COMPATIBILITY`

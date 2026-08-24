@@ -1,0 +1,80 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://umg.local/schemas/br1-normalized-record.schema.json",
+  "title": "UMG BR-1 Normalized Library Record",
+  "description": "Provider-neutral normalized record used by BR-1 adapters. This is a Block Library classification contract, not compiler semantic authority.",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "id": { "type": "string", "minLength": 1 },
+    "h4_type": {
+      "type": ["string", "null"],
+      "enum": ["trigger", "directive", "instruction", "subject", "primary", "philosophy", "blueprint", null]
+    },
+    "category": { "type": "string", "minLength": 1 },
+    "category_label": { "type": "string", "minLength": 1 },
+    "subcategory": { "type": ["string", "null"], "pattern": "^[a-z0-9_]+$" },
+    "name": { "type": "string", "minLength": 1 },
+    "classification": {
+      "enum": [
+        "H4_CANONICAL_MOLT",
+        "H4_CANDIDATE_MOLT",
+        "PLATFORM_EXTENSION",
+        "DERIVED_EXPORT",
+        "LEGACY_COMPATIBILITY",
+        "EXPERIMENTAL",
+        "HISTORICAL_REFERENCE"
+      ]
+    },
+    "lifecycle_status": {
+      "enum": ["active", "draft", "deprecated", "historical", "archived"]
+    },
+    "not_h4_molt": { "type": "boolean" },
+    "source_format": { "type": "string", "minLength": 1 },
+    "source_path": { "type": "string", "minLength": 1 },
+    "former_lane": { "type": ["string", "null"] },
+    "former_category": { "type": ["string", "null"] },
+    "content_projection": {
+      "type": ["object", "null"],
+      "additionalProperties": false,
+      "properties": {
+        "strategy": { "type": "string", "minLength": 1 },
+        "source_fields": {
+          "type": "array",
+          "items": { "type": "string", "minLength": 1 },
+          "uniqueItems": true
+        },
+        "content": { "type": "string", "minLength": 1 }
+      },
+      "required": ["strategy", "source_fields", "content"]
+    },
+    "provenance": { "type": "object" },
+    "hashes": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "raw_file_sha256": { "type": "string", "pattern": "^[a-f0-9]{64}$" },
+        "canonical_record_sha256": { "type": "string", "pattern": "^[a-f0-9]{64}$" }
+      },
+      "required": ["raw_file_sha256", "canonical_record_sha256"]
+    }
+  },
+  "required": [
+    "id",
+    "h4_type",
+    "category",
+    "category_label",
+    "subcategory",
+    "name",
+    "classification",
+    "lifecycle_status",
+    "not_h4_molt",
+    "source_format",
+    "source_path",
+    "former_lane",
+    "former_category",
+    "content_projection",
+    "provenance",
+    "hashes"
+  ]
+}

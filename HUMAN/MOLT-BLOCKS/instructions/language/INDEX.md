@@ -1,0 +1,36 @@
+# Instruction Language Blocks
+
+Total blocks: **30**
+
+These records use H4 type `instruction`, category `language`, and retain their historical `BP.*` identities for compatibility.
+
+- [BP.001 - Python](./BP.001-python.md)
+- [BP.002 - JavaScript](./BP.002-javascript.md)
+- [BP.003 - Java](./BP.003-java.md)
+- [BP.004 - C++](./BP.004-cpp.md)
+- [BP.005 - C#](./BP.005-csharp.md)
+- [BP.006 - Ruby](./BP.006-ruby.md)
+- [BP.007 - Go](./BP.007-go.md)
+- [BP.008 - Rust](./BP.008-rust.md)
+- [BP.009 - Swift](./BP.009-swift.md)
+- [BP.010 - Kotlin](./BP.010-kotlin.md)
+- [BP.011 - PHP](./BP.011-php.md)
+- [BP.012 - TypeScript](./BP.012-typescript.md)
+- [BP.013 - Scala](./BP.013-scala.md)
+- [BP.014 - Haskell](./BP.014-haskell.md)
+- [BP.015 - Erlang](./BP.015-erlang.md)
+- [BP.016 - Elixir](./BP.016-elixir.md)
+- [BP.017 - Clojure](./BP.017-clojure.md)
+- [BP.018 - R](./BP.018-r.md)
+- [BP.019 - MATLAB](./BP.019-matlab.md)
+- [BP.020 - Julia](./BP.020-julia.md)
+- [BP.021 - Perl](./BP.021-perl.md)
+- [BP.022 - Lua](./BP.022-lua.md)
+- [BP.023 - Assembly](./BP.023-assembly.md)
+- [BP.024 - SQL](./BP.024-sql.md)
+- [BP.025 - HTML](./BP.025-html.md)
+- [BP.026 - CSS](./BP.026-css.md)
+- [BP.027 - Shell/Bash](./BP.027-shell-bash.md)
+- [BP.028 - PowerShell](./BP.028-powershell.md)
+- [BP.029 - Dart](./BP.029-dart.md)
+- [BP.030 - Objective-C](./BP.030-objective-c.md)

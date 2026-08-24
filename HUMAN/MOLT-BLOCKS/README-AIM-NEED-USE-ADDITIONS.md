@@ -1,26 +1,14 @@
-# AIM / NEED / USE Additions
+# AIM / NEED / USE Platform Extensions
 
-Generated: 2026-04-20
+The public HUMAN shelf includes readable companion material for AIM, NEED, and USE.
 
-The public HUMAN block lane now includes natural-language companion notes for three newly added machine-facing MOLT subject libraries:
+BR-1 classification:
 
-- AIM
-- NEED
-- USE
+```text
+classification: PLATFORM_EXTENSION
+NOT_H4_MOLT: true
+```
 
-## Why these were added
-These libraries existed as structured JSON payloads sourced from the private Resleever lane, but the public HUMAN side did not yet explain them in a clean natural-language form.
+These concepts remain useful to Platform controllers and Envoy compatibility flows, but they are not compiler-vNext H4 MOLT lanes.
 
-## What was added
-### Structured JSON in the public machine-facing block lane
-- `blocks/molt/subjects/aim.library.v1.0.0.json`
-- `blocks/molt/subjects/need.library.v1.0.0.json`
-- `blocks/molt/subjects/use.library.v1.0.0.json`
-
-### HUMAN-facing natural-language companions
-- `HUMAN/MOLT-BLOCKS/aim/AIM-LIBRARY-v1.0.0.md`
-- `HUMAN/MOLT-BLOCKS/need/NEED-LIBRARY-v1.0.0.md`
-- `HUMAN/MOLT-BLOCKS/use/USE-LIBRARY-v1.0.0.md`
-
-## Intent
-This keeps the public HUMAN side closer to the cleaner explanatory style shown in the private source materials: machine JSON stays structured, but humans also get category-level natural-language explanation.
+Paths and IDs remain unchanged during BR-1. The copies under `blocks/molt/subjects/` are derived/export mirrors; the source-oriented machine libraries remain under `AI/MOLT-BLOCKS/` for compatibility.

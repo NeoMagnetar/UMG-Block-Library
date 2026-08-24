@@ -1,0 +1,668 @@
+{
+  "schema": "umg.br1-language-migration-map.v1",
+  "source_base_commit": "6df902d8e6c0e77d14bec850a971f36d42f90d5d",
+  "id_policy": "PRESERVE_BP_IDS_DURING_BR1",
+  "projection_strategy": "language_fields_v1",
+  "records": [
+    {
+      "id": "BP.001",
+      "name": "Python",
+      "former_lane": "blueprint",
+      "former_category": "programming_languages",
+      "target_lane": "instruction",
+      "target_category": "language",
+      "target_subcategory": "python",
+      "id_renamed": false,
+      "source_path": "AI/MOLT-BLOCKS/instructions/library.v1.0.0.json",
+      "content_projection": {
+        "strategy": "language_fields_v1",
+        "source_fields": [
+          "name",
+          "structure",
+          "conventions",
+          "output_characteristics"
+        ],
+        "content": "Language: Python\nStructure: Indentation-based blocks; dynamic typing; object-oriented and functional; extensive standard library; PEP 8 style guide\nConventions: snake_case for variables/functions; CamelCase for classes; 4-space indentation; docstrings for documentation; list comprehensions\nOutput characteristics: Readable, explicit, minimal syntax; whitespace significant; batteries included philosophy"
+      },
+      "canonical_record_sha256": "381c409592769cffb287ced6f0a21123b2078f61adf22bd0735ccf0126b71be9"
+    },
+    {
+      "id": "BP.002",
+      "name": "JavaScript",
+      "former_lane": "blueprint",
+      "former_category": "programming_languages",
+      "target_lane": "instruction",
+      "target_category": "language",
+      "target_subcategory": "javascript",
+      "id_renamed": false,
+      "source_path": "AI/MOLT-BLOCKS/instructions/library.v1.0.0.json",
+      "content_projection": {
+        "strategy": "language_fields_v1",
+        "source_fields": [
+          "name",
+          "structure",
+          "conventions",
+          "output_characteristics"
+        ],
+        "content": "Language: JavaScript\nStructure: Curly-brace syntax; prototype-based objects; first-class functions; event-driven; asynchronous patterns\nConventions: camelCase for variables/functions; PascalCase for constructors; semicolons optional; callbacks, promises, async/await\nOutput characteristics: Flexible, dynamic; functional and OOP; DOM manipulation; JSON native; arrow functions"
+      },
+      "canonical_record_sha256": "4846a9fb70da7209caeee98b51a99d64c49a12aadd9d146d3b224c646163e69a"
+    },
+    {
+      "id": "BP.003",
+      "name": "Java",
+      "former_lane": "blueprint",
+      "former_category": "programming_languages",
+      "target_lane": "instruction",
+      "target_category": "language",
+      "target_subcategory": "java",
+      "id_renamed": false,
+      "source_path": "AI/MOLT-BLOCKS/instructions/library.v1.0.0.json",
+      "content_projection": {
+        "strategy": "language_fields_v1",
+        "source_fields": [
+          "name",
+          "structure",
+          "conventions",
+          "output_characteristics"
+        ],
+        "content": "Language: Java\nStructure: Class-based OOP; static typing; compiled to bytecode; package system; exception handling\nConventions: CamelCase for classes; camelCase for methods; explicit types; getter/setter patterns; interfaces and inheritance\nOutput characteristics: Verbose, explicit; strongly typed; platform independent; enterprise patterns; boilerplate heavy"
+      },
+      "canonical_record_sha256": "78026106786f8874ee3106d3006e3ae522e6b575efc5d5c8d45cfabc57c4ccdd"
+    },
+    {
+      "id": "BP.004",
+      "name": "C++",
+      "former_lane": "blueprint",
+      "former_category": "programming_languages",
+      "target_lane": "instruction",
+      "target_category": "language",
+      "target_subcategory": "cpp",
+      "id_renamed": false,
+      "source_path": "AI/MOLT-BLOCKS/instructions/library.v1.0.0.json",
+      "content_projection": {
+        "strategy": "language_fields_v1",
+        "source_fields": [
+          "name",
+          "structure",
+          "conventions",
+          "output_characteristics"
+        ],
+        "content": "Language: C++\nStructure: Low-level control; object-oriented; manual memory management; templates; multiple inheritance\nConventions: Various naming conventions; header/source files; RAII pattern; const correctness; namespace usage\nOutput characteristics: Performance critical; systems programming; complex syntax; powerful but dangerous; zero-cost abstractions"
+      },
+      "canonical_record_sha256": "3b9c1d6c4a14679a5cda75fed1cd2675d09edef8cb34bf45c994853d520ae48b"
+    },
+    {
+      "id": "BP.005",
+      "name": "C#",
+      "former_lane": "blueprint",
+      "former_category": "programming_languages",
+      "target_lane": "instruction",
+      "target_category": "language",
+      "target_subcategory": "csharp",
+      "id_renamed": false,
+      "source_path": "AI/MOLT-BLOCKS/instructions/library.v1.0.0.json",
+      "content_projection": {
+        "strategy": "language_fields_v1",
+        "source_fields": [
+          "name",
+          "structure",
+          "conventions",
+          "output_characteristics"
+        ],
+        "content": "Language: C#\nStructure: C-style syntax; .NET framework; object-oriented; properties and events; LINQ\nConventions: PascalCase for public members; camelCase for private; XML documentation; using statements; async/await native\nOutput characteristics: Microsoft ecosystem; strongly typed; modern language features; Unity game development; enterprise focus"
+      },
+      "canonical_record_sha256": "dac99a072cb482beac2c83128c36bf63ccaaaf1a9cc8430579744be4bca3f308"
+    },
+    {
+      "id": "BP.006",
+      "name": "Ruby",
+      "former_lane": "blueprint",
+      "former_category": "programming_languages",
+      "target_lane": "instruction",
+      "target_category": "language",
+      "target_subcategory": "ruby",
+      "id_renamed": false,
+      "source_path": "AI/MOLT-BLOCKS/instructions/library.v1.0.0.json",
+      "content_projection": {
+        "strategy": "language_fields_v1",
+        "source_fields": [
+          "name",
+          "structure",
+          "conventions",
+          "output_characteristics"
+        ],
+        "content": "Language: Ruby\nStructure: Pure OOP; blocks and iterators; dynamic typing; metaprogramming; convention over configuration\nConventions: snake_case naming; do...end or {...} blocks; symbols; DSL friendly; implicit returns\nOutput characteristics: Expressive, elegant; developer happiness focus; Rails framework; readable; flexible syntax"
+      },
+      "canonical_record_sha256": "6c924428ec4f50d0fc17e9952b6dbce964f2a4c739e08974eab2508a355770cc"
+    },
+    {
+      "id": "BP.007",
+      "name": "Go",
+      "former_lane": "blueprint",
+      "former_category": "programming_languages",
+      "target_lane": "instruction",
+      "target_category": "language",
+      "target_subcategory": "go",
+      "id_renamed": false,
+      "source_path": "AI/MOLT-BLOCKS/instructions/library.v1.0.0.json",
+      "content_projection": {
+        "strategy": "language_fields_v1",
+        "source_fields": [
+          "name",
+          "structure",
+          "conventions",
+          "output_characteristics"
+        ],
+        "content": "Language: Go\nStructure: C-like syntax; static typing; goroutines and channels; interface-based; compilation speed focus\nConventions: CamelCase/camelCase; gofmt standard formatting; no unused imports/variables; error returns; defer statements\nOutput characteristics: Simple, explicit; concurrent by design; fast compilation; minimal features; Google style"
+      },
+      "canonical_record_sha256": "7362cf9d20b7ccf283afdc7852a69dcd7f71cb75f5f04293e4a28b0028b51a6c"
+    },
+    {
+      "id": "BP.008",
+      "name": "Rust",
+      "former_lane": "blueprint",
+      "former_category": "programming_languages",
+      "target_lane": "instruction",
+      "target_category": "language",
+      "target_subcategory": "rust",
+      "id_renamed": false,
+      "source_path": "AI/MOLT-BLOCKS/instructions/library.v1.0.0.json",
+      "content_projection": {
+        "strategy": "language_fields_v1",
+        "source_fields": [
+          "name",
+          "structure",
+          "conventions",
+          "output_characteristics"
+        ],
+        "content": "Language: Rust\nStructure: Ownership and borrowing; zero-cost abstractions; pattern matching; memory safety; no garbage collector\nConventions: snake_case naming; Result and Option types; explicit lifetimes; trait-based generics; macro system\nOutput characteristics: Memory safe without GC; systems programming; steep learning curve; modern features; cargo ecosystem"
+      },
+      "canonical_record_sha256": "b781fa022a01acc8c2828c613ab853caa368ad3a787ae9738c07d36015f29609"
+    },
+    {
+      "id": "BP.009",
+      "name": "Swift",
+      "former_lane": "blueprint",
+      "former_category": "programming_languages",
+      "target_lane": "instruction",
+      "target_category": "language",
+      "target_subcategory": "swift",
+      "id_renamed": false,
+      "source_path": "AI/MOLT-BLOCKS/instructions/library.v1.0.0.json",
+      "content_projection": {
+        "strategy": "language_fields_v1",
+        "source_fields": [
+          "name",
+          "structure",
+          "conventions",
+          "output_characteristics"
+        ],
+        "content": "Language: Swift\nStructure: Protocol-oriented; optionals; type inference; ARC memory management; playgrounds\nConventions: camelCase naming; optional chaining; guard statements; extensions; closures\nOutput characteristics: Apple ecosystem; modern syntax; safe by default; interactive development; progressive disclosure"
+      },
+      "canonical_record_sha256": "953a31dbba30223540d3a8d92e40dabae8fccdc2f4e2a6c7ba1ef4af6e01dc13"
+    },
+    {
+      "id": "BP.010",
+      "name": "Kotlin",
+      "former_lane": "blueprint",
+      "former_category": "programming_languages",
+      "target_lane": "instruction",
+      "target_category": "language",
+      "target_subcategory": "kotlin",
+      "id_renamed": false,
+      "source_path": "AI/MOLT-BLOCKS/instructions/library.v1.0.0.json",
+      "content_projection": {
+        "strategy": "language_fields_v1",
+        "source_fields": [
+          "name",
+          "structure",
+          "conventions",
+          "output_characteristics"
+        ],
+        "content": "Language: Kotlin\nStructure: JVM/Android; null safety; coroutines; extension functions; data classes\nConventions: camelCase naming; val/var distinction; when expressions; Elvis operator; DSL builders\nOutput characteristics: Java interop; concise; null-safe; modern JVM language; Android official; functional + OOP"
+      },
+      "canonical_record_sha256": "e01c5f9a29b35888e14deac15c93d46369fe7d88dc9778b56b003b35ae439aad"
+    },
+    {
+      "id": "BP.011",
+      "name": "PHP",
+      "former_lane": "blueprint",
+      "former_category": "programming_languages",
+      "target_lane": "instruction",
+      "target_category": "language",
+      "target_subcategory": "php",
+      "id_renamed": false,
+      "source_path": "AI/MOLT-BLOCKS/instructions/library.v1.0.0.json",
+      "content_projection": {
+        "strategy": "language_fields_v1",
+        "source_fields": [
+          "name",
+          "structure",
+          "conventions",
+          "output_characteristics"
+        ],
+        "content": "Language: PHP\nStructure: Server-side scripting; $ variables; associative arrays; loosely typed; embedded in HTML\nConventions: snake_case or camelCase; <?php tags; WordPress/Laravel patterns; superglobals\nOutput characteristics: Web focused; easy deployment; large ecosystem; WordPress dominance; improving modern features"
+      },
+      "canonical_record_sha256": "5688c12eda0af030481cd59e0cf6527f98a877602c9e6eacdb343c18587add3e"
+    },
+    {
+      "id": "BP.012",
+      "name": "TypeScript",
+      "former_lane": "blueprint",
+      "former_category": "programming_languages",
+      "target_lane": "instruction",
+      "target_category": "language",
+      "target_subcategory": "typescript",
+      "id_renamed": false,
+      "source_path": "AI/MOLT-BLOCKS/instructions/library.v1.0.0.json",
+      "content_projection": {
+        "strategy": "language_fields_v1",
+        "source_fields": [
+          "name",
+          "structure",
+          "conventions",
+          "output_characteristics"
+        ],
+        "content": "Language: TypeScript\nStructure: JavaScript superset; static typing; interfaces; generics; compilation to JS\nConventions: JavaScript conventions plus type annotations; interface naming; strict mode; decorator patterns\nOutput characteristics: Type-safe JavaScript; tooling support; gradual typing; Angular default; enterprise JavaScript"
+      },
+      "canonical_record_sha256": "8266f2384cdb199970bbae0760ad90e2c1e1252086910c21e0442815a26dc18d"
+    },
+    {
+      "id": "BP.013",
+      "name": "Scala",
+      "former_lane": "blueprint",
+      "former_category": "programming_languages",
+      "target_lane": "instruction",
+      "target_category": "language",
+      "target_subcategory": "scala",
+      "id_renamed": false,
+      "source_path": "AI/MOLT-BLOCKS/instructions/library.v1.0.0.json",
+      "content_projection": {
+        "strategy": "language_fields_v1",
+        "source_fields": [
+          "name",
+          "structure",
+          "conventions",
+          "output_characteristics"
+        ],
+        "content": "Language: Scala\nStructure: JVM; object-functional fusion; pattern matching; traits; immutability emphasis\nConventions: camelCase; functional style preferred; case classes; for comprehensions; implicit parameters\nOutput characteristics: Academic and practical; complex type system; concise; big data Spark; multi-paradigm"
+      },
+      "canonical_record_sha256": "d7c0136cff810e800577c98a81e708ee9e284d9e37ca3bb4a17d95296e4c972a"
+    },
+    {
+      "id": "BP.014",
+      "name": "Haskell",
+      "former_lane": "blueprint",
+      "former_category": "programming_languages",
+      "target_lane": "instruction",
+      "target_category": "language",
+      "target_subcategory": "haskell",
+      "id_renamed": false,
+      "source_path": "AI/MOLT-BLOCKS/instructions/library.v1.0.0.json",
+      "content_projection": {
+        "strategy": "language_fields_v1",
+        "source_fields": [
+          "name",
+          "structure",
+          "conventions",
+          "output_characteristics"
+        ],
+        "content": "Language: Haskell\nStructure: Pure functional; lazy evaluation; strong static typing; type inference; monads\nConventions: camelCase; point-free style; do notation; type signatures; pattern matching\nOutput characteristics: Mathematical; purely functional; lazy; advanced type system; academic influence; elegant abstractions"
+      },
+      "canonical_record_sha256": "c6533de568db52ed250b49c51355591617180d1f82ac6f5615ae6c8cba92dd6c"
+    },
+    {
+      "id": "BP.015",
+      "name": "Erlang",
+      "former_lane": "blueprint",
+      "former_category": "programming_languages",
+      "target_lane": "instruction",
+      "target_category": "language",
+      "target_subcategory": "erlang",
+      "id_renamed": false,
+      "source_path": "AI/MOLT-BLOCKS/instructions/library.v1.0.0.json",
+      "content_projection": {
+        "strategy": "language_fields_v1",
+        "source_fields": [
+          "name",
+          "structure",
+          "conventions",
+          "output_characteristics"
+        ],
+        "content": "Language: Erlang\nStructure: Actor model; functional; pattern matching; OTP framework; message passing\nConventions: snake_case; atoms; tuple patterns; guard clauses; supervisor trees\nOutput characteristics: Fault-tolerant; distributed; telecom origins; hot code swapping; concurrent by default"
+      },
+      "canonical_record_sha256": "3cc0e53d87435e009a080c9dc432548614ee185bb6fd3dad748b7708bfaedca5"
+    },
+    {
+      "id": "BP.016",
+      "name": "Elixir",
+      "former_lane": "blueprint",
+      "former_category": "programming_languages",
+      "target_lane": "instruction",
+      "target_category": "language",
+      "target_subcategory": "elixir",
+      "id_renamed": false,
+      "source_path": "AI/MOLT-BLOCKS/instructions/library.v1.0.0.json",
+      "content_projection": {
+        "strategy": "language_fields_v1",
+        "source_fields": [
+          "name",
+          "structure",
+          "conventions",
+          "output_characteristics"
+        ],
+        "content": "Language: Elixir\nStructure: Erlang VM; functional; pattern matching; pipe operator; macro system\nConventions: snake_case; |> pipe; with statements; protocol-based polymorphism; Phoenix framework\nOutput characteristics: Ruby-like syntax on Erlang; scalable; concurrent; web focus; modern functional"
+      },
+      "canonical_record_sha256": "f7447ff3ad9d59e16cf8256bdd4b1c53e7127300e420cc9b02be859facba445a"
+    },
+    {
+      "id": "BP.017",
+      "name": "Clojure",
+      "former_lane": "blueprint",
+      "former_category": "programming_languages",
+      "target_lane": "instruction",
+      "target_category": "language",
+      "target_subcategory": "clojure",
+      "id_renamed": false,
+      "source_path": "AI/MOLT-BLOCKS/instructions/library.v1.0.0.json",
+      "content_projection": {
+        "strategy": "language_fields_v1",
+        "source_fields": [
+          "name",
+          "structure",
+          "conventions",
+          "output_characteristics"
+        ],
+        "content": "Language: Clojure\nStructure: Lisp dialect; JVM; functional; immutable data; persistent collections\nConventions: kebab-case; prefix notation; threading macros; destructuring; namespace organization\nOutput characteristics: Lisp on JVM; REPL-driven; immutable by default; simple syntax; powerful macros"
+      },
+      "canonical_record_sha256": "5ee68cff3e2f484b6ffc0ec03018c9f09213ec8f91f33c3a53cc97e676a33d5a"
+    },
+    {
+      "id": "BP.018",
+      "name": "R",
+      "former_lane": "blueprint",
+      "former_category": "programming_languages",
+      "target_lane": "instruction",
+      "target_category": "language",
+      "target_subcategory": "r",
+      "id_renamed": false,
+      "source_path": "AI/MOLT-BLOCKS/instructions/library.v1.0.0.json",
+      "content_projection": {
+        "strategy": "language_fields_v1",
+        "source_fields": [
+          "name",
+          "structure",
+          "conventions",
+          "output_characteristics"
+        ],
+        "content": "Language: R\nStructure: Statistical computing; vectorized operations; data frames; formula syntax; functional\nConventions: period.separated or snake_case; <- assignment; tidyverse style; ggplot2 patterns\nOutput characteristics: Data analysis focus; statistical packages; academic use; visualization; vector-oriented"
+      },
+      "canonical_record_sha256": "0c0ce9ee8e5b9a23c12fac12db1671364e27b514b70477fec0076af3d4fdeb0f"
+    },
+    {
+      "id": "BP.019",
+      "name": "MATLAB",
+      "former_lane": "blueprint",
+      "former_category": "programming_languages",
+      "target_lane": "instruction",
+      "target_category": "language",
+      "target_subcategory": "matlab",
+      "id_renamed": false,
+      "source_path": "AI/MOLT-BLOCKS/instructions/library.v1.0.0.json",
+      "content_projection": {
+        "strategy": "language_fields_v1",
+        "source_fields": [
+          "name",
+          "structure",
+          "conventions",
+          "output_characteristics"
+        ],
+        "content": "Language: MATLAB\nStructure: Matrix operations; numeric computing; proprietary; function files; scripts\nConventions: camelCase or snake_case; 1-indexed arrays; vectorization emphasis; function handles\nOutput characteristics: Engineering focus; matrix-centric; toolboxes; expensive; academic and industry standard"
+      },
+      "canonical_record_sha256": "0eca27fd392e800a7c82419680d6e238dbf6e4b931650a2e4e7c50e38bf5827f"
+    },
+    {
+      "id": "BP.020",
+      "name": "Julia",
+      "former_lane": "blueprint",
+      "former_category": "programming_languages",
+      "target_lane": "instruction",
+      "target_category": "language",
+      "target_subcategory": "julia",
+      "id_renamed": false,
+      "source_path": "AI/MOLT-BLOCKS/instructions/library.v1.0.0.json",
+      "content_projection": {
+        "strategy": "language_fields_v1",
+        "source_fields": [
+          "name",
+          "structure",
+          "conventions",
+          "output_characteristics"
+        ],
+        "content": "Language: Julia\nStructure: Multiple dispatch; JIT compilation; optional typing; metaprogramming; REPL\nConventions: snake_case; ! for mutation; broadcasting dot syntax; @macros; type annotations\nOutput characteristics: Scientific computing; Python-like but fast; multiple dispatch core; modern; growing ecosystem"
+      },
+      "canonical_record_sha256": "4e19cb6bac26dce51248eacd39ab0af7fd626bbcd6c606fd1f795a464e3bebc1"
+    },
+    {
+      "id": "BP.021",
+      "name": "Perl",
+      "former_lane": "blueprint",
+      "former_category": "programming_languages",
+      "target_lane": "instruction",
+      "target_category": "language",
+      "target_subcategory": "perl",
+      "id_renamed": false,
+      "source_path": "AI/MOLT-BLOCKS/instructions/library.v1.0.0.json",
+      "content_projection": {
+        "strategy": "language_fields_v1",
+        "source_fields": [
+          "name",
+          "structure",
+          "conventions",
+          "output_characteristics"
+        ],
+        "content": "Language: Perl\nStructure: Text processing; regular expressions; sigils ($ @ %); context sensitivity; CPAN\nConventions: snake_case; $scalar @array %hash; statement modifiers; flexible syntax\nOutput characteristics: TMTOWTDI; regex powerful; system administration; text manipulation; readable/writable debate"
+      },
+      "canonical_record_sha256": "8cc3369f6575cb095b7b483831483c7fa80c2aa4ac4e38705b00afb7bc695da2"
+    },
+    {
+      "id": "BP.022",
+      "name": "Lua",
+      "former_lane": "blueprint",
+      "former_category": "programming_languages",
+      "target_lane": "instruction",
+      "target_category": "language",
+      "target_subcategory": "lua",
+      "id_renamed": false,
+      "source_path": "AI/MOLT-BLOCKS/instructions/library.v1.0.0.json",
+      "content_projection": {
+        "strategy": "language_fields_v1",
+        "source_fields": [
+          "name",
+          "structure",
+          "conventions",
+          "output_characteristics"
+        ],
+        "content": "Language: Lua\nStructure: Lightweight; tables as primary structure; metatables; coroutines; embeddable\nConventions: snake_case; 1-indexed; local variables; : method syntax; simple syntax\nOutput characteristics: Game scripting; embedded; small footprint; simple; fast; table-based everything"
+      },
+      "canonical_record_sha256": "03c080f5179d649ccb031177c40ebca8878840c0cf66b537a321ec67ec398e0c"
+    },
+    {
+      "id": "BP.023",
+      "name": "Assembly",
+      "former_lane": "blueprint",
+      "former_category": "programming_languages",
+      "target_lane": "instruction",
+      "target_category": "language",
+      "target_subcategory": "assembly",
+      "id_renamed": false,
+      "source_path": "AI/MOLT-BLOCKS/instructions/library.v1.0.0.json",
+      "content_projection": {
+        "strategy": "language_fields_v1",
+        "source_fields": [
+          "name",
+          "structure",
+          "conventions",
+          "output_characteristics"
+        ],
+        "content": "Language: Assembly\nStructure: Low-level; direct hardware instructions; registers; labels; minimal abstraction\nConventions: Architecture-specific; UPPERCASE or lowercase; comments essential; label naming\nOutput characteristics: Maximum control; architecture-dependent; verbose; performance critical; manual optimization"
+      },
+      "canonical_record_sha256": "6bfd78d769850f54fb997baef7f9d619cc7b73cd96082072288a70e265dbd534"
+    },
+    {
+      "id": "BP.024",
+      "name": "SQL",
+      "former_lane": "blueprint",
+      "former_category": "programming_languages",
+      "target_lane": "instruction",
+      "target_category": "language",
+      "target_subcategory": "sql",
+      "id_renamed": false,
+      "source_path": "AI/MOLT-BLOCKS/instructions/library.v1.0.0.json",
+      "content_projection": {
+        "strategy": "language_fields_v1",
+        "source_fields": [
+          "name",
+          "structure",
+          "conventions",
+          "output_characteristics"
+        ],
+        "content": "Language: SQL\nStructure: Declarative; set-based operations; SELECT/FROM/WHERE; joins; aggregations\nConventions: UPPERCASE keywords or lowercase; snake_case tables; explicit aliases; normalized schemas\nOutput characteristics: Database queries; declarative not procedural; relational algebra; ANSI standard; vendor dialects"
+      },
+      "canonical_record_sha256": "605748a3ecbde2b65218150590c867a4be2d17d95aa32277218a0afc72fbe2ee"
+    },
+    {
+      "id": "BP.025",
+      "name": "HTML",
+      "former_lane": "blueprint",
+      "former_category": "programming_languages",
+      "target_lane": "instruction",
+      "target_category": "language",
+      "target_subcategory": "html",
+      "id_renamed": false,
+      "source_path": "AI/MOLT-BLOCKS/instructions/library.v1.0.0.json",
+      "content_projection": {
+        "strategy": "language_fields_v1",
+        "source_fields": [
+          "name",
+          "structure",
+          "conventions",
+          "output_characteristics"
+        ],
+        "content": "Language: HTML\nStructure: Markup language; nested tags; attributes; semantic elements; DOM tree\nConventions: kebab-case attributes; lowercase tags; semantic HTML5; accessibility attributes; valid nesting\nOutput characteristics: Document structure; semantic meaning; browser rendering; accessibility; not programming language"
+      },
+      "canonical_record_sha256": "cde213cbea6d80022000cc80ab3d8a25d64d5a8cea8003daa92abd3599a963b9"
+    },
+    {
+      "id": "BP.026",
+      "name": "CSS",
+      "former_lane": "blueprint",
+      "former_category": "programming_languages",
+      "target_lane": "instruction",
+      "target_category": "language",
+      "target_subcategory": "css",
+      "id_renamed": false,
+      "source_path": "AI/MOLT-BLOCKS/instructions/library.v1.0.0.json",
+      "content_projection": {
+        "strategy": "language_fields_v1",
+        "source_fields": [
+          "name",
+          "structure",
+          "conventions",
+          "output_characteristics"
+        ],
+        "content": "Language: CSS\nStructure: Cascading stylesheets; selectors; properties; specificity; box model\nConventions: kebab-case properties; BEM or other naming; mobile-first; DRY principles; modular organization\nOutput characteristics: Visual styling; cascading rules; responsive design; preprocessors SASS/LESS; specificity wars"
+      },
+      "canonical_record_sha256": "f154a577cef14a4094d53df6d967c6cf209510dc5e45f1d23a91cc1fcd72de85"
+    },
+    {
+      "id": "BP.027",
+      "name": "Shell/Bash",
+      "former_lane": "blueprint",
+      "former_category": "programming_languages",
+      "target_lane": "instruction",
+      "target_category": "language",
+      "target_subcategory": "shell_bash",
+      "id_renamed": false,
+      "source_path": "AI/MOLT-BLOCKS/instructions/library.v1.0.0.json",
+      "content_projection": {
+        "strategy": "language_fields_v1",
+        "source_fields": [
+          "name",
+          "structure",
+          "conventions",
+          "output_characteristics"
+        ],
+        "content": "Language: Shell/Bash\nStructure: Command-line scripting; pipes; redirects; variables; conditionals; loops\nConventions: UPPERCASE environment vars; lowercase local; shebang line; exit codes; quoting rules\nOutput characteristics: System automation; text processing; glue language; Unix philosophy; one-liners powerful"
+      },
+      "canonical_record_sha256": "5990f246faf9a595b34bb6220d530c8997f81434c2a0735348aef3998451ced3"
+    },
+    {
+      "id": "BP.028",
+      "name": "PowerShell",
+      "former_lane": "blueprint",
+      "former_category": "programming_languages",
+      "target_lane": "instruction",
+      "target_category": "language",
+      "target_subcategory": "powershell",
+      "id_renamed": false,
+      "source_path": "AI/MOLT-BLOCKS/instructions/library.v1.0.0.json",
+      "content_projection": {
+        "strategy": "language_fields_v1",
+        "source_fields": [
+          "name",
+          "structure",
+          "conventions",
+          "output_characteristics"
+        ],
+        "content": "Language: PowerShell\nStructure: Object-oriented shell; cmdlets; pipeline; .NET integration; verb-noun naming\nConventions: PascalCase cmdlets; $variables; pipeline objects; approved verbs; verbose parameters\nOutput characteristics: Windows administration; object pipeline; .NET access; consistent cmdlet structure; powerful automation"
+      },
+      "canonical_record_sha256": "1583293ebd33f573371829a4376647163c524e8bf157b14f376686752fccd480"
+    },
+    {
+      "id": "BP.029",
+      "name": "Dart",
+      "former_lane": "blueprint",
+      "former_category": "programming_languages",
+      "target_lane": "instruction",
+      "target_category": "language",
+      "target_subcategory": "dart",
+      "id_renamed": false,
+      "source_path": "AI/MOLT-BLOCKS/instructions/library.v1.0.0.json",
+      "content_projection": {
+        "strategy": "language_fields_v1",
+        "source_fields": [
+          "name",
+          "structure",
+          "conventions",
+          "output_characteristics"
+        ],
+        "content": "Language: Dart\nStructure: Object-oriented; Flutter framework; async/await; strong and sound typing; AOT/JIT compilation\nConventions: camelCase; lowerCamelCase variables; UpperCamelCase classes; effective Dart guidelines\nOutput characteristics: Flutter UI; Google language; modern features; web and mobile; fast compilation"
+      },
+      "canonical_record_sha256": "7dd94000c9f813cb181361e29a3a61728474f37e7b992036d5d8e8bc3229076c"
+    },
+    {
+      "id": "BP.030",
+      "name": "Objective-C",
+      "former_lane": "blueprint",
+      "former_category": "programming_languages",
+      "target_lane": "instruction",
+      "target_category": "language",
+      "target_subcategory": "objective_c",
+      "id_renamed": false,
+      "source_path": "AI/MOLT-BLOCKS/instructions/library.v1.0.0.json",
+      "content_projection": {
+        "strategy": "language_fields_v1",
+        "source_fields": [
+          "name",
+          "structure",
+          "conventions",
+          "output_characteristics"
+        ],
+        "content": "Language: Objective-C\nStructure: C superset; Smalltalk messaging; reference counting; nil messaging; categories\nConventions: camelCase with prefix; NS prefix; bracket syntax for messages; property syntax\nOutput characteristics: Apple legacy; verbose; iOS/macOS older apps; dynamic runtime; being replaced by Swift"
+      },
+      "canonical_record_sha256": "a27d04ce163a06cd50da893e374a5a0fff0e56579a7444349e736be51b0da228"
+    }
+  ]
+}
