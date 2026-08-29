@@ -10,6 +10,7 @@ import {
   buildManifest,
   canonicalJson,
   canonicalSha256,
+  sha256Bytes,
   loadNormalizedRecords,
   h4Projection,
   buildReferenceGraph,
@@ -55,8 +56,8 @@ test("deterministic canonical serialization sorts object keys and preserves arra
 
 test("source adapters reproduce all locked count vocabularies", () => {
   const records = loadNormalizedRecords();
-  assert.equal(records.aggregate.length, 1370);
-  assert.equal(records.aggregate.length + records.candidates.length, 1379);
+  assert.equal(records.aggregate.length, 1376);
+  assert.equal(records.aggregate.length + records.candidates.length, 1385);
   assert.equal(records.candidates.length, 9);
   assert.equal(records.platformExtensions.length, 900);
   assert.equal(records.derivedExports.length, 300);
@@ -114,12 +115,22 @@ test("committed manifest is a complete deterministic rebuild", () => {
   const expected = buildManifest(records, "PASS");
   assert.equal(canonicalJson(actual), canonicalJson(expected));
   assert.equal(canonicalSha256(actual), canonicalSha256(expected));
+  assert.equal(
+    sha256Bytes(fs.readFileSync(path.join(ROOT, "AI", "MANIFESTS", "h4-block-library-manifest.json"))),
+    "1bcff6bc517fb1575e7478e37f1e7a338a3b45cab87f0203d99f605a8f6ff5b3",
+    "RAW_FILE_BYTES_SHA256 contract changed",
+  );
+  assert.equal(
+    canonicalSha256(actual),
+    "0ed0454d5a75171ed4115a2234d9a965becfd3a049af3b5b42429dccddf0409e",
+    "CANONICAL_KEY_SORTED_COMPACT_JSON_SHA256 contract changed",
+  );
   const stale = structuredClone(actual);
   stale.records.promoted_h4_canonical[0].category = "tampered";
   assert.notEqual(canonicalJson(stale), canonicalJson(expected));
 });
 
-test("final migration preserves extension paths and language source content", () => {
+test("final migration preserves extension paths and normalized source content", () => {
   const records = loadNormalizedRecords();
   const finalLanguages = records.aggregate.filter((record) => LANGUAGE_MAP.some((item) => item.old_id === record.id));
   if (!finalLanguages.every((record) => record.h4_type === "instruction")) return;
@@ -135,7 +146,11 @@ test("final migration preserves extension paths and language source content", ()
   for (const record of records.platformExtensions) {
     const baselineRecord = baselineById.get(`${record.classification}|${record.id}|${record.source_path}`);
     assert.ok(baselineRecord, `missing extension baseline ${record.id} at ${record.source_path}`);
-    assert.equal(record.hashes.raw_file_sha256, baselineRecord.hashes.raw_file_sha256, `extension source moved or changed: ${record.source_path}`);
+    assert.equal(
+      record.hashes.canonical_record_sha256,
+      baselineRecord.hashes.canonical_record_sha256,
+      `extension normalized content moved or changed: ${record.source_path}`,
+    );
   }
 });
 

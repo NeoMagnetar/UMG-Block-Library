@@ -43,6 +43,19 @@ Source base: \`${SOURCE_BASE_COMMIT}\`
 | \`DERIVED_EXPORT_RECORDS\` | Secondary/export mirrors under \`blocks/molt/subjects\`; never added to canonical or extension source totals. | 300 |
 
 Counts must always be reported with their class. No report may use an unqualified \`MOLT_TOTAL\`.
+
+## Current qualified shelf (BR-2M)
+
+The immutable BR-1 baseline above remains the observation at source base
+\`${SOURCE_BASE_COMMIT}\`. Commit
+\`08fc3e6607fe959c4ace38d944996636d8385561\` subsequently promoted six
+qualified education records. The current qualification expectations are:
+
+- \`AGGREGATE_H4_LANE_RECORDS\`: **1,376**
+- \`SOURCE_BACKED_H4_CANDIDATES\`: **1,385** (1,376 aggregate + 9 standalone drafts)
+- \`PROMOTED_H4_CANONICAL_RECORDS\`: **1,376**
+
+This is a six-record legitimate delta, not a rewrite of the BR-1 baseline.
 `;
 }
 
@@ -304,6 +317,24 @@ Deterministic serialization rules:
 This is the documented BR-1 deterministic serializer. It is JCS-aligned for the string/boolean/null/integer data used here, without claiming general RFC 8785 number-domain equivalence.
 
 Manifest provenance uses \`source_base_commit: ${SOURCE_BASE_COMMIT}\`; it does not contain a self-referential final commit.
+
+## Qualified manifest hash contracts
+
+For \`AI/MANIFESTS/h4-block-library-manifest.json\` at Block Library commit
+\`d5bb146c9c7a9b285505627edf59d2e34d0f346e\`:
+
+- \`RAW_FILE_BYTES_SHA256=1bcff6bc517fb1575e7478e37f1e7a338a3b45cab87f0203d99f605a8f6ff5b3\`
+- \`CANONICAL_KEY_SORTED_COMPACT_JSON_SHA256=0ed0454d5a75171ed4115a2234d9a965becfd3a049af3b5b42429dccddf0409e\`
+
+These are different contracts. The first hashes the checked-out LF-pinned bytes. The
+second parses JSON, recursively sorts object keys, preserves array order, emits compact
+UTF-8 JSON, and hashes those canonical bytes.
+
+The immutable BR-1 baseline inventory contains raw source hashes observed from a
+Windows CRLF checkout before commit \`51231b0bae72e940915e5713a4231c417388bed2\`
+pinned source files to LF. Qualification tests therefore compare baseline and current
+\`canonical_record_sha256\` values for semantic preservation; they do not incorrectly
+require the pre-normalization raw-byte hash to equal the LF checkout hash.
 `;
 }
 
